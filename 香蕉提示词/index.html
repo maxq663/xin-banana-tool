@@ -3347,6 +3347,275 @@
         min-height: 400px;
       }
     }
+
+    /* === WORKBENCH DETAIL POLISH V5 === */
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: start;
+      gap: 18px;
+    }
+
+    header > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand-row,
+    .brand-row > div:last-child {
+      min-width: 0;
+    }
+
+    .subtitle {
+      text-wrap: pretty;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(108px, 1fr));
+      min-width: 370px;
+      gap: 7px;
+      align-self: start;
+    }
+
+    .toolbar button,
+    .mode-btn,
+    .rating-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .toolbar button {
+      width: 100%;
+      padding: 0 12px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    #generateBtn::before,
+    #copyBtn::before,
+    #resetBtn::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-right: 7px;
+      border-radius: 2px;
+      background: currentColor;
+      opacity: 0.72;
+    }
+
+    #generateBtn::before {
+      background: #11130f;
+      opacity: 0.88;
+    }
+
+    #copyBtn::before {
+      border: 1px solid currentColor;
+      background: transparent;
+    }
+
+    #resetBtn::before {
+      border-radius: 50%;
+    }
+
+    .mode-switch {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      padding: 6px;
+    }
+
+    .mode-btn {
+      position: relative;
+      overflow: hidden;
+      min-height: 46px;
+      padding: 0 10px;
+      isolation: isolate;
+    }
+
+    .mode-btn::after {
+      content: "";
+      position: absolute;
+      right: 9px;
+      bottom: 7px;
+      left: 9px;
+      height: 2px;
+      border-radius: 999px;
+      background: rgba(243, 240, 228, 0.26);
+      opacity: 0;
+      transition: opacity 0.16s ease, transform 0.16s ease;
+      transform: scaleX(0.72);
+    }
+
+    .mode-btn:hover::after,
+    .mode-btn.active::after {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .mode-btn.active::after {
+      background: rgba(17, 19, 15, 0.42);
+    }
+
+    .workflow-steps {
+      grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+      align-items: stretch;
+    }
+
+    .step-card {
+      display: grid;
+      align-content: start;
+      gap: 4px;
+    }
+
+    .step-card strong {
+      line-height: 1.25;
+    }
+
+    .step-card span {
+      line-height: 1.42;
+    }
+
+    .small-grid,
+    .form > .small-grid:first-of-type {
+      align-items: stretch;
+    }
+
+    .field {
+      min-width: 0;
+    }
+
+    .field label {
+      word-break: break-word;
+    }
+
+    .hint {
+      max-width: 72ch;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+    }
+
+    textarea {
+      resize: vertical;
+      scrollbar-color: rgba(159, 214, 107, 0.45) rgba(255, 255, 255, 0.06);
+    }
+
+    textarea::-webkit-scrollbar,
+    .output::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    textarea::-webkit-scrollbar-track,
+    .output::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.045);
+      border-radius: 999px;
+    }
+
+    textarea::-webkit-scrollbar-thumb,
+    .output::-webkit-scrollbar-thumb {
+      border: 2px solid rgba(1, 4, 3, 0.92);
+      border-radius: 999px;
+      background: rgba(159, 214, 107, 0.46);
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 22px;
+    }
+
+    .section-label::after {
+      content: "";
+      flex: 1 1 auto;
+      height: 1px;
+      min-width: 32px;
+      background: linear-gradient(90deg, rgba(159, 214, 107, 0.32), transparent);
+    }
+
+    .module-note {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .module-note::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255, 255, 255, 0.055);
+      border-left: 0;
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .output-wrap {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+    }
+
+    .console-bar {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    .output {
+      overflow: auto;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      tab-size: 2;
+    }
+
+    .output::selection {
+      color: #08100b;
+      background: rgba(242, 200, 75, 0.82);
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--desk-green);
+      box-shadow: 0 0 12px rgba(159, 214, 107, 0.38);
+    }
+
+    @media (max-width: 1260px) {
+      header {
+        grid-template-columns: 1fr;
+      }
+
+      .toolbar {
+        width: 100%;
+        min-width: 0;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .mode-switch,
+      .workflow-steps,
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .toolbar button {
+        min-height: 42px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -3356,7 +3625,7 @@
         <div class="brand-mark">AI</div>
         <div>
           <h1>假丹模拟器</h1>
-          <p class="subtitle">场景白模生成 + 参考图倒推 + 资产拆分图 + 素材拆分 + Z通道转化 + 半合成提示词 + 白模半合成 + 线稿提取，八套 JSON 工作流都在这里。</p>
+          <p class="subtitle">场景白模生成 + 参考图倒推 + 资产拆分图 + 素材拆分 + Z通道转化 + 半合成提示词 + 半合成资产拼接 + 白模半合成 + 线稿提取，九套 JSON 工作流都在这里。</p>
           <div class="meta-strip" aria-label="工具能力">
             <span class="meta-pill">3A 美术模板</span>
             <span class="meta-pill">白模占位</span>
@@ -3366,6 +3635,7 @@
             <span class="meta-pill">素材拆分</span>
             <span class="meta-pill">Z通道转化</span>
             <span class="meta-pill">半合成提示词</span>
+            <span class="meta-pill">半合成资产拼接</span>
             <span class="meta-pill">白模半合成</span>
             <span class="meta-pill">线稿提取</span>
           </div>
