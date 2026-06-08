@@ -2888,6 +2888,465 @@
         rgba(2, 5, 4, 0.96);
       color: #d7fac9;
     }
+
+    /* === GITHUB SYNC UI BEAUTY PASS V4 === */
+    :root {
+      --desk-bg: #0a0d0c;
+      --desk-surface: rgba(15, 18, 16, 0.92);
+      --desk-surface-soft: rgba(25, 29, 26, 0.72);
+      --desk-line: rgba(255, 255, 255, 0.14);
+      --desk-line-soft: rgba(255, 255, 255, 0.09);
+      --desk-text: #f3f0e4;
+      --desk-muted: rgba(243, 240, 228, 0.62);
+      --desk-faint: rgba(243, 240, 228, 0.42);
+      --desk-gold: #f2c84b;
+      --desk-green: #9fd66b;
+      --desk-teal: #69bdb6;
+      --desk-warn: #d76f55;
+    }
+
+    body {
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(130deg, rgba(242, 200, 75, 0.11) 0%, transparent 30%),
+        linear-gradient(250deg, rgba(105, 189, 182, 0.08) 0%, transparent 34%),
+        linear-gradient(180deg, #10130f 0%, var(--desk-bg) 58%, #0e120f 100%);
+      background-size: 32px 32px, 32px 32px, auto, auto, auto;
+      color: var(--desk-text);
+    }
+
+    body::before {
+      opacity: 0.34;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.48), transparent 22%, transparent 78%, rgba(0, 0, 0, 0.42)),
+        repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 18px);
+    }
+
+    .app {
+      width: min(1500px, calc(100% - 44px));
+      padding: 22px 0 38px;
+    }
+
+    header {
+      min-height: 142px;
+      padding: 22px 24px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      border-color: var(--desk-line);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.025)),
+        linear-gradient(90deg, rgba(242, 200, 75, 0.10), transparent 52%),
+        rgba(13, 16, 14, 0.94);
+      box-shadow:
+        0 22px 54px rgba(0, 0, 0, 0.44),
+        inset 0 1px 0 rgba(255, 255, 255, 0.09);
+    }
+
+    header::before {
+      width: 3px;
+      background: linear-gradient(180deg, var(--desk-gold), var(--desk-green), var(--desk-teal));
+    }
+
+    header::after {
+      right: 24px;
+      bottom: 18px;
+      width: min(28vw, 320px);
+      height: 78px;
+      opacity: 0.35;
+      border-radius: 5px;
+      background:
+        linear-gradient(90deg, rgba(242, 200, 75, 0.18) 0 6px, transparent 6px 17px),
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        rgba(255, 255, 255, 0.025);
+      background-size: auto, 16px 16px, 16px 16px, auto;
+    }
+
+    .brand-row {
+      max-width: 980px;
+      gap: 14px;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 8px;
+      color: #11130f;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.34), transparent 36%),
+        linear-gradient(135deg, var(--desk-gold), var(--desk-green));
+      box-shadow: 0 14px 26px rgba(159, 214, 107, 0.16);
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(32px, 3.8vw, 52px);
+      line-height: 1.05;
+      color: #fff8dd;
+    }
+
+    .subtitle {
+      max-width: 790px;
+      margin-top: 8px;
+      color: var(--desk-muted);
+      line-height: 1.62;
+    }
+
+    .meta-strip {
+      margin-top: 13px;
+      gap: 6px;
+    }
+
+    .meta-pill,
+    .badge,
+    .chip {
+      border-radius: 6px;
+      border-color: var(--desk-line-soft);
+      background: rgba(255, 255, 255, 0.052);
+      color: rgba(243, 240, 228, 0.72);
+    }
+
+    .toolbar {
+      gap: 8px;
+      align-self: stretch;
+      align-items: flex-start;
+      padding-top: 3px;
+    }
+
+    button {
+      min-height: 40px;
+      border-radius: 7px;
+      border-color: var(--desk-line);
+      background: rgba(255, 255, 255, 0.058);
+      color: var(--desk-text);
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(159, 214, 107, 0.38);
+      background: rgba(255, 255, 255, 0.088);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
+    }
+
+    button.primary,
+    button.primary:hover,
+    .mode-btn.active {
+      border-color: transparent;
+      color: #11130f;
+      background: linear-gradient(135deg, var(--desk-gold), var(--desk-green));
+      box-shadow:
+        0 13px 28px rgba(159, 214, 107, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    }
+
+    .layout {
+      grid-template-columns: minmax(500px, 0.96fr) minmax(560px, 1.04fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .panel {
+      overflow: hidden;
+      border-radius: 8px;
+      border-color: var(--desk-line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.070), rgba(255, 255, 255, 0.024)),
+        var(--desk-surface);
+      box-shadow:
+        0 20px 48px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .layout > .panel:last-child {
+      position: sticky;
+      top: 16px;
+    }
+
+    .panel-head {
+      min-height: 54px;
+      padding: 14px 16px;
+      background:
+        linear-gradient(90deg, rgba(159, 214, 107, 0.10), transparent 46%),
+        rgba(255, 255, 255, 0.026);
+    }
+
+    .panel-title {
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .panel-title::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 2px;
+      background: var(--desk-gold);
+      box-shadow: 0 0 0 4px rgba(242, 200, 75, 0.12);
+    }
+
+    .form,
+    .output-wrap {
+      padding: 16px;
+      gap: 12px;
+    }
+
+    .mode-switch {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 5px;
+      padding: 5px;
+      border-radius: 8px;
+      border-color: var(--desk-line-soft);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+        rgba(0, 0, 0, 0.30);
+    }
+
+    .mode-btn {
+      min-height: 42px;
+      padding: 0 8px;
+      border-radius: 6px;
+      color: rgba(243, 240, 228, 0.62);
+      font-size: 12.5px;
+      line-height: 1.25;
+      white-space: normal;
+      word-break: keep-all;
+    }
+
+    .workflow-steps {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .step-card {
+      min-height: 64px;
+      padding: 11px 12px;
+      border-radius: 7px;
+      border-color: var(--desk-line-soft);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.060), rgba(255, 255, 255, 0.022)),
+        rgba(255, 255, 255, 0.024);
+    }
+
+    .step-card strong,
+    label {
+      color: rgba(243, 240, 228, 0.90);
+      font-weight: 900;
+    }
+
+    .step-card span,
+    .hint {
+      color: var(--desk-faint);
+    }
+
+    .field,
+    .module-note,
+    .console-bar,
+    .scene-rating-row {
+      border-radius: 8px;
+      border-color: var(--desk-line-soft);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+        rgba(4, 7, 5, 0.34);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055);
+    }
+
+    .field {
+      padding: 12px;
+      gap: 8px;
+    }
+
+    .field:focus-within {
+      transform: translateY(-1px);
+      border-color: rgba(242, 200, 75, 0.50);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.026)),
+        rgba(6, 9, 7, 0.44);
+      box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.24),
+        inset 0 0 0 1px rgba(242, 200, 75, 0.10);
+    }
+
+    label {
+      min-height: 18px;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    label::before {
+      width: 2px;
+      height: 12px;
+      background: linear-gradient(180deg, var(--desk-gold), var(--desk-green));
+    }
+
+    input,
+    select,
+    textarea {
+      min-height: 40px;
+      border-radius: 6px;
+      border-color: rgba(255, 255, 255, 0.13);
+      background-color: rgba(2, 4, 3, 0.68);
+      color: var(--desk-text);
+      font-size: 13px;
+    }
+
+    textarea {
+      min-height: 88px;
+      line-height: 1.55;
+    }
+
+    input:hover,
+    select:hover,
+    textarea:hover {
+      border-color: rgba(159, 214, 107, 0.30);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(242, 200, 75, 0.54);
+      box-shadow: 0 0 0 3px rgba(242, 200, 75, 0.10);
+    }
+
+    .module-note {
+      padding: 12px 13px;
+      border-left: 3px solid var(--desk-gold);
+      color: rgba(243, 240, 228, 0.72);
+      line-height: 1.58;
+      background:
+        linear-gradient(90deg, rgba(242, 200, 75, 0.12), transparent 48%),
+        rgba(255, 255, 255, 0.036);
+    }
+
+    .section-label {
+      margin: 2px 0 -2px;
+      color: var(--desk-green);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+    }
+
+    .small-grid {
+      gap: 9px;
+    }
+
+    .scene-rating-row {
+      padding: 5px;
+      background: rgba(0, 0, 0, 0.20);
+    }
+
+    .rating-btn {
+      min-height: 31px;
+      border-radius: 6px;
+    }
+
+    .console-bar {
+      min-height: 38px;
+      padding: 8px 10px;
+      color: var(--desk-muted);
+    }
+
+    .output {
+      min-height: 700px;
+      max-height: calc(100vh - 188px);
+      padding: 16px;
+      border-radius: 8px;
+      border-color: rgba(159, 214, 107, 0.24);
+      background:
+        linear-gradient(90deg, rgba(105, 189, 182, 0.075), transparent 23%),
+        repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.024) 0 1px, transparent 1px 24px),
+        rgba(1, 4, 3, 0.97);
+      color: #d9f8cf;
+      font-size: 12px;
+      line-height: 1.6;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.055),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.44);
+    }
+
+    .status {
+      min-height: 22px;
+      color: var(--desk-green);
+    }
+
+    .progress-bar {
+      background: linear-gradient(90deg, var(--desk-gold), var(--desk-green), var(--desk-teal));
+    }
+
+    @media (max-width: 1260px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .layout > .panel:last-child {
+        position: static;
+      }
+
+      .output {
+        max-height: none;
+        min-height: 500px;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .app {
+        width: min(100% - 28px, 1500px);
+      }
+
+      header {
+        min-height: 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .toolbar {
+        width: 100%;
+        align-self: auto;
+        padding-top: 0;
+      }
+
+      .mode-switch {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .workflow-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .app {
+        width: min(100% - 18px, 1500px);
+        padding: 12px 0 24px;
+      }
+
+      header,
+      .form,
+      .output-wrap {
+        padding: 13px;
+      }
+
+      header::after {
+        display: none;
+      }
+
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .toolbar,
+      .mode-switch,
+      .workflow-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .output {
+        min-height: 400px;
+      }
+    }
   </style>
 </head>
 <body>
