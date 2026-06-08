@@ -6361,6 +6361,7 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
 
     function clipText(text, maxLength) {
       const clean = cleanSentence(text);
+      if (maxLength === 0) return "";
       if (!maxLength || clean.length <= maxLength) return clean;
       const clipped = clean.slice(0, maxLength);
       const lastComma = clipped.lastIndexOf(",");
@@ -6379,55 +6380,63 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
       const enginePreset = currentRenderEnginePreset();
       const seasonPreset = currentSeasonPreset();
       const keyLightPreset = currentKeyLightDirectionPreset();
-      const scene = clipText(value("scenePrompt"), isWeb ? 180 : 260);
-      const atmosphere = clipText(value("atmospherePrompt"), isWeb ? 115 : 180);
-      const lighting = clipText(value("lightingPrompt"), isWeb ? 145 : 230);
-      const color = clipText(value("colorPrompt"), isWeb ? 105 : 165);
-      const material = clipText(value("materialPrompt"), isWeb ? 150 : 230);
-      const fx = clipText(value("fxPrompt"), isWeb ? 90 : 140);
-      const structure = clipText(value("structurePrompt"), isWeb ? 155 : 245);
-      const story = clipText(value("storyPrompt"), isWeb ? 90 : 150);
-      const visual = clipText(value("visualPrompt"), isWeb ? 130 : 210);
-      const ground = clipText(value("groundPrompt"), isWeb ? 150 : 235);
-      const reference = clipText(value("referencePrompt"), isWeb ? 0 : 220);
-      const extra = clipText(value("extraPrompt"), isWeb ? 80 : 150);
+      const scene = clipText(value("scenePrompt"), isWeb ? 130 : 220);
+      const atmosphere = clipText(value("atmospherePrompt"), isWeb ? 70 : 130);
+      const lighting = clipText(value("lightingPrompt"), isWeb ? 95 : 180);
+      const color = clipText(value("colorPrompt"), isWeb ? 70 : 120);
+      const material = clipText(value("materialPrompt"), isWeb ? 95 : 170);
+      const fx = clipText(value("fxPrompt"), isWeb ? 50 : 100);
+      const structure = clipText(value("structurePrompt"), isWeb ? 100 : 180);
+      const story = clipText(value("storyPrompt"), isWeb ? 0 : 110);
+      const visual = clipText(value("visualPrompt"), isWeb ? 100 : 160);
+      const ground = clipText(value("groundPrompt"), isWeb ? 110 : 180);
+      const reference = clipText(value("referencePrompt"), isWeb ? 0 : 140);
+      const extra = clipText(value("extraPrompt"), isWeb ? 0 : 100);
       const lens = value("lens") || "35mm lens";
       const aspectRatio = value("aspectRatio") || "3:2 horizontal";
       const lookLine = outputLookGuide[outputLook] || "cinematic UE or Octane style CG render, not a real photograph";
       const renderLine = isWeb
-        ? "film-quality CG render, physically based lighting, realistic texture response"
-        : `${enginePreset.name}: physically based shading, global illumination, contact shadows, realistic roughness, cinematic render-camera response`;
+        ? "film-quality CG, PBR lighting, realistic texture response"
+        : `${enginePreset.name}: PBR shading, global illumination, contact shadows, realistic roughness, cinematic render-camera response`;
 
       const positivePrompt = joinPromptParts([
-        `Generate a cinematic realistic CG environment scene: ${scene}.`,
-        atmosphere && `Atmosphere: ${atmosphere}.`,
+        isWeb ? `Cinematic realistic CG environment: ${scene}.` : `Generate a cinematic realistic CG environment scene: ${scene}.`,
+        atmosphere && `${isWeb ? "Mood" : "Atmosphere"}: ${atmosphere}.`,
         seasonPreset.prompt && !isWeb && `Season: ${seasonPreset.prompt}.`,
-        structure && `Composition: ${structure}.`,
+        structure && `${isWeb ? "Layout" : "Composition"}: ${structure}.`,
         story && !isWeb && `Story details: ${story}.`,
-        visual && `Key visual assets: ${visual}.`,
-        ground && `Ground under subject: ${ground}.`,
+        visual && `${isWeb ? "Hero assets" : "Key visual assets"}: ${visual}.`,
+        ground && `${isWeb ? "Ground" : "Ground under subject"}: ${ground}.`,
         lighting && `Lighting: ${lighting}.`,
-        keyLightPreset.prompt && `Key light: ${isWeb ? clipText(keyLightPreset.prompt, 95) : keyLightPreset.prompt}.`,
+        keyLightPreset.prompt && `Key light: ${isWeb ? clipText(keyLightPreset.prompt, 70) : clipText(keyLightPreset.prompt, 130)}.`,
         keyLightPreset.shadow_rule && !isWeb && `Shadow rule: ${keyLightPreset.shadow_rule}.`,
-        color && `Color palette: ${color}.`,
+        color && `${isWeb ? "Palette" : "Color palette"}: ${color}.`,
         material && `Materials: ${material}.`,
         compactAgingMaterialLayer,
         fx && `Atmospheric FX: ${fx}.`,
-        "Place one featureless matte white 1.7m human mannequin exactly in the center as a scale and compositing placeholder.",
-        "No face, hair, clothes, skin texture, accessories or identity on the mannequin.",
-        "Full body visible head to toe; head about 10% from top edge, feet about 4% from bottom edge.",
-        "Keep clean empty space around the mannequin silhouette; no props crossing face, torso, hands or feet.",
-        "Ground plane under feet must be visible with believable contact shadow matching scene light direction.",
-        `Camera: ${lens}, ${aspectRatio}, waist-to-chest height, natural perspective, no fisheye.`,
+        isWeb
+          ? "Centered featureless matte white 1.7m mannequin placeholder, full body visible, no face/hair/clothes/skin/accessories."
+          : "Place one featureless matte white 1.7m human mannequin exactly in the center as a scale and compositing placeholder.",
+        !isWeb && "No face, hair, clothes, skin texture, accessories or identity on the mannequin.",
+        isWeb
+          ? "Keep clean silhouette margin, visible feet and believable contact shadow; no props crossing body."
+          : "Full body visible head to toe; head about 10% from top edge, feet about 4% from bottom edge.",
+        !isWeb && "Keep clean empty space around the mannequin silhouette; no props crossing face, torso, hands or feet.",
+        !isWeb && "Ground plane under feet must be visible with believable contact shadow matching scene light direction.",
+        `Camera: ${lens}, ${aspectRatio}, ${isWeb ? "natural perspective" : "waist-to-chest height, natural perspective, no fisheye"}.`,
         `${lookLine}; ${renderLine}.`,
         reference && `Reference use: ${reference}.`,
         extra && `Extra: ${extra}.`
       ]);
 
       const negativePrompt = joinPromptParts([
-        "Avoid: real photo/DSLR snapshot, documentary look, anime, illustration, painterly style, flat game screenshot, toy-like 3D, plastic CGI, spotless showroom surfaces, perfectly clean sci-fi panels, uniform procedural textures.",
-        "No text, logos, watermark, readable signs, copied UI, copied reference composition.",
-        "No facial features, hair, clothes, skin, identity, cropping, wrong scale, fisheye, extreme wide angle, floating feet, missing contact shadow, objects blocking the mannequin."
+        isWeb
+          ? "Avoid real photo/DSLR, anime, illustration, painterly look, flat game screenshot, toy CGI, clean showroom/plastic surfaces."
+          : "Avoid: real photo/DSLR snapshot, documentary look, anime, illustration, painterly style, flat game screenshot, toy-like 3D, plastic CGI, spotless showroom surfaces, perfectly clean sci-fi panels, uniform procedural textures.",
+        isWeb ? "No text/logos/watermark/readable signs." : "No text, logos, watermark, readable signs, copied UI, copied reference composition.",
+        isWeb
+          ? "No face/hair/clothes/identity on mannequin, no crop, wrong scale, fisheye, floating feet, missing shadow, body occlusion."
+          : "No facial features, hair, clothes, skin, identity, cropping, wrong scale, fisheye, extreme wide angle, floating feet, missing contact shadow, objects blocking the mannequin."
       ]);
 
       if (isWeb) {
@@ -6438,13 +6447,7 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
         task: "centered_white_mannequin_scene_generation",
         output_mode: "api_safe_compact_scene_prompt",
         prompt: positivePrompt,
-        negative_prompt: negativePrompt,
-        constraints: {
-          subject: "featureless matte white 1.7m mannequin placeholder, centered, full body visible",
-          compositing: "clean silhouette margin, visible foot contact ground, no occluders over body",
-          camera: `${lens}, ${aspectRatio}, waist-to-chest height, natural realistic perspective`,
-          material_quality: compactAgingMaterialLayer
-        }
+        negative_prompt: negativePrompt
       };
     }
 
