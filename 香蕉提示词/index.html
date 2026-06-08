@@ -3593,6 +3593,83 @@
       box-shadow: 0 0 12px rgba(159, 214, 107, 0.38);
     }
 
+    .output-mode-tools {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+      border: 1px solid var(--desk-line-soft);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.018)),
+        rgba(0, 0, 0, 0.22);
+    }
+
+    .output-mode-tools[hidden] {
+      display: none;
+    }
+
+    .output-mode-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .output-mode-btn {
+      min-height: 34px;
+      padding: 0 9px;
+      border-radius: 6px;
+      font-size: 12px;
+      color: rgba(243, 240, 228, 0.62);
+      background: rgba(255, 255, 255, 0.038);
+      box-shadow: none;
+      white-space: nowrap;
+    }
+
+    .output-mode-btn.active {
+      border-color: transparent;
+      color: #11130f;
+      background: linear-gradient(135deg, var(--desk-gold), var(--desk-green));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26);
+    }
+
+    .char-meter {
+      display: grid;
+      gap: 6px;
+    }
+
+    .char-meter-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--desk-muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .char-meter-track {
+      overflow: hidden;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .char-meter-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--desk-green), var(--desk-teal));
+      transition: width 0.18s ease, background 0.18s ease;
+    }
+
+    .char-meter.over .char-meter-fill {
+      background: linear-gradient(90deg, var(--desk-gold), var(--desk-warn));
+    }
+
+    .char-meter.over .char-meter-head {
+      color: #ffd0c5;
+    }
+
     @media (max-width: 1260px) {
       header {
         grid-template-columns: 1fr;
@@ -3614,6 +3691,10 @@
 
       .toolbar button {
         min-height: 42px;
+      }
+
+      .output-mode-row {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -4849,6 +4930,22 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
             </div>
             <span id="consoleLabel">structured prompt output</span>
           </div>
+          <div class="output-mode-tools" id="sceneOutputTools">
+            <div class="output-mode-row" aria-label="场景白模输出版本">
+              <button class="output-mode-btn active" id="sceneFullOutputBtn" type="button" data-scene-output="full">完整 JSON</button>
+              <button class="output-mode-btn" id="sceneApiOutputBtn" type="button" data-scene-output="api">API 安全版</button>
+              <button class="output-mode-btn" id="sceneWebOutputBtn" type="button" data-scene-output="web">网页精简版</button>
+            </div>
+            <div class="char-meter" id="charMeter">
+              <div class="char-meter-head">
+                <span id="charMeterLabel">字符统计</span>
+                <span id="charMeterValue">0 / 完整</span>
+              </div>
+              <div class="char-meter-track" aria-hidden="true">
+                <div class="char-meter-fill" id="charMeterFill"></div>
+              </div>
+            </div>
+          </div>
           <pre class="output" id="output" aria-live="polite"></pre>
           <div class="status" id="status"></div>
         </div>
@@ -4858,6 +4955,7 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
 
   <script>
     let currentMode = "scene";
+    let sceneOutputMode = "full";
 
     const fields = [
       "stylePreset",
@@ -6254,6 +6352,101 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
     }
 
     const realisticAgingMaterialLayer = "Realistic lived-in material aging layer: every non-new surface must show believable micro-scratches, chipped paint on exposed edges, worn corners, dust settled in creases, dirt collected at wall-floor joints, rain streaks, oil stains where machines or vehicles operate, rust blooms on metal seams, scuffed rubber, faded decals without readable text, grime around handles and panel gaps, muddy footprints or tire marks where appropriate, subtle color variation from sun bleaching and moisture, ambient occlusion dirt in contact areas, and non-uniform roughness maps. Avoid spotless showroom surfaces, clean plastic toy look, perfectly uniform procedural textures, over-polished sci-fi panels, and freshly built environments unless the scene explicitly says sterile or new.";
+
+    const compactAgingMaterialLayer = "Realistic lived-in PBR materials: chipped edges, micro-scratches, dust in seams, grime in corners, stains, rain streaks, rust on metal, worn paint, scuffed rubber, muddy footprints, non-uniform roughness. Avoid spotless plastic or clean showroom surfaces.";
+
+    function cleanSentence(text) {
+      return String(text || "").replace(/\s+/g, " ").replace(/\s+,/g, ",").trim();
+    }
+
+    function clipText(text, maxLength) {
+      const clean = cleanSentence(text);
+      if (!maxLength || clean.length <= maxLength) return clean;
+      const clipped = clean.slice(0, maxLength);
+      const lastComma = clipped.lastIndexOf(",");
+      const lastPeriod = clipped.lastIndexOf(".");
+      const breakPoint = Math.max(lastComma, lastPeriod);
+      return (breakPoint > maxLength * 0.62 ? clipped.slice(0, breakPoint) : clipped).trim();
+    }
+
+    function joinPromptParts(parts) {
+      return parts.map(cleanSentence).filter(Boolean).join(" ");
+    }
+
+    function makeSceneCompactPrompt(target = "api") {
+      const isWeb = target === "web";
+      const outputLook = value("outputLook") || "cinematic_realism";
+      const enginePreset = currentRenderEnginePreset();
+      const seasonPreset = currentSeasonPreset();
+      const keyLightPreset = currentKeyLightDirectionPreset();
+      const scene = clipText(value("scenePrompt"), isWeb ? 180 : 260);
+      const atmosphere = clipText(value("atmospherePrompt"), isWeb ? 115 : 180);
+      const lighting = clipText(value("lightingPrompt"), isWeb ? 145 : 230);
+      const color = clipText(value("colorPrompt"), isWeb ? 105 : 165);
+      const material = clipText(value("materialPrompt"), isWeb ? 150 : 230);
+      const fx = clipText(value("fxPrompt"), isWeb ? 90 : 140);
+      const structure = clipText(value("structurePrompt"), isWeb ? 155 : 245);
+      const story = clipText(value("storyPrompt"), isWeb ? 90 : 150);
+      const visual = clipText(value("visualPrompt"), isWeb ? 130 : 210);
+      const ground = clipText(value("groundPrompt"), isWeb ? 150 : 235);
+      const reference = clipText(value("referencePrompt"), isWeb ? 0 : 220);
+      const extra = clipText(value("extraPrompt"), isWeb ? 80 : 150);
+      const lens = value("lens") || "35mm lens";
+      const aspectRatio = value("aspectRatio") || "3:2 horizontal";
+      const lookLine = outputLookGuide[outputLook] || "cinematic UE or Octane style CG render, not a real photograph";
+      const renderLine = isWeb
+        ? "film-quality CG render, physically based lighting, realistic texture response"
+        : `${enginePreset.name}: physically based shading, global illumination, contact shadows, realistic roughness, cinematic render-camera response`;
+
+      const positivePrompt = joinPromptParts([
+        `Generate a cinematic realistic CG environment scene: ${scene}.`,
+        atmosphere && `Atmosphere: ${atmosphere}.`,
+        seasonPreset.prompt && !isWeb && `Season: ${seasonPreset.prompt}.`,
+        structure && `Composition: ${structure}.`,
+        story && !isWeb && `Story details: ${story}.`,
+        visual && `Key visual assets: ${visual}.`,
+        ground && `Ground under subject: ${ground}.`,
+        lighting && `Lighting: ${lighting}.`,
+        keyLightPreset.prompt && `Key light: ${isWeb ? clipText(keyLightPreset.prompt, 95) : keyLightPreset.prompt}.`,
+        keyLightPreset.shadow_rule && !isWeb && `Shadow rule: ${keyLightPreset.shadow_rule}.`,
+        color && `Color palette: ${color}.`,
+        material && `Materials: ${material}.`,
+        compactAgingMaterialLayer,
+        fx && `Atmospheric FX: ${fx}.`,
+        "Place one featureless matte white 1.7m human mannequin exactly in the center as a scale and compositing placeholder.",
+        "No face, hair, clothes, skin texture, accessories or identity on the mannequin.",
+        "Full body visible head to toe; head about 10% from top edge, feet about 4% from bottom edge.",
+        "Keep clean empty space around the mannequin silhouette; no props crossing face, torso, hands or feet.",
+        "Ground plane under feet must be visible with believable contact shadow matching scene light direction.",
+        `Camera: ${lens}, ${aspectRatio}, waist-to-chest height, natural perspective, no fisheye.`,
+        `${lookLine}; ${renderLine}.`,
+        reference && `Reference use: ${reference}.`,
+        extra && `Extra: ${extra}.`
+      ]);
+
+      const negativePrompt = joinPromptParts([
+        "Avoid: real photo/DSLR snapshot, documentary look, anime, illustration, painterly style, flat game screenshot, toy-like 3D, plastic CGI, spotless showroom surfaces, perfectly clean sci-fi panels, uniform procedural textures.",
+        "No text, logos, watermark, readable signs, copied UI, copied reference composition.",
+        "No facial features, hair, clothes, skin, identity, cropping, wrong scale, fisheye, extreme wide angle, floating feet, missing contact shadow, objects blocking the mannequin."
+      ]);
+
+      if (isWeb) {
+        return joinPromptParts([positivePrompt, negativePrompt]);
+      }
+
+      return {
+        task: "centered_white_mannequin_scene_generation",
+        output_mode: "api_safe_compact_scene_prompt",
+        prompt: positivePrompt,
+        negative_prompt: negativePrompt,
+        constraints: {
+          subject: "featureless matte white 1.7m mannequin placeholder, centered, full body visible",
+          compositing: "clean silhouette margin, visible foot contact ground, no occluders over body",
+          camera: `${lens}, ${aspectRatio}, waist-to-chest height, natural realistic perspective`,
+          material_quality: compactAgingMaterialLayer
+        }
+      };
+    }
 
     function makeScenePrompt() {
       const style = value("stylePreset") || "custom";
@@ -7678,12 +7871,53 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
       if (currentMode === "assetComposite") return makeAssetCompositePrompt();
       if (currentMode === "sceneComposite") return makeSceneCompositePrompt();
       if (currentMode === "lineart") return makeLineartPrompt();
+      if (sceneOutputMode === "api") return makeSceneCompactPrompt("api");
+      if (sceneOutputMode === "web") return makeSceneCompactPrompt("web");
       return makeScenePrompt();
     }
 
+    function renderOutputText(prompt) {
+      return typeof prompt === "string" ? prompt : JSON.stringify(prompt, null, 2);
+    }
+
+    function currentSceneOutputLimit() {
+      if (currentMode !== "scene") return null;
+      if (sceneOutputMode === "web") return 2000;
+      if (sceneOutputMode === "api") return 4500;
+      return null;
+    }
+
+    function updateSceneOutputTools() {
+      const isScene = currentMode === "scene";
+      $("sceneOutputTools").hidden = !isScene;
+      document.querySelectorAll(".output-mode-btn[data-scene-output]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.sceneOutput === sceneOutputMode);
+      });
+    }
+
+    function updateCharMeter(text) {
+      const length = String(text || "").length;
+      const limit = currentSceneOutputLimit();
+      const labelMap = {
+        full: "完整 JSON",
+        api: "API 安全版",
+        web: "网页精简版"
+      };
+      $("charMeterLabel").textContent = labelMap[sceneOutputMode] || "字符统计";
+      $("charMeterValue").textContent = limit ? `${length} / ${limit}` : `${length} / 完整`;
+      const percent = limit ? Math.min(100, Math.round((length / limit) * 100)) : 100;
+      $("charMeterFill").style.width = percent + "%";
+      $("charMeter").classList.toggle("over", Boolean(limit && length > limit));
+    }
+
     function generate() {
-      $("output").textContent = JSON.stringify(makePrompt(), null, 2);
-      $("status").textContent = "已生成";
+      updateSceneOutputTools();
+      const outputText = renderOutputText(makePrompt());
+      $("output").textContent = outputText;
+      updateCharMeter(outputText);
+      $("status").textContent = currentMode === "scene"
+        ? `已生成：${sceneOutputMode === "full" ? "完整 JSON" : sceneOutputMode === "api" ? "API 安全版" : "网页精简版"}`
+        : "已生成";
     }
 
     async function copyOutput() {
@@ -7745,7 +7979,8 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
       $("lineartModeBtn").classList.toggle("active", isLineart);
       $("modeBadge").textContent = isReverse ? "倒推提示词" : isAsset ? "资产拆分图" : isMaterialSplit ? "素材拆分" : isZDepth ? "Z通道转化" : isHalfComposite ? "半合成提示词" : isAssetComposite ? "半合成资产拼接" : isSceneComposite ? "白模半合成" : isLineart ? "线稿提取" : "场景白模";
       $("outputBadge").textContent = isReverse ? "按白模模块拆图" : isAsset ? "双视图资产图集" : isMaterialSplit ? "4x4 合成素材层" : isZDepth ? "反转 Z-Depth 灰度图" : isHalfComposite ? "图1 锁定 + 图2+ 注入" : isAssetComposite ? "图1+线稿+深度+2D资产图" : isSceneComposite ? "白模 JSON + 线稿深度锁" : isLineart ? "结构线稿 + 灰阶分层" : "白模场景 / 后期合成";
-      $("consoleLabel").textContent = isReverse ? "reverse image prompt modules json" : isAsset ? "dual-view asset breakdown json" : isMaterialSplit ? "16-panel compositing asset split json" : isZDepth ? "inverted z-depth conversion json" : isHalfComposite ? "half-composite cosplay prompt json" : isAssetComposite ? "asset atlas transfer half-composite json" : isSceneComposite ? "scene-json guided half-composite json" : isLineart ? "structural lineart extraction json" : "scene placeholder json";
+      $("consoleLabel").textContent = isReverse ? "reverse image prompt modules json" : isAsset ? "dual-view asset breakdown json" : isMaterialSplit ? "16-panel compositing asset split json" : isZDepth ? "inverted z-depth conversion json" : isHalfComposite ? "half-composite cosplay prompt json" : isAssetComposite ? "asset atlas transfer half-composite json" : isSceneComposite ? "scene-json guided half-composite json" : isLineart ? "structural lineart extraction json" : sceneOutputMode === "api" ? "scene placeholder api-safe compact json" : sceneOutputMode === "web" ? "scene placeholder web compact prompt" : "scene placeholder json";
+      updateSceneOutputTools();
       generate();
       $("status").textContent = isReverse ? "已切换到倒推提示词 JSON" : isAsset ? "已切换到资产拆分图 JSON" : isMaterialSplit ? "已切换到素材拆分 JSON" : isZDepth ? "已切换到 Z通道转化 JSON" : isHalfComposite ? "已切换到半合成提示词 JSON" : isAssetComposite ? "已切换到半合成资产拼接 JSON" : isSceneComposite ? "已切换到白模半合成 JSON" : isLineart ? "已切换到线稿提取 JSON" : "已切换到场景白模 JSON";
     }
@@ -7826,6 +8061,12 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
     $("assetCompositeModeBtn").addEventListener("click", () => setMode("assetComposite"));
     $("sceneCompositeModeBtn").addEventListener("click", () => setMode("sceneComposite"));
     $("lineartModeBtn").addEventListener("click", () => setMode("lineart"));
+    document.querySelectorAll(".output-mode-btn[data-scene-output]").forEach((button) => {
+      button.addEventListener("click", () => {
+        sceneOutputMode = button.dataset.sceneOutput || "full";
+        generate();
+      });
+    });
 
     fields.forEach((id) => {
       if (id === "stylePreset" || id === "sceneVariant") return;
