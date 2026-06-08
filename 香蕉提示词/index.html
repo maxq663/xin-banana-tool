@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN" data-theme="dark">
 <head>
   <meta charset="utf-8">
@@ -4020,7 +4020,7 @@
         <div class="brand-mark">AI</div>
         <div>
           <h1>假丹模拟器</h1>
-          <p class="subtitle">场景白模生成 + 参考图倒推 + 资产拆分图 + 素材拆分 + Z通道转化 + 半合成提示词 + 半合成资产拼接 + 白模半合成 + 线稿提取，九套 JSON 工作流都在这里。</p>
+          <p class="subtitle">场景白模生成 + 参考图倒推 + 资产拆分图 + 素材拆分 + Z通道转化 + 半合成资产拼接 + 线稿提取，七套 JSON 工作流都在这里。</p>
           <div class="meta-strip" aria-label="工具能力">
             <span class="meta-pill">3A 美术模板</span>
             <span class="meta-pill">白模占位</span>
@@ -4029,9 +4029,7 @@
             <span class="meta-pill">资产拆分</span>
             <span class="meta-pill">素材拆分</span>
             <span class="meta-pill">Z通道转化</span>
-            <span class="meta-pill">半合成提示词</span>
             <span class="meta-pill">半合成资产拼接</span>
-            <span class="meta-pill">白模半合成</span>
             <span class="meta-pill">线稿提取</span>
           </div>
         </div>
@@ -4057,9 +4055,7 @@
             <button class="mode-btn" id="assetModeBtn" type="button" data-mode="asset">资产拆分图 JSON</button>
             <button class="mode-btn" id="materialSplitModeBtn" type="button" data-mode="materialSplit">素材拆分 JSON</button>
             <button class="mode-btn" id="zDepthModeBtn" type="button" data-mode="zDepth">Z通道转化 JSON</button>
-            <button class="mode-btn" id="halfCompositeModeBtn" type="button" data-mode="halfComposite">半合成提示词 JSON</button>
             <button class="mode-btn" id="assetCompositeModeBtn" type="button" data-mode="assetComposite">半合成资产拼接 JSON</button>
-            <button class="mode-btn" id="sceneCompositeModeBtn" type="button" data-mode="sceneComposite">白模半合成 JSON</button>
             <button class="mode-btn" id="lineartModeBtn" type="button" data-mode="lineart">线稿提取 JSON</button>
           </div>
 
@@ -4497,308 +4493,6 @@
             </div>
           </section>
 
-          <section class="workflow-section" id="halfCompositeWorkflow" hidden>
-            <div class="module-note">v2 工作流：图1 摄影原图 + 图2 线稿 + 图3 深度图 + 图4+ 资产参考图。每张图职责唯一 — 图2/图3 是「不可见的几何引导」(invisible geometric guides)，只用来对齐人物大小和透视；它们的线条、灰阶、灰色带、颗粒，绝对不能渗到最终图里。最终图的所有视觉风格 — 真人质感、肤色、光照、氛围 — 只从图1 和图4+ 继承。</div>
-
-            <div class="workflow-steps" aria-label="测试流程 7 步">
-              <div class="step-card">
-                <strong>01 准备四类输入</strong>
-                <span>图1 场照 + 图2 线稿 + 图3 深度图 + 图4+ 参考图</span>
-              </div>
-              <div class="step-card">
-                <strong>02 切到本模块</strong>
-                <span>顶部点「半合成提示词 JSON」，默认 v2 配置</span>
-              </div>
-              <div class="step-card">
-                <strong>03 选深度极性</strong>
-                <span>Depth Anything 选近黑远白；MiDaS 选近白远黑</span>
-              </div>
-              <div class="step-card">
-                <strong>04 复制 JSON</strong>
-                <span>右侧输出区点「复制 JSON」</span>
-              </div>
-              <div class="step-card">
-                <strong>05 按顺序上传</strong>
-                <span>香蕉里：图1 → 图2 → 图3 → 图4+，顺序不能乱</span>
-              </div>
-              <div class="step-card">
-                <strong>06 粘贴跑图</strong>
-                <span>把 JSON 粘进提示词框，生成</span>
-              </div>
-              <div class="step-card">
-                <strong>07 对照自检</strong>
-                <span>用底部 7 条 self_check_questions 逐条核对</span>
-              </div>
-            </div>
-
-            <div class="small-grid">
-              <div class="field">
-                <label for="halfCompPhotoVariable">Slot 1 摄影原图 Base Photo</label>
-                <input id="halfCompPhotoVariable" value="[IMAGE_1_BASE_PHOTO]">
-                <div class="hint">输出底图。人物、肤色、五官、服装的最终来源。</div>
-              </div>
-              <div class="field">
-                <label for="halfCompLineartVariable">Slot 2 线稿图 Lineart (不可见引导)</label>
-                <input id="halfCompLineartVariable" value="[IMAGE_2_LINEART]">
-                <div class="hint">仅用作几何参考，不出现在最终图中。线条、灰阶、灰色带绝不能渗入输出。</div>
-              </div>
-            </div>
-
-            <div class="small-grid">
-              <div class="field">
-                <label for="halfCompDepthVariable">Slot 3 深度图 Depth Map (不可见引导)</label>
-                <input id="halfCompDepthVariable" value="[IMAGE_3_DEPTHMAP]">
-                <div class="hint">仅用作深度参考，不出现在最终图中。灰阶、单色、雾化绝不能渗入输出。</div>
-              </div>
-              <div class="field">
-                <label for="halfCompDepthPolarity">深度图色彩约定 Depth Polarity</label>
-                <select id="halfCompDepthPolarity">
-                  <option value="near_black_far_white">近黑远白 Near=Black, Far=White (Depth Anything 默认)</option>
-                  <option value="near_white_far_black">近白远黑 Near=White, Far=Black (MiDaS 默认)</option>
-                </select>
-                <div class="hint">告诉模型这张深度图是哪种约定，避免反向解读把人物推到背景。</div>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="halfCompReferenceVariable">Slot 4+ 资产参考图 Asset References</label>
-              <input id="halfCompReferenceVariable" value="[IMAGE_4_PLUS_ASSET_REFERENCES]">
-              <div class="hint">资产库。只贡献物件、调色、光照、氛围。建议不超过 3 张，越多越容易压缩人物。</div>
-            </div>
-
-            <div class="small-grid">
-              <div class="field">
-                <label for="halfCompAspectRatio">画幅 Aspect Ratio</label>
-                <input id="halfCompAspectRatio" value="match Image 1 aspect ratio">
-                <div class="hint">默认锁死图1 的画幅、构图、相机角度。</div>
-              </div>
-              <div class="field">
-                <label for="halfCompCompositionVariant">构图变体 Composition Variant</label>
-                <select id="halfCompCompositionVariant">
-                  <option value="auto">自动 / 跟随图1构图 Auto</option>
-                  <option value="symmetric_envelope">对称包围 Symmetric Envelope</option>
-                  <option value="floating_impact">漂浮战损 Floating Impact</option>
-                  <option value="street_corridor">街道纵深 Street Corridor</option>
-                  <option value="stage_frame">舞台前框 Stage Frame</option>
-                </select>
-                <div class="hint">影响中景资产的环绕方式：拱形包围 / 放射动势 / 走廊纵深 / 顶部框景。</div>
-              </div>
-            </div>
-
-            <div class="small-grid">
-              <div class="field">
-                <label for="halfCompAssetDensity">合成强度 Asset Density</label>
-                <select id="halfCompAssetDensity">
-                  <option value="balanced">均衡可见 Balanced</option>
-                  <option value="subtle">轻量点缀 Subtle</option>
-                  <option value="rich">强氛围 Rich</option>
-                </select>
-                <div class="hint">控制新增资产数量和画面占比。默认均衡，避免人物被资产压住。</div>
-              </div>
-              <div class="field">
-                <label for="halfCompCharacterProtection">人物保护 Character Protection</label>
-                <select id="halfCompCharacterProtection">
-                  <option value="strict_identity">严守原像 Strict</option>
-                  <option value="edge_blend">边缘微融合 Edge Blend</option>
-                  <option value="silhouette_wrap">服装轮廓包裹 Silhouette Wrap</option>
-                </select>
-                <div class="hint">越严格越不容易改脸改身材；边缘微融合适合需要烟雾、花瓣或光效贴合服装边缘。</div>
-              </div>
-            </div>
-
-            <div class="small-grid">
-              <div class="field">
-                <label for="halfCompOcclusionPolicy">遮挡策略 Occlusion Policy</label>
-                <select id="halfCompOcclusionPolicy">
-                  <option value="clean_body_margin">身体留白 Clean Margin</option>
-                  <option value="edge_overlap_only">只压服装边 Edge Only</option>
-                  <option value="no_character_occlusion">完全不遮挡 No Occlusion</option>
-                </select>
-                <div class="hint">决定新增资产能否压到人物边缘。脸、手、武器和关键道具永远不能被遮挡。</div>
-              </div>
-              <div class="field">
-                <label for="halfCompVenueProofLevel">场馆证据 Venue Proof</label>
-                <select id="halfCompVenueProofLevel">
-                  <option value="keep_2">至少 2 项</option>
-                  <option value="keep_3">至少 3 项</option>
-                  <option value="keep_4">至少 4 项</option>
-                </select>
-                <div class="hint">保留更多原场馆痕迹时，半合成感更明确，但参考资产会更克制。</div>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="halfCompTaskPrompt">任务定义 Task</label>
-              <textarea id="halfCompTaskPrompt">This is an ADDITION-ONLY task. Take Image 1 as the output base. Add new objects from the asset reference images (Image 4 onward) into the empty space of Image 1, around the character.
-
-CRITICAL VISUAL ISOLATION — Image 2 (lineart) and Image 3 (depth map) are INVISIBLE GEOMETRIC GUIDES. They are reference inputs ONLY for aligning perspective and character size. They MUST NOT contribute any visible content to the final image: no black outlines, no monoline strokes, no flat gray bands, no monochrome wash, no grayscale fog, no blueprint look, no depth-map gradient.
-
-VISUAL STYLE INHERITANCE — The final image inherits its visual style ONLY from Image 1 (real photograph: skin, fabric, real lighting, photographic grain) and Image 4+ (asset references: prop materials, palette accents, atmosphere). Pretend Image 2 and Image 3 do not exist when deciding how things should LOOK; only consult them when deciding WHERE things should be.
-
-Image 2 (lineart) defines the geometric skeleton — never cross or alter the lineart of the character or the existing scene edges, but never reproduce its line work in the final image either. Image 3 (depth map) defines spatial perspective — every new object's size, position and overlap must follow Image 3's depth, but never copy its grayscale shading. Do not redraw Image 1, do not regenerate the character, do not change the floor, do not change perspective, do not re-frame.</textarea>
-              <div class="hint">"叠加 only"模式声明，告诉模型这不是重写任务。</div>
-            </div>
-
-            <div class="field">
-              <label for="halfCompImageRolePrompt">图片角色定义 Image Roles (4 类)</label>
-              <textarea id="halfCompImageRolePrompt">Image 1 (Slot 1, base photo) = OUTPUT BASE + VISIBLE STYLE SOURCE. The output IS Image 1 with extra objects added. The character of Image 1 — face, costume, pose, pixel position, pixel size, body proportions — must pass through unchanged. Image 1 also provides the photographic look: real skin, real fabric, photographic lighting, color and grain.
-
-Image 2 (Slot 2, lineart) = INVISIBLE GEOMETRIC GUIDE. Use it as a hard mask: never cross, redraw, thicken or smooth the existing lines of the character or environment. NEW ASSETS MUST RESPECT THESE LINES AS WALLS. But the lineart's appearance — black strokes, monoline, flat gray bands, white paper background — MUST NOT appear in the final image. Read its geometry, ignore its style.
-
-Image 3 (Slot 3, depth map) = INVISIBLE PERSPECTIVE GUIDE. Read Image 3 as a depth field; every new object placed into Image 1 must take its size and overlap order from Image 3, so that closer objects appear larger and farther objects appear smaller per Image 3's gradient. But the depth map's appearance — grayscale gradient, single-channel wash, blue/red false-color tint, depth fog — MUST NOT appear in the final image. Read its depth, ignore its style.
-
-Image 4 onward (Slot 4+, asset references) = VISIBLE STYLE SOURCE for new assets. Extract from them props, structures, palette, lighting, fog and atmosphere — these CAN and SHOULD be visible in the final image when applied to new assets. Never copy their character, composition, framing, perspective, scale, text or logos. Reference perspective is irrelevant — only Image 1 + Image 3's perspective is valid.
-
-VISUAL STYLE RULE: The final image's visible appearance is composed of (Image 1's photograph) + (Image 4+'s asset materials and atmosphere) only. Image 2 and Image 3 are silent — they shape geometry, they never paint pixels.</textarea>
-              <div class="hint">每张图都有且只有一个职责。模型读到图3 时知道它是用来锁透视的，不会当成普通参考。</div>
-            </div>
-
-            <div class="section-label">骨架锁定 v2 (线稿 + 深度图)</div>
-
-            <div class="field">
-              <label for="halfCompLineartUsagePrompt">线稿用法 Lineart Usage</label>
-              <textarea id="halfCompLineartUsagePrompt">Read Image 2 as a hard geometric mask. Treat every line in Image 2 as a wall: the character silhouette, the floor edges, ceiling structures, booth walls, lighting rigs and other key edges from Image 1 are all marked there. New assets MUST NOT cross, redraw, thicken, smooth or fill any of these lines. Do not erase the lineart of the character. Where lineart is sparse (open background air, empty floor zones), you may place new assets freely. Where lineart is dense, leave it alone.
-
-VISUAL ISOLATION (mandatory): Image 2 is a geometric reference, not a style reference. The final output MUST NOT contain visible black outlines, monoline strokes, flat gray bands, blueprint-paper background, cel-shaded ink look, or any other visual signature of a lineart. Read its geometry, render in Image 1's photographic style. If you find yourself drawing dark outlines around objects, stop — that is leakage from Image 2 and must be removed.</textarea>
-              <div class="hint">线稿被当作"墙"，模型不能跨过去。这是几何硬约束。</div>
-            </div>
-
-            <div class="field">
-              <label for="halfCompDepthPreservationPrompt">深度图保留 Depth Preservation</label>
-              <textarea id="halfCompDepthPreservationPrompt">Extract Image 1's depth field directly from Image 3. Every new asset placed into Image 1 must obey this depth field: an asset whose footprint sits in a "near" depth zone must be rendered at near-camera scale; an asset in a "far" depth zone must be rendered at far-camera scale. Overlap order must follow Image 3 — closer depth occludes farther depth. The character's depth band (read from Image 3 at the character's footprint) is the size anchor: any object placed at the same depth as the character must share the same size scale as the character. Do not flatten depth, do not invert depth, do not borrow depth from the reference images.
-
-VISUAL ISOLATION (mandatory): Image 3 is a depth reference, not a style reference. The final output MUST NOT contain a grayscale wash, single-channel monochrome look, blue-to-red false-color depth tint, depth-pass overlay, or uniform haze that mimics a depth pass. Read its distance values, render in Image 1's photographic style. If the final image starts looking like a depth-of-field render, a normal map, or a Z-pass, that is leakage from Image 3 and must be removed.</textarea>
-              <div class="hint">借鉴风格迁移提示词的核心机制：把透视控制从"形容词"变成"按深度图填东西"。</div>
-            </div>
-
-            <div class="field">
-              <label for="halfCompLockStrengthPrompt">锁定强度参数 Lock Strength Parameters</label>
-              <textarea id="halfCompLockStrengthPrompt">character_pixel_lock = 1.0 absolute (face, hair, skin, costume, accessories, pose, finger shape — pass-through unchanged). character_size_lock = 1.0 absolute (pixel size, body proportions, position on canvas — pass-through unchanged). lineart_skeleton_lock = 1.0 absolute (no crossing, no redraw). lineart_visual_invisibility = 1.0 absolute (Image 2 contributes geometry only, never visible pixels). depth_perspective_lock = 1.0 absolute (Image 3 is the only valid depth field). depth_visual_invisibility = 1.0 absolute (Image 3 contributes depth only, never visible pixels). visual_style_source = Image 1 + Image 4+ only. venue_preservation = 0.85 high (keep at least 2 venue elements visible). asset_injection_strength = 0.7 high (assertive but bounded). color_grading_strength = 0.45 medium (subtle, never crush skin tones). content_preservation_of_image_1 = 1.0 absolute (do not rewrite Image 1 pixels except in empty zones). addition_only_mode = TRUE.</textarea>
-              <div class="hint">把锁定强度变成可校准的数值刻度，模型对数字比对形容词敏感。新加 lineart/depth_visual_invisibility 两条，强制图2 图3 不渗色。</div>
-            </div>
-
-            <div class="field">
-              <label for="halfCompVisualStyleAnchorPrompt">视觉风格锤点 Visual Style Anchor (核心反渗透)</label>
-              <textarea id="halfCompVisualStyleAnchorPrompt">FINAL IMAGE LOOK: a real photograph that visually matches Image 1's photographic quality — real skin pores, real fabric weave, real catchlights in the eyes, real soft shadows, real photographic noise, real DSLR / mirrorless still camera output. New assets added from Image 4+ should also render as photographic objects (real materials, real reflections, real depth-of-field bokeh consistent with Image 1's lens), NOT as drawings, illustrations, cel-shaded art, blueprint, monochrome wash, depth-pass overlay, or cinematic CG render.
-
-WHAT THE OUTPUT MUST NOT LOOK LIKE: a lineart drawing, a black-and-white sketch, a cel-shaded anime cell, an architectural blueprint, a depth map, a Z-depth pass, a normal map, a grayscale wash render, a flat-color illustration, a posterized painting, a pencil sketch, an inked outline, an AO pass, a clay render, a UE5 cinematic CG screenshot, an Octane render, a path-traced movie still, a Hollywood VFX render, a video-game CG cutscene, a concept-art illustration, a hi-fi 3D render, a ray-traced glossy showcase. If you see any of these signatures appearing, that is leakage from Image 2/Image 3 OR from advisory CG fields (output_look, render_engine) — re-render that region using Image 1's REAL PHOTOGRAPHIC style.
-
-CG-FIELD OVERRIDE: even if other fields in this JSON contain words like "cinematic_realism", "ue5_photoreal", "octane_photoreal", "cinematic CG", "film CG", "hi-fi render", "path tracing", "Octane", "UE5", treat them as ADVISORY TONE ONLY. The actual rendering style is always real photographic, matching Image 1's medium. Photo always wins over CG.
-
-PIXEL CONTRIBUTION RULE: For every pixel in the output, ask "where does this pixel's appearance come from?" Allowed answers: (a) "passed through from Image 1", (b) "an asset from Image 4+ rendered in Image 1's photographic style". Forbidden answer: "from Image 2 or Image 3" or "from a CG render style suggested by output_look/render_engine".</textarea>
-              <div class="hint">这是反"图2/图3 渗透"的核心字段。直接告诉模型最终图必须长得像照片，不是线稿不是深度图。</div>
-            </div>
-
-            <div class="field">
-              <label for="halfCompAssetBranchPrompt">资产类型分支 Asset Branching</label>
-              <textarea id="halfCompAssetBranchPrompt">Before placing assets, classify each asset extracted from references into one branch. Branch A (Architectural / Structural): gates, pillars, vending machines, shrines, walls, banners — place them along Image 3's vanishing lines, sit them on Image 1's floor, scale by Image 3's depth. Branch B (Floating / FX): energy orbs, particles, sparks, drifting petals — place them in the air around the character, scaled to match the character's depth band per Image 3, never overlapping the face. Branch C (Ground / Debris): leaves, rubble, water stains, small props — distribute them on Image 1's actual floor following Image 3's depth gradient, smaller toward the far depth zones. Each branch has its own placement rule; never mix branches into a single chaotic layer.</textarea>
-              <div class="hint">借鉴风格迁移的"分支执行"逻辑，资产先分类再落位。</div>
-            </div>
-
-            <div class="section-label">参考图提取模块</div>
-
-            <div class="small-grid">
-              <div class="field">
-                <label for="halfCompAssetExtractPrompt">1. 提取资产 Asset Extraction</label>
-                <textarea id="halfCompAssetExtractPrompt">From the reference images, identify 5 to 8 signature props or environmental assets that fit the character world (e.g. shrine gates, stone lanterns, vending machines, broken pillars, energy orbs, warning barriers, withered trees, hanging lanterns, koi banners, neon signs). Pick only assets compatible with Image 1's character and pose.</textarea>
-              </div>
-              <div class="field">
-                <label for="halfCompPalettePrompt">2. 提取调色 Palette Extraction</label>
-                <textarea id="halfCompPalettePrompt">Extract the dominant color and accent color ratio from the references (large-area main color + small-area complementary color). Apply that palette across the whole composited frame, but do not recolor the character's skin, face, hair or main costume.</textarea>
-              </div>
-            </div>
-
-            <div class="small-grid">
-              <div class="field">
-                <label for="halfCompLightingPrompt">3. 提取光照氛围 Lighting & Atmosphere</label>
-                <textarea id="halfCompLightingPrompt">Extract main light direction, color temperature, fog density, volumetric haze and particle type from the references. Reproject all of those onto Image 1's existing light direction. If references contradict Image 1, Image 1's light direction always wins.</textarea>
-              </div>
-              <div class="field">
-                <label for="halfCompMaterialPrompt">4. 提取材质做旧 Material & Aging</label>
-                <textarea id="halfCompMaterialPrompt">Extract material aging level: weathering of stone, rust on metal, vegetation density, moss, cracks, dust accumulation. Apply the same aging language to all newly added assets so they read as belonging to the same world.</textarea>
-              </div>
-            </div>
-
-            <div class="section-label">三层落位结构</div>
-
-            <div class="field">
-              <label for="halfCompForegroundPrompt">前景层 Foreground (bottom 1/3)</label>
-              <textarea id="halfCompForegroundPrompt">Place 2 to 3 small props close to camera at the bottom 1/3 of Image 1. Allow them to clip the frame edges and to fall slightly out of focus. Purpose: compress the bottom of the frame, add depth, ground the viewer's eye. These props must not block the character's feet or body.</textarea>
-            </div>
-
-            <div class="field">
-              <label for="halfCompMidgroundPrompt">中景层 Midground (around character, middle 1/3)</label>
-              <textarea id="halfCompMidgroundPrompt">Place 3 to 5 main world-building assets surrounding the character at midground. Keep clear distance from the character's face, hands and held props. These define the scene's identity. Arrange them so the character remains the visual center.</textarea>
-            </div>
-
-            <div class="field">
-              <label for="halfCompBackgroundPrompt">背景层 Background (top 1/3, KEEP venue)</label>
-              <textarea id="halfCompBackgroundPrompt">At the top 1/3 of the frame, add atmospheric assets from the references AND visibly retain at least 2 of Image 1's original venue elements: ceiling truss, hall lighting rigs, exit signs, hanging banners, distant blurred crowd silhouettes, booth structures, floor reflections. Venue elements may be partially occluded or softly blurred but must remain identifiable. This is the core of "half-composite" and is non-negotiable.</textarea>
-              <div class="hint">画面上 1/3 必须保留场馆痕迹，至少 2 项可见。这是半合成的命门。</div>
-            </div>
-
-            <div class="section-label">透视、光照、接地融合</div>
-
-            <div class="field">
-              <label for="halfCompPerspectivePrompt">透视锚点 Perspective Lock</label>
-              <textarea id="halfCompPerspectivePrompt">Image 1's ground plane and perspective already exist. Do not change them. Each new object you add must rest on Image 1's existing floor, follow Image 1's existing vanishing point, and match Image 1's lens and camera height. Objects closer to the camera in Image 1's space appear larger, objects farther appear smaller — use Image 1's depth, not the reference images' depth. Do not tilt, rotate, zoom, re-crop or re-frame Image 1. Do not introduce a new lens.</textarea>
-            </div>
-
-            <div class="field">
-              <label for="halfCompShadowPrompt">光影一致 Shadow & Lighting Match</label>
-              <textarea id="halfCompShadowPrompt">All new assets cast contact shadows in the same direction as the character's shadow in Image 1. Receive-light side and shadow side of new assets must match the character's. Apply atmospheric perspective: distant assets desaturated and hazier. Match Image 1's depth of field on all new assets, including bokeh shape and blur radius.</textarea>
-            </div>
-
-            <div class="field">
-              <label for="halfCompGroundPrompt">接地融合 Ground Integration</label>
-              <textarea id="halfCompGroundPrompt">Add small debris, leaves, vegetation, water stains or dust around the character's feet using the same material language as the midground assets, so the character appears rooted in the scene rather than pasted in front of it. Allow midground asset edges to mildly overlap the character's costume edges, but never cover the face, hands, or hero props.</textarea>
-              <div class="hint">脚下过渡是半合成最容易翻车的环节，必须写。</div>
-            </div>
-
-            <div class="field">
-              <label for="halfCompUnifyPrompt">整图统一 Unification Pass</label>
-              <textarea id="halfCompUnifyPrompt">Apply a final unification pass: a subtle volumetric haze layer across the entire frame to blend Image 1's photographic grain with the new CG assets. Match film grain and noise level to Image 1. Apply the reference palette as a color grade on top, restrained, never crushing skin tones.</textarea>
-            </div>
-
-            <div class="section-label">人物锁定与反向约束</div>
-
-            <div class="field">
-              <label for="halfCompLockPrompt">人物锁定 Character Lock</label>
-              <textarea id="halfCompLockPrompt">Keep the character of Image 1 exactly as it is. Same face, same hair, same skin, same costume, same accessories, same held items, same pose, same hands, same feet. Same pixel size, same body proportions, same position on the canvas, same head height, same foot position. Do not redraw, regenerate, beautify, smooth, recolor, enlarge, shrink, re-center or re-pose the character. The character's pixels should pass through unchanged.</textarea>
-            </div>
-
-            <div class="field">
-              <label for="halfCompVenueKeepPrompt">场馆痕迹保留清单 Venue Elements to Keep</label>
-              <textarea id="halfCompVenueKeepPrompt">Must visibly retain at least 2 of: exhibition hall ceiling truss, overhead lighting rigs, fluorescent or studio strobe lights, exit signs, hanging banners or fabric drops, distant blurred attendees and photographers, booth walls, floor mat reflections, signage. These are non-negotiable proof that the photo was shot inside a convention hall.</textarea>
-            </div>
-
-            <div class="field">
-              <label for="halfCompNegativePrompt">反向约束 Negative Prompt</label>
-              <textarea id="halfCompNegativePrompt">Image 1 rewriting, character regeneration, character resize, character rescale, character recenter, character recrop, character repose, character beautification, face change, skin tone change, ground plane change, perspective change, vanishing point change, lens change, focal length change, framing change, aspect ratio change, lineart crossing, lineart redrawing, lineart smoothing, depth flattening, depth inversion, asset placed without depth-aware scaling, asset placed without contact shadow, asset borrowed perspective from references, reference composition copy, reference character copy, reference text copy, reference logo copy, watermark, signature, miniaturized scene, oversized scene, mismatched lighting direction, visible black outlines on objects, monoline ink strokes in final, blueprint look, technical-drawing look, cel-shaded look, anime cel look, sketch look, pencil drawing look, flat-color illustration look, posterized look, grayscale wash output, monochrome single-channel output, depth-pass overlay in final, normal-map look, ambient-occlusion-pass look, Z-depth false-color tint, leakage of Image 2 lineart appearance, leakage of Image 3 depth map appearance, lineart visible in output, depth map visible in output, cinematic CG look, UE5 render look, Octane render look, path-traced render look, ray-traced highlight look, video-game CG look, concept-art polish, hi-fi 3D render look, Hollywood VFX render, plastic CG skin, plastic CG fabric, over-rendered specular, glossy CG showcase, 3D-rendered material on character</textarea>
-            </div>
-
-            <div class="section-label">输出控制</div>
-
-            <div class="field">
-              <label for="halfCompOutputPrompt">输出与自检 Output & Self-Check</label>
-              <textarea id="halfCompOutputPrompt">Output a single composited image at no less than Image 1's original resolution, matching Image 1's exact aspect ratio. After generating, list which venue elements were preserved and which references were used for assets / palette / lighting. If any of the locked items were modified, regenerate.</textarea>
-            </div>
-
-            <div class="field">
-              <label>快速模块词</label>
-              <div class="chips" id="halfCompChips">
-                <span class="chip" data-target="halfCompAssetExtractPrompt" data-text="extract shrine gates, stone lanterns, koi banners, hanging paper lanterns, withered maple trees, mossy statues">日式神社资产</span>
-                <span class="chip" data-target="halfCompAssetExtractPrompt" data-text="extract neon vending machines, traffic barriers, warning tape, stop signs, chain-link fences, vertical kanji signs, holographic billboards">赛博街景资产</span>
-                <span class="chip" data-target="halfCompAssetExtractPrompt" data-text="extract floating energy orbs with electric trails, shattered stone fragments, radiating ground cracks, drifting smoke, spell circles">能量战损资产</span>
-                <span class="chip" data-target="halfCompPalettePrompt" data-text="warm orange dominant, deep red maple accents, low saturation cinematic grading, gold rim highlights">秋日暖橙</span>
-                <span class="chip" data-target="halfCompPalettePrompt" data-text="cold cyan dominant, electric blue accents, neutralized midtones, magenta sign highlights">冷青霓虹</span>
-                <span class="chip" data-target="halfCompLightingPrompt" data-text="match Image 1 key light direction, add subtle volumetric god-rays from upper-back, gentle fog at midground depth">薄雾光束</span>
-                <span class="chip" data-target="halfCompBackgroundPrompt" data-text="keep visible: ceiling truss, overhead studio lights, distant blurred attendees, hanging banners; allow soft blur but never erase">死守场馆痕迹</span>
-                <span class="chip" data-target="halfCompGroundPrompt" data-text="add fallen leaves, small stone debris, water stains and faint dust around the feet, matching midground material language">脚下过渡</span>
-              </div>
-            </div>
-          </section>
-
           <section class="workflow-section" id="assetCompositeWorkflow" hidden>
             <div class="module-note">半合成资产拼接：图1 是实拍底图与人物/相机基础；图2 线稿和图3 黑白灰图只负责透视、边界、深度和比例，绝不参与最终视觉；图4 是资产拆分后的 2D 图，只作为资产语言、材质旧化和道具分类来源。最终输出统一成真实 CG 渲染质感。</div>
 
@@ -4970,164 +4664,6 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
                 <span class="chip" data-target="assetCompPlacementPrompt" data-text="Prioritize foreground and midground transfer only: place cracks, stains, puddles, tire marks, dust, debris, crates, railings and side props on Image 1's floor and midground zones, scaled by Image 3 depth. Keep far background, skyline, horizon and distant architecture unchanged.">近中景优先</span>
                 <span class="chip" data-target="assetCompAssetClassificationPrompt" data-text="Focus on KitBash-like modular assets: wall modules, railings, stairs, catwalks, crates, barricades, cable reels, blank signs, floodlight towers, camera rigs, trim-sheet panel seams and reusable PBR prop variants.">KitBash模块</span>
                 <span class="chip" data-target="assetCompRenderStylePrompt" data-text="Cinematic realistic CG render, UE / Octane / path-traced quality, PBR materials, global illumination, ambient occlusion, realistic contact shadows, subtle low-density atmosphere, no real photo look, no anime, no illustration, no Tyndall effect, no god rays, no visible light beams.">CG写实锁</span>
-              </div>
-            </div>
-          </section>
-
-          <section class="workflow-section" id="sceneCompositeWorkflow" hidden>
-            <div class="module-note">白模半合成：不用图4+参考图，改用「场景白模 JSON」提供场景设计、资产类型、光影、材质、空气介质和地面融合规则。图1 仍是摄影原图；图2 线稿和图3 深度图仍是不可见几何引导，只负责锁人物大小、透视、遮挡顺序和安全落位。</div>
-
-            <div class="workflow-steps" aria-label="白模半合成流程 7 步">
-              <div class="step-card">
-                <strong>01 准备图1</strong>
-                <span>cosplay 场照原图，作为最终底图</span>
-              </div>
-              <div class="step-card">
-                <strong>02 准备图2</strong>
-                <span>同图1生成的结构线稿</span>
-              </div>
-              <div class="step-card">
-                <strong>03 准备图3</strong>
-                <span>同图1生成的深度图</span>
-              </div>
-              <div class="step-card">
-                <strong>04 粘贴白模 JSON</strong>
-                <span>来自「场景白模 JSON」模块</span>
-              </div>
-              <div class="step-card">
-                <strong>05 生成 JSON</strong>
-                <span>右侧输出白模半合成协议</span>
-              </div>
-              <div class="step-card">
-                <strong>06 按顺序上传</strong>
-                <span>香蕉里：图1 → 图2 → 图3</span>
-              </div>
-              <div class="step-card">
-                <strong>07 粘贴跑图</strong>
-                <span>不再上传参考图，只用白模 JSON 控制场景</span>
-              </div>
-            </div>
-
-            <div class="small-grid">
-              <div class="field">
-                <label for="sceneCompPhotoVariable">Slot 1 摄影原图 Base Photo</label>
-                <input id="sceneCompPhotoVariable" value="[IMAGE_1_BASE_PHOTO]">
-                <div class="hint">最终底图。人物、肤色、服装、构图和相机视角都来自这里。</div>
-              </div>
-              <div class="field">
-                <label for="sceneCompLineartVariable">Slot 2 线稿图 Lineart</label>
-                <input id="sceneCompLineartVariable" value="[IMAGE_2_LINEART]">
-                <div class="hint">不可见几何引导，不参与最终视觉风格。</div>
-              </div>
-            </div>
-
-            <div class="small-grid">
-              <div class="field">
-                <label for="sceneCompDepthVariable">Slot 3 深度图 Depth Map</label>
-                <input id="sceneCompDepthVariable" value="[IMAGE_3_DEPTHMAP]">
-                <div class="hint">不可见透视引导，只控制大小、远近和遮挡顺序。</div>
-              </div>
-              <div class="field">
-                <label for="sceneCompDepthPolarity">深度图色彩约定 Depth Polarity</label>
-                <select id="sceneCompDepthPolarity">
-                  <option value="near_black_far_white">近黑远白 Near=Black, Far=White</option>
-                  <option value="near_white_far_black">近白远黑 Near=White, Far=Black</option>
-                </select>
-                <div class="hint">和 Z 通道模块的输出约定保持一致。</div>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="sceneCompSceneJsonPrompt">场景白模 JSON Scene Placeholder JSON</label>
-              <textarea id="sceneCompSceneJsonPrompt">[PASTE_SCENE_PLACEHOLDER_JSON_HERE]</textarea>
-              <div class="hint">把「场景白模 JSON」模块右侧生成的 JSON 粘到这里。它会替代参考图，作为世界观、资产、氛围、材质和光影来源。</div>
-            </div>
-
-            <div class="field">
-              <label for="sceneCompScenePromptText">白模场景提示词 Scene Prompt Text</label>
-              <textarea id="sceneCompScenePromptText">ancient ruined temple courtyard, broken stone pillars, moss-covered stone steps, old wooden gate, distant mountains, clear central standing area, detailed foreground rocks and fallen leaves, cinematic lighting, realistic ground contact, strong foreground-midground-background depth</textarea>
-              <div class="hint">这里放白模场景的纯提示词。可以粘「场景白模 JSON」里的 positive_prompt_template，也可以直接写场景、资产、光影、材质和地面要求。</div>
-            </div>
-
-            <div class="small-grid">
-              <div class="field">
-                <label for="sceneCompAspectRatio">画幅 Aspect Ratio</label>
-                <input id="sceneCompAspectRatio" value="match Image 1 aspect ratio">
-                <div class="hint">锁图1画幅，不跟随白模 JSON 里的画幅重构。</div>
-              </div>
-              <div class="field">
-                <label for="sceneCompInsertionStrategy">场景注入策略 Insertion Strategy</label>
-                <select id="sceneCompInsertionStrategy">
-                  <option value="environment_edges">环境边缘改造 Environment Edges</option>
-                  <option value="center_world_wrap">围绕人物包场 World Wrap</option>
-                  <option value="ground_first">地面优先 Ground First</option>
-                  <option value="background_first">背景优先 Background First</option>
-                </select>
-                <div class="hint">决定白模场景元素从哪里开始落位：边缘、人物周围、地面或背景。</div>
-              </div>
-            </div>
-
-            <div class="small-grid">
-              <div class="field">
-                <label for="sceneCompAssetDensity">合成强度 Asset Density</label>
-                <select id="sceneCompAssetDensity">
-                  <option value="balanced">均衡可见 Balanced</option>
-                  <option value="subtle">轻量点缀 Subtle</option>
-                  <option value="rich">强场景 Rich</option>
-                </select>
-                <div class="hint">控制从白模 JSON 转译出来的资产数量和占画面比例。</div>
-              </div>
-              <div class="field">
-                <label for="sceneCompVenueProofLevel">原场馆保留 Venue Proof</label>
-                <select id="sceneCompVenueProofLevel">
-                  <option value="keep_2">至少 2 项</option>
-                  <option value="keep_3">至少 3 项</option>
-                  <option value="keep_4">至少 4 项</option>
-                </select>
-                <div class="hint">白模场景会更强，但仍保留实拍场馆证据，避免变成全合成。</div>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="sceneCompTaskPrompt">任务定义 Task</label>
-              <textarea id="sceneCompTaskPrompt">This is a SCENE-JSON-GUIDED HALF-COMPOSITE task. Use Image 1 as the unchanged photographic base. Use the pasted Scene Placeholder JSON as the only source for new environment design: scene identity, props, architecture, atmosphere, lighting, color, materials, ground treatment and story details. Do not use any asset reference images. Image 2 lineart and Image 3 depth map are invisible geometric guides only.</textarea>
-              <div class="hint">明确告诉模型：没有参考图，白模 JSON 才是场景来源。</div>
-            </div>
-
-            <div class="field">
-              <label for="sceneCompSceneJsonUsagePrompt">白模 JSON 转译规则 Scene JSON Translation</label>
-              <textarea id="sceneCompSceneJsonUsagePrompt">Translate the Scene Placeholder JSON into photographic additions on Image 1. Use its scene description as the target environment identity. Use its key visual elements as asset candidates. Use its ground design for foot contact and foreground blending. Use its lighting, color, material and FX modules as style and integration rules. If the Scene JSON mentions a white mannequin placeholder, remove the mannequin concept completely and replace it with Image 1's real character as the only human subject.</textarea>
-              <div class="hint">把白模里的“1.7m白模”替换成图1真人，而不是再生成白模。</div>
-            </div>
-
-            <div class="field">
-              <label for="sceneCompGeometryPrompt">线稿 + 深度图锁定 Geometry Lock</label>
-              <textarea id="sceneCompGeometryPrompt">Use Image 2 as a hard lineart mask and Image 3 as the only valid depth field. New scene elements translated from the Scene JSON must follow Image 1's camera, Image 2's structural edges and Image 3's depth scale. Do not copy the visual appearance of Image 2 or Image 3: no outlines, no gray wash, no depth tint, no blueprint look. The final image must remain a real photograph.</textarea>
-            </div>
-
-            <div class="field">
-              <label for="sceneCompPlacementPrompt">落位与融合 Placement & Blend</label>
-              <textarea id="sceneCompPlacementPrompt">Place translated scene elements in safe zones: side margins, upper background, open floor around the character, and midground gaps that do not cross Image 2 lineart. Keep the character's face, hands, feet, weapon and hero props clean. Add contact shadows, ground debris, haze and color grade from the Scene JSON, but match Image 1's real lens, grain, exposure and light direction.</textarea>
-            </div>
-
-            <div class="field">
-              <label for="sceneCompNegativePrompt">反向约束 Negative Prompt</label>
-              <textarea id="sceneCompNegativePrompt">reference image dependency, missing Scene JSON translation, ignored Scene JSON, white mannequin visible, placeholder character, generated new character, character redraw, face change, skin tone change, pose change, body proportion change, costume redesign, Image 1 rewriting, camera change, perspective change, aspect ratio change, ground plane change, lineart visible, black outlines, blueprint look, depth map visible, grayscale wash, monochrome overlay, false-color depth tint, asset placed without depth scaling, floating assets without spatial reason, no contact shadow, over-composited full background replacement, erased convention hall proof, copied text, logos, watermark, signature, plastic CG skin, 3D render look on the character</textarea>
-            </div>
-
-            <div class="field">
-              <label for="sceneCompOutputPrompt">输出与自检 Output & Self-Check</label>
-              <textarea id="sceneCompOutputPrompt">Output one composited image at Image 1's original aspect ratio and no lower than Image 1's resolution. After generating, report which Scene JSON modules were used for assets, lighting, palette, material, ground and FX; confirm that Image 2 and Image 3 are invisible; confirm that the character remains unchanged; confirm that venue proof remains visible.</textarea>
-            </div>
-
-            <div class="field">
-              <label>快速模块词</label>
-              <div class="chips" id="sceneCompChips">
-                <span class="chip" data-target="sceneCompInsertionStrategy" data-text="ground_first">地面优先</span>
-                <span class="chip" data-target="sceneCompInsertionStrategy" data-text="environment_edges">边缘改造</span>
-                <span class="chip" data-target="sceneCompPlacementPrompt" data-text="Prioritize ground integration first: rebuild the floor mood from the Scene JSON with small debris, material patches, contact shadows, light haze and color spill around the feet. Keep the character's shoes and feet readable.">脚下融合加强</span>
-                <span class="chip" data-target="sceneCompGeometryPrompt" data-text="Hard geometry lock: Image 2 is a wall map and Image 3 is the only depth field. Every Scene JSON asset must obey lineart boundaries, depth scaling, overlap order and Image 1 camera perspective.">透视锁加强</span>
-                <span class="chip" data-target="sceneCompNegativePrompt" data-text="white mannequin visible, generated new character, character redraw, face change, pose change, lineart visible, depth map visible, grayscale wash, full background replacement, erased venue proof, no contact shadow, perspective change">最小负面集</span>
               </div>
             </div>
           </section>
@@ -5327,39 +4863,6 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
       "zDepthDelightingPrompt",
       "zDepthPositivePrompt",
       "zDepthNegativePrompt",
-      "halfCompPhotoVariable",
-      "halfCompLineartVariable",
-      "halfCompDepthVariable",
-      "halfCompDepthPolarity",
-      "halfCompReferenceVariable",
-      "halfCompAspectRatio",
-      "halfCompCompositionVariant",
-      "halfCompAssetDensity",
-      "halfCompCharacterProtection",
-      "halfCompOcclusionPolicy",
-      "halfCompVenueProofLevel",
-      "halfCompTaskPrompt",
-      "halfCompImageRolePrompt",
-      "halfCompLineartUsagePrompt",
-      "halfCompDepthPreservationPrompt",
-      "halfCompLockStrengthPrompt",
-      "halfCompVisualStyleAnchorPrompt",
-      "halfCompAssetBranchPrompt",
-      "halfCompAssetExtractPrompt",
-      "halfCompPalettePrompt",
-      "halfCompLightingPrompt",
-      "halfCompMaterialPrompt",
-      "halfCompForegroundPrompt",
-      "halfCompMidgroundPrompt",
-      "halfCompBackgroundPrompt",
-      "halfCompPerspectivePrompt",
-      "halfCompShadowPrompt",
-      "halfCompGroundPrompt",
-      "halfCompUnifyPrompt",
-      "halfCompLockPrompt",
-      "halfCompVenueKeepPrompt",
-      "halfCompNegativePrompt",
-      "halfCompOutputPrompt",
       "assetCompPhotoVariable",
       "assetCompLineartVariable",
       "assetCompDepthVariable",
@@ -5380,22 +4883,6 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
       "assetCompLightingPrompt",
       "assetCompNegativePrompt",
       "assetCompOutputPrompt",
-      "sceneCompPhotoVariable",
-      "sceneCompLineartVariable",
-      "sceneCompDepthVariable",
-      "sceneCompDepthPolarity",
-      "sceneCompSceneJsonPrompt",
-      "sceneCompScenePromptText",
-      "sceneCompAspectRatio",
-      "sceneCompInsertionStrategy",
-      "sceneCompAssetDensity",
-      "sceneCompVenueProofLevel",
-      "sceneCompTaskPrompt",
-      "sceneCompSceneJsonUsagePrompt",
-      "sceneCompGeometryPrompt",
-      "sceneCompPlacementPrompt",
-      "sceneCompNegativePrompt",
-      "sceneCompOutputPrompt",
       "lineartInputVariable",
       "lineartAspectRatio",
       "lineartTaskPrompt",
@@ -7451,345 +6938,6 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
       };
     }
 
-    function makeHalfCompositePrompt() {
-      const basePhoto = value("halfCompPhotoVariable") || "[IMAGE_1_BASE_PHOTO]";
-      const lineart = value("halfCompLineartVariable") || "[IMAGE_2_LINEART]";
-      const depthMap = value("halfCompDepthVariable") || "[IMAGE_3_DEPTHMAP]";
-      const depthPolarity = value("halfCompDepthPolarity") || "near_black_far_white";
-      const refImages = value("halfCompReferenceVariable") || "[IMAGE_4_PLUS_ASSET_REFERENCES]";
-      const aspectRatio = value("halfCompAspectRatio") || "match Image 1 aspect ratio";
-      const compositionVariant = value("halfCompCompositionVariant") || "auto";
-      const assetDensity = value("halfCompAssetDensity") || "balanced";
-      const characterProtection = value("halfCompCharacterProtection") || "strict_identity";
-      const occlusionPolicy = value("halfCompOcclusionPolicy") || "clean_body_margin";
-      const venueProofLevel = value("halfCompVenueProofLevel") || "keep_2";
-      const taskPrompt = value("halfCompTaskPrompt");
-      const imageRolePrompt = value("halfCompImageRolePrompt");
-      const lineartUsagePrompt = value("halfCompLineartUsagePrompt");
-      const depthPreservationPrompt = value("halfCompDepthPreservationPrompt");
-      const lockStrengthPrompt = value("halfCompLockStrengthPrompt");
-      const visualStyleAnchorPrompt = value("halfCompVisualStyleAnchorPrompt");
-      const assetBranchPrompt = value("halfCompAssetBranchPrompt");
-      const assetExtractPrompt = value("halfCompAssetExtractPrompt");
-      const palettePrompt = value("halfCompPalettePrompt");
-      const lightingPrompt = value("halfCompLightingPrompt");
-      const materialPrompt = value("halfCompMaterialPrompt");
-      const foregroundPrompt = value("halfCompForegroundPrompt");
-      const midgroundPrompt = value("halfCompMidgroundPrompt");
-      const backgroundPrompt = value("halfCompBackgroundPrompt");
-      const perspectivePrompt = value("halfCompPerspectivePrompt");
-      const shadowPrompt = value("halfCompShadowPrompt");
-      const groundPrompt = value("halfCompGroundPrompt");
-      const unifyPrompt = value("halfCompUnifyPrompt");
-      const lockPrompt = value("halfCompLockPrompt");
-      const venueKeepPrompt = value("halfCompVenueKeepPrompt");
-      const negativePrompt = value("halfCompNegativePrompt");
-      const outputPrompt = value("halfCompOutputPrompt");
-      const outputLook = value("outputLook") || "cinematic_realism";
-      const engine = value("renderEngine") || "ue5_photoreal";
-      const enginePreset = currentRenderEnginePreset();
-      const keyLightDirection = value("keyLightDirection") || "auto";
-      const keyLightPreset = currentKeyLightDirectionPreset();
-
-      const compositionVariantMap = {
-        auto: "Follow Image 1's existing composition. Do not impose a new layout shape.",
-        symmetric_envelope: "Arrange midground assets in a symmetric arch around the character. Place a large structural element (gate / arch / tree canopy / shrine frame) directly behind and above the character's head, framing them like a stage. Mirror foreground assets left-right.",
-        floating_impact: "2 to 3 midground assets are levitating with energy trails. Ground assets radiate outward from the character's feet in a shockwave pattern. Add directional dust and smoke moving away from the character. Particles curve around the character, never pass through.",
-        street_corridor: "Place foreground and midground assets symmetrically along both sides of the vanishing point, forming a corridor receding behind the character. Add a secondary light source in the deep background (sign / vending machine / window glow) to create layered illumination.",
-        stage_frame: "Place a large overhead structural element (arch / banner row / hanging lanterns / branch canopy) framing the top of the character's head. Foreground props compress the bottom of the frame on both sides, creating a stage-like proscenium."
-      };
-      const compositionPrompt = compositionVariantMap[compositionVariant] || compositionVariantMap.auto;
-
-      const assetDensityMap = {
-        subtle: {
-          label: "subtle",
-          rule: "Subtle addition: add 2 to 4 small or medium assets only. Keep large empty areas from Image 1 visible. New assets should occupy no more than 18% of the frame.",
-          foreground_count: "1 to 2 small foreground props",
-          midground_count: "1 to 2 midground identity assets",
-          background_count: "light atmospheric touches only"
-        },
-        balanced: {
-          label: "balanced",
-          rule: "Balanced half-composite: add 4 to 7 assets. The new world is clearly readable, but Image 1 still feels like the base photo. New assets should occupy about 20% to 35% of the frame.",
-          foreground_count: "2 to 3 foreground props",
-          midground_count: "2 to 4 midground identity assets",
-          background_count: "1 to 2 background atmosphere or structure accents"
-        },
-        rich: {
-          label: "rich",
-          rule: "Rich atmosphere: add 7 to 10 assets, including at least one strong midground identity asset. Keep the character dominant and keep venue proof visible. New assets should not exceed 45% of the frame.",
-          foreground_count: "3 to 4 foreground props or VFX layers",
-          midground_count: "4 to 5 midground identity assets",
-          background_count: "2 to 3 background atmosphere or structure accents"
-        }
-      };
-      const assetDensityPreset = assetDensityMap[assetDensity] || assetDensityMap.balanced;
-
-      const characterProtectionMap = {
-        strict_identity: "Strict identity preservation: the character is pass-through. Do not repaint face, skin, hair, makeup, costume, hands, feet, weapon or held props. Do not beautify, sharpen, smooth or color-grade the character separately.",
-        edge_blend: "Edge blend only: the character remains pass-through, but subtle smoke, haze, dust, petals or light spill may touch the outer costume edge. Do not cover face, eyes, mouth, hands, feet, weapons or hero props.",
-        silhouette_wrap: "Silhouette wrap: atmospheric particles or cloth/branch/FX elements may wrap around the outer silhouette and costume edges for depth, but they must stay behind or beside the character. They must not change anatomy, pose, costume design, face or identity."
-      };
-      const characterProtectionPrompt = characterProtectionMap[characterProtection] || characterProtectionMap.strict_identity;
-
-      const occlusionPolicyMap = {
-        clean_body_margin: "Clean body margin: keep a readable 8-24 px visual margin around the face, torso, hands, feet and hero props. New assets may approach the costume edge but should not visibly cover the body.",
-        edge_overlap_only: "Edge overlap only: new assets may overlap tiny outer costume edges, hair tips, cape edges or foreground fabric edges to create depth, but never overlap face, eyes, hands, fingers, feet, weapons or important props.",
-        no_character_occlusion: "No character occlusion: do not place any new asset over the character silhouette. All assets must sit behind, beside, above, below or in foreground areas that do not touch the character."
-      };
-      const occlusionPolicyPrompt = occlusionPolicyMap[occlusionPolicy] || occlusionPolicyMap.clean_body_margin;
-
-      const venueProofMap = {
-        keep_2: { count: 2, rule: "retain at least 2 identifiable venue elements from Image 1" },
-        keep_3: { count: 3, rule: "retain at least 3 identifiable venue elements from Image 1" },
-        keep_4: { count: 4, rule: "retain at least 4 identifiable venue elements from Image 1" }
-      };
-      const venueProofPreset = venueProofMap[venueProofLevel] || venueProofMap.keep_2;
-
-      const depthPolarityMap = {
-        near_black_far_white: "In Image 3, BLACK pixels = near camera, WHITE pixels = far from camera. Read it accordingly.",
-        near_white_far_black: "In Image 3, WHITE pixels = near camera, BLACK pixels = far from camera. Read it accordingly."
-      };
-      const depthPolarityPrompt = depthPolarityMap[depthPolarity] || depthPolarityMap.near_black_far_white;
-
-      const promptLines = [
-        "TASK IN ONE LINE: Create a controlled cosplay half-composite. Use Image 1 as the unchanged base photo, then add selected assets from Image 4+ into believable empty zones.",
-        "ADDITION-ONLY MODE: preserve Image 1's character, camera, floor plane, perspective, framing and aspect ratio. Do not repaint the base photo. Add assets only where the scene has safe open space.",
-        "SLOT ISOLATION: Slot 2 lineart and Slot 3 depth map are invisible planning guides. They decide geometry, size and overlap order only. They must contribute zero visible pixels to the final image.",
-        "VISIBLE STYLE SOURCE: the final visible look comes only from Slot 1's real photo and Slot 4+ assets rendered as photographed objects. Ignore Slot 2 and Slot 3 when deciding color, texture, grain, lighting style or render style.",
-        "Slot 1 = " + basePhoto + " (BASE PHOTO, output base, character source, VISIBLE STYLE SOURCE).",
-        "Slot 2 = " + lineart + " (LINEART, INVISIBLE GEOMETRIC GUIDE, never crossed, never reproduced).",
-        "Slot 3 = " + depthMap + " (DEPTH MAP, INVISIBLE PERSPECTIVE GUIDE). " + depthPolarityPrompt,
-        "Slot 4+ = " + refImages + " (ASSET LIBRARY, supplies objects, palette, lighting, atmosphere — VISIBLE in final).",
-        "Control settings: " + assetDensityPreset.rule + " " + characterProtectionPrompt + " " + occlusionPolicyPrompt + " Venue proof rule: " + venueProofPreset.rule + ".",
-        imageRolePrompt,
-        taskPrompt,
-        "PHASE 1 — Analyze Image 1 before adding anything: identify protected character pixels, open background zones, real floor plane, visible venue elements, main light direction and character depth band.",
-        "PHASE 2 — Decompose asset references: " + assetExtractPrompt + " " + palettePrompt + " " + lightingPrompt + " " + materialPrompt,
-        "PHASE 3 — Lock Image 1 geometry: " + lineartUsagePrompt + " " + depthPreservationPrompt + " " + lockPrompt + " " + venueKeepPrompt,
-        "PHASE 4 — Asset injection: classify each asset before placement. " + assetBranchPrompt,
-        "Composition variant: " + compositionPrompt,
-        "Foreground layer (bottom 1/3): " + foregroundPrompt + " Density target: " + assetDensityPreset.foreground_count + ".",
-        "Midground layer (around character, middle 1/3): " + midgroundPrompt + " Density target: " + assetDensityPreset.midground_count + ".",
-        "Background layer (top 1/3, KEEP venue): " + backgroundPrompt + " Density target: " + assetDensityPreset.background_count + ".",
-        "Perspective lock: " + perspectivePrompt,
-        "Shadow and lighting match: " + shadowPrompt,
-        "Ground integration: " + groundPrompt,
-        "Unification pass: " + unifyPrompt,
-        "Lock strength parameters: " + lockStrengthPrompt,
-        "VISUAL STYLE ANCHOR (final reminder, highest priority): " + visualStyleAnchorPrompt,
-        "Preferred key light direction: " + keyLightPreset.prompt,
-        "PHOTOGRAPHIC OUTPUT LOCK (overrides any CG / engine / cinematic look defaults from elsewhere in this JSON): the final image is a real photograph. Render every pixel as DSLR / mirrorless camera output — real skin pores, real fabric weave, real catchlights, real lens bokeh, real photographic noise, real color science of a still camera. Do NOT apply UE5 cinematic lighting, Octane render, path-traced look, ray-traced highlights, video-game CG materials, concept-art polish, hi-fi 3D render, or any cinematic-CG signature. If a CG term appears in any other field (output_look, render_engine, cinematic, film CG, photoreal render etc.), treat that as advisory tone only — the actual rendering style is always real photographic, matching Image 1's medium.",
-        "Aspect ratio: " + aspectRatio,
-        "Output and self-check: " + outputPrompt
-      ].filter(Boolean).join(" ");
-
-      return {
-        task: "addition_only_half_composite_v2",
-        project_name: "假丹模拟器 / 半合成提示词 v2",
-        version: "v2.1 (controlled density + character protection + venue proof)",
-        output_mode: "half_composite_v2_json",
-        one_line_intent: "Create a controlled half-composite: Image 1 remains the photographic base, Image 4+ contributes assets, Image 2 and Image 3 only lock geometry and depth.",
-        non_negotiable_locks: {
-          priority: "highest — overrides every other instruction in this JSON",
-          rule_1_image_1_is_the_output_base: "The output IS Image 1, with extra objects added on top. Image 1's pixels pass through unchanged everywhere except in the empty zones where new assets are placed. addition_only_mode = true.",
-          rule_2_character_unchanged: "The character of Image 1 stays exactly the same: same face, same costume, same pose, same pixel size, same body proportions, same position on canvas. Do not redraw, resize, re-center, re-pose or regenerate the character.",
-          rule_3_lineart_skeleton: "Image 2 is a hard geometric mask. New assets must NEVER cross, redraw, smooth, thicken or fill any line of Image 2. Treat lineart as walls.",
-          rule_3a_lineart_visual_invisibility: "Image 2 is INVISIBLE in the final output. The final image MUST NOT contain black outlines, monoline strokes, blueprint background, flat gray bands or any other visual signature of a lineart. Read its geometry, never reproduce its appearance.",
-          rule_4_depth_perspective: "Image 3 is the only valid depth field. Every new object's size, position and overlap order must obey Image 3's depth gradient. The character's depth band in Image 3 is the size anchor for any object placed at that depth.",
-          rule_4a_depth_visual_invisibility: "Image 3 is INVISIBLE in the final output. The final image MUST NOT contain a grayscale wash, monochrome single-channel look, blue-to-red false-color depth tint, or uniform depth-pass haze. Read its distance values, never reproduce its appearance.",
-          rule_5_visual_style_source: "The final image's visible appearance comes ONLY from Image 1 (real photograph) and Image 4+ (asset references rendered in photographic style). Image 2 and Image 3 contribute zero visible pixels.",
-          rule_5a_photographic_output_lock: "The final image is a REAL PHOTOGRAPH. Render as DSLR / mirrorless camera output matching Image 1's medium — real skin pores, fabric weave, photographic noise, real lens bokeh. Do NOT render as cinematic CG, UE5 / Octane / path-traced look, video-game CG, ray-traced highlight, hi-fi 3D render, concept art or any cinematic-CG signature, even if other fields (output_look, render_engine) suggest otherwise. Those CG-flavored fields are ADVISORY tone only and are overridden by this rule.",
-          rule_6_reference_images_are_asset_library_only: "Image 4 onward contribute objects, palette, lighting and atmosphere only. Never copy their character, composition, framing, perspective, scale, text or logos.",
-          rule_7_priority: "If any other field in this JSON conflicts with rules 1-6, these rules win automatically."
-        },
-        image_inputs: {
-          slot_1_image_1_base_photo: {
-            variable: basePhoto,
-            visibility: "VISIBLE — primary style source for the final image",
-            role: "output base, character source, true skin and texture source",
-            lock: "pixels pass through unchanged outside the addition zones"
-          },
-          slot_2_image_2_lineart: {
-            variable: lineart,
-            visibility: "INVISIBLE — geometric guide only, never drawn into the final image",
-            role: "geometric skeleton, hard mask of all key edges of Image 1",
-            lock: "no crossing, no redrawing, no smoothing of any line",
-            isolation: "Read its geometry, render in Image 1's photographic style. Do NOT reproduce its black outlines, monoline strokes, gray bands or blueprint look."
-          },
-          slot_3_image_3_depthmap: {
-            variable: depthMap,
-            polarity: depthPolarity,
-            polarity_explanation: depthPolarityPrompt,
-            visibility: "INVISIBLE — depth guide only, never drawn into the final image",
-            role: "perspective and size lock — defines the depth band of every pixel",
-            lock: "all new asset sizes and overlap orders read from Image 3",
-            isolation: "Read its distance values, render in Image 1's photographic style. Do NOT reproduce its grayscale wash, monochrome look or false-color depth tint."
-          },
-          slot_4_plus_image_4_asset_references: {
-            variable: refImages,
-            visibility: "VISIBLE — secondary style source for new assets only",
-            role: "asset library — supplies objects, palette, lighting, atmosphere",
-            lock: "never copy reference composition, character, perspective, scale, text or logos"
-          },
-          upload_order_note: "Upload Slot 1 first, then Slot 2, Slot 3, Slot 4+. Order matters — earlier slots carry higher weight.",
-          visible_style_sources: ["Slot 1", "Slot 4+"],
-          invisible_geometric_guides: ["Slot 2", "Slot 3"]
-        },
-        aspect_ratio: aspectRatio,
-        composition_variant: compositionVariant,
-        composition_variant_prompt: compositionPrompt,
-        control_settings: {
-          asset_density: {
-            value: assetDensity,
-            rule: assetDensityPreset.rule,
-            foreground_count: assetDensityPreset.foreground_count,
-            midground_count: assetDensityPreset.midground_count,
-            background_count: assetDensityPreset.background_count
-          },
-          character_protection: {
-            value: characterProtection,
-            rule: characterProtectionPrompt
-          },
-          occlusion_policy: {
-            value: occlusionPolicy,
-            rule: occlusionPolicyPrompt
-          },
-          venue_proof_level: {
-            value: venueProofLevel,
-            minimum_visible_venue_elements: venueProofPreset.count,
-            rule: venueProofPreset.rule
-          }
-        },
-        photographic_output_lock: {
-          priority: "highest — overrides output_look / render_engine / cinematic-CG cues anywhere else in this JSON",
-          rule: "The final image is a real photograph matching Image 1's medium (DSLR / mirrorless still camera output). Render new assets with real materials, real lens bokeh, real photographic noise, real color science.",
-          forbidden_render_styles: [
-            "UE5 cinematic CG", "Octane render", "path-traced cinematic look",
-            "video-game CG materials", "concept-art polish", "hi-fi 3D render",
-            "Hollywood VFX render", "ray-traced glossy highlight look",
-            "any cinematic-CG signature"
-          ],
-          advisory_only_fields: [
-            "output_look (treat as tonal hint only — render style is photographic)",
-            "render_engine (treat as tonal hint only — render style is photographic)",
-            "render_engine_preset (treat as tonal hint only — render style is photographic)"
-          ]
-        },
-        output_look: outputLook,
-        output_look_note: "ADVISORY ONLY — does NOT change rendering style. Final image is always a real photograph per photographic_output_lock.",
-        render_engine: engine,
-        render_engine_note: "ADVISORY ONLY — does NOT change rendering style. Final image is always a real photograph per photographic_output_lock.",
-        render_engine_preset: enginePreset,
-        key_light_direction: keyLightDirection,
-        key_light_direction_preset: keyLightPreset,
-        phase_1_decompose_asset_references: {
-          goal: "Extract reusable visual DNA from Image 4+ without copying any of their composition or characters.",
-          asset_extraction: assetExtractPrompt,
-          palette_extraction: palettePrompt,
-          lighting_extraction: lightingPrompt,
-          material_aging_extraction: materialPrompt
-        },
-        phase_2_lock_image_1_skeleton: {
-          goal: "Bind every subsequent placement to Image 1 + Image 2 + Image 3.",
-          task_definition: taskPrompt,
-          image_role_definition: imageRolePrompt,
-          lineart_usage: lineartUsagePrompt,
-          depth_preservation: depthPreservationPrompt,
-          character_lock: lockPrompt,
-          venue_elements_to_keep: venueKeepPrompt,
-          locked_camera: "camera angle, focal length, vanishing point, horizon line, framing of Image 1 are all non-editable",
-          locked_character_attributes: [
-            "face", "eyes", "makeup", "skin tone", "hair",
-            "every costume part", "accessories", "weapons",
-            "held objects", "pose", "silhouette", "finger shape",
-            "pixel position", "pixel size", "body proportions"
-          ]
-        },
-        phase_3_asset_injection: {
-          goal: "Classify each extracted asset and place it under Image 3's depth and Image 2's lineart.",
-          asset_branching: assetBranchPrompt,
-          control_settings_applied: {
-            density: assetDensityPreset.rule,
-            character_protection: characterProtectionPrompt,
-            occlusion_policy: occlusionPolicyPrompt,
-            venue_proof: venueProofPreset.rule
-          },
-          three_layer_placement: {
-            foreground_bottom_third: foregroundPrompt,
-            midground_around_character: midgroundPrompt,
-            background_top_third_keep_venue: backgroundPrompt
-          },
-          perspective_lock: perspectivePrompt,
-          shadow_and_lighting_match: shadowPrompt,
-          ground_integration: groundPrompt,
-          unification_pass: unifyPrompt
-        },
-        placement_protocol: {
-          step_1_protected_masks: [
-            "mask the full character from Image 1 as protected pixels",
-            "mask face, eyes, mouth, hands, fingers, feet, weapons and held hero props as absolute no-overpaint zones",
-            "mask venue proof elements that must remain readable"
-          ],
-          step_2_safe_zones: [
-            "open air and upper background zones",
-            "floor areas beside or in front of the character where feet remain readable",
-            "side margins and frame-edge foreground zones",
-            "midground gaps that do not cross Image 2 lineart"
-          ],
-          step_3_asset_order: [
-            "place large structural assets first along Image 3 depth and Image 1 perspective",
-            "place midground identity assets second, keeping the character dominant",
-            "place foreground debris and VFX last, with depth blur matching Image 1"
-          ],
-          step_4_integration_checks: [
-            "each asset has a footprint, contact shadow or atmospheric reason to exist",
-            "each asset follows the same light direction as Image 1",
-            "distant assets are smaller, softer and slightly desaturated",
-            "near assets are larger only if Image 3 says they are near"
-          ]
-        },
-        failure_prevention: {
-          do_not_solve_by_repainting: "Never solve mismatched assets by repainting Image 1 or changing the character. Instead reduce, move, blur or relight the added asset.",
-          lineart_depth_leak_fix: "If outlines, gray bands, monochrome wash or depth gradients appear, remove those visual traces and re-render the affected area as real photographic content.",
-          character_damage_fix: "If face, hands, body proportions, pose, costume identity or pixel position changed, restore Image 1 pixels and regenerate only the added assets.",
-          over_composite_fix: "If the image no longer reads as a convention or real venue photo, reduce asset density and restore more venue elements."
-        },
-        lock_strength_parameters: lockStrengthPrompt,
-        visual_style_anchor: {
-          priority: "highest — read after non_negotiable_locks, before generating any pixel",
-          rule: visualStyleAnchorPrompt,
-          allowed_pixel_sources: [
-            "Slot 1 pass-through pixels",
-            "new assets from Slot 4+ rendered in Slot 1's photographic style"
-          ],
-          forbidden_pixel_sources: [
-            "Slot 2 lineart appearance (black outlines, monoline strokes, blueprint background, flat gray bands)",
-            "Slot 3 depth-map appearance (grayscale wash, single-channel monochrome, false-color depth tint, depth-pass haze)"
-          ],
-          self_diagnostic: "If any region of the output looks like a lineart, sketch, blueprint, depth pass, normal map, AO pass, cel-shaded illustration or grayscale render, that region is leakage from Slot 2 or Slot 3 and must be re-rendered using Slot 1's photographic style."
-        },
-        output_and_self_check: outputPrompt,
-        positive_prompt_template: promptLines,
-        negative_prompt: negativePrompt.split(",").map((item) => item.trim()).filter(Boolean),
-        self_check_questions: [
-          "Has Image 1's character passed through unchanged at the same pixel size, same position and same identity?",
-          "Is Image 2 used only as invisible geometry, with no visible black outlines, line strokes, gray bands or paper/blueprint look in the final image?",
-          "Is Image 3 used only as invisible depth, with no visible grayscale wash, monochrome overlay, false-color tint or depth-pass haze?",
-          "Does the final image look like a REAL PHOTOGRAPH (DSLR / mirrorless still), NOT like a cinematic CG render, UE5 / Octane / path-traced look, video-game CG, or hi-fi 3D showcase?",
-          "Is the character's skin still photographic (real pores, real subsurface), not plastic / over-rendered / CG-smooth?",
-          "Are new assets rendered as real photographed objects (real materials, real reflections, real lens bokeh), not as 3D-rendered CG props?",
-          "Do all new assets follow Image 3's depth — closer larger, farther smaller, correct overlap order?",
-          "Are at least " + venueProofPreset.count + " venue elements (truss, lights, banners, distant crowd, booth structures, floor reflections or signage) still visible?",
-          "Does the output obey the selected density setting: " + assetDensityPreset.label + "?",
-          "Does the output obey the selected occlusion policy: " + occlusionPolicy + "?",
-          "Do all new assets cast contact shadows matching Image 1's light direction?",
-          "Is the color grade subtle enough to keep skin tones intact?",
-          "Does the final image still read as 'shot inside a convention hall'?"
-        ]
-      };
-    }
-
     function makeAssetCompositePrompt() {
       const basePhoto = value("assetCompPhotoVariable") || "[IMAGE_1_BASE_PHOTO]";
       const lineart = value("assetCompLineartVariable") || "[IMAGE_2_LINEART]";
@@ -8019,243 +7167,6 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
       };
     }
 
-    function makeSceneCompositePrompt() {
-      const basePhoto = value("sceneCompPhotoVariable") || "[IMAGE_1_BASE_PHOTO]";
-      const lineart = value("sceneCompLineartVariable") || "[IMAGE_2_LINEART]";
-      const depthMap = value("sceneCompDepthVariable") || "[IMAGE_3_DEPTHMAP]";
-      const depthPolarity = value("sceneCompDepthPolarity") || "near_black_far_white";
-      const sceneJson = value("sceneCompSceneJsonPrompt") || "[PASTE_SCENE_PLACEHOLDER_JSON_HERE]";
-      const scenePromptText = value("sceneCompScenePromptText") || "[PASTE_SCENE_PLACEHOLDER_PROMPT_TEXT_HERE]";
-      const aspectRatio = value("sceneCompAspectRatio") || "match Image 1 aspect ratio";
-      const insertionStrategy = value("sceneCompInsertionStrategy") || "environment_edges";
-      const assetDensity = value("sceneCompAssetDensity") || "balanced";
-      const venueProofLevel = value("sceneCompVenueProofLevel") || "keep_2";
-      const taskPrompt = value("sceneCompTaskPrompt");
-      const sceneJsonUsagePrompt = value("sceneCompSceneJsonUsagePrompt");
-      const geometryPrompt = value("sceneCompGeometryPrompt");
-      const placementPrompt = value("sceneCompPlacementPrompt");
-      const negativePrompt = value("sceneCompNegativePrompt");
-      const outputPrompt = value("sceneCompOutputPrompt");
-      const keyLightDirection = value("keyLightDirection") || "auto";
-      const keyLightPreset = currentKeyLightDirectionPreset();
-
-      const depthPolarityMap = {
-        near_black_far_white: "In Image 3, BLACK pixels = near camera, WHITE pixels = far from camera. Read it accordingly.",
-        near_white_far_black: "In Image 3, WHITE pixels = near camera, BLACK pixels = far from camera. Read it accordingly."
-      };
-      const depthPolarityPrompt = depthPolarityMap[depthPolarity] || depthPolarityMap.near_black_far_white;
-
-      const insertionStrategyMap = {
-        environment_edges: "Environment edges: translate the Scene JSON into side-margin structures, top-background silhouettes, floor-edge props and atmospheric layers first. Keep the central character area open.",
-        center_world_wrap: "World wrap: place Scene JSON identity assets around the character in a loose frame, using side and rear midground positions. The character remains the center and is never repainted.",
-        ground_first: "Ground first: translate the Scene JSON ground design before anything else. Build believable foot contact, debris, material patches, stains, dust, leaves, moss, snow, ash or reflections around the character's feet.",
-        background_first: "Background first: translate the Scene JSON background structure and atmosphere first while retaining real venue proof from Image 1. Add midground and foreground assets only after the background feels integrated."
-      };
-      const insertionPrompt = insertionStrategyMap[insertionStrategy] || insertionStrategyMap.environment_edges;
-
-      const assetDensityMap = {
-        subtle: {
-          label: "subtle",
-          rule: "Subtle Scene JSON translation: use 2 to 4 visible scene additions. Keep Image 1 highly recognizable. New elements should occupy no more than 18% of the frame."
-        },
-        balanced: {
-          label: "balanced",
-          rule: "Balanced Scene JSON translation: use 4 to 7 visible scene additions across foreground, midground and background. The Scene JSON identity should be readable, but Image 1 remains the base photo."
-        },
-        rich: {
-          label: "rich",
-          rule: "Rich Scene JSON translation: use 7 to 10 visible scene additions and stronger atmosphere. Do not exceed 45% new visual coverage, and do not turn this into a full background replacement."
-        }
-      };
-      const assetDensityPreset = assetDensityMap[assetDensity] || assetDensityMap.balanced;
-
-      const venueProofMap = {
-        keep_2: { count: 2, rule: "retain at least 2 identifiable venue/photo-origin elements from Image 1" },
-        keep_3: { count: 3, rule: "retain at least 3 identifiable venue/photo-origin elements from Image 1" },
-        keep_4: { count: 4, rule: "retain at least 4 identifiable venue/photo-origin elements from Image 1" }
-      };
-      const venueProofPreset = venueProofMap[venueProofLevel] || venueProofMap.keep_2;
-
-      const sceneJsonModules = [
-        "scene / specific environment description",
-        "atmosphere and mood",
-        "lighting and key light logic",
-        "color palette",
-        "materials and aging language",
-        "environment FX",
-        "scene structure foreground-midground-background",
-        "story details",
-        "key visual elements",
-        "ground design",
-        "scale reference"
-      ];
-
-      const positivePromptTemplate = [
-        "TASK IN ONE LINE: Create a white-model-scene-guided half-composite. Use Image 1 as the unchanged base photo. Use the pasted Scene Placeholder JSON and/or Scene Prompt Text instead of reference images.",
-        "There is NO Slot 4 asset reference image. Do not ask for reference images. The white-model scene text source (Scene Placeholder JSON + Scene Prompt Text) is the only source for new scene design, assets, color, lighting, materials, FX and ground treatment.",
-        "Slot 1 = " + basePhoto + " (BASE PHOTO, output base, real character, real camera, real photographic style).",
-        "Slot 2 = " + lineart + " (LINEART, invisible geometry guide only, never visible in final).",
-        "Slot 3 = " + depthMap + " (DEPTH MAP, invisible depth guide only). " + depthPolarityPrompt,
-        "Scene Placeholder JSON source: " + sceneJson,
-        "Scene Prompt Text source: " + scenePromptText,
-        "Core task: " + taskPrompt,
-        "Scene JSON translation: " + sceneJsonUsagePrompt,
-        "Control settings: " + assetDensityPreset.rule + " Insertion strategy: " + insertionPrompt + " Venue proof rule: " + venueProofPreset.rule + ".",
-        "Geometry lock: " + geometryPrompt,
-        "Placement and blend: " + placementPrompt,
-        "Preferred key light direction: " + keyLightPreset.prompt,
-        "PHOTOGRAPHIC OUTPUT LOCK: The final image must look like Image 1's real photograph. Newly added Scene JSON elements must be rendered as photographed objects matching Image 1's lens, exposure, grain, blur, shadow softness and color science. Do not render the character as CG. Do not produce a UE/Octane/path-traced look on the character.",
-        "Aspect ratio: " + aspectRatio,
-        "Output and self-check: " + outputPrompt
-      ].filter(Boolean).join(" ");
-
-      return {
-        task: "scene_json_guided_half_composite",
-        project_name: "假丹模拟器 / 白模半合成",
-        version: "v1.1 (scene placeholder JSON/text + lineart + depth)",
-        output_mode: "scene_json_half_composite_json",
-        one_line_intent: "Use the white-model scene JSON and/or scene prompt text as the replacement for reference images, while Image 2 and Image 3 keep the half-composite perspective lock.",
-        input_contract: {
-          slot_1_image_1_base_photo: {
-            variable: basePhoto,
-            role: "visible output base and real character source",
-            lock: "character, camera, aspect ratio, pose, identity, skin, costume and base perspective pass through unchanged"
-          },
-          slot_2_image_2_lineart: {
-            variable: lineart,
-            role: "invisible geometry guide",
-            lock: "new Scene JSON elements must respect lineart boundaries, but lineart style never appears"
-          },
-          slot_3_image_3_depthmap: {
-            variable: depthMap,
-            polarity: depthPolarity,
-            polarity_explanation: depthPolarityPrompt,
-            role: "invisible depth and scale guide",
-            lock: "new Scene JSON elements obey depth scale, overlap order and character depth band"
-          },
-          scene_placeholder_json: {
-            source: sceneJson,
-            role: "text/json design source replacing Slot 4+ reference images",
-            visibility: "visible only through translated new scene elements, not as text or UI"
-          },
-          scene_placeholder_prompt_text: {
-            source: scenePromptText,
-            role: "plain-language white-model scene prompt replacing Slot 4+ reference images",
-            visibility: "visible only through translated scene design, not as text"
-          },
-          no_reference_image_rule: "Do not require or infer any Slot 4+ reference images. The Scene Placeholder JSON and Scene Prompt Text are the only external design sources."
-        },
-        non_negotiable_locks: {
-          priority: "highest — overrides every other field",
-          image_1_is_output_base: "The output is Image 1 with Scene JSON elements added. Do not replace the full background or regenerate the character.",
-          character_unchanged: "Same face, hair, skin, costume, pose, hands, feet, body proportions, pixel position and identity.",
-          lineart_invisible: "Image 2 contributes geometry only. No outlines, strokes, gray bands, blueprint paper or lineart look in the final output.",
-          depth_invisible: "Image 3 contributes depth only. No grayscale wash, monochrome overlay, false-color depth tint or depth-pass haze in the final output.",
-          scene_source_replaces_reference_images: "Scene Placeholder JSON and Scene Prompt Text replace Image 4+ references. Use them as design instructions, not as visible text.",
-          white_mannequin_removal: "If the Scene JSON or Scene Prompt Text mentions a white mannequin placeholder or 1.7m scale figure, treat it only as scale logic. Do not generate or show a mannequin. Image 1's real character replaces the placeholder."
-        },
-        scene_json_translation_source: {
-          raw_scene_placeholder_json: sceneJson,
-          raw_scene_placeholder_prompt_text: scenePromptText,
-          modules_to_extract: sceneJsonModules,
-          translation_rules: {
-            scene_identity: "Use scene / structure / visual elements to define what assets are added.",
-            atmosphere: "Use atmosphere and FX to create haze, particles, weather, smoke, dust or subtle environmental mood.",
-            lighting: "Use JSON lighting only after matching Image 1's real key light direction. Image 1 lighting wins if there is conflict.",
-            color: "Apply JSON palette as a subtle scene grade and asset color language. Do not recolor skin, face, hair or main costume.",
-            material: "Translate material language into new asset surfaces and ground patches only.",
-            ground: "Use ground design around the feet for contact, debris, stains, moss, leaves, snow, ash, water or cracked floor details.",
-            scale: "Use the JSON 1.7m scale reference only to size added props relative to Image 1's character."
-          },
-          prompt_text_usage: "Use the Scene Prompt Text as the direct readable scene brief. If it conflicts with the JSON, preserve Image 1 first, then follow the prompt text for scene identity and visible additions, then use JSON modules for structured details.",
-          author_instruction: sceneJsonUsagePrompt
-        },
-        control_settings: {
-          insertion_strategy: {
-            value: insertionStrategy,
-            rule: insertionPrompt
-          },
-          asset_density: {
-            value: assetDensity,
-            rule: assetDensityPreset.rule
-          },
-          venue_proof_level: {
-            value: venueProofLevel,
-            minimum_visible_venue_elements: venueProofPreset.count,
-            rule: venueProofPreset.rule
-          },
-          key_light_direction: keyLightDirection,
-          key_light_direction_preset: keyLightPreset,
-          aspect_ratio: aspectRatio
-        },
-        geometry_and_depth_protocol: {
-          rule: geometryPrompt,
-          protected_masks: [
-            "full Image 1 character",
-            "face, eyes, mouth, hands, fingers, feet, weapons, held hero props",
-            "venue/photo-origin proof elements selected from Image 1"
-          ],
-          safe_zones_for_scene_json_elements: [
-            "side margins",
-            "upper background",
-            "open floor around but not over the feet",
-            "midground gaps not blocked by Image 2 lineart",
-            "foreground edges that do not hide the character"
-          ],
-          depth_rules: [
-            "near Scene JSON elements must be larger only if Image 3 says they are near",
-            "far Scene JSON elements must be smaller, softer and more desaturated",
-            "overlap order follows Image 3, not the Scene JSON text order",
-            "all object footprints sit on Image 1's existing floor plane"
-          ]
-        },
-        placement_and_blend_protocol: {
-          rule: placementPrompt,
-          order: [
-            "analyze Image 1 protected pixels and venue proof",
-            "parse Scene Placeholder JSON modules",
-            "remove any mannequin / placeholder concept from the Scene JSON",
-            "translate key visual elements into addable scene assets",
-            "place assets according to insertion strategy, lineart and depth",
-            "match contact shadows, lens blur, grain and exposure to Image 1",
-            "apply subtle unified atmosphere without damaging skin tones"
-          ],
-          failure_fixes: {
-            if_character_changed: "restore Image 1 character pixels and regenerate only the added scene elements",
-            if_scene_json_ignored: "increase asset density one level or move key visual elements into midground/background safe zones",
-            if_full_background_replaced: "restore Image 1 venue proof and reduce Scene JSON coverage",
-            if_lineart_or_depth_visible: "remove visible guide traces and render that region in Image 1 photographic style"
-          }
-        },
-        photographic_output_lock: {
-          priority: "highest",
-          rule: "Final output is a real photograph matching Image 1. Scene JSON elements become photographed physical additions, not CG render passes. Character never becomes CG.",
-          forbidden_styles: [
-            "visible white mannequin",
-            "full CG character",
-            "UE5 render on character",
-            "Octane render on character",
-            "lineart look",
-            "depth map look",
-            "full background replacement"
-          ]
-        },
-        output_and_self_check: outputPrompt,
-        positive_prompt_template: positivePromptTemplate,
-        negative_prompt: negativePrompt.split(",").map((item) => item.trim()).filter(Boolean),
-        self_check_questions: [
-          "Was the Scene Placeholder JSON used instead of reference images?",
-          "Is there no visible white mannequin or placeholder figure?",
-          "Did Image 1's character remain unchanged in face, pose, costume, pixel size and position?",
-          "Are Image 2 lineart and Image 3 depth map invisible in the final image?",
-          "Do added scene elements follow Image 3 depth scale and Image 1 perspective?",
-          "Are at least " + venueProofPreset.count + " original venue/photo-origin elements still visible?",
-          "Do added elements clearly reflect the Scene JSON scene identity, key visuals, materials, color, lighting, FX and ground design?",
-          "Does the final output still look like a real photograph, not a full CG scene?"
-        ]
-      };
-    }
-
     function makeLineartPrompt() {
       const inputImage = value("lineartInputVariable") || "[INPUT_IMAGE]";
       const aspectRatio = value("lineartAspectRatio") || "same as input image";
@@ -8336,9 +7247,7 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
       if (currentMode === "asset") return makeAssetPrompt();
       if (currentMode === "materialSplit") return makeMaterialSplitPrompt();
       if (currentMode === "zDepth") return makeZDepthPrompt();
-      if (currentMode === "halfComposite") return makeHalfCompositePrompt();
       if (currentMode === "assetComposite") return makeAssetCompositePrompt();
-      if (currentMode === "sceneComposite") return makeSceneCompositePrompt();
       if (currentMode === "lineart") return makeLineartPrompt();
       if (sceneOutputMode === "api") return makeSceneCompactPrompt("api");
       if (sceneOutputMode === "web") return makeSceneCompactPrompt("web");
@@ -8423,9 +7332,7 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
       const isAsset = mode === "asset";
       const isMaterialSplit = mode === "materialSplit";
       const isZDepth = mode === "zDepth";
-      const isHalfComposite = mode === "halfComposite";
       const isAssetComposite = mode === "assetComposite";
-      const isSceneComposite = mode === "sceneComposite";
       const isLineart = mode === "lineart";
       const isScene = mode === "scene";
       $("sceneWorkflow").hidden = !isScene;
@@ -8433,25 +7340,21 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
       $("assetWorkflow").hidden = !isAsset;
       $("materialSplitWorkflow").hidden = !isMaterialSplit;
       $("zDepthWorkflow").hidden = !isZDepth;
-      $("halfCompositeWorkflow").hidden = !isHalfComposite;
       $("assetCompositeWorkflow").hidden = !isAssetComposite;
-      $("sceneCompositeWorkflow").hidden = !isSceneComposite;
       $("lineartWorkflow").hidden = !isLineart;
       $("sceneModeBtn").classList.toggle("active", isScene);
       $("reverseModeBtn").classList.toggle("active", isReverse);
       $("assetModeBtn").classList.toggle("active", isAsset);
       $("materialSplitModeBtn").classList.toggle("active", isMaterialSplit);
       $("zDepthModeBtn").classList.toggle("active", isZDepth);
-      $("halfCompositeModeBtn").classList.toggle("active", isHalfComposite);
       $("assetCompositeModeBtn").classList.toggle("active", isAssetComposite);
-      $("sceneCompositeModeBtn").classList.toggle("active", isSceneComposite);
       $("lineartModeBtn").classList.toggle("active", isLineart);
-      $("modeBadge").textContent = isReverse ? "倒推提示词" : isAsset ? "资产拆分图" : isMaterialSplit ? "素材拆分" : isZDepth ? "Z通道转化" : isHalfComposite ? "半合成提示词" : isAssetComposite ? "半合成资产拼接" : isSceneComposite ? "白模半合成" : isLineart ? "线稿提取" : "场景白模";
-      $("outputBadge").textContent = isReverse ? "按白模模块拆图" : isAsset ? "双视图资产图集" : isMaterialSplit ? "4x4 合成素材层" : isZDepth ? "反转 Z-Depth 灰度图" : isHalfComposite ? "图1 锁定 + 图2+ 注入" : isAssetComposite ? "图1+线稿+深度+2D资产图" : isSceneComposite ? "白模 JSON + 线稿深度锁" : isLineart ? "结构线稿 + 灰阶分层" : "白模场景 / 后期合成";
-      $("consoleLabel").textContent = isReverse ? "reverse image prompt modules json" : isAsset ? "dual-view asset breakdown json" : isMaterialSplit ? "16-panel compositing asset split json" : isZDepth ? "inverted z-depth conversion json" : isHalfComposite ? "half-composite cosplay prompt json" : isAssetComposite ? "asset atlas transfer half-composite json" : isSceneComposite ? "scene-json guided half-composite json" : isLineart ? "structural lineart extraction json" : sceneOutputMode === "api" ? "scene placeholder api-safe compact json" : sceneOutputMode === "web" ? "scene placeholder web compact prompt" : "scene placeholder json";
+      $("modeBadge").textContent = isReverse ? "倒推提示词" : isAsset ? "资产拆分图" : isMaterialSplit ? "素材拆分" : isZDepth ? "Z通道转化" : isAssetComposite ? "半合成资产拼接" : isLineart ? "线稿提取" : "场景白模";
+      $("outputBadge").textContent = isReverse ? "按白模模块拆图" : isAsset ? "双视图资产图集" : isMaterialSplit ? "4x4 合成素材层" : isZDepth ? "反转 Z-Depth 灰度图" : isAssetComposite ? "图1+线稿+深度+2D资产图" : isLineart ? "结构线稿 + 灰阶分层" : "白模场景 / 后期合成";
+      $("consoleLabel").textContent = isReverse ? "reverse image prompt modules json" : isAsset ? "dual-view asset breakdown json" : isMaterialSplit ? "16-panel compositing asset split json" : isZDepth ? "inverted z-depth conversion json" : isAssetComposite ? "asset atlas transfer half-composite json" : isLineart ? "structural lineart extraction json" : sceneOutputMode === "api" ? "scene placeholder api-safe compact json" : sceneOutputMode === "web" ? "scene placeholder web compact prompt" : "scene placeholder json";
       updateSceneOutputTools();
       generate();
-      $("status").textContent = isReverse ? "已切换到倒推提示词 JSON" : isAsset ? "已切换到资产拆分图 JSON" : isMaterialSplit ? "已切换到素材拆分 JSON" : isZDepth ? "已切换到 Z通道转化 JSON" : isHalfComposite ? "已切换到半合成提示词 JSON" : isAssetComposite ? "已切换到半合成资产拼接 JSON" : isSceneComposite ? "已切换到白模半合成 JSON" : isLineart ? "已切换到线稿提取 JSON" : "已切换到场景白模 JSON";
+      $("status").textContent = isReverse ? "已切换到倒推提示词 JSON" : isAsset ? "已切换到资产拆分图 JSON" : isMaterialSplit ? "已切换到素材拆分 JSON" : isZDepth ? "已切换到 Z通道转化 JSON" : isAssetComposite ? "已切换到半合成资产拼接 JSON" : isLineart ? "已切换到线稿提取 JSON" : "已切换到场景白模 JSON";
     }
 
     function refreshSceneVariants(selectedVariantId) {
@@ -8526,9 +7429,7 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
     $("assetModeBtn").addEventListener("click", () => setMode("asset"));
     $("materialSplitModeBtn").addEventListener("click", () => setMode("materialSplit"));
     $("zDepthModeBtn").addEventListener("click", () => setMode("zDepth"));
-    $("halfCompositeModeBtn").addEventListener("click", () => setMode("halfComposite"));
     $("assetCompositeModeBtn").addEventListener("click", () => setMode("assetComposite"));
-    $("sceneCompositeModeBtn").addEventListener("click", () => setMode("sceneComposite"));
     $("lineartModeBtn").addEventListener("click", () => setMode("lineart"));
     document.querySelectorAll(".output-mode-btn[data-scene-output]").forEach((button) => {
       button.addEventListener("click", () => {
@@ -8558,17 +7459,6 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
       }
     });
 
-    $("halfCompChips").addEventListener("click", (event) => {
-      const chip = event.target.closest(".chip");
-      if (!chip) return;
-      const target = chip.dataset.target;
-      const text = chip.dataset.text;
-      if (target && text) {
-        $(target).value = text;
-        generate();
-        $("status").textContent = "已套用半合成快速词";
-      }
-    });
 
     $("assetCompChips").addEventListener("click", (event) => {
       const chip = event.target.closest(".chip");
@@ -8582,17 +7472,6 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
       }
     });
 
-    $("sceneCompChips").addEventListener("click", (event) => {
-      const chip = event.target.closest(".chip");
-      if (!chip) return;
-      const target = chip.dataset.target;
-      const text = chip.dataset.text;
-      if (target && text) {
-        $(target).value = text;
-        generate();
-        $("status").textContent = "已套用白模半合成快速词";
-      }
-    });
 
     $("lineartChips").addEventListener("click", (event) => {
       const chip = event.target.closest(".chip");
@@ -8720,3 +7599,4 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
   </script>
 </body>
 </html>
+
