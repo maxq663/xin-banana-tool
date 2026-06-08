@@ -5281,16 +5281,17 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
         groundPrompt: "stable cracked stone ground under the placeholder, clear foot contact area, subtle moss and ash, small debris around but not blocking the feet, realistic contact shadow and ground texture"
       },
       apocalypse: {
-        scenePrompt: "post-apocalyptic ruined city street, collapsed buildings, cracked concrete road, rusted signs, overgrown plants, abandoned vehicles, clear central standing area",
+        scenePrompt: "post-apocalyptic ruined city street, collapsed buildings, cracked concrete road, rusted signs, abandoned vehicles, sparse weeds and dry grass only, clear central standing area",
         atmospherePrompt: "desolate ruined world, quiet danger, abandoned civilization, lonely survival mood, cinematic realism",
         lightingPrompt: "cold overcast daylight, long soft shadows, faint sun behind clouds, subtle rim light, realistic contact shadow",
-        colorPrompt: "gray concrete, rusty orange, faded green, dusty beige, low saturation post-apocalyptic grading",
-        materialPrompt: "cracked concrete, rusted metal, broken glass, weathered plastic, dry dust, overgrown vines, damaged asphalt",
-        fxPrompt: "dust in the air, smoke haze, distant fog, small debris, dry atmospheric perspective",
+        colorPrompt: "gray concrete, rusty orange, faded olive, dusty beige, soot black, low saturation post-apocalyptic grading",
+        materialPrompt: "cracked concrete, rusted metal, broken glass, weathered plastic, dry dust, peeling paint, old soot marks, water stains, faded decals without readable text, sparse weeds, dry grass, damaged asphalt",
+        fxPrompt: "dust in the air, smoke haze, distant fog, small debris, dry atmospheric perspective, subtle ash particles",
         structurePrompt: "foreground debris and cracked road, midground open standing area, background collapsed buildings and distant skyline, strong depth",
         storyPrompt: "abandoned checkpoint after disaster, broken street signs, scattered supplies, traces of human evacuation",
-        visualPrompt: "collapsed highway sign, abandoned vehicle silhouette, rusted warning board, overgrown checkpoint barrier, broken city skyline",
-        groundPrompt: "cracked concrete road under the placeholder, dusty foot contact area, scattered debris kept away from the feet, realistic contact shadow, dry rough ground texture"
+        visualPrompt: "collapsed highway sign, abandoned vehicle silhouette, rusted warning board, dusty checkpoint barrier, broken city skyline, sparse weeds only",
+        groundPrompt: "cracked concrete road under the placeholder, dusty foot contact area, scattered debris kept away from the feet, realistic contact shadow, dry rough ground texture, small dry weeds along cracks only",
+        extraPrompt: "emphasize old weathered surfaces, scratches, chipped paint, rust, dust, grime, soot, rain streaks, oil stains and worn edges; keep vegetation sparse and controlled, no dense overgrowth, no lush jungle, no thick vines, no plants covering the main architecture or the mannequin area"
       }
     };
 
@@ -5987,11 +5988,149 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
           id: "ruined_city_street",
           name: "通用废墟街道",
           data: {
-            scenePrompt: "post-apocalyptic ruined city street, collapsed buildings, cracked concrete road, rusted signs, overgrown plants, abandoned vehicles, clear central standing area",
+            scenePrompt: "post-apocalyptic ruined city street, collapsed buildings, cracked concrete road, rusted signs, abandoned vehicles, sparse weeds and dry grass only, clear central standing area",
+            materialPrompt: "cracked concrete, rusted metal, broken glass, weathered plastic, peeling paint, sun-faded decals without readable text, soot marks, oil stains, dry dust, small sparse weeds in cracks only",
             structurePrompt: "foreground debris and cracked road, midground open standing area, background collapsed buildings and distant skyline",
             storyPrompt: "abandoned checkpoint after disaster, broken street signs, scattered supplies, traces of human evacuation",
-            visualPrompt: "collapsed highway sign, abandoned vehicle silhouette, rusted warning board, overgrown checkpoint barrier",
-            groundPrompt: "cracked concrete road under the placeholder, dusty foot contact area, scattered debris kept away from the feet"
+            visualPrompt: "collapsed highway sign, abandoned vehicle silhouette, rusted warning board, dusty checkpoint barrier, broken city skyline",
+            groundPrompt: "cracked concrete road under the placeholder, dusty foot contact area, scattered debris kept away from the feet, small dry weeds along cracks only",
+            extraPrompt: "strong lived-in decay, dust, scratches, chipped paint, rust, grime, soot, rain streaks and worn edges; vegetation must stay sparse, no dense overgrowth, no thick vines, no lush plants covering architecture"
+          }
+        },
+        {
+          id: "abandoned_mall_entrance",
+          name: "废弃商场入口",
+          data: {
+            scenePrompt: "post-apocalyptic abandoned shopping mall entrance, shattered glass doors, cracked stone facade, rusted roll-up shutters, fallen sign frames without readable text, abandoned luggage carts, sparse dry weeds near wall edges, clear central standing area",
+            atmospherePrompt: "quiet abandoned consumer-world mood, dusty stale air, lonely survival atmosphere, realistic CG decay without lush nature takeover",
+            lightingPrompt: "cold overcast daylight entering through broken canopy glass, soft side shadows, dim interior darkness behind the entrance, realistic contact shadow",
+            colorPrompt: "dusty concrete gray, faded mall beige, rust brown, dirty glass green tint, soot black, low saturation cinematic grade",
+            materialPrompt: "shattered glass, oxidized aluminum door frames, cracked polished stone, peeling paint, rusted shutters, dusty plastic panels, stained marble, scuffed rubber mats, grime in door tracks, old sticker residue without readable text",
+            fxPrompt: "thin dust haze, small drifting paper scraps, subtle ash particles, muted interior darkness, no lush plant growth",
+            structurePrompt: "foreground broken tile and dust, midground clean entrance threshold with central standing area, background dark mall interior, collapsed ceiling panels and shutter silhouettes",
+            storyPrompt: "mall evacuated years ago, storefronts sealed, carts abandoned near the entrance, old posters torn away, wind pushing dust through broken doors",
+            visualPrompt: "shattered mall glass doors, rusted shutter line, broken canopy, fallen blank sign frame, abandoned cart, cracked tile pattern",
+            groundPrompt: "flat cracked mall tile under the placeholder, clear foot contact area, dust layer, shoe scuffs, glass fragments kept to edges, small dry weeds only along wall cracks, realistic contact shadow",
+            extraPrompt: "emphasize old stains, scratches, chipped edges, dust, grime, rust and peeling paint; keep vegetation minimal, no jungle mall, no thick vines, no plants blocking the mannequin"
+          }
+        },
+        {
+          id: "quarantine_tollgate",
+          name: "废弃隔离收费站",
+          data: {
+            scenePrompt: "abandoned post-apocalyptic highway quarantine tollgate, concrete booths, rusted barrier arms, sandbag remains, cracked asphalt lanes, empty inspection tents, faded lane markings, sparse dry grass near guardrails, clear central standing area",
+            atmospherePrompt: "stopped evacuation route, silent checkpoint after collapse, dry dust and cold danger, grounded survival realism",
+            lightingPrompt: "flat gray daylight with faint sun through haze, long soft barrier shadows, realistic contact shadow, low contrast cinematic mood",
+            colorPrompt: "weathered concrete gray, rust orange, faded yellow lane paint, dusty beige, dirty white tent fabric, desaturated survival palette",
+            materialPrompt: "chipped concrete booths, rusted steel barriers, torn canvas inspection tent, cracked asphalt, faded paint stripes, dusty plastic cones, broken glass, oil stains, tire scuffs, grime around booth windows",
+            fxPrompt: "windblown dust, faint smoke in distance, drifting paper, dry atmospheric perspective, no heavy fog and no dense plants",
+            structurePrompt: "foreground cracked asphalt lane, midground open inspection area with central standing zone, background toll booths, barrier arms, empty tents and damaged highway signs",
+            storyPrompt: "checkpoint abandoned after an evacuation jam, inspection booth doors left open, supply crates removed, sandbags collapsed and covered in dust",
+            visualPrompt: "rusted toll barrier arm, concrete booth row, empty inspection tent, faded lane arrows, damaged blank highway sign, guardrail silhouette",
+            groundPrompt: "flat cracked asphalt lane under the placeholder, clear foot contact area, faded lane markings, tire dust, oil stains, small gravel at edges, sparse dry grass only near guardrails",
+            extraPrompt: "old weathering and grime are priority: rust, chipped paint, dust, soot, tire marks, oil stains, worn rubber; vegetation sparse only, no thick vines, no green overgrowth"
+          }
+        },
+        {
+          id: "subway_entrance_ruin",
+          name: "地铁入口废墟",
+          data: {
+            scenePrompt: "post-apocalyptic ruined subway entrance at street level, cracked concrete stairs, broken glass canopy, rusted handrails, dark underground opening, collapsed ticket sign frame without readable text, scattered dry leaves and sparse weeds, clear central standing area",
+            atmospherePrompt: "silent underground danger, abandoned city transit mood, cold dust and damp concrete, realistic decayed urban scene",
+            lightingPrompt: "overcast daylight from above, dark tunnel interior, soft rim light along stair edges, damp contact shadows, restrained cinematic contrast",
+            colorPrompt: "cold concrete gray, rust brown rails, dirty glass, damp black shadows, faded blue-gray tiles, low saturation post-collapse grade",
+            materialPrompt: "cracked concrete, rusted handrails, broken safety glass, stained ceramic tiles, peeling paint, water streaks, dark grime in stair corners, dusty plastic signage frames without readable text, scuffed metal edges",
+            fxPrompt: "light dust in air, faint damp mist near underground opening, subtle floating particles, no dramatic god rays, no dense vegetation",
+            structurePrompt: "foreground cracked sidewalk and stair lip, midground clear landing area for the mannequin, background descending stairs, dark tunnel mouth and broken canopy silhouette",
+            storyPrompt: "subway entrance closed during evacuation, barriers knocked aside, ticket signs broken, damp air rising from the tunnel",
+            visualPrompt: "dark subway stair opening, rusted handrail set, broken glass canopy, cracked tile wall, blank transit sign frame, damaged barrier",
+            groundPrompt: "flat cracked sidewalk landing under the placeholder, clear foot contact area, damp stains, dust, small glass kept away from feet, sparse weeds only in far cracks",
+            extraPrompt: "prioritize damp stains, peeling paint, rust, scratched glass, dust, grime and old water streaks; plants must be rare and low, no thick vines, no ivy-covered entrance"
+          }
+        },
+        {
+          id: "convenience_store_corner",
+          name: "便利店街角废墟",
+          data: {
+            scenePrompt: "post-apocalyptic corner convenience store ruin, broken storefront windows, rusted metal shutters half down, empty shelves visible inside, cracked sidewalk, abandoned delivery crates, blank sign panels, sparse dry weeds at curb cracks, clear central standing area",
+            atmospherePrompt: "ordinary daily-life place turned abandoned, quiet dusty survival mood, intimate street-level decay, grounded cinematic realism",
+            lightingPrompt: "soft late afternoon side light, muted interior shadow, warm dust glow on broken glass, realistic contact shadow",
+            colorPrompt: "faded store white, dirty concrete gray, rust orange, dusty blue plastic crates, soot black, low saturation warm-cool grade",
+            materialPrompt: "broken glass, faded painted metal, rusty shutter slats, dusty plastic crates, scuffed tile floor, peeling wall paint, grime around door handles, old adhesive marks, water stains, cracked asphalt curb",
+            fxPrompt: "thin interior dust, small paper scraps, faint street haze, no neon glow, no lush overgrowth",
+            structurePrompt: "foreground cracked sidewalk and curb, midground open storefront corner with central standing area, background dark shop interior, shelving silhouettes and shutter lines",
+            storyPrompt: "store abandoned after supply panic, shelves stripped, crates left outside, shutter stuck halfway, dust collecting on the entrance mat",
+            visualPrompt: "broken convenience store window, half-lowered rusted shutter, blank sign panel, empty shelf silhouettes, delivery crate stack, cracked curb",
+            groundPrompt: "flat cracked sidewalk under the placeholder, clear foot contact area, dust, shoe scuffs, small glass and crates kept to edges, sparse curb weeds only, realistic contact shadow",
+            extraPrompt: "make surfaces visibly aged: scratches, chipped paint, rust, grime, dust, old sticker residue, stains and worn corners; vegetation minimal, no vines covering storefront"
+          }
+        },
+        {
+          id: "parking_garage_shelter",
+          name: "停车楼避难点",
+          data: {
+            scenePrompt: "post-apocalyptic multi-story parking garage shelter, cracked concrete columns, abandoned cars under dust covers, improvised sleeping area, rusted shopping carts, faded parking lines, sparse dry weeds near outer openings, clear central standing area",
+            atmospherePrompt: "temporary shelter after collapse, stale concrete air, human traces without people, quiet survival tension, cinematic realistic decay",
+            lightingPrompt: "soft daylight entering from open garage sides, long column shadows, muted bounce light from concrete, realistic contact shadow",
+            colorPrompt: "cold concrete gray, dusty beige, rust brown, faded white parking stripes, dark oil black, restrained survival palette",
+            materialPrompt: "stained concrete columns, chipped parking paint, dusty car surfaces, cracked rubber tires, rusted cart metal, oil stains, water marks, soot near old camp stove, scuffed plastic tarps, grime in floor seams",
+            fxPrompt: "dry dust haze, faint smoke residue near ceiling, floating particles in side light, no bright beams, no dense plants",
+            structurePrompt: "foreground parking lines and oil stains, midground open bay with central standing area, background concrete columns, abandoned cars, tarp shelter and open city view",
+            storyPrompt: "garage used as a temporary shelter during evacuation, bedding removed, carts left behind, cars buried in dust, old cooking marks on the floor",
+            visualPrompt: "cracked concrete column grid, abandoned car silhouettes, tarp shelter frame, rusted shopping carts, faded parking arrows, open garage edge",
+            groundPrompt: "flat concrete parking floor under the placeholder, clear foot contact area, faded stripe nearby, oil stains and tire dust around edges, no debris blocking feet, realistic contact shadow",
+            extraPrompt: "focus on concrete stains, dust, tire marks, oil, rust, chipped paint and worn shelter materials; very sparse weeds only near exterior cracks, no vines inside the garage"
+          }
+        },
+        {
+          id: "bus_terminal_ruin",
+          name: "公交总站废墟",
+          data: {
+            scenePrompt: "post-apocalyptic bus terminal ruin, cracked concrete platforms, abandoned buses with dusty windows, rusted shelter frames, broken timetable boards without readable text, faded queue lines, sparse dry grass in platform cracks, clear central standing area",
+            atmospherePrompt: "abandoned public transit hub, stopped evacuation memory, dusty silence, wide empty urban decay, realistic CG mood",
+            lightingPrompt: "bright overcast daylight, soft bus shadows, subtle rim light on shelter frames, realistic foot contact shadow",
+            colorPrompt: "faded bus paint, dusty concrete gray, rust brown, dirty glass blue-gray, worn yellow line markings, low saturation grade",
+            materialPrompt: "dusty bus glass, chipped vehicle paint, rusted shelter steel, cracked concrete platform, faded rubber seals, worn plastic seats, oil stains, tire scuffs, peeling poster residue without readable text",
+            fxPrompt: "thin dust across the platform, distant smoke haze, small leaves and paper scraps, no lush greenery and no vine curtains",
+            structurePrompt: "foreground platform cracks and queue lines, midground open standing zone, background abandoned buses, shelter frames and distant terminal canopy",
+            storyPrompt: "terminal emptied during a failed evacuation, buses never departed, timetable boards broken, platform lines fading under dust",
+            visualPrompt: "abandoned bus row, rusted shelter frame, broken blank timetable board, faded queue lines, cracked terminal canopy, dusty bus windows",
+            groundPrompt: "flat cracked bus platform under the placeholder, clear foot contact area, faded queue line beside but not crossing feet, dust, tire residue, small dry grass only in cracks",
+            extraPrompt: "strong weathered transit materials: dusty glass, rusted frames, chipped paint, grime, tire marks, oil stains, torn poster residue; plants sparse, no thick vines, no overgrown bus shell"
+          }
+        },
+        {
+          id: "apartment_lobby_decay",
+          name: "公寓大堂废墟",
+          data: {
+            scenePrompt: "post-apocalyptic apartment lobby ruin, cracked marble floor, broken mailboxes, damaged elevator doors, fallen ceiling panels, dusty reception desk, blank directory board, sparse dry plants in broken planters only, clear central standing area",
+            atmospherePrompt: "domestic urban ruin, abandoned residential building, dusty enclosed silence, unsettling but grounded cinematic realism",
+            lightingPrompt: "soft daylight through broken lobby windows, dim interior fill, gentle reflection on cracked marble, realistic contact shadow",
+            colorPrompt: "dirty marble beige, concrete gray, oxidized brass, faded dark wood, dust white, low saturation interior grade",
+            materialPrompt: "cracked marble, scratched elevator metal, broken mailbox brass, peeling wall paint, dusty wood veneer, water stains, ceiling dust, grime in floor joints, scuffed rubber mat, rusted screws",
+            fxPrompt: "still dust haze, faint moisture stain atmosphere, small fallen plaster particles, no heavy fog, no dense plants",
+            structurePrompt: "foreground cracked lobby floor, midground open standing area, background elevator doors, mailbox wall, reception desk and broken window light",
+            storyPrompt: "residents evacuated long ago, mailboxes forced open, elevator disabled, reception area covered in dust and fallen ceiling fragments",
+            visualPrompt: "damaged elevator doors, broken mailbox wall, cracked marble lobby floor, dusty reception desk, fallen ceiling panels, blank directory board",
+            groundPrompt: "flat cracked marble floor under the placeholder, clear foot contact area, dust, scuff marks, small plaster chips kept to edges, subtle reflection and realistic contact shadow",
+            extraPrompt: "emphasize indoor decay: dust, water stains, chipped marble, scratched metal, peeling paint, grime and worn corners; no vine takeover, only sparse dead planter leaves away from the center"
+          }
+        },
+        {
+          id: "industrial_food_warehouse",
+          name: "食品仓库废墟",
+          data: {
+            scenePrompt: "post-apocalyptic industrial food warehouse, rusted rolling doors, collapsed storage racks, broken pallets, torn plastic curtains, empty crate stacks, dusty concrete floor, sparse dry weeds near loading dock cracks, clear central standing area",
+            atmospherePrompt: "abandoned supply warehouse after collapse, stale dust and spoiled-storage memory, practical survival environment, realistic CG grit",
+            lightingPrompt: "cool daylight from high broken windows, soft shaftless ambient light, deep rack shadows, realistic contact shadow",
+            colorPrompt: "dusty concrete gray, faded industrial white, rust orange, dirty plastic blue, old wood brown, muted survival grade",
+            materialPrompt: "rusted rolling door slats, chipped concrete loading dock, splintered pallets, dusty plastic curtains, scratched metal racks, torn shrink wrap, oil stains, grime in floor joints, faded safety paint without readable text",
+            fxPrompt: "fine warehouse dust, muted air depth, small paper scraps, faint moldy haze, no obvious god rays, no dense vegetation",
+            structurePrompt: "foreground concrete floor and pallet shadows, midground open loading bay with central standing area, background rack silhouettes, rolling doors and high windows",
+            storyPrompt: "food warehouse stripped during emergency, racks collapsed, pallets abandoned, loading door stuck open and dust blown across the floor",
+            visualPrompt: "rusted rolling door, collapsed rack bay, broken pallet stack, torn plastic curtain, empty crate pile, high broken warehouse window",
+            groundPrompt: "flat dusty concrete warehouse floor under the placeholder, clear foot contact area, forklift scuffs, oil stains, pallet splinters kept to edges, realistic contact shadow",
+            extraPrompt: "use heavy industrial aging: dust, scratches, chipped paint, rust, grime, oil stains, worn safety paint and torn plastic; plants only as tiny dry weeds outside dock cracks, no indoor vines"
           }
         }
       ]
