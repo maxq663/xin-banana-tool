@@ -3697,6 +3697,320 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* === STUDIO CONSOLE VISUAL POLISH V7 === */
+    :root {
+      --v7-bg-top: #111510;
+      --v7-bg-bottom: #060807;
+      --v7-panel: rgba(14, 17, 15, 0.94);
+      --v7-panel-soft: rgba(25, 29, 25, 0.78);
+      --v7-line: rgba(255, 255, 255, 0.15);
+      --v7-line-soft: rgba(255, 255, 255, 0.085);
+      --v7-text: #f5f0df;
+      --v7-muted: rgba(245, 240, 223, 0.62);
+      --v7-gold: #f3c64e;
+      --v7-green: #9ed56d;
+      --v7-teal: #67bdb7;
+      --v7-red: #d26a54;
+    }
+
+    body {
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.021) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.016) 1px, transparent 1px),
+        linear-gradient(145deg, rgba(243, 198, 78, 0.10), transparent 34%),
+        linear-gradient(248deg, rgba(103, 189, 183, 0.075), transparent 38%),
+        linear-gradient(180deg, var(--v7-bg-top), var(--v7-bg-bottom));
+      background-size: 28px 28px, 28px 28px, auto, auto, auto;
+      color: var(--v7-text);
+    }
+
+    .app {
+      width: min(1520px, calc(100% - 42px));
+      padding-top: 18px;
+    }
+
+    header {
+      min-height: 128px;
+      padding: 20px;
+      border-radius: 8px;
+      border-color: var(--v7-line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.090), rgba(255, 255, 255, 0.020)),
+        linear-gradient(90deg, rgba(243, 198, 78, 0.095), transparent 54%),
+        var(--v7-panel);
+      box-shadow:
+        0 18px 48px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.11);
+    }
+
+    header::after {
+      height: 68px;
+      opacity: 0.26;
+    }
+
+    .brand-mark {
+      position: relative;
+      overflow: hidden;
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.34), transparent 38%),
+        linear-gradient(135deg, var(--v7-gold), var(--v7-green));
+      color: #11130f;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(17, 19, 15, 0.28);
+      border-radius: 5px;
+      pointer-events: none;
+    }
+
+    h1 {
+      color: #fff6d7;
+      font-size: clamp(31px, 3.4vw, 48px);
+    }
+
+    .subtitle {
+      max-width: 840px;
+      color: var(--v7-muted);
+      font-size: 13.5px;
+      line-height: 1.62;
+    }
+
+    .meta-strip {
+      max-width: 980px;
+      gap: 6px;
+    }
+
+    .meta-pill,
+    .badge,
+    .chip {
+      border-color: var(--v7-line-soft);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.025)),
+        rgba(255, 255, 255, 0.020);
+      color: rgba(245, 240, 223, 0.72);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055);
+    }
+
+    .toolbar {
+      min-width: 360px;
+      padding: 6px;
+      border: 1px solid var(--v7-line-soft);
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.18);
+    }
+
+    .toolbar button,
+    .output-mode-btn,
+    .rating-btn {
+      letter-spacing: 0;
+    }
+
+    button {
+      border-color: var(--v7-line-soft);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.070), rgba(255, 255, 255, 0.022)),
+        rgba(0, 0, 0, 0.16);
+    }
+
+    button.primary,
+    button.primary:hover,
+    .mode-btn.active,
+    .output-mode-btn.active {
+      color: #11130f;
+      background: linear-gradient(135deg, var(--v7-gold) 0%, var(--v7-green) 100%);
+      box-shadow:
+        0 12px 26px rgba(158, 213, 109, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    }
+
+    .layout {
+      gap: 14px;
+    }
+
+    .panel {
+      border-radius: 8px;
+      border-color: var(--v7-line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.074), rgba(255, 255, 255, 0.020)),
+        var(--v7-panel);
+      box-shadow:
+        0 18px 44px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.075);
+    }
+
+    .panel-head {
+      position: relative;
+      min-height: 52px;
+      padding: 13px 15px;
+      background:
+        linear-gradient(90deg, rgba(243, 198, 78, 0.105), rgba(158, 213, 109, 0.045), transparent 60%),
+        rgba(255, 255, 255, 0.022);
+    }
+
+    .panel-head::after {
+      content: "";
+      position: absolute;
+      right: 15px;
+      bottom: -1px;
+      left: 15px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(243, 198, 78, 0.28), rgba(103, 189, 183, 0.22), transparent);
+    }
+
+    .panel-title {
+      font-size: 16px;
+    }
+
+    .form,
+    .output-wrap {
+      padding: 14px;
+      gap: 11px;
+    }
+
+    .mode-switch {
+      gap: 6px;
+      padding: 6px;
+      border-color: var(--v7-line-soft);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.050), rgba(255, 255, 255, 0.014)),
+        rgba(0, 0, 0, 0.26);
+    }
+
+    .mode-btn {
+      min-height: 44px;
+      color: rgba(245, 240, 223, 0.65);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.016)),
+        rgba(255, 255, 255, 0.016);
+    }
+
+    .mode-btn:hover:not(.active),
+    .output-mode-btn:hover:not(.active),
+    .chip:hover {
+      color: rgba(245, 240, 223, 0.90);
+      border-color: rgba(158, 213, 109, 0.32);
+    }
+
+    .workflow-steps {
+      gap: 7px;
+    }
+
+    .step-card {
+      min-height: 62px;
+      border-color: var(--v7-line-soft);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.058), rgba(255, 255, 255, 0.018)),
+        rgba(255, 255, 255, 0.016);
+    }
+
+    .field,
+    .module-note,
+    .console-bar,
+    .output-mode-tools,
+    .scene-rating-row {
+      border-color: var(--v7-line-soft);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.056), rgba(255, 255, 255, 0.016)),
+        rgba(0, 0, 0, 0.18);
+    }
+
+    .field {
+      padding: 11px;
+    }
+
+    .field:focus-within {
+      border-color: rgba(243, 198, 78, 0.56);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.078), rgba(255, 255, 255, 0.022)),
+        rgba(0, 0, 0, 0.20);
+    }
+
+    label {
+      color: rgba(245, 240, 223, 0.92);
+    }
+
+    input,
+    select,
+    textarea {
+      border-color: rgba(255, 255, 255, 0.12);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.024), transparent),
+        rgba(2, 4, 3, 0.72);
+    }
+
+    .module-note {
+      border-left-color: var(--v7-gold);
+      background:
+        linear-gradient(90deg, rgba(243, 198, 78, 0.125), transparent 48%),
+        rgba(0, 0, 0, 0.16);
+    }
+
+    .section-label {
+      color: var(--v7-green);
+    }
+
+    .console-bar {
+      border-bottom-right-radius: 6px;
+      border-bottom-left-radius: 6px;
+      font-size: 12px;
+    }
+
+    .output-mode-tools {
+      padding: 9px;
+    }
+
+    .output {
+      min-height: 690px;
+      border-color: rgba(158, 213, 109, 0.25);
+      background:
+        linear-gradient(90deg, rgba(103, 189, 183, 0.070), transparent 22%),
+        repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.024) 0 1px, transparent 1px 23px),
+        rgba(0, 3, 2, 0.97);
+      color: #dbf9cf;
+      font-size: 12px;
+    }
+
+    .status {
+      color: var(--v7-green);
+      font-size: 12px;
+    }
+
+    .char-meter-fill {
+      background: linear-gradient(90deg, var(--v7-green), var(--v7-teal));
+    }
+
+    .char-meter.over .char-meter-fill {
+      background: linear-gradient(90deg, var(--v7-gold), var(--v7-red));
+    }
+
+    @media (max-width: 1260px) {
+      .toolbar {
+        min-width: 0;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .app {
+        width: min(100% - 16px, 1520px);
+      }
+
+      header,
+      .form,
+      .output-wrap {
+        padding: 12px;
+      }
+
+      .toolbar {
+        padding: 5px;
+      }
+    }
   </style>
 </head>
 <body>
