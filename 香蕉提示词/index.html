@@ -4904,7 +4904,7 @@ PIXEL CONTRIBUTION RULE: For every pixel in the output, ask "where does this pix
 
             <div class="field">
               <label for="assetCompTaskPrompt">任务定义 Task</label>
-              <textarea id="assetCompTaskPrompt">Create a cinematic realistic CG asset-transfer composite from four images. Keep Image 1's composition/person/camera as the base. Use Image 2 only for geometry, Image 3 only for depth, and Image 4 only as an asset dictionary. Re-create assets in-scene; never paste them.</textarea>
+              <textarea id="assetCompTaskPrompt">Create a cinematic realistic CG asset-transfer composite from four images. Keep Image 1's composition/person/camera as the base. Use Image 2 only for geometry, Image 3 only for depth, and Image 4 only as a 2D asset dictionary. Rebuild selected Image 4 assets as in-scene UE5-quality CG/PBR objects; never paste flat 2D pixels.</textarea>
             </div>
 
             <div class="field">
@@ -4912,12 +4912,12 @@ PIXEL CONTRIBUTION RULE: For every pixel in the output, ask "where does this pix
               <textarea id="assetCompImageRolesPrompt">Image 1: base composition, person, camera, lens, light direction, scale and perspective. Preserve identity, pose, costume, silhouette and framing.
 Image 2: invisible lineart geometry guide for edges, silhouettes, occlusion and safe placement.
 Image 3: invisible depth guide for distance, scale, foreground/midground/background and overlap order.
-Image 4: asset atlas reference only. Extract asset types, modular logic, materials, aging and motifs; do not paste cutouts or copy the atlas layout.</textarea>
+Image 4: 2D asset atlas reference only. Extract asset types, modular logic, materials, aging and motifs, then reconstruct them as 3D/CG PBR assets inside Image 1. Do not paste cutouts, sprites or copy the atlas layout.</textarea>
             </div>
 
             <div class="field">
               <label for="assetCompRenderStylePrompt">真实 CG 渲染锁 CG Render Lock</label>
-              <textarea id="assetCompRenderStylePrompt">Final image: unified cinematic realistic CG, not raw photo, anime, illustration, concept art or collage. Use UE/Octane/path-traced PBR materials, global illumination, ambient occlusion, contact shadows and subtle low-density atmosphere. No obvious Tyndall effect, god rays or visible light beams.</textarea>
+              <textarea id="assetCompRenderStylePrompt">Final image: unified cinematic realistic CG, not raw photo, anime, illustration, concept art or collage. Re-render all transferred assets as UE5/Octane/path-traced PBR objects with volume, bevels, normals, roughness/metalness variation, global illumination, ambient occlusion and contact shadows. No obvious Tyndall effect, god rays or visible light beams.</textarea>
             </div>
 
             <div class="field">
@@ -4927,12 +4927,12 @@ Image 4: asset atlas reference only. Extract asset types, modular logic, materia
 
             <div class="field">
               <label for="assetCompPlacementPrompt">拼接落位 Placement Rules</label>
-              <textarea id="assetCompPlacementPrompt">Place assets mainly on the foreground floor, lower edges, side margins, near walls/railings and midground gaps. Protect far background, skyline, horizon and deep architecture. Do not cover the face, hands, feet, costume or key silhouette. Ground details lie on Image 1's floor plane and scale by Image 3 depth. Regenerate assets in scene lighting; do not paste from Image 4.</textarea>
+              <textarea id="assetCompPlacementPrompt">Place assets mainly on the foreground floor, lower edges, side margins, near walls/railings and midground gaps. Protect far background, skyline, horizon and deep architecture. Do not cover the face, hands, feet, costume or key silhouette. Ground details lie on Image 1's floor plane and scale by Image 3 depth. Rebuild assets with thickness, footprints, cast shadows and contact shadows; do not paste from Image 4.</textarea>
             </div>
 
             <div class="field">
               <label for="assetCompMaterialPrompt">材质旧化 Material Aging</label>
-              <textarea id="assetCompMaterialPrompt">Use lived-in PBR materials: chipped paint, worn edges, scratches, dust in creases, grime in seams, rain streaks, oil stains, rust, muddy footprints, tire scuffs, faded non-readable decals, non-uniform roughness and contact dirt. Avoid spotless, plastic, uniform or freshly built surfaces.</textarea>
+              <textarea id="assetCompMaterialPrompt">Translate Image 4's surface language into real PBR material channels: albedo, roughness, metalness, normals, edge wear and contact dirt. Use chipped paint, worn edges, scratches, dust in creases, grime in seams, rain streaks, oil stains, rust, muddy footprints, tire scuffs, faded non-readable decals and non-uniform roughness. Avoid spotless, plastic, uniform or freshly built surfaces.</textarea>
             </div>
 
             <div class="field">
@@ -4952,12 +4952,12 @@ Image 4: asset atlas reference only. Extract asset types, modular logic, materia
 
             <div class="field">
               <label for="assetCompNegativePrompt">反向约束 Negative Prompt</label>
-              <textarea id="assetCompNegativePrompt">pasted assets, sticker collage, copied atlas layout, duplicated cutouts, mismatched shadows, wrong scale, wrong perspective, floating objects, covering face, covering hands, covering feet, changed person, face change, pose change, costume redesign, camera change, reframe, zoom, crop, far background replacement, changed skyline, changed horizon, added distant towers, lineart visible, depth map visible, grayscale wash, blueprint look, obvious Tyndall effect, god rays, visible light beams, anime, illustration, concept art, real photo look, DSLR snapshot, plastic CG, toy-like 3D, over-clean render, no scratches, no dust, no grime, readable text, logos, watermarks</textarea>
+              <textarea id="assetCompNegativePrompt">pasted assets, flat 2D transfer, unrendered 2D asset, paper cutout, sprite-like asset, sticker collage, copied atlas layout, duplicated cutouts, mismatched shadows, wrong scale, wrong perspective, floating objects, covering face, covering hands, covering feet, changed person, face change, pose change, costume redesign, camera change, reframe, zoom, crop, far background replacement, changed skyline, changed horizon, added distant towers, lineart visible, depth map visible, grayscale wash, blueprint look, obvious Tyndall effect, god rays, visible light beams, anime, illustration, concept art, real photo look, DSLR snapshot, plastic CG, toy-like 3D, over-clean render, no scratches, no dust, no grime, readable text, logos, watermarks</textarea>
             </div>
 
             <div class="field">
               <label for="assetCompOutputPrompt">输出与自检 Output & Self-Check</label>
-              <textarea id="assetCompOutputPrompt">Output one seamless cinematic realistic CG composite at Image 1's aspect ratio. Check: Image 2/3 invisible; Image 4 not pasted; person unchanged; assets mostly foreground/midground; far background protected; assets follow Image 1 perspective and Image 3 depth; contact shadows, PBR aging and CG quality are unified; no Tyndall/god rays/visible beams.</textarea>
+              <textarea id="assetCompOutputPrompt">Output one seamless cinematic realistic CG composite at Image 1's aspect ratio. Check: Image 2/3 invisible; Image 4 not pasted; 2D atlas assets rebuilt as UE5-quality CG/PBR objects; person unchanged; assets mostly foreground/midground; far background protected; assets follow Image 1 perspective and Image 3 depth; contact shadows, PBR aging and CG quality are unified; no Tyndall/god rays/visible beams.</textarea>
             </div>
 
             <div class="field">
@@ -7842,6 +7842,7 @@ Image 4: asset atlas reference only. Extract asset types, modular logic, materia
       const cgEnginePrompt = cgEngineMap[cgEngine] || cgEngineMap.cinematic_path_tracing;
       const farBackgroundProtectionRule = "Keep Image 1's far background, skyline, horizon, deep architecture and distant silhouettes mostly unchanged. Asset transfer should focus on foreground and midground only: floor plane, side margins, lower frame, near wall edges, near props and midground gaps. Do not add new far skyline elements, distant towers or large background architecture.";
       const noTyndallRule = "Avoid obvious Tyndall effect and dramatic volumetric lighting: no god rays, no visible light beams, no sun shafts, no spotlight rays, no theatrical ray streaks. Use only subtle low-density ambient haze if needed.";
+      const assetReconstructionRule = "Treat Image 4 as a flat 2D reference only. Convert selected assets into in-scene UE5-quality CG/PBR objects with real thickness, beveled edges, correct Image 1 perspective, footprints, cast/contact shadows, albedo/roughness/metalness/normal response and aging translated into material detail. No flat sprites, paper cutouts or copied pixels.";
 
       const characterModeMap = {
         cg_translate_identity_lock: "Translate the person into the same cinematic realistic CG lighting and material style while preserving identity, pose, face structure, costume design, silhouette, hands, feet and placement.",
@@ -7852,9 +7853,10 @@ Image 4: asset atlas reference only. Extract asset types, modular logic, materia
 
       const positivePromptTemplate = [
         "TASK: cinematic realistic CG asset-transfer composite from four images.",
-        "Inputs: Image 1 base/person/camera; Image 2 invisible lineart geometry; Image 3 invisible depth guide (" + depthPolarityPrompt + "); Image 4 asset atlas dictionary, not stickers.",
+        "Inputs: Image 1 base/person/camera; Image 2 invisible lineart geometry; Image 3 invisible depth guide (" + depthPolarityPrompt + "); Image 4 is a 2D asset atlas dictionary, not stickers.",
         taskPrompt,
         imageRolesPrompt,
+        "Asset reconstruction: " + assetReconstructionRule,
         "Render: " + renderStylePrompt + " " + cgEnginePrompt,
         "Density: " + densityPreset.label + " / " + densityPreset.target + ". " + densityPreset.rule,
         "Assets: " + assetClassificationPrompt,
@@ -7870,13 +7872,13 @@ Image 4: asset atlas reference only. Extract asset types, modular logic, materia
       return {
         task: "asset_atlas_transfer_half_composite",
         project_name: "假丹模拟器 / 半合成资产拼接",
-        version: "v1.1 compact",
+        version: "v1.2 compact",
         output_mode: "asset_composite_compact_json",
         input_order: [
           "Image 1 = " + basePhoto + " / base composition, person, camera and light",
           "Image 2 = " + lineart + " / invisible lineart geometry",
           "Image 3 = " + depthMap + " / invisible depth, " + depthPolarityPrompt,
-          "Image 4 = " + assetAtlas + " / asset atlas dictionary only"
+          "Image 4 = " + assetAtlas + " / flat 2D asset atlas dictionary only; rebuild as CG/PBR, never paste pixels"
         ],
         settings: {
           aspect_ratio: aspectRatio,
@@ -7889,7 +7891,7 @@ Image 4: asset atlas reference only. Extract asset types, modular logic, materia
         core_locks: [
           "Image 1 person, camera, lens, framing, vanishing points, floor plane and light direction stay locked.",
           "Image 2 and Image 3 are invisible guides only; no lineart, grayscale, blueprint or depth-map artifacts.",
-          "Image 4 is never pasted; re-create assets in Image 1's lighting and perspective.",
+          assetReconstructionRule,
           farBackgroundProtectionRule,
           noTyndallRule
         ],
@@ -7898,6 +7900,7 @@ Image 4: asset atlas reference only. Extract asset types, modular logic, materia
           image_roles: imageRolesPrompt,
           render_style: renderStylePrompt,
           engine_rule: cgEnginePrompt,
+          asset_reconstruction: assetReconstructionRule,
           asset_density: densityPreset.rule,
           asset_classification: assetClassificationPrompt,
           placement: placementPrompt,
@@ -7915,7 +7918,8 @@ Image 4: asset atlas reference only. Extract asset types, modular logic, materia
         negative_prompt: negativePrompt.split(",").map((item) => item.trim()).filter(Boolean),
         self_check: [
           "Image 2/3 invisible",
-          "Image 4 not pasted",
+          "Image 4 used only as 2D reference",
+          "assets rebuilt as UE5-quality CG/PBR objects, not flat cutouts",
           "person unchanged",
           "assets mainly foreground/midground",
           "far background protected",
