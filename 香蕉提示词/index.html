@@ -4904,60 +4904,63 @@ PIXEL CONTRIBUTION RULE: For every pixel in the output, ask "where does this pix
 
             <div class="field">
               <label for="assetCompTaskPrompt">任务定义 Task</label>
-              <textarea id="assetCompTaskPrompt">Create a cinematic realistic CG asset-transfer composite from four images. Keep Image 1's composition/person/camera as the base. Use Image 2 only for geometry, Image 3 only for depth, and Image 4 only as a 2D asset dictionary. Rebuild selected Image 4 assets as in-scene UE5-quality CG/PBR objects; never paste flat 2D pixels.</textarea>
+              <textarea id="assetCompTaskPrompt">This is a cinematic realistic CG asset-transfer half-composite task using four input images. Transform Image 1 into a unified cinematic realistic CG scene by re-creating and integrating assets inspired by Image 4. Use Image 2 only for geometry boundaries and Image 3 only for depth/scale. Do not paste assets directly from Image 4.</textarea>
             </div>
 
             <div class="field">
               <label for="assetCompImageRolesPrompt">四图职责 Image Roles</label>
-              <textarea id="assetCompImageRolesPrompt">Image 1: base composition, person, camera, lens, light direction, scale and perspective. Preserve identity, pose, costume, silhouette and framing.
-Image 2: invisible lineart geometry guide for edges, silhouettes, occlusion and safe placement.
-Image 3: invisible depth guide for distance, scale, foreground/midground/background and overlap order.
-Image 4: 2D asset atlas reference only. Extract asset types, modular logic, materials, aging and motifs, then reconstruct them as 3D/CG PBR assets inside Image 1. Do not paste cutouts, sprites or copy the atlas layout.</textarea>
+              <textarea id="assetCompImageRolesPrompt">Image 1 = REAL PHOTO BASE / MAIN COMPOSITION FOUNDATION. Use it as the foundation for composition, subject placement, camera angle, lens, framing, body scale, pose, costume design, silhouette, facial identity, lighting direction and original scene perspective. Preserve the person's identity, body shape, pose, costume structure, hands, feet, face position and framing. Do not redesign the character. Do not change the camera. Do not re-frame, zoom, crop or rotate the image. However, the final result should not remain a raw real photo. Translate the whole final image into a unified cinematic realistic CG render style while preserving Image 1's structure and identity.
+
+Image 2 = LINEART GEOMETRY GUIDE ONLY. Use it only to understand perspective edges, character silhouette, floor lines, wall edges, ceiling structures, railings, object boundaries, occlusion zones and safe placement areas. Image 2 must contribute zero visible pixels to the final result.
+
+Image 3 = BLACK-WHITE-GRAY DEPTH / SPATIAL GUIDE ONLY. Use it only to understand depth order, scale, distance, foreground / midground / background separation and occlusion priority. Image 3 must contribute zero visible pixels to the final result.
+
+Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not as a sticker sheet. Extract asset categories, shape language, modular construction logic, material language, surface aging, scratches, stains, dust, grime, decals, worn edges, panel seams, industrial details and visual motifs. Do not paste the assets directly. Do not copy the atlas layout.</textarea>
             </div>
 
             <div class="field">
               <label for="assetCompRenderStylePrompt">真实 CG 渲染锁 CG Render Lock</label>
-              <textarea id="assetCompRenderStylePrompt">Final image: unified cinematic realistic CG, not raw photo, anime, illustration, concept art or collage. Re-render all transferred assets as UE5/Octane/path-traced PBR objects with volume, bevels, normals, roughness/metalness variation, global illumination, ambient occlusion and contact shadows. No obvious Tyndall effect, god rays or visible light beams.</textarea>
+              <textarea id="assetCompRenderStylePrompt">The final output must be a high-end cinematic realistic CG render, not a real photograph, not documentary photography, not DSLR snapshot, not anime, not illustration, not concept art, not collage. Use UE / Octane / cinematic path-tracing quality, physically based materials, multi-bounce global illumination, ambient occlusion, realistic contact shadows, subtle low-density atmosphere, natural render-camera response, high-detail PBR surfaces and film-quality CG lighting. Image 1 provides structure, identity, camera and light direction; the final image is unified into realistic CG material response. Avoid obvious Tyndall effect, dramatic god rays, visible light beams, strong volumetric shafts and theatrical ray streaks.</textarea>
             </div>
 
             <div class="field">
               <label for="assetCompAssetClassificationPrompt">资产分类 Asset Classification</label>
-              <textarea id="assetCompAssetClassificationPrompt">Classify Image 4 assets as: near/mid structures, midground props, ground details and subtle atmosphere. Prefer walls, railings, platforms, crates, cables, blank signs, machinery, cracks, stains, tire marks, dust and debris. Do not redesign far skyline, horizon landmarks or deep background architecture.</textarea>
+              <textarea id="assetCompAssetClassificationPrompt">Before placement, classify Image 4 assets into: 1) Near/mid structural assets: low walls, gates, doors, panels, stairs, railings, catwalk edges, platforms, medium machinery, architecture modules and ceiling-side pieces that can be placed in foreground or midground without changing the distant background. 2) Midground props: crates, barricades, lamps, cables, containers, tools, equipment, blank signs, camera rigs, generators and modular scene dressing. 3) Ground details: cracks, puddles, dust, mud, tire marks, footprints, scratches, stains, debris, floor decals, worn paint, cable covers and surface breakup. 4) Subtle atmosphere layers: smoke, mist, dust, rain residue, haze, steam, drifting particles and low-density air effects. Do not add or redesign far background silhouettes, distant skyline, horizon landmarks, large background towers or deep background architecture unless they already exist in Image 1 and only need tiny material harmonization.</textarea>
             </div>
 
             <div class="field">
               <label for="assetCompPlacementPrompt">拼接落位 Placement Rules</label>
-              <textarea id="assetCompPlacementPrompt">Place assets mainly on the foreground floor, lower edges, side margins, near walls/railings and midground gaps. Protect far background, skyline, horizon and deep architecture. Do not cover the face, hands, feet, costume or key silhouette. Ground details lie on Image 1's floor plane and scale by Image 3 depth. Rebuild assets with thickness, footprints, cast shadows and contact shadows; do not paste from Image 4.</textarea>
+              <textarea id="assetCompPlacementPrompt">Place new assets mainly in the foreground and midground: floor plane, side margins, lower corners, near wall edges, near railings, midground gaps and open areas around the subject. Keep the far background, distant skyline, horizon, deep architecture and far silhouettes from Image 1 as unchanged as possible. Do not replace or redesign the far background. Large structural assets should be used only if they can sit in side margins, foreground frame edges or midground zones without altering the distant background. Midground props may be placed around the subject, but must not cover the face, hands, feet, costume details, weapon, accessories or important body silhouette. Ground details must lie flat on Image 1's actual floor plane and follow Image 3's depth scale: closer marks are larger, sharper and more contrasty; farther marks are smaller, softer and lower contrast. Atmospheric effects must be subtle and low-density. They may add local depth around near/mid assets, but must not create obvious light beams, hide the person, flatten the image or wash out the background. All new assets must be regenerated in the final scene's lighting, not pasted from Image 4.</textarea>
             </div>
 
             <div class="field">
               <label for="assetCompMaterialPrompt">材质旧化 Material Aging</label>
-              <textarea id="assetCompMaterialPrompt">Translate Image 4's surface language into real PBR material channels: albedo, roughness, metalness, normals, edge wear and contact dirt. Use chipped paint, worn edges, scratches, dust in creases, grime in seams, rain streaks, oil stains, rust, muddy footprints, tire scuffs, faded non-readable decals and non-uniform roughness. Avoid spotless, plastic, uniform or freshly built surfaces.</textarea>
+              <textarea id="assetCompMaterialPrompt">All new assets and environment surfaces must look physically grounded and used. Use realistic PBR material behavior: chipped paint, worn edges, micro-scratches, dust settled in creases, grime in panel gaps, rain streaks, oil stains, rust blooms around bolts and seams, muddy footprints, tire scuffs, faded decals without readable text, non-uniform roughness maps, ambient-occlusion dirt, edge wear, surface stains, scratched metal, scuffed rubber, cracked concrete and believable contact shadows. Avoid spotless showroom surfaces, clean plastic toy look, perfectly uniform procedural textures, over-polished sci-fi panels and freshly built environments.</textarea>
             </div>
 
             <div class="field">
               <label for="assetCompGeometryPrompt">线稿与深度隔离 Geometry / Depth Isolation</label>
-              <textarea id="assetCompGeometryPrompt">Image 2 and Image 3 are invisible guides only. No outlines, sketch lines, grayscale bands, depth gradients or blueprint look may appear. Use Image 3 as the only depth reference: near objects larger/sharper, far objects smaller/softer/lower contrast. Do not borrow depth from Image 4.</textarea>
+              <textarea id="assetCompGeometryPrompt">Use Image 2 as invisible lineart geometry and Image 3 as invisible depth guidance. Image 2 and Image 3 must never appear in the final image. If black outlines, sketch lines, grayscale bands, depth gradients, monochrome wash, blueprint look or Z-depth artifacts appear, remove them and re-render that region as cinematic realistic CG. Use Image 3 as the only depth reference. Objects closer to the camera must be larger and sharper. Objects farther away must be smaller, softer and lower contrast. Do not borrow depth from Image 4.</textarea>
             </div>
 
             <div class="field">
               <label for="assetCompCharacterPrompt">人物锁定 Character Lock</label>
-              <textarea id="assetCompCharacterPrompt">Preserve Image 1's person: identity, pose, body proportion, face, hands, feet, costume, silhouette and placement. The person may be CG-harmonized, but not redesigned, resized, re-posed, beautified, regenerated or replaced.</textarea>
+              <textarea id="assetCompCharacterPrompt">Preserve the person from Image 1 in identity, pose, body proportion, costume design, face structure, hands, feet, silhouette and placement. The person may be translated into the same cinematic realistic CG material and lighting style as the final scene, but must not become a different character. Do not beautify, redesign, re-pose, resize, regenerate or replace the person.</textarea>
             </div>
 
             <div class="field">
               <label for="assetCompLightingPrompt">光照与融合 Lighting Integration</label>
-              <textarea id="assetCompLightingPrompt">Match Image 1 lighting direction and Image 3 depth. Added assets need correct contact/cast shadows, ground contact, occlusion order, soft CG grading and subtle haze only. No Tyndall light, god rays, sun shafts, visible beams or theatrical streaks.</textarea>
+              <textarea id="assetCompLightingPrompt">All added assets must receive the same scene lighting as Image 1. Add correct cast shadows and contact shadows based on Image 3 depth and Image 2 geometry. New assets must sit on the ground correctly and obey occlusion order. Use multi-bounce global illumination, soft shadow penumbra, restrained ambient haze and cinematic CG color grading to unify the whole image. Do not add obvious Tyndall light, god rays, visible sun shafts, dramatic volumetric beams, spotlight rays or theatrical streaks of light.</textarea>
             </div>
 
             <div class="field">
               <label for="assetCompNegativePrompt">反向约束 Negative Prompt</label>
-              <textarea id="assetCompNegativePrompt">pasted assets, flat 2D transfer, unrendered 2D asset, paper cutout, sprite-like asset, sticker collage, copied atlas layout, duplicated cutouts, mismatched shadows, wrong scale, wrong perspective, floating objects, covering face, covering hands, covering feet, changed person, face change, pose change, costume redesign, camera change, reframe, zoom, crop, far background replacement, changed skyline, changed horizon, added distant towers, lineart visible, depth map visible, grayscale wash, blueprint look, obvious Tyndall effect, god rays, visible light beams, anime, illustration, concept art, real photo look, DSLR snapshot, plastic CG, toy-like 3D, over-clean render, no scratches, no dust, no grime, readable text, logos, watermarks</textarea>
+              <textarea id="assetCompNegativePrompt">directly pasted assets, sticker collage, copied asset atlas layout, copied asset lighting, copied asset perspective, duplicated 2D cutouts, flat pasted props, mismatched shadows, wrong scale, wrong perspective, floating objects, assets crossing the character silhouette, covering face, covering hands, covering feet, changing the person, regenerating the character, different face, face change, pose change, body proportion change, costume redesign, camera change, lens change, re-framing, zooming, cropping, far background replacement, changed skyline, changed horizon, redesigned distant architecture, added distant towers, overpainted background, full background replacement, lineart visible, black outlines, sketch lines, blueprint look, ink strokes, grayscale wash, depth map visible, Z-depth overlay, monochrome output, flat gray bands, false depth fog, obvious Tyndall effect, god rays, visible light beams, volumetric light shafts, dramatic sun rays, spotlight rays, theatrical ray streaks, anime style, illustration, concept art, painterly look, real photo look, DSLR snapshot, documentary photo, raw camera texture, low-quality CG, plastic CG, toy-like 3D, over-clean render, spotless showroom surfaces, perfectly clean sci-fi panels, uniform procedural textures, no scratches, no dust, no grime, no contact shadow, readable text, logos, watermarks, copied UI, messy artifacts</textarea>
             </div>
 
             <div class="field">
               <label for="assetCompOutputPrompt">输出与自检 Output & Self-Check</label>
-              <textarea id="assetCompOutputPrompt">Output one seamless cinematic realistic CG composite at Image 1's aspect ratio. Check: Image 2/3 invisible; Image 4 not pasted; 2D atlas assets rebuilt as UE5-quality CG/PBR objects; person unchanged; assets mostly foreground/midground; far background protected; assets follow Image 1 perspective and Image 3 depth; contact shadows, PBR aging and CG quality are unified; no Tyndall/god rays/visible beams.</textarea>
+              <textarea id="assetCompOutputPrompt">Output one seamless cinematic realistic CG half-composite at Image 1's aspect ratio. Confirm that Image 2 and Image 3 are invisible. Confirm that Image 4 was used as an asset-language source, not pasted. Confirm that the person keeps Image 1 identity, pose, costume and placement. Confirm that most added assets are limited to foreground and midground, while the far background, skyline, horizon and deep architecture remain mostly unchanged. Confirm that added assets obey Image 1 perspective, Image 2 line boundaries, Image 3 depth scale, correct contact shadows, PBR aging, restrained atmosphere and unified UE / Octane / cinematic path-traced CG quality. Confirm that there is no obvious Tyndall effect, no god rays and no visible light-beam shafts.</textarea>
             </div>
 
             <div class="field">
@@ -7824,12 +7827,12 @@ Image 4: 2D asset atlas reference only. Extract asset types, modular logic, mate
         balanced: {
           label: "balanced",
           rule: "Balanced asset transfer: make the asset language clearly visible while preserving the person and Image 1 layout.",
-          target: "4 to 8 assets across ground, foreground and midground"
+          target: "4 to 8 assets across ground, midground and background"
         },
         rich: {
           label: "rich",
           rule: "Rich asset transfer: build a stronger CG environment using Image 4's asset language, but keep the character dominant and protected.",
-          target: "8 to 12 assets, including one strong foreground or midground structural asset"
+          target: "8 to 12 assets, including at least one strong structural/background asset"
         }
       };
       const densityPreset = densityMap[assetDensity] || densityMap.balanced;
@@ -7842,7 +7845,6 @@ Image 4: 2D asset atlas reference only. Extract asset types, modular logic, mate
       const cgEnginePrompt = cgEngineMap[cgEngine] || cgEngineMap.cinematic_path_tracing;
       const farBackgroundProtectionRule = "Keep Image 1's far background, skyline, horizon, deep architecture and distant silhouettes mostly unchanged. Asset transfer should focus on foreground and midground only: floor plane, side margins, lower frame, near wall edges, near props and midground gaps. Do not add new far skyline elements, distant towers or large background architecture.";
       const noTyndallRule = "Avoid obvious Tyndall effect and dramatic volumetric lighting: no god rays, no visible light beams, no sun shafts, no spotlight rays, no theatrical ray streaks. Use only subtle low-density ambient haze if needed.";
-      const assetReconstructionRule = "Treat Image 4 as a flat 2D reference only. Convert selected assets into in-scene UE5-quality CG/PBR objects with real thickness, beveled edges, correct Image 1 perspective, footprints, cast/contact shadows, albedo/roughness/metalness/normal response and aging translated into material detail. No flat sprites, paper cutouts or copied pixels.";
 
       const characterModeMap = {
         cg_translate_identity_lock: "Translate the person into the same cinematic realistic CG lighting and material style while preserving identity, pose, face structure, costume design, silhouette, hands, feet and placement.",
@@ -7852,80 +7854,154 @@ Image 4: 2D asset atlas reference only. Extract asset types, modular logic, mate
       const characterModePrompt = characterModeMap[characterMode] || characterModeMap.cg_translate_identity_lock;
 
       const positivePromptTemplate = [
-        "TASK: cinematic realistic CG asset-transfer composite from four images.",
-        "Inputs: Image 1 base/person/camera; Image 2 invisible lineart geometry; Image 3 invisible depth guide (" + depthPolarityPrompt + "); Image 4 is a 2D asset atlas dictionary, not stickers.",
+        "TASK IN ONE LINE: Create a cinematic realistic CG asset-transfer half-composite from four images.",
+        "Slot 1 = " + basePhoto + " (real photo base, composition/person/camera/light foundation).",
+        "Slot 2 = " + lineart + " (lineart geometry guide only, invisible in final).",
+        "Slot 3 = " + depthMap + " (black-white-gray depth/spatial guide only, invisible in final). " + depthPolarityPrompt,
+        "Slot 4 = " + assetAtlas + " (2D asset atlas reference only, asset dictionary, not a sticker sheet).",
         taskPrompt,
         imageRolesPrompt,
-        "Asset reconstruction: " + assetReconstructionRule,
-        "Render: " + renderStylePrompt + " " + cgEnginePrompt,
-        "Density: " + densityPreset.label + " / " + densityPreset.target + ". " + densityPreset.rule,
-        "Assets: " + assetClassificationPrompt,
-        "Placement: " + placementPrompt,
-        "Materials: " + materialPrompt,
-        "Geometry/depth: " + geometryPrompt,
-        "Character: " + characterModePrompt + " " + characterPrompt,
-        "Lighting: " + lightingPrompt,
+        "Final CG render lock: " + renderStylePrompt,
+        "CG engine target: " + cgEnginePrompt,
+        "Far background protection: " + farBackgroundProtectionRule,
+        "No Tyndall / no light beams: " + noTyndallRule,
+        "Character mode: " + characterModePrompt,
+        "Asset density: " + densityPreset.rule + " Target: " + densityPreset.target + ".",
+        "Asset classification: " + assetClassificationPrompt,
+        "Placement rules: " + placementPrompt,
+        "Material aging: " + materialPrompt,
+        "Geometry and depth isolation: " + geometryPrompt,
+        "Character lock: " + characterPrompt,
+        "Lighting and integration: " + lightingPrompt,
         "Aspect ratio: " + aspectRatio + ".",
-        "Output check: " + outputPrompt
+        "Final output: " + outputPrompt
       ].filter(Boolean).join(" ");
 
       return {
-        task: "asset_atlas_transfer_half_composite",
+        task: "asset_atlas_transfer_half_composite_json",
         project_name: "假丹模拟器 / 半合成资产拼接",
-        version: "v1.2 compact",
-        output_mode: "asset_composite_compact_json",
-        input_order: [
-          "Image 1 = " + basePhoto + " / base composition, person, camera and light",
-          "Image 2 = " + lineart + " / invisible lineart geometry",
-          "Image 3 = " + depthMap + " / invisible depth, " + depthPolarityPrompt,
-          "Image 4 = " + assetAtlas + " / flat 2D asset atlas dictionary only; rebuild as CG/PBR, never paste pixels"
-        ],
-        settings: {
-          aspect_ratio: aspectRatio,
-          asset_density: assetDensity,
-          density_target: densityPreset.target,
-          cg_engine: cgEngine,
-          character_mode: characterMode,
-          depth_polarity: depthPolarity
+        version: "v1.0 (4-image asset atlas transfer + CG realism)",
+        output_mode: "asset_composite_json",
+        one_line_intent: "Use Image 4's 2D asset atlas as an asset-language source, re-create matching assets inside Image 1, and unify the final result as cinematic realistic CG while Image 2 and Image 3 remain invisible geometry/depth guides.",
+        image_inputs: {
+          slot_1_image_1_base_photo: {
+            variable: basePhoto,
+            role: "composition, person, pose, camera, lens, framing, original light direction and scene perspective foundation",
+            visibility: "visible source, but final image is translated into cinematic realistic CG"
+          },
+          slot_2_image_2_lineart: {
+            variable: lineart,
+            role: "invisible geometry guide for perspective edges, character silhouette, object boundaries and safe zones",
+            visibility: "must contribute zero visible pixels"
+          },
+          slot_3_image_3_bw_depth: {
+            variable: depthMap,
+            polarity: depthPolarity,
+            polarity_explanation: depthPolarityPrompt,
+            role: "invisible depth and spatial guide for distance, scale and occlusion order",
+            visibility: "must contribute zero visible pixels"
+          },
+          slot_4_image_4_2d_asset_atlas: {
+            variable: assetAtlas,
+            role: "asset dictionary for asset categories, shapes, modular logic, material language, aging, scratches, stains, grime, decals and visual motifs",
+            visibility: "visible only through re-created assets, never pasted directly"
+          },
+          upload_order_note: "Upload in this exact order: Image 1, Image 2, Image 3, Image 4."
         },
-        core_locks: [
-          "Image 1 person, camera, lens, framing, vanishing points, floor plane and light direction stay locked.",
-          "Image 2 and Image 3 are invisible guides only; no lineart, grayscale, blueprint or depth-map artifacts.",
-          assetReconstructionRule,
-          farBackgroundProtectionRule,
-          noTyndallRule
-        ],
-        generation_rules: {
-          task: taskPrompt,
-          image_roles: imageRolesPrompt,
-          render_style: renderStylePrompt,
+        non_negotiable_locks: {
+          lineart_invisible: "Image 2 is a geometry guide only. No black outlines, sketch marks, blueprint lines, ink style or lineart shading may appear.",
+          depth_invisible: "Image 3 is a spatial guide only. No grayscale wash, depth-map look, monochrome overlay, Z-depth gradient, false-color depth or flat gray bands may appear.",
+          atlas_not_sticker_sheet: "Image 4 must not be pasted, copied, tiled, duplicated or used as a 2D cutout sheet. Re-create new assets inside Image 1.",
+          far_background_protection: farBackgroundProtectionRule,
+          no_tyndall_light_effect: noTyndallRule,
+          person_identity_lock: "Preserve Image 1's person identity, pose, body proportions, costume design, hands, feet, face structure, silhouette and placement.",
+          camera_lock: "Preserve Image 1's camera angle, lens, framing, vanishing points and floor plane.",
+          cg_render_lock: "Final output is cinematic realistic CG, not a raw real photo, not anime, not illustration and not collage."
+        },
+        cg_render_style: {
+          selected_engine: cgEngine,
           engine_rule: cgEnginePrompt,
-          asset_reconstruction: assetReconstructionRule,
-          asset_density: densityPreset.rule,
-          asset_classification: assetClassificationPrompt,
+          render_lock: renderStylePrompt,
+          required_features: [
+            "physically based materials",
+            "multi-bounce global illumination",
+            "ambient occlusion",
+            "realistic contact shadows",
+            "subtle low-density atmosphere only",
+            "film-quality CG lighting",
+            "high-detail PBR surfaces",
+            "non-uniform roughness and dirt masks"
+          ],
+          forbidden_lighting: [
+            "obvious Tyndall effect",
+            "god rays",
+            "visible light beams",
+            "volumetric light shafts",
+            "dramatic sun rays",
+            "spotlight rays",
+            "theatrical ray streaks"
+          ]
+        },
+        character_handling: {
+          selected_mode: characterMode,
+          mode_rule: characterModePrompt,
+          author_instruction: characterPrompt
+        },
+        asset_transfer_protocol: {
+          density: {
+            value: assetDensity,
+            rule: densityPreset.rule,
+            target: densityPreset.target
+          },
+          classification: assetClassificationPrompt,
           placement: placementPrompt,
           material_aging: materialPrompt,
-          geometry_depth: geometryPrompt,
-          character: characterModePrompt + " " + characterPrompt,
-          lighting: lightingPrompt
+          lighting_integration: lightingPrompt,
+          geometry_depth_isolation: geometryPrompt,
+          far_background_protection: farBackgroundProtectionRule,
+          preferred_placement_zones: [
+            "foreground floor plane",
+            "lower frame edges",
+            "side margins",
+            "near wall edges",
+            "midground gaps",
+            "props around but not over the character"
+          ],
+          restricted_zones: [
+            "far background",
+            "skyline",
+            "horizon",
+            "deep architecture",
+            "distant silhouettes",
+            "far landmarks"
+          ],
+          no_tyndall_light_effect: noTyndallRule
         },
-        protected_areas: [
-          "face, hands, feet, costume details and body silhouette",
-          "far background, skyline, horizon and deep architecture",
-          "Image 1 camera angle, lens, floor plane and perspective"
+        execution_order: [
+          "Read Image 1 for protected person, camera, lens, floor plane, light direction and composition.",
+          "Mark the far background, skyline, horizon and deep architecture as mostly protected.",
+          "Read Image 2 only for geometric boundaries and safe placement zones.",
+          "Read Image 3 only for depth order, scale and occlusion priority.",
+          "Read Image 4 as an asset atlas dictionary and classify asset branches.",
+          "Re-create selected assets inside Image 1's foreground and midground space instead of pasting them.",
+          "Apply Image 3 depth scale and Image 2 line boundaries to every new asset.",
+          "Unify the full result into cinematic realistic CG render quality without obvious Tyndall light or visible light beams."
         ],
-        positive_prompt: positivePromptTemplate,
+        positive_prompt_template: positivePromptTemplate,
         negative_prompt: negativePrompt.split(",").map((item) => item.trim()).filter(Boolean),
-        self_check: [
-          "Image 2/3 invisible",
-          "Image 4 used only as 2D reference",
-          "assets rebuilt as UE5-quality CG/PBR objects, not flat cutouts",
-          "person unchanged",
-          "assets mainly foreground/midground",
-          "far background protected",
-          "Image 1 perspective + Image 3 depth obeyed",
-          "contact shadows and PBR aging believable",
-          "no Tyndall/god rays/visible beams"
+        output_and_self_check: outputPrompt,
+        self_check_questions: [
+          "Did Image 2 remain completely invisible with no lineart leakage?",
+          "Did Image 3 remain completely invisible with no grayscale/depth-map leakage?",
+          "Was Image 4 used as asset language rather than pasted cutouts?",
+          "Are most added assets limited to foreground and midground?",
+          "Did the far background, skyline, horizon and deep architecture remain mostly unchanged?",
+          "Do all new assets follow Image 1 perspective and Image 3 depth scale?",
+          "Is the person still the same identity, pose, costume and placement from Image 1?",
+          "Do added assets have believable contact shadows and grounded footprints?",
+          "Do materials show scratches, dust, grime, stains, edge wear and non-uniform roughness?",
+          "Does the final image read as unified cinematic realistic CG?",
+          "Is there no obvious Tyndall effect, no god rays and no visible light-beam shafts?"
         ]
       };
     }
