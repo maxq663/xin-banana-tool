@@ -2492,6 +2492,12 @@
       background-repeat: no-repeat;
     }
 
+    option.tested-pass {
+      color: #d9ffc8;
+      background: #16301f;
+      font-weight: 700;
+    }
+
     .module-note {
       padding: 13px 14px;
       border-left: 3px solid var(--studio-gold);
@@ -4145,7 +4151,7 @@
                 <optgroup label="常用 3A 美术方向">
                   <option value="cyberpunk">赛博霓虹都市</option>
                   <option value="overgrown_survival">自然侵蚀后末日</option>
-                  <option value="samurai_island">诗意武士岛屿</option>
+                  <option value="samurai_island" class="tested-pass">[已通过] 诗意武士岛屿</option>
                   <option value="dark_gothic_fantasy">黑暗哥特奇幻</option>
                   <option value="norse_myth">北欧神话遗迹</option>
                   <option value="ancient_machine_wild">远古机械荒野</option>
@@ -4160,7 +4166,7 @@
                 <optgroup label="基础模板">
                   <option value="japanese">日系电影街景</option>
                   <option value="medieval">中世纪奇幻遗迹</option>
-                  <option value="apocalypse">通用废墟末日</option>
+                  <option value="apocalypse" class="tested-pass">[已通过] 通用废墟末日</option>
                 </optgroup>
               </select>
               <div class="hint">选择后会自动填充 9 个模块，你可以继续手动改。</div>
