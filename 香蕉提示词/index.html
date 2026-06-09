@@ -5871,23 +5871,6 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
           }
         },
         {
-          id: "collapsed_market_arcade",
-          name: "市场拱廊废墟",
-          data: {
-            scenePrompt: "post-apocalyptic covered market arcade ruin, cracked tile walkway, collapsed awning frames, rusted stall shutters, empty display tables, torn plastic sheets, blank sign boards, sparse dry weeds near column bases, clear central standing area",
-            atmospherePrompt: "abandoned everyday market, dry dust and stale air, human absence, grounded survival realism with detailed foreground dressing",
-            lightingPrompt: "diffused daylight through broken roof panels, soft shadows from awning frames, realistic contact shadow, subtle ambient occlusion under stalls",
-            colorPrompt: "faded tile beige, rust brown shutters, dirty white plastic, dull red awning fabric, concrete gray, low saturation decay palette",
-            materialPrompt: "PBR cracked ceramic tile, oxidized shutter metal, torn plastic sheets with dirt streaks, chipped concrete columns, dusty wood display tables, old tape residue, scuffed rubber mats, grime in tile joints",
-            fxPrompt: "thin indoor dust, small paper scraps, faint roof-leak dampness, no dramatic sun shafts, no overgrown plants",
-            structurePrompt: "foreground cracked tile, fallen stall parts and dust; midground clear walkway standing area framed by low tables and shutter lines; background repeating arcade columns and broken roof depth",
-            storyPrompt: "market abandoned after supply panic, stall shutters locked halfway, empty tables left behind, dust collecting in the tile joints",
-            visualPrompt: "rusted market shutter row, collapsed awning frame, empty display table, torn plastic sheet, blank sign board, cracked tile walkway",
-            groundPrompt: "flat cracked tile walkway under the placeholder, clear foot contact area, tile chips, dust, scuffed rubber mat fragments, old water stains and small debris kept to edges",
-            extraPrompt: "foreground and midground must feel materially rich: cracked tile roughness, dust layers, shutter rust, chipped column edges, grime seams, contact shadows; vegetation sparse only, no vines across stalls"
-          }
-        },
-        {
           id: "drainage_underpass_ruin",
           name: "排水涵洞废墟",
           data: {
@@ -5936,6 +5919,91 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
             visualPrompt: "broken glass partition, fallen ceiling grid, overturned desk, exposed cable bundle, dusty carpet strips, blank whiteboard",
             groundPrompt: "flat concrete and torn carpet under the placeholder, clear foot contact area, glass fragments kept to edges, dust layer, cable shadows, scuff marks and realistic contact shadow",
             extraPrompt: "foreground and midground should have rich indoor PBR decay: dust, frayed carpet fibers, scratched glass, bent metal, chipped laminate, grime seams, contact dirt; no readable office text, no lush plants"
+          }
+        },
+        {
+          id: "loading_dock_ruin",
+          name: "装卸月台废墟",
+          data: {
+            scenePrompt: "post-apocalyptic loading dock ruin, cracked concrete dock, rusted dock plates, bent guardrails, abandoned pallet jack, broken crate stacks, torn rubber curtain, empty truck bay, sparse dry weeds outside cracks, clear central standing area",
+            atmospherePrompt: "abandoned logistics edge after collapse, dry industrial dust, practical survival environment, grounded cinematic realism",
+            lightingPrompt: "cool daylight from open dock doors, soft interior shadows, ambient occlusion under pallet jack and crates, realistic contact shadow, no visible light beams",
+            colorPrompt: "dusty concrete gray, oxidized steel brown, faded safety yellow, torn black rubber, old pallet wood, low saturation industrial decay palette",
+            materialPrompt: "PBR chipped concrete dock, rusted steel dock plates, scratched pallet jack paint, splintered pallet wood, torn rubber curtains, oil stains, tire scuffs, dust piles, worn safety stripes, grime in floor seams",
+            fxPrompt: "fine warehouse dust, small paper scraps, dry air depth, no god rays, no indoor vegetation",
+            structurePrompt: "foreground dock plate edges, tire scuffs, oil stains and splinters; midground clear loading bay standing zone framed by crates and pallet jack; background empty truck bay, rubber curtains and high door frame",
+            storyPrompt: "loading dock abandoned during emergency supply removal, pallet jack left in place, crates broken open, dock plates rusting under dust",
+            visualPrompt: "rusted dock plate, abandoned pallet jack, torn rubber curtain, broken crate stack, faded safety stripe, empty truck bay",
+            groundPrompt: "flat cracked concrete dock under the placeholder, clear foot contact area, worn yellow safety paint, tire marks, oil stains, wood splinters kept to edges, dust buildup and realistic contact shadow",
+            extraPrompt: "prioritize rich near/mid industrial PBR: chipped dock edges, rust, tire rubber, oil stains, dust piles, splintered wood, grime seams, contact shadows; vegetation only outside dock cracks, no vines"
+          }
+        },
+        {
+          id: "emergency_clinic_ruin",
+          name: "临时诊所废墟",
+          data: {
+            scenePrompt: "post-apocalyptic temporary clinic ruin, cracked concrete floor, collapsed folding beds, blank medical curtain frames, sealed empty supply boxes, broken portable lamps, dusty plastic partitions, clear central standing area",
+            atmospherePrompt: "abandoned emergency treatment space, sterile materials turned dusty, quiet aftermath, grounded realistic CG decay",
+            lightingPrompt: "soft cloudy daylight through damaged windows, dim cool interior fill, small practical lamp remnants unlit, ambient occlusion under boxes and bed frames, realistic contact shadow",
+            colorPrompt: "dirty off-white plastic, dusty concrete gray, faded blue fabric, oxidized metal, muted yellow tape, low saturation clinical decay palette",
+            materialPrompt: "PBR scuffed plastic partitions, dusty fabric curtains, chipped metal bed frames, cracked concrete, rubber mat wear, old tape residue, disinfectant stains, grime around wheels, non-readable blank labels",
+            fxPrompt: "still indoor dust, faint stale haze, tiny fabric fibers, no magical glow, no bright sci-fi lab light",
+            structurePrompt: "foreground rubber mat fragments, dust and supply box shadows; midground clear treatment lane standing area; background curtain frames, folded beds, broken lamps and blank supply shelves",
+            storyPrompt: "temporary clinic evacuated long ago, folding beds collapsed, supply boxes empty, curtain frames left standing in dust",
+            visualPrompt: "collapsed folding bed, blank curtain frame, sealed empty supply box, broken portable lamp, dusty plastic partition, rubber floor mat",
+            groundPrompt: "flat cracked concrete and worn rubber mat under the placeholder, clear foot contact area, disinfectant stains, dust, wheel scuffs, tape residue and realistic contact shadow",
+            extraPrompt: "near/mid PBR detail must be visible: dusty plastic, scuffed rubber, chipped metal, grime around wheels, stained concrete, contact dirt; no readable medical text, no clean futuristic lab"
+          }
+        },
+        {
+          id: "auto_repair_bay_ruin",
+          name: "维修车间废墟",
+          data: {
+            scenePrompt: "post-apocalyptic auto repair bay ruin, cracked concrete workshop floor, rusted hydraulic lift, scattered tools, broken tire stacks, oil drain pan, damaged metal shelves, blank wall boards, clear central standing area",
+            atmospherePrompt: "abandoned repair workshop, heavy oil smell, dusty mechanical decay, grounded gritty survival realism",
+            lightingPrompt: "overcast daylight through high workshop windows, soft shadows under lift arms, realistic contact shadow, no dramatic beams",
+            colorPrompt: "oil black, dusty concrete gray, rust orange, faded red tool metal, worn rubber, low saturation workshop palette",
+            materialPrompt: "PBR oil-stained concrete, rusted hydraulic lift arms, scratched tool steel, cracked rubber tires, dusty metal shelves, chipped enamel paint, grease residue, dark grime in floor seams, worn safety paint",
+            fxPrompt: "fine workshop dust, faint oily haze, tiny metal particles, no smoke wall, no dense plants",
+            structurePrompt: "foreground oil stains, tire marks and tool shadows; midground clear repair bay standing area beside low lift arms; background shelves, tire stacks, blank boards and workshop door",
+            storyPrompt: "repair bay abandoned mid-shift, lift lowered, tools scattered, oil pan left under an empty vehicle space",
+            visualPrompt: "rusted hydraulic lift, broken tire stack, scattered wrench set, oil drain pan, damaged shelf, cracked workshop floor",
+            groundPrompt: "flat oil-stained concrete floor under the placeholder, clear foot contact area, tire scuffs, grease smears, small tools kept to edges, chipped safety paint and realistic contact shadow",
+            extraPrompt: "emphasize near/mid tactile PBR: oil sheen, rough concrete, rust, grease, tire rubber, scratched metal, chipped paint, grime seams; vegetation absent indoors"
+          }
+        },
+        {
+          id: "hotel_corridor_ruin",
+          name: "酒店走廊废墟",
+          data: {
+            scenePrompt: "post-apocalyptic hotel corridor ruin, torn carpet runner, cracked wall panels, damaged room doors, fallen ceiling tiles, broken luggage carts, blank wall signs without readable text, clear central standing area",
+            atmospherePrompt: "abandoned hotel interior, quiet trapped air, domestic comfort turned decayed, cinematic realistic interior ruin",
+            lightingPrompt: "soft daylight leaking from broken corridor window, dim warm emergency lamp remnants unlit, ambient occlusion along door frames, realistic contact shadow",
+            colorPrompt: "dusty beige walls, faded carpet red-brown, dark wood veneer, oxidized brass, concrete gray, low saturation interior decay palette",
+            materialPrompt: "PBR frayed carpet fibers, scratched wood veneer doors, chipped wall panels, dusty brass handles, cracked plaster, water stains, fallen ceiling tile dust, scuffed luggage cart metal, grime in baseboards",
+            fxPrompt: "still dust haze, tiny plaster particles, no heavy fog, no lush plants",
+            structurePrompt: "foreground torn carpet, ceiling dust and wheel scuffs; midground clear corridor standing area; background repeating damaged doors, fallen ceiling grid and broken luggage cart",
+            storyPrompt: "hotel corridor abandoned during evacuation, luggage carts left behind, door signs blank, carpet torn by years of dust and damp air",
+            visualPrompt: "torn carpet runner, damaged hotel doors, fallen ceiling tiles, broken luggage cart, blank wall sign, cracked wall panels",
+            groundPrompt: "flat torn carpet and exposed concrete under the placeholder, clear foot contact area, dust, scuff marks, plaster chips kept to edges, frayed fabric and realistic contact shadow",
+            extraPrompt: "foreground/midground PBR detail: frayed carpet, chipped veneer, dusty brass, water stains, plaster dust, contact dirt; no readable room numbers, no vine takeover"
+          }
+        },
+        {
+          id: "basement_power_room_ruin",
+          name: "地下配电室废墟",
+          data: {
+            scenePrompt: "post-apocalyptic basement power room ruin, cracked concrete floor, damaged electrical cabinets, loose cable trays, rusted pipe runs, broken warning panels without readable text, water stains, clear central standing area",
+            atmospherePrompt: "dead infrastructure basement, cold damp air, electrical danger after collapse, grounded industrial realism",
+            lightingPrompt: "weak cool light from open stairwell, dark cabinet shadows, subtle reflected damp floor light, realistic contact shadow, no neon glow",
+            colorPrompt: "dark concrete gray, oxidized green cabinets, rust brown pipes, dirty yellow safety paint, black cable rubber, desaturated basement palette",
+            materialPrompt: "PBR damp concrete, chipped electrical cabinet paint, cracked cable insulation, rusted pipe clamps, water stains, dark grime, dust on breaker panels, peeling safety paint, non-readable labels",
+            fxPrompt: "thin damp haze near floor, tiny dust particles, no sparks, no sci-fi glow, no dense mold plants",
+            structurePrompt: "foreground cable tray shadows, damp stains and rust flakes; midground clear service aisle standing area; background damaged cabinets, pipe runs and open stairwell silhouette",
+            storyPrompt: "power room shut down after evacuation, cabinet doors bent, cables pulled loose, water seepage leaving dark stains along the floor",
+            visualPrompt: "damaged electrical cabinet row, loose cable tray, rusted pipe run, broken warning panel, damp concrete floor, open stairwell shadow",
+            groundPrompt: "flat damp concrete under the placeholder, clear foot contact area, cable shadows nearby but not crossing feet, water stains, rust flakes, grime, chipped safety paint and realistic contact shadow",
+            extraPrompt: "near/mid PBR focus: damp rough concrete, rubber cable scuffs, chipped cabinet paint, rust, grime, water stains, contact shadows; no readable warning text, no glowing sci-fi panels"
           }
         }
       ]
