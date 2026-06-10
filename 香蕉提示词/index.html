@@ -4905,16 +4905,16 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
     const stylePresets = {
       custom: null,
       cyberpunk: {
-        scenePrompt: "dense futuristic city alley, layered high-rise buildings, narrow wet street, glowing signs, cables and pipes, clear central standing area, distant elevated roads",
-        atmospherePrompt: "rainy neon night, dense urban atmosphere, lonely futuristic mood, high energy but cinematic restraint",
-        lightingPrompt: "cyan and magenta neon signs, strong rim light, wet ground reflections, high contrast shadows, practical light sources from both sides",
-        colorPrompt: "cyan, magenta, deep blue shadows, amber highlights, saturated neon accents, cinematic cyberpunk grading",
-        materialPrompt: "wet asphalt with tire sheen and grime in cracks, glass panels with rain streaks and fingerprints, brushed steel with micro-scratches, worn concrete, scratched screens, cable bundles with dust and tape residue, reflective puddles, chipped paint and non-uniform roughness",
-        fxPrompt: "rain haze, steam vents, neon glow, water mist, floating droplets, reflective atmosphere",
-        structurePrompt: "foreground puddles and cables, midground alley with clean central standing area, background skyscrapers and signs, strong vertical depth",
-        storyPrompt: "abandoned delivery route in a futuristic district, broken screens, old warning signs, traces of nightlife after heavy rain",
-        visualPrompt: "large holographic billboard, glowing route signs, dense cable bundles, neon vending machine, strong cyan-magenta light accents",
-        groundPrompt: "wet asphalt under the placeholder, reflective puddles, clean foot contact area, oil stains, tire scuffs, dust and grime in pavement cracks, neon reflections around the shoes, no cables blocking the feet"
+        scenePrompt: "dense cyberpunk rain alley, layered high-rise buildings, narrow wet street, rich foreground puddles, cable bundles, service boxes, pipe clusters, blank glowing signs without readable text, clear central standing area, distant elevated roads",
+        atmospherePrompt: "rainy neon night, dense urban atmosphere, lonely futuristic mood, high energy but cinematic restraint, grounded street-level cyberpunk realism",
+        lightingPrompt: "cyan and magenta practical neon from side signs, amber shop spill, strong rim light, wet ground reflections, high contrast shadows, realistic contact shadow, no pure white overexposure",
+        colorPrompt: "cyan, magenta, deep blue shadows, amber highlights, oxidized steel, wet concrete gray, saturated neon accents balanced with dark gritty surfaces",
+        materialPrompt: "PBR wet asphalt with tire sheen and grime in cracks, scratched metal service boxes, brushed steel with micro-scratches, dirty glass panels with rain streaks and fingerprints, worn concrete, scuffed plastic covers, cable bundles with dust and tape residue, reflective puddles, chipped paint, oil stains and non-uniform roughness",
+        fxPrompt: "rain haze, steam vents, low street mist, neon reflections, water droplets, subtle drifting trash scraps, no unreadable text artifacts becoming sharp logos",
+        structurePrompt: "foreground wet asphalt, puddles, cable bundles, drain grates and service boxes; midground narrow alley with clean central standing area framed by low props; background stacked signs, pipes, fire escapes and high-rise depth",
+        storyPrompt: "abandoned delivery route in a futuristic district after heavy rain, broken screens, blank warning sign frames, taped cables, old vending modules and traces of nightlife",
+        visualPrompt: "blank holographic billboard, glowing non-readable sign panels, dense cable canopy, neon vending module, metal service box, drain grate, strong cyan-magenta light accents",
+        groundPrompt: "wet asphalt under the placeholder, reflective puddles around but not under the feet, clean foot contact area, oil stains, tire scuffs, drainage grate, dust and grime in pavement cracks, neon reflections around the shoes, no cables blocking the feet"
       },
       overgrown_survival: {
         scenePrompt: "overgrown post-pandemic city street, abandoned storefronts, cracked road, collapsed traffic lights, vines covering buildings, empty cars, clear central standing area",
@@ -5117,17 +5117,6 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
           }
         },
         {
-          id: "future_subway",
-          name: "未来地铁站",
-          data: {
-            scenePrompt: "futuristic underground subway station platform, long linear platform, sleek metal wall panels, transparent glass safety doors, illuminated route map, holographic direction signs, empty train tracks, repeating ceiling light strips, clean central standing area on the platform",
-            structurePrompt: "foreground glossy floor reflections and platform edge lines, midground clean central standing area on the platform, background long tunnel perspective, repeating ceiling lights and glass doors creating strong depth",
-            storyPrompt: "last train has just left, empty platform at midnight, flickering route display, abandoned ticket card on the floor, distant train lights disappearing inside the tunnel",
-            visualPrompt: "long futuristic subway platform, glowing cyan route map, transparent glass safety doors, repeating ceiling light strips, dark tunnel vanishing point, holographic direction signs",
-            groundPrompt: "glossy black floor tiles under the placeholder, clean foot contact area, subtle floor reflections around the shoes, visible platform safety line nearby but not blocking the feet"
-          }
-        },
-        {
           id: "rooftop_helipad",
           name: "摩天楼天台停机坪",
           data: {
@@ -5150,14 +5139,83 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
           }
         },
         {
-          id: "repair_workshop",
-          name: "机械维修车间",
+          id: "rain_market_underpass",
+          name: "雨夜下层集市",
           data: {
-            scenePrompt: "cyberpunk mechanical repair workshop, robotic arms, suspended engine parts, tool walls, neon work lights, oil stains, clear central standing area",
-            structurePrompt: "foreground tools and oil stains, midground open workshop floor for the placeholder, background robotic arms and hanging machine parts",
-            storyPrompt: "after-hours repair bay, half-disassembled drone parts, glowing tool monitors, traces of heavy mechanical work",
-            visualPrompt: "large robotic arm, hanging engine block, neon workbench, tool wall, industrial cables and warning signs",
-            groundPrompt: "industrial concrete floor under the placeholder, clean standing area, subtle oil marks around but not under feet, hard contact shadow"
+            scenePrompt: "cyberpunk lower-city rain market underpass, wet concrete floor, low food stalls, tarps, cable bundles, vending modules, blank neon sign panels without readable text, steam vents, clear central standing area",
+            atmospherePrompt: "crowded but empty late-night lower-city market mood, humid rain air, practical neon reflections, grounded street-level cyberpunk realism",
+            lightingPrompt: "cyan side neon, warm stall spill light, wet floor bounce, soft occlusion under tarps and crates, realistic contact shadow",
+            colorPrompt: "cyan neon, amber stall light, wet concrete gray, faded tarp red, oxidized steel brown, dark blue shadows",
+            materialPrompt: "PBR wet concrete, scuffed plastic crates, stained tarps, scratched metal stall frames, rubber cable sleeves, rain streaks, puddle edges, oil stains, grime in seams, non-uniform roughness",
+            fxPrompt: "low steam, rain mist, small drifting paper, water droplets, no readable signage, no clean showroom sci-fi",
+            structurePrompt: "foreground puddles, crate shadows, cable runs and drain grates; midground clear market lane standing area framed by low stalls; background underpass columns, tarps, vending modules and layered neon signs",
+            storyPrompt: "market just closed after midnight, tarps dripping, crates stacked against the underpass wall, steam leaking from street vents",
+            visualPrompt: "wet underpass market lane, blank neon stall signs, tarp roof, vending module, cable bundle, drain grate, stacked crates",
+            groundPrompt: "flat wet concrete under the placeholder, clear foot contact area, puddles around but not under feet, oil stains, shoe scuffs, cable shadows kept to edges, realistic contact shadow"
+          }
+        },
+        {
+          id: "capsule_hotel_lobby",
+          name: "胶囊旅馆大厅",
+          data: {
+            scenePrompt: "cyberpunk capsule hotel lobby, stacked capsule pods, worn reception counter, vending wall, luggage lockers, glowing blank room indicators, cable trays, scuffed floor, clear central standing area",
+            atmospherePrompt: "cheap overnight capsule hotel mood, neon fatigue, dense urban privacy, quiet after midnight, cinematic cyberpunk interior",
+            lightingPrompt: "soft magenta and cyan pod lights, warm reception underlight, dim overhead strips, ambient occlusion around lockers, realistic contact shadow",
+            colorPrompt: "magenta pod glow, cyan indicator lights, dirty off-white plastic, graphite metal, worn rubber black, muted amber accents",
+            materialPrompt: "PBR scratched capsule plastic, worn laminate counter, scuffed rubber floor, dirty glass, brushed metal locker doors, fingerprints, chipped paint, cable dust, non-readable blank labels",
+            fxPrompt: "thin indoor haze, subtle dust, screen glow, no sharp readable text, no over-clean sci-fi hotel",
+            structurePrompt: "foreground scuffed floor, luggage marks and cable tray shadows; midground clear lobby standing area; background stacked capsule pods, lockers, vending wall and reception counter",
+            storyPrompt: "capsule hotel after the night rush, lockers half open, vending wall flickering, pod lights humming in the background",
+            visualPrompt: "stacked capsule pods, worn reception counter, vending wall, luggage lockers, blank glowing indicators, cable tray",
+            groundPrompt: "flat scuffed rubber floor under the placeholder, clear foot contact area, luggage wheel marks, dust, subtle reflections, cable shadows nearby but not crossing feet"
+          }
+        },
+        {
+          id: "data_black_market",
+          name: "数据黑市摊位",
+          data: {
+            scenePrompt: "cyberpunk data black market stall, portable server racks, hacked vending panels, stacked hard cases, cable nests, small work lights, blank holographic screens without readable text, wet alley floor, clear central standing area",
+            atmospherePrompt: "illegal data trade corner, tense quiet tech-noir mood, practical improvised electronics, rainy street-level realism",
+            lightingPrompt: "small cyan monitor glow, warm clamp lamps, magenta spill from alley signs, wet floor reflections, realistic contact shadow",
+            colorPrompt: "cyan screen glow, magenta alley light, black cable rubber, scratched gunmetal, dusty plastic gray, amber work light",
+            materialPrompt: "PBR scratched server cases, dusty hard cases, rubber cable bundles, greasy fingerprints on glass, chipped vending panels, wet asphalt, tape residue, grime, non-uniform roughness",
+            fxPrompt: "thin steam, rain mist, tiny screen flicker, no readable UI text, no giant hologram dominating frame",
+            structurePrompt: "foreground wet asphalt, cable nests, hard case edges and puddles; midground clear standing area beside the stall; background portable server racks, blank screens and stacked equipment",
+            storyPrompt: "black market stall packed up in a hurry, drives and cables left exposed, screens still glowing with unreadable diagnostics",
+            visualPrompt: "portable server rack, cable nest, hard case stack, hacked vending panel, blank holographic screen, clamp lamp",
+            groundPrompt: "wet asphalt under the placeholder, clear foot contact area, cables kept to side edges, puddle reflections, tape scraps, oil stains and realistic contact shadow"
+          }
+        },
+        {
+          id: "elevated_pipe_walkway",
+          name: "高架管线步道",
+          data: {
+            scenePrompt: "cyberpunk elevated pipe service walkway, metal grating floor, dense utility pipes, safety railings, maintenance boxes, rain-soaked city depth, blank light panels, clear central standing area",
+            atmospherePrompt: "high industrial service path above the city, wet wind, infrastructure scale, cinematic cyberpunk vertical depth",
+            lightingPrompt: "cool city glow from below, amber maintenance lamps, wet metal highlights, soft rim light on railings, realistic contact shadow",
+            colorPrompt: "deep blue city shadows, cyan underglow, amber service lamps, dark wet steel, rust accents, faded safety yellow",
+            materialPrompt: "PBR wet metal grating, rusted rail bolts, scratched pipe insulation, chipped maintenance boxes, rubber seals, rain streaks, grime at pipe joints, non-uniform metal roughness",
+            fxPrompt: "windblown rain mist, steam from pipe vents, distant city haze, no readable signs, no overbright neon wash",
+            structurePrompt: "foreground metal grating, pipe shadows and rail edges; midground clear walkway standing zone; background dense pipe layers, maintenance boxes and vertical city depth",
+            storyPrompt: "service walkway between high-rise blocks after rain, maintenance lamps still on, pipe vents leaking steam into the city wind",
+            visualPrompt: "metal grating walkway, dense pipe cluster, safety railing, maintenance box, amber service lamp, city depth below",
+            groundPrompt: "flat metal grating under the placeholder, clear foot contact area, wet highlights, rust flakes, pipe shadows, no railings crossing the body, realistic contact shadow"
+          }
+        },
+        {
+          id: "neon_laundry_backroom",
+          name: "霓虹洗衣房后室",
+          data: {
+            scenePrompt: "cyberpunk self-service laundry backroom, stacked washing machines, cracked tile floor, exposed pipes, coin machines with blank panels, detergent crates, wet mop marks, clear central standing area",
+            atmospherePrompt: "ordinary city utility space turned noir, humid machine room air, quiet neon spill, grounded cyberpunk domestic detail",
+            lightingPrompt: "cyan vending glow, warm ceiling strip, magenta street spill through dirty glass, soft reflections on wet tile, realistic contact shadow",
+            colorPrompt: "dirty white machines, cyan glow, magenta reflection, wet gray tile, rust brown pipes, faded detergent blue",
+            materialPrompt: "PBR scratched washing machine enamel, cracked ceramic tile, wet mop streaks, rusted pipes, dirty glass, detergent plastic, rubber hose scuffs, grime in tile joints, chipped paint",
+            fxPrompt: "thin laundry steam, damp haze, tiny dust and lint, no readable labels, no futuristic lab cleanliness",
+            structurePrompt: "foreground cracked wet tile, mop streaks and crate shadows; midground clear standing lane; background stacked machines, exposed pipes, coin machines and dirty glass",
+            storyPrompt: "laundry room after closing, machines humming faintly, crates left near the back wall, steam trapped under neon spill",
+            visualPrompt: "stacked washing machines, exposed pipe wall, blank coin machine, detergent crate, cracked wet tile, dirty glass window",
+            groundPrompt: "flat cracked tile under the placeholder, clear foot contact area, wet mop streaks, lint dust, tile grime, small detergent spills kept to edges, realistic contact shadow"
           }
         }
       ],
