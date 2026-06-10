@@ -4148,10 +4148,19 @@
               <label for="stylePreset">氛围预设 Style Preset</label>
               <select id="stylePreset">
                 <option value="custom">自定义 Custom</option>
-                <optgroup label="常用 3A 美术方向">
+                <optgroup label="已测试通过">
                   <option value="cyberpunk" class="tested-pass">[已通过] 赛博霓虹都市</option>
-                  <option value="overgrown_survival">自然侵蚀后末日</option>
                   <option value="samurai_island" class="tested-pass">[已通过] 诗意武士岛屿</option>
+                  <option value="apocalypse" class="tested-pass">[已通过] 通用废墟末日</option>
+                </optgroup>
+                <optgroup label="常用 3A 美术方向">
+                  <option value="overgrown_survival">自然侵蚀后末日</option>
+                  <option value="polar_research_ruin">极地科考废墟</option>
+                  <option value="dieselpunk_industrial">柴油朋克工业城</option>
+                  <option value="biotech_lab">生化实验设施</option>
+                  <option value="mining_megafacility">巨型矿业设施</option>
+                  <option value="dark_fantasy_dungeon">黑暗奇幻地下城</option>
+                  <option value="corporate_control_center">高端企业控制中心</option>
                   <option value="dark_gothic_fantasy">黑暗哥特奇幻</option>
                   <option value="norse_myth">北欧神话遗迹</option>
                   <option value="ancient_machine_wild">远古机械荒野</option>
@@ -4166,7 +4175,6 @@
                 <optgroup label="基础模板">
                   <option value="japanese">日系电影街景</option>
                   <option value="medieval">中世纪奇幻遗迹</option>
-                  <option value="apocalypse" class="tested-pass">[已通过] 通用废墟末日</option>
                 </optgroup>
               </select>
               <div class="hint">选择后会自动填充 9 个模块，你可以继续手动改。</div>
@@ -4916,6 +4924,78 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
         visualPrompt: "blank holographic billboard, glowing non-readable sign panels, dense cable canopy, neon vending module, metal service box, drain grate, strong cyan-magenta light accents",
         groundPrompt: "wet asphalt under the placeholder, reflective puddles around but not under the feet, clean foot contact area, oil stains, tire scuffs, drainage grate, dust and grime in pavement cracks, neon reflections around the shoes, no cables blocking the feet"
       },
+      polar_research_ruin: {
+        scenePrompt: "abandoned polar research station exterior, snow-packed service yard, modular lab cabins, frozen antenna mast, tracked vehicle parts, ice-cracked concrete pad, clear central standing area",
+        atmospherePrompt: "cold isolation, scientific outpost after evacuation, harsh wind and frozen silence, cinematic 3A survival realism",
+        lightingPrompt: "pale overcast arctic daylight, cool blue shadow fill, subtle rim light on icy metal, realistic snow contact shadow, no magical aurora glow",
+        colorPrompt: "snow white, cold blue gray, weathered orange safety paint, dark graphite metal, frosted glass, low saturation frozen palette",
+        materialPrompt: "PBR packed snow, ice crust, chipped painted metal, frost on glass, cracked rubber treads, wind-scoured concrete, rust freckles, scratched composite panels, non-uniform roughness",
+        fxPrompt: "windblown snow dust, thin cold haze, faint breath-like ground mist, drifting ice particles, no dense storm hiding the scene",
+        structurePrompt: "foreground snow ruts, frozen cables and cracked ice; midground clear standing pad; background modular research cabins, antenna mast and distant white horizon",
+        storyPrompt: "research base abandoned during a sudden evacuation, equipment left half-buried in snow, warning panels blank and frosted over",
+        visualPrompt: "modular polar lab cabin, frozen antenna tower, tracked vehicle fragment, snow fence, frosted floodlight, ice-cracked service pad",
+        groundPrompt: "flat packed snow and ice under the placeholder, clear foot contact area, shallow footprints, frost texture, snow ruts and realistic contact shadow, no snow pile blocking feet"
+      },
+      dieselpunk_industrial: {
+        scenePrompt: "dieselpunk industrial city yard, giant pipes, boiler towers, riveted steel walls, smoke stacks, rail tracks, oil-stained concrete, clear central standing area",
+        atmospherePrompt: "heavy machine-age city, smoky factory pressure, grounded retro-industrial 3A environment, dirty and monumental",
+        lightingPrompt: "warm sodium industrial lamps, cool overcast sky fill, furnace glow in background, heavy contact shadows, no neon cyberpunk look",
+        colorPrompt: "soot black, rust orange, faded safety yellow, oily concrete gray, aged brass, dark steel, smoky amber highlights",
+        materialPrompt: "PBR riveted steel, chipped paint, rust blooms, oily concrete, scratched brass valves, rubber hoses, soot stains, grease residue, worn safety stripes, non-uniform roughness",
+        fxPrompt: "low factory smoke, steam from pipe vents, floating soot, heat haze near boilers, no fantasy magic effects",
+        structurePrompt: "foreground rail tracks, oil stains and valve parts; midground open factory yard standing zone; background boiler towers, pipe bridges and smoke stacks",
+        storyPrompt: "old industrial district still running after years of neglect, pipes leaking steam, machines idle but warm, oil collecting along the rails",
+        visualPrompt: "giant riveted boiler, overhead pipe bridge, brass valve cluster, smoke stack, rail track, worn hazard stripe",
+        groundPrompt: "flat oil-stained concrete under the placeholder, clear foot contact area, rail grooves nearby, grease smears, rust flakes, tire marks and realistic contact shadow"
+      },
+      biotech_lab: {
+        scenePrompt: "biotech containment laboratory ruin, glass isolation pods, sealed corridor doors, wet reflective floor, cold light panels, empty specimen frames, cable trays, clear central standing area",
+        atmospherePrompt: "sterile facility after containment failure, clinical unease, realistic sci-fi horror mood, clean shapes with visible wear and stains",
+        lightingPrompt: "cold white lab panels, green emergency strips, dim red warning accents, wet floor reflections, realistic contact shadow, no colorful cyberpunk glow",
+        colorPrompt: "cold white, pale green, surgical gray, dark wet floor, muted red emergency accents, desaturated clinical palette",
+        materialPrompt: "PBR scratched glass, frosted plastic panels, brushed steel, wet epoxy floor, rubber door seals, condensation streaks, disinfectant stains, grime around handles, non-readable labels",
+        fxPrompt: "thin sterile mist, faint condensation, small dust motes in cold light, no gore, no readable UI text",
+        structurePrompt: "foreground wet reflective floor and cable tray shadows; midground clear containment corridor standing area; background glass pods, sealed doors and lab wall modules",
+        storyPrompt: "containment lab abandoned after an alarm, glass pods empty, floor still wet from emergency washdown, cold lights flickering above sealed doors",
+        visualPrompt: "glass isolation pod, sealed lab door, cold light panel, emergency strip, cable tray, wet reflective corridor",
+        groundPrompt: "flat wet epoxy floor under the placeholder, clear foot contact area, subtle reflections, disinfectant streaks, cable shadows kept to edges, realistic contact shadow"
+      },
+      mining_megafacility: {
+        scenePrompt: "giant mining facility service yard, conveyor supports, ore chutes, heavy crushers, rail carts, dust-covered platforms, cable trenches, clear central standing area",
+        atmospherePrompt: "massive extraction industry, dusty scale, heavy machinery silence, cinematic 3A hard-surface environment",
+        lightingPrompt: "hard worksite sun filtered through dust haze, amber industrial lamps, clear contact shadows, subtle material highlights on metal edges",
+        colorPrompt: "dusty ochre, graphite steel, rust orange, faded yellow safety paint, dark rubber black, desaturated industrial grade",
+        materialPrompt: "PBR scratched steel, dusty conveyor belts, chipped crusher housings, ore dust, rubber cable covers, grease stains, rust at bolts, rough gravel, non-uniform roughness",
+        fxPrompt: "dry dust clouds near ground, faint exhaust, heat shimmer, drifting ore particles, no laser battle or futuristic glow",
+        structurePrompt: "foreground gravel, rail tracks and cable trenches; midground open service pad standing area; background conveyors, crusher housing, silos and huge support frames",
+        storyPrompt: "mining yard between work cycles, conveyor stopped, ore dust coating the ground, service lights still active near the crusher",
+        visualPrompt: "giant conveyor frame, ore chute, crusher housing, rail cart, cable trench, dust-covered service platform",
+        groundPrompt: "flat compacted gravel and concrete under the placeholder, clear foot contact area, ore dust, tire tracks, oil stains, small stones kept to edges and realistic contact shadow"
+      },
+      dark_fantasy_dungeon: {
+        scenePrompt: "dark fantasy dungeon hall, wet stone floor, iron gate, chained pillars, broken altar, torch brackets, cracked masonry, clear central standing area",
+        atmospherePrompt: "oppressive underground fantasy ruin, damp stone, old ritual traces, 3A dark fantasy realism, not cartoon or colorful magic",
+        lightingPrompt: "cold overhead opening light, low warm torch side light, heavy ambient occlusion, realistic contact shadow, restrained smoke",
+        colorPrompt: "wet stone gray, iron black, muted torch amber, old blood-dark red accents, moss green traces, low saturation dungeon palette",
+        materialPrompt: "PBR wet stone slabs, rusted iron bars, chipped masonry, soot stains, wax residue, worn chains, damp moss in cracks, non-uniform roughness",
+        fxPrompt: "thin floor mist, torch smoke, dripping water, floating dust, no bright magical beams",
+        structurePrompt: "foreground wet stone slabs and chain shadows; midground clear ritual floor standing area; background iron gate, pillars, broken altar and dark corridor depth",
+        storyPrompt: "forgotten dungeon chamber below a ruined fortress, chains left on the floor, altar broken, water dripping into old cracks",
+        visualPrompt: "rusted iron gate, chained stone pillar, broken altar, torch bracket, wet stone floor, dark corridor arch",
+        groundPrompt: "flat wet stone floor under the placeholder, clear foot contact area, puddle edges, chain shadows kept to sides, wax stains and realistic contact shadow"
+      },
+      corporate_control_center: {
+        scenePrompt: "high-end corporate control center, black stone floor, glass command wall, security gates, large blank screen array, brushed metal consoles, cold white lighting, clear central standing area",
+        atmospherePrompt: "luxury corporate power, controlled and expensive, clean but tactile 3A sci-fi interior, serious command-room mood",
+        lightingPrompt: "cold white ceiling panels, soft blue screen fill, polished floor reflections, subtle rim light on glass edges, realistic contact shadow",
+        colorPrompt: "black stone, cold white light, deep blue glass, graphite metal, muted cyan UI glow, restrained premium palette",
+        materialPrompt: "PBR polished black stone, brushed aluminum, fingerprinted glass, rubber floor seams, scratched console edges, dust in panel gaps, subtle smudges, non-readable blank screens",
+        fxPrompt: "very subtle indoor haze, soft screen glow, no readable UI text, no neon light pollution",
+        structurePrompt: "foreground polished floor seams and console shadows; midground clear command floor standing area; background glass wall, blank screen array, security gate and control consoles",
+        storyPrompt: "executive control room after lockdown, screen wall still glowing, security gate sealed, expensive surfaces showing fingerprints and dust",
+        visualPrompt: "blank screen wall, glass command room, black stone floor, brushed metal console, security gate, cold white light strips",
+        groundPrompt: "flat polished black stone under the placeholder, clear foot contact area, subtle reflection around shoes, floor seams, smudges and realistic contact shadow"
+      },
       overgrown_survival: {
         scenePrompt: "overgrown post-pandemic city street, abandoned storefronts, cracked road, collapsed traffic lights, vines covering buildings, empty cars, clear central standing area",
         atmospherePrompt: "quiet survival atmosphere, nature reclaiming the city, melancholic but hopeful, grounded cinematic realism, lonely human absence",
@@ -5280,6 +5360,162 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
             storyPrompt: "skybridge night market closing in the rain, stalls dimmed, steam trapped under the canopy, city lights flickering far below",
             visualPrompt: "elevated skybridge market, transparent rain canopy, blank neon menu panels, food stall row, hanging cables, city depth below",
             groundPrompt: "flat wet metal deck under the placeholder, clear foot contact area, grease marks, puddle streaks, cable shadows kept to edges, realistic contact shadow"
+          }
+        }
+      ],
+      polar_research_ruin: [
+        {
+          id: "arctic_lab_yard",
+          name: "极地实验站外场",
+          data: {
+            scenePrompt: "abandoned arctic research station yard, modular lab cabins, frozen antenna mast, snow-packed service road, tracked vehicle fragment, clear central standing area",
+            materialPrompt: "PBR packed snow, frosted metal, cracked rubber treads, chipped orange safety paint, ice crust, wind-scoured concrete, non-uniform roughness",
+            structurePrompt: "foreground snow ruts and frozen cable shadows, midground clear service pad standing area, background lab cabins, antenna mast and white horizon",
+            storyPrompt: "research yard abandoned after emergency evacuation, equipment half-buried, floodlights frosted over, wind carving snow around the cabins",
+            visualPrompt: "modular polar lab, frozen antenna mast, tracked vehicle fragment, snow fence, frosted floodlight",
+            groundPrompt: "flat packed snow and ice under the placeholder, clear foot contact area, shallow footprints, snow ruts kept to edges, realistic snow contact shadow"
+          }
+        },
+        {
+          id: "frozen_generator_deck",
+          name: "冰封发电机平台",
+          data: {
+            scenePrompt: "polar generator deck ruin, frozen diesel generators, metal grating platform, ice-covered cable trays, windbreak panels, warning poles without readable text, clear central standing area",
+            materialPrompt: "PBR icy metal grating, frozen cable rubber, chipped generator paint, frost on bolts, rust freckles, snow dust, oil stains frozen under ice",
+            structurePrompt: "foreground icy grating and cable trays, midground clear generator deck standing zone, background generator units, windbreak panels and snow haze",
+            storyPrompt: "backup generator platform failed during a storm, cables frozen in place, fuel stains trapped beneath the ice",
+            visualPrompt: "frozen generator unit, icy metal grating, cable tray, windbreak panel, frosted warning pole",
+            groundPrompt: "flat icy metal deck under the placeholder, clear foot contact area, frost, dark frozen oil stains, cable shadows at edges and realistic contact shadow"
+          }
+        }
+      ],
+      dieselpunk_industrial: [
+        {
+          id: "boiler_pipe_yard",
+          name: "锅炉管线工厂",
+          data: {
+            scenePrompt: "dieselpunk boiler pipe factory yard, giant riveted boilers, overhead pipe bridges, brass valve clusters, smoky stacks, oil-stained concrete, clear central standing area",
+            materialPrompt: "PBR riveted steel, chipped black paint, rust blooms, oily concrete, brass valves, soot stains, grease residue, worn hazard stripes",
+            structurePrompt: "foreground oil stains, rail grooves and valve parts, midground open factory yard standing area, background giant boilers, pipe bridges and smoke stacks",
+            storyPrompt: "factory yard still warm after shutdown, steam leaking through pipe joints, oil collecting along the service rails",
+            visualPrompt: "giant riveted boiler, pipe bridge, brass valve cluster, smoke stack, worn hazard stripe",
+            groundPrompt: "flat oil-stained concrete under the placeholder, clear foot contact area, grease smears, rail grooves nearby, rust flakes and realistic contact shadow"
+          }
+        },
+        {
+          id: "train_foundry_platform",
+          name: "铸造铁路月台",
+          data: {
+            scenePrompt: "dieselpunk train foundry platform, old industrial rail line, furnace doors, cargo hooks, coal bins, heavy crane frame, soot-covered floor, clear central standing area",
+            materialPrompt: "PBR soot-black concrete, rusty rail steel, heat-darkened furnace doors, coal dust, scratched crane hooks, greasy chains, chipped safety paint",
+            structurePrompt: "foreground rail track and coal dust, midground clear platform standing area, background furnace doors, crane frame and cargo hook silhouettes",
+            storyPrompt: "foundry platform between shifts, crane hooks hanging still, coal dust and oil stains covering the rail-side floor",
+            visualPrompt: "furnace door row, industrial rail track, heavy crane frame, cargo hook, coal bin, soot-covered platform",
+            groundPrompt: "flat soot-stained platform under the placeholder, clear foot contact area, rail track beside feet, coal dust, oil stains and hard contact shadow"
+          }
+        }
+      ],
+      biotech_lab: [
+        {
+          id: "containment_corridor",
+          name: "隔离实验走廊",
+          data: {
+            scenePrompt: "biotech containment corridor, sealed lab doors, glass observation windows, cold light panels, wet reflective epoxy floor, cable trays, clear central standing area",
+            materialPrompt: "PBR scratched glass, wet epoxy floor, brushed steel door frames, rubber seals, condensation streaks, disinfectant stains, smudged plastic panels",
+            structurePrompt: "foreground wet floor reflections and cable tray shadows, midground clear corridor standing area, background sealed doors, glass windows and lab wall modules",
+            storyPrompt: "containment corridor after emergency washdown, doors sealed, floor still wet, observation windows fogged from inside",
+            visualPrompt: "sealed lab door, glass observation panel, cold light strip, emergency indicator, cable tray, wet corridor floor",
+            groundPrompt: "flat wet epoxy floor under the placeholder, clear foot contact area, subtle reflections, disinfectant streaks, cable shadows kept to edges"
+          }
+        },
+        {
+          id: "specimen_pod_room",
+          name: "样本舱室",
+          data: {
+            scenePrompt: "biotech specimen pod room, empty glass pods, service consoles, rubber floor seams, condensation, sterile wall panels, clear central standing area",
+            materialPrompt: "PBR curved glass pods, frosted plastic, brushed metal consoles, wet rubber seams, condensation streaks, fingerprints, non-readable blank panels",
+            structurePrompt: "foreground rubber floor seams and reflections, midground clear pod room standing area, background empty pods, consoles and cold wall panels",
+            storyPrompt: "specimen room emptied after containment alert, pod glass fogged, consoles glowing with unreadable blank diagnostics",
+            visualPrompt: "empty glass specimen pod, cold wall panel, service console, rubber floor seam, condensation streaks",
+            groundPrompt: "flat rubberized lab floor under the placeholder, clear foot contact area, wet seams, subtle reflections and realistic contact shadow"
+          }
+        }
+      ],
+      mining_megafacility: [
+        {
+          id: "ore_conveyor_yard",
+          name: "矿石输送外场",
+          data: {
+            scenePrompt: "giant mining ore conveyor yard, heavy conveyor supports, ore chutes, rail carts, dust-covered service platform, cable trenches, clear central standing area",
+            materialPrompt: "PBR dusty conveyor belts, scratched steel supports, rust at bolts, ore dust, grease stains, rubber cable covers, chipped yellow safety paint",
+            structurePrompt: "foreground rail grooves, ore dust and cable trenches, midground clear service pad, background conveyor frames, ore chutes and silo silhouettes",
+            storyPrompt: "ore conveyor stopped between cycles, dust covering the platform, rail carts waiting beside the service lane",
+            visualPrompt: "giant conveyor support, ore chute, rail cart, cable trench, dust-covered platform, industrial silo",
+            groundPrompt: "flat dusty concrete and gravel under the placeholder, clear foot contact area, ore dust, tire tracks, oil stains and realistic contact shadow"
+          }
+        },
+        {
+          id: "crusher_service_pad",
+          name: "破碎机检修区",
+          data: {
+            scenePrompt: "massive mining crusher service pad, modular crusher housing, pipe racks, maintenance stairs, storage crates, dust filters, rough gravel floor, clear central standing area",
+            materialPrompt: "PBR chipped crusher paint, dusty steel stairs, scratched control boxes, rubber hoses, grease residue, gravel, spilled ore dust, non-uniform roughness",
+            structurePrompt: "foreground gravel and hose shadows, midground clear service pad standing area, background crusher housing, stairs, pipe racks and dust filters",
+            storyPrompt: "crusher bay paused for maintenance, tools removed, ore dust gathered at machine feet, dust filters venting softly",
+            visualPrompt: "crusher housing, maintenance stairs, pipe rack, dust filter stack, sealed storage crates, rough gravel pad",
+            groundPrompt: "firm gravel and concrete service pad under the placeholder, clear foot contact area, small stones kept aside, ore dust and contact shadow"
+          }
+        }
+      ],
+      dark_fantasy_dungeon: [
+        {
+          id: "iron_gate_hall",
+          name: "铁门地牢厅",
+          data: {
+            scenePrompt: "dark fantasy dungeon iron gate hall, wet stone floor, rusted bars, chained pillars, torch brackets, cracked archway, clear central standing area",
+            materialPrompt: "PBR wet stone slabs, rusted iron bars, worn chains, soot stains, melted wax, chipped masonry, damp moss in cracks",
+            structurePrompt: "foreground wet stone and chain shadows, midground clear dungeon floor standing area, background iron gate, pillars and dark archway",
+            storyPrompt: "old prison hall below a fallen castle, chains left on the floor, water dripping near the iron gate",
+            visualPrompt: "rusted iron gate, chained pillar, torch bracket, wet stone floor, cracked archway",
+            groundPrompt: "flat wet stone slabs under the placeholder, clear foot contact area, puddle edges and chain shadows kept to sides"
+          }
+        },
+        {
+          id: "broken_altar_crypt",
+          name: "破碎祭坛墓穴",
+          data: {
+            scenePrompt: "dark fantasy crypt with broken altar, stone coffins, iron candle stands, wet stairs, cracked masonry walls, clear central standing area",
+            materialPrompt: "PBR damp carved stone, rusted candle stands, wax residue, soot, chipped altar edges, old dust, wet stair marks",
+            structurePrompt: "foreground cracked crypt floor and wax stains, midground clear altar floor standing area, background broken altar, coffins and stair depth",
+            storyPrompt: "forgotten crypt after a failed ritual, altar split open, candle stands rusting, damp air collecting on the steps",
+            visualPrompt: "broken stone altar, coffin row, iron candle stand, wet stairs, cracked crypt wall",
+            groundPrompt: "flat cracked stone floor under the placeholder, clear foot contact area, wax stains, dust and contact shadow"
+          }
+        }
+      ],
+      corporate_control_center: [
+        {
+          id: "executive_screen_wall",
+          name: "企业屏幕墙大厅",
+          data: {
+            scenePrompt: "luxury corporate control hall, huge blank screen wall, black stone floor, glass partitions, brushed metal consoles, security gate, clear central standing area",
+            materialPrompt: "PBR polished black stone, fingerprinted glass, brushed aluminum, rubber floor seams, scratched console edges, dust in panel gaps",
+            structurePrompt: "foreground polished floor seams and console shadows, midground clear command floor standing area, background blank screen wall, glass partitions and security gate",
+            storyPrompt: "executive control hall after lockdown, screen wall glowing silently, security gate sealed, expensive surfaces marked by fingerprints",
+            visualPrompt: "blank screen wall, black stone floor, glass command room, brushed metal console, security gate",
+            groundPrompt: "flat polished black stone under the placeholder, clear foot contact area, subtle reflections, floor seams and realistic contact shadow"
+          }
+        },
+        {
+          id: "security_checkpoint_lobby",
+          name: "安保闸机大厅",
+          data: {
+            scenePrompt: "high-end corporate security checkpoint lobby, glass turnstiles, black marble floor, cold light ceiling, blank access panels, metal detector frames, clear central standing area",
+            materialPrompt: "PBR black marble, glass turnstiles, brushed steel frames, smudged access panels, rubber floor seams, subtle dust and fingerprints",
+            structurePrompt: "foreground marble reflection and turnstile shadows, midground clear lobby standing area, background security gates, glass walls and cold ceiling lights",
+            storyPrompt: "corporate lobby sealed after hours, access panels blank, glass turnstiles reflecting the cold ceiling lights",
+            visualPrompt: "glass turnstile, black marble lobby, blank access panel, metal detector frame, cold ceiling light",
+            groundPrompt: "flat polished marble under the placeholder, clear foot contact area, reflection around shoes, no gates blocking body"
           }
         }
       ],
@@ -6331,7 +6567,7 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
     const filmCGSceneRequirement = "cinematic UE or Octane style film CG environment rendering, high-end production design, physically based materials, path-traced global illumination, volumetric atmosphere, realistic render-camera response, detailed environment art, avoid real photo look, avoid DSLR snapshot feeling, no illustration look, no anime style, no flat game screenshot look";
 
     function applyStyleRenderingDefaults(presetName) {
-      if (!["samurai_island", "otg", "arknights", "endfield"].includes(presetName)) return;
+      if (!["samurai_island", "otg", "arknights", "endfield", "polar_research_ruin", "dieselpunk_industrial", "biotech_lab", "mining_megafacility", "dark_fantasy_dungeon", "corporate_control_center"].includes(presetName)) return;
       setFieldValue("outputLook", "cinematic_realism");
       setFieldValue("renderEngine", "cinematic_path_tracing");
       const sceneSafetyRequirement = filmCGSceneRequirement + ", no objects blocking the center placeholder, clean compositing space around the body, background remains recognizable, real-world 1.7m human scale consistency";
