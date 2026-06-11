@@ -7294,13 +7294,13 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
         atmospherePrompt: "Frieren-like quiet journey atmosphere and sense of long time passing, calm old-world melancholy, gentle medieval fantasy exploration mood, believable lived-in kingdom, Baldur's Gate 3-like RPG environment layering with restrained Witcher-like material grit, cinematic AAA fantasy realism",
         lightingPrompt: "soft natural daylight, bright cloudy sky fill, gentle late-afternoon warmth on stone edges, restrained window or brazier accents only, realistic contact shadow, no strong god rays, no flashy spell lighting",
         colorPrompt: "soft grass green, weathered limestone gray, damp earth brown, aged wood, faded linen tan, moss in stone seams, rusted iron, pale blue-gray sky, low saturation poetic fantasy grading",
-        materialPrompt: "high-detail PBR worn cobblestones, packed dirt, cracked limestone blocks, rough timber, peeling plaster, rusty iron hinges, old leather straps, frayed linen, weathered travel gear, rain streaks, dust, small mud patches, moss, lichen, chipped edges, scratches, grime in seams, non-uniform roughness and natural edge wear",
+        materialPrompt: "cinematic CG PBR material lock, high-detail worn cobblestones, packed dirt, cracked limestone blocks, rough timber, peeling plaster, rusty iron hinges, old leather straps, frayed linen, weathered travel gear, physically based albedo, roughness and normal-map response, wet-dry roughness variation, micro-scratches, chipped stone edges, dust in cracks, rain streaks, small mud patches, moss, lichen, grime in seams, ambient-occlusion dirt, non-uniform roughness and natural edge wear",
         fxPrompt: "thin cool haze, soft hill mist, drifting dust, light wind in grass and cloth banners, subtle chimney smoke in the distance, no large magic beams, no glowing runes dominating the frame",
-        structurePrompt: "foreground worn road texture, stones, low grass, travel scuffs and small props; midground clean central standing area with readable foot contact; background old bridge, shrine, marker stones, distant roofs, hills and wide sky for a quiet journey composition",
+        structurePrompt: "foreground worn road texture, stones, low grass, travel scuffs, low props and material breakup; midground clean central standing area framed by useful environment assets such as carts, marker stones, fences, shrine pieces or travel crates; background old bridge, shrine, distant roofs, hills and wide sky for a quiet journey composition",
         storyPrompt: "a quiet stop on a long medieval journey, an old road repaired across generations, marker stones softened by rain, distant village life barely visible, the place feels peaceful, aged and full of small histories",
         visualPrompt: "old kingdom road, weathered stone bridge, small roadside shrine, ancient marker stone, distant village roofs, faded cloth banner, travel pack, low grass, worn cobblestone, no readable text or copied symbols",
-        groundPrompt: "flat worn cobblestone or packed dirt under the placeholder, clear 1.7m human-scale foot contact area, small puddles and grass kept around but not under the feet, travel scuffs, tiny stones, dust, light mud, moss edges and realistic PBR contact shadow",
-        extraPrompt: "original cinematic realistic CG medieval fantasy environment inspired by the quiet journey atmosphere, soft melancholy and long-time-passing feeling of Frieren, the dense RPG set dressing and fantasy architecture logic of Baldur's Gate 3, and restrained grounded material grit similar to The Witcher 3; keep it low-magic, human-scale, peaceful and believable; do not copy any official character, logo, UI, map layout, exact building design, emblem or copyrighted composition; avoid anime illustration style, flat 2D look, clean fairy-tale castle, Warcraft-like exaggerated proportions, mobile-game saturation, giant magic circles, floating crystals, glowing blue-purple spell effects, heavy gothic horror overlap, and overly clean theme-park scenery"
+        groundPrompt: "flat worn cobblestone or packed dirt under the placeholder, clear 1.7m human-scale foot contact area, physically based ground shader, visible stone relief, dirt masks, roughness variation, small puddles and grass kept around but not under the feet, travel scuffs, tiny stones, dust, light mud, moss edges, ambient occlusion under low props, realistic PBR contact shadow",
+        extraPrompt: "original cinematic realistic CG medieval fantasy environment inspired by the quiet journey atmosphere, soft melancholy and long-time-passing feeling of Frieren, the dense RPG set dressing and fantasy architecture logic of Baldur's Gate 3, and restrained grounded material grit similar to The Witcher 3; render as high-end UE5 or Octane style cinematic CG, not as anime background art, not as illustration, not as painterly concept art; enforce physically based materials, high-resolution texture detail, albedo/roughness/normal response, micro surface detail, wet and dry roughness variation, ambient occlusion in crevices, dirt masks, scratches, chipped stone, weathered wood grain, rusty iron, frayed cloth fibers, dust, grime, rain streaks and believable contact shadows; keep it low-magic, human-scale, peaceful and believable; do not copy any official character, logo, UI, map layout, exact building design, emblem or copyrighted composition; avoid flat 2D look, clean fairy-tale castle, Warcraft-like exaggerated proportions, mobile-game saturation, giant magic circles, floating crystals, glowing blue-purple spell effects, heavy gothic horror overlap, plastic CG, toy-like surfaces, smooth clean stone, spotless props, and overly clean theme-park scenery"
       },
       dark_fantasy_dungeon: {
         scenePrompt: "dark fantasy dungeon hall, wet stone floor, iron gate, chained pillars, broken altar, torch brackets, cracked masonry, clear central standing area",
@@ -7795,22 +7795,6 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
           }
         },
         {
-          id: "quiet_stone_bridge",
-          name: "溪谷旧石桥",
-          data: {
-            scenePrompt: "quiet medieval fantasy stone bridge over a shallow valley stream, weathered parapets, mossy stones, small roadside shrine, distant village roofs, low grass, worn travel path, clear central standing area",
-            atmospherePrompt: "Frieren-like calm travel pause, peaceful old kingdom road, gentle sense of time passing, quiet open-air fantasy realism",
-            lightingPrompt: "soft cloudy daylight with mild warm breaks, natural sky fill, subtle water bounce, realistic contact shadow on worn bridge stones, no dramatic god rays",
-            colorPrompt: "soft moss green, pale gray stone, clear muted water blue, damp earth brown, faded cloth tan, distant roof red-brown, low saturation poetic grading",
-            materialPrompt: "PBR weathered bridge stone, chipped parapet edges, moss in cracks, wet stone patches, lichen, packed dirt, worn grass, rusty small shrine bell, frayed cloth tie, rain streaks, dust and non-uniform roughness",
-            fxPrompt: "thin valley mist, gentle water vapor, light wind in grass, soft distant chimney smoke, no glowing magic effects",
-            structurePrompt: "foreground worn bridge slabs and moss; midground clear standing area on the bridge; background stream, small shrine, distant village roofs, rolling hills and wide quiet sky",
-            storyPrompt: "old bridge on a road used for generations, stones repaired by many hands, a small shrine marking safe passage, distant village life barely visible beyond the valley",
-            visualPrompt: "weathered stone bridge, shallow stream, mossy parapet, roadside shrine, distant village roofs, low grass, old travel path",
-            groundPrompt: "flat worn bridge stone under the placeholder, clear 1.7m foot contact area, moss and puddle edges kept aside, chipped stone, dust, lichen and realistic contact shadow"
-          }
-        },
-        {
           id: "windmill_hill_road",
           name: "风车山丘路口",
           data: {
@@ -7875,35 +7859,131 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
           }
         },
         {
-          id: "old_mage_waystation",
-          name: "旧魔法师驿站",
+          id: "roadside_supply_shelter",
+          name: "驿路补给棚",
           data: {
-            scenePrompt: "quiet low-magic medieval fantasy mage waystation, small stone shelter, blank wooden notice board, worn worktable, travel crates, extinguished brazier, herb bundles, old road, clear central standing area",
-            atmospherePrompt: "Frieren-like quiet stop for travelers and mages, gentle old magic implied by objects not glow, practical RPG set dressing, peaceful realism",
-            lightingPrompt: "soft cloudy daylight, very restrained warm brazier residue, gentle window fill, realistic contact shadow, no visible spell effects",
-            colorPrompt: "weathered stone gray, faded herb green, aged wood brown, linen tan, rusted iron, ash black, pale sky fill, low saturation fantasy palette",
-            materialPrompt: "PBR cracked stone shelter, scratched worktable wood, rusty brazier, ash, herb bundles, frayed rope, worn leather satchel, dusty crates, old paper shapes without readable text, rain streaks, grime in seams and edge wear",
-            fxPrompt: "thin smoke residue, drifting dust, soft road haze, slight wind moving herb bundles, no glowing runes or floating magic",
-            structurePrompt: "foreground packed road dirt, ash and table shadows; midground clear standing area beside shelter; background stone waystation, blank board, crates, herb bundles and distant road",
-            storyPrompt: "small waystation where travelers once exchanged supplies and quiet magic knowledge, brazier cold, herbs drying under the roof, road continuing beyond the shelter",
-            visualPrompt: "small stone waystation, blank notice board, worn worktable, extinguished brazier, herb bundles, travel crates, old road",
-            groundPrompt: "flat packed dirt and worn stone under the placeholder, clear foot contact area, ash and crates kept to edges, dust, small stones and realistic contact shadow"
+            scenePrompt: "medieval fantasy roadside supply shelter on an old kingdom road, timber lean-to roof, stacked travel crates, grain sacks, water barrels, rope coils, blank wooden wayboard, low stone marker, clear central standing area",
+            atmospherePrompt: "Frieren-like quiet travel rest point, ordinary roadside life after many journeys, peaceful but richly dressed RPG environment, low-magic realistic fantasy",
+            lightingPrompt: "layered soft daylight: bright cloudy sky fill, warm reflected light under the shelter roof, small lantern glow on the side, gentle side highlights on crates, realistic contact shadows under low props",
+            colorPrompt: "weathered wood brown, faded linen tan, pale stone gray, muted grass green, rope beige, rusted iron, soft warm lantern amber, low saturation poetic grade",
+            materialPrompt: "PBR scratched timber beams, frayed canvas cover, dusty grain sacks, worn rope fibers, chipped barrel hoops, damp packed dirt, small gravel, moss on marker stones, rain streaks, edge wear, grime in crate seams and non-uniform roughness",
+            fxPrompt: "thin road dust, light wind moving canvas edges, subtle warm lantern haze under the roof, distant hill mist, no magical glow",
+            structurePrompt: "foreground packed dirt, wheel scuffs, sack corners, rope shadows and small stones; midground clear standing area framed by crates, barrels, shelter posts and low marker stones; background old road, soft fields and distant village roofs",
+            storyPrompt: "a supply shelter used by travelers for decades, crates repaired and reused, sacks stacked after a delivery, the road continuing quietly toward the next town",
+            visualPrompt: "timber roadside shelter, stacked crates, grain sacks, water barrels, rope coils, blank wayboard, low stone marker, old road",
+            groundPrompt: "flat packed dirt and worn stone under the placeholder, clear foot contact area, sack corners and rope coils kept to edges, wheel scuffs, dust, small gravel, moss and realistic contact shadow"
           }
         },
         {
-          id: "sunset_kingdom_road",
-          name: "夕照王国古道",
+          id: "watermill_stream_bank",
+          name: "山脚水磨坊",
           data: {
-            scenePrompt: "medieval fantasy old kingdom road at sunset, worn cobblestone path, low stone markers, distant city wall silhouette, grass shoulders, travel packs, faded roadside banner, clear central standing area",
-            atmospherePrompt: "Frieren-like end-of-day journey feeling, calm farewell mood, old road leading to distant places, warm but restrained fantasy realism",
-            lightingPrompt: "soft low sunset side light, warm highlights on stone markers, cool sky fill, long but realistic contact shadow, no dramatic sun rays",
-            colorPrompt: "muted sunset amber, cool blue-gray shadows, worn stone gray, dry grass gold, faded banner red, earth brown, poetic low saturation grade",
-            materialPrompt: "PBR worn cobblestone, dusty road dirt, chipped marker stones, dry grass, frayed banner cloth, old leather travel packs, rusty buckles, small gravel, scratches, dust and non-uniform roughness",
-            fxPrompt: "soft evening haze, light wind in grass and banner, distant chimney smoke, no glowing magic or lens spectacle",
-            structurePrompt: "foreground cobblestone path, grass shoulders and low props; midground clear standing area; background old marker stones, distant city wall silhouette, hills and sunset sky",
-            storyPrompt: "ancient road near the end of a journey, distant city wall waiting quietly, marker stones passed by countless travelers, evening light settling on the path",
-            visualPrompt: "old cobblestone road, low stone markers, distant city wall silhouette, faded roadside banner, travel packs, grass shoulders, sunset sky",
-            groundPrompt: "flat worn cobblestone under the placeholder, clear 1.7m foot contact area, dust and grass kept to edges, tiny stones, travel scuffs and realistic contact shadow"
+            scenePrompt: "medieval fantasy watermill at the foot of soft hills, timber mill wheel, shallow stream, stone retaining wall, flour sacks, wooden troughs, handcart, mossy stepping stones, clear central standing area",
+            atmospherePrompt: "peaceful countryside craft scene, Frieren-like quiet rural journey, lived-in old kingdom labor, gentle water and time-worn materials",
+            lightingPrompt: "soft morning daylight with layered bounce from stream water, warm highlights on wet timber, cool shadow under the mill roof, realistic contact shadows around stones and sacks",
+            colorPrompt: "soft hill green, wet timber brown, pale flour sack linen, mossy stone gray, shallow water blue green, muted warm sunlight, restrained natural fantasy grade",
+            materialPrompt: "PBR wet wood grain, mossy stone wall, worn mill wheel paddles, damp flour sacks, scratched handcart, muddy stream bank, rope fibers, algae at waterline, rain stains, chipped stone, dust and non-uniform roughness",
+            fxPrompt: "subtle water vapor, fine mist near the wheel, drifting flour dust near sacks, soft hill haze, no magical sparkle",
+            structurePrompt: "foreground stream bank stones, water glints, flour sacks and cart wheel marks; midground clear standing area beside the mill path; background timber mill, rotating wheel silhouette, low stone wall, fields and hills",
+            storyPrompt: "old watermill still used by a small village, sacks left for pickup, stream cutting softly through stones polished by years of work",
+            visualPrompt: "timber watermill wheel, shallow stream, flour sacks, handcart, mossy retaining wall, wooden trough, stepping stones",
+            groundPrompt: "flat damp packed dirt and stone path under the placeholder, clear foot contact area, water edge and sacks kept aside, mud marks, moss, flour dust and realistic contact shadow"
+          }
+        },
+        {
+          id: "bridgehead_market_arch",
+          name: "桥头旧市门廊",
+          data: {
+            scenePrompt: "old medieval fantasy bridgehead market arch, weathered stone archway, small covered stalls, folded awnings, baskets, clay jars, weighing scale, stacked crates, worn cobblestone, clear central standing area",
+            atmospherePrompt: "quiet market after closing, gentle old kingdom daily life, Frieren-like pause in a town passed through, richly dressed but calm RPG scene",
+            lightingPrompt: "layered late afternoon light, warm side light catching awning edges, cool arch shadow, soft bounce from pale stone ground, small amber shop lamp accents, realistic prop contact shadows",
+            colorPrompt: "warm stone gray, faded canvas tan, muted pottery red, basket straw, weathered wood brown, soft moss green, restrained amber highlights",
+            materialPrompt: "PBR worn cobblestones, chipped arch stone, frayed awnings, woven baskets, dusty clay jars, scratched wood crates, tarnished iron scale, rain streaks, dirt in stone joints, edge wear and non-uniform roughness",
+            fxPrompt: "thin dust under awnings, soft town haze beyond the arch, light wind moving cloth corners, no readable shop text and no magic effects",
+            structurePrompt: "foreground cobblestone texture, baskets, jars and crate shadows; midground clear standing area under the arch; background bridgehead arch, folded stalls, side walls and distant town lane depth",
+            storyPrompt: "market arch after a quiet trading day, baskets stacked away, bridge traffic faded into evening, old stones holding traces of many townspeople",
+            visualPrompt: "weathered market arch, folded awnings, basket stacks, clay jars, weighing scale, wooden crates, worn cobblestone bridgehead",
+            groundPrompt: "flat worn cobblestone under the placeholder, clear foot contact area, baskets and jars kept around edges, dust in joints, damp patches and realistic contact shadow"
+          }
+        },
+        {
+          id: "herb_cloister_garden",
+          name: "药草修道院小庭",
+          data: {
+            scenePrompt: "quiet medieval fantasy herb garden inside an old abbey cloister, low stone planters, drying herb racks, worn benches, clay pots, small fountain basin, broken arch shadows, clear central standing area",
+            atmospherePrompt: "Frieren-like peaceful old knowledge and time passing, gentle monastic garden, practical low-magic healing place, calm and tactile",
+            lightingPrompt: "soft daylight filtered through broken cloister arches, patterned arch shadows on stone, cool fountain bounce, tiny warm candle traces near a bench, realistic contact shadows",
+            colorPrompt: "herb green, weathered limestone gray, clay pot red brown, aged wood, pale water blue, faded linen, warm candle cream, low saturation calm grade",
+            materialPrompt: "PBR chipped stone planters, damp herb leaves, cracked clay pots, rough wooden drying racks, worn bench edges, moss in floor seams, fountain mineral stains, soil, dust, wax marks and non-uniform roughness",
+            fxPrompt: "light water vapor near fountain, drifting garden dust, subtle herb movement in wind, no glowing healing magic",
+            structurePrompt: "foreground stone floor seams, clay pots, soil spills and herb shadows; midground clear garden standing area framed by planters and benches; background cloister arches, drying racks, fountain basin and soft sky gaps",
+            storyPrompt: "small abbey garden maintained long after the order declined, herbs drying for travelers, fountain still running quietly among worn stones",
+            visualPrompt: "low herb planters, drying herb rack, clay pots, worn bench, small fountain basin, broken cloister arch, mossy stone floor",
+            groundPrompt: "flat worn stone floor under the placeholder, clear foot contact area, soil spills and pots kept to edges, moss seams, water stains, dust and realistic contact shadow"
+          }
+        },
+        {
+          id: "caravan_rest_terrace",
+          name: "旅队休息台地",
+          data: {
+            scenePrompt: "medieval fantasy caravan rest terrace above a valley road, low stone retaining wall, covered wagon parts, travel trunks, rolled blankets, cooking tripod, water jars, distant hills, clear central standing area",
+            atmospherePrompt: "quiet road-camp after travelers have moved on, Frieren-like long journey scale, warm human traces in an open landscape, grounded RPG set dressing",
+            lightingPrompt: "soft low sun with cool sky fill, warm highlights on blankets and jars, blue valley shadow in the distance, gentle occlusion under wagon parts and trunks, realistic contact shadow",
+            colorPrompt: "dry grass gold, weathered stone gray, faded blanket red and blue, dusty canvas tan, aged wood, clay jar brown, soft blue distant haze",
+            materialPrompt: "PBR dusty packed earth, chipped retaining wall stones, frayed blankets, scratched travel trunks, worn wagon wood, rusty cooking tripod, clay jars, ash, rope fibers, dry grass, scuffs and non-uniform roughness",
+            fxPrompt: "thin campfire smoke residue, distant valley haze, light wind in canvas and grass, no dramatic light beams",
+            structurePrompt: "foreground ash patch, blanket roll, trunk corners and jar shadows; midground clear terrace standing area; background low wall, wagon parts, valley road, hills and wide sky",
+            storyPrompt: "caravan terrace used as a rest stop for generations, cooking fire recently cold, trunks and wagon parts arranged for the next departure",
+            visualPrompt: "covered wagon parts, travel trunks, rolled blankets, cooking tripod, clay water jars, low stone terrace wall, valley road",
+            groundPrompt: "flat dusty packed earth under the placeholder, clear foot contact area, ash patch and trunks kept aside, rope fibers, gravel, dry grass and realistic contact shadow"
+          }
+        },
+        {
+          id: "bell_tower_square",
+          name: "古钟塔小广场",
+          data: {
+            scenePrompt: "small medieval fantasy bell tower square, old stone bell tower, worn steps, public notice board without readable text, benches, flower boxes, rain barrel, cobblestone plaza, clear central standing area",
+            atmospherePrompt: "peaceful town square at a quiet hour, Frieren-like ordinary life seen during travel, gentle civic history and soft melancholy",
+            lightingPrompt: "layered cloudy afternoon light, warm window glow from side houses, cool bell tower shadow, soft sky reflection on damp cobblestones, realistic contact shadows under benches and barrels",
+            colorPrompt: "damp cobblestone gray, pale plaster, aged timber brown, muted flower colors, rain barrel dark wood, soft warm windows, low saturation town palette",
+            materialPrompt: "PBR worn cobblestones, chipped tower stone, peeling plaster, scratched benches, wet barrel hoops, flower box soil, rusty nails, rain streaks, moss at stone bases, dust and non-uniform roughness",
+            fxPrompt: "thin damp town haze, faint chimney smoke, light dust near notice board, no readable text and no magical glow",
+            structurePrompt: "foreground cobblestone seams, bench shadows, flower boxes and barrel; midground clear square standing area; background bell tower, side house facades, blank notice board and narrow town exits",
+            storyPrompt: "small square after the morning bell, benches empty, notice board weathered blank, flowers tended by someone unseen",
+            visualPrompt: "old bell tower, worn plaza steps, blank notice board, benches, rain barrel, flower boxes, damp cobblestone square",
+            groundPrompt: "flat damp cobblestone under the placeholder, clear foot contact area, flower boxes and benches kept aside, water stains, moss, grit and realistic contact shadow"
+          }
+        },
+        {
+          id: "old_aqueduct_path",
+          name: "古水道步道",
+          data: {
+            scenePrompt: "medieval fantasy old aqueduct path crossing a hillside, stone channel arches, maintenance walkway, low parapet, water trough, tool basket, mossy slabs, distant town and fields, clear central standing area",
+            atmospherePrompt: "quiet infrastructure of an old kingdom, Frieren-like road beside ancient public works, practical beauty and long time passing, calm exploration mood",
+            lightingPrompt: "soft side daylight with bright sky fill, cool shadow under aqueduct arches, reflected water highlights on nearby stone, gentle warm light on distant fields, realistic contact shadows",
+            colorPrompt: "pale aqueduct stone, moss green, muted water blue, field gold, weathered wood, rusted tool iron, low saturation airy grade",
+            materialPrompt: "PBR worn aqueduct stone, chipped channel edges, wet moss, mineral deposits, damp slabs, scratched tool basket, rusty maintenance tools, dust, lichen, rain streaks and roughness variation",
+            fxPrompt: "thin water vapor over trough, soft hillside haze, light wind through grass, no glowing ancient technology",
+            structurePrompt: "foreground mossy slabs, water trough edge, tool basket and parapet shadows; midground clear walkway standing area; background aqueduct arches, hillside fields, distant town and open sky",
+            storyPrompt: "old aqueduct still carrying water after centuries, maintenance tools left by the path, a quiet proof that the kingdom once cared for its roads",
+            visualPrompt: "stone aqueduct arches, maintenance walkway, water trough, tool basket, low parapet, mossy slabs, distant town fields",
+            groundPrompt: "flat worn stone walkway under the placeholder, clear foot contact area, trough edge and tools kept aside, wet moss, dust, lichen and realistic contact shadow"
+          }
+        },
+        {
+          id: "castle_outer_garden",
+          name: "旧城外花园坡",
+          data: {
+            scenePrompt: "medieval fantasy old castle outer garden slope, weathered low walls, overgrown but trimmed flower beds, stone stair fragments, garden tools, wicker baskets, distant castle wall, clear central standing area",
+            atmospherePrompt: "Frieren-like quiet beauty outside old power, peaceful garden after history has softened, gentle fantasy realism with lived-in care",
+            lightingPrompt: "soft afternoon side light, layered shadows from low walls and shrubs, warm highlights on flower beds, cool castle wall shade, realistic contact shadows under baskets and tools",
+            colorPrompt: "soft garden green, muted flower white and yellow, weathered stone gray, wicker tan, aged tool wood, distant wall blue gray, restrained warm grade",
+            materialPrompt: "PBR chipped garden wall stone, worn stair slabs, damp soil, wicker baskets, rusty garden tools, low flowers, trimmed grass, moss, lichen, rain streaks, dust and natural roughness variation",
+            fxPrompt: "light wind in flowers, soft pollen, distant garden haze, no fantasy sparkle or glowing magic",
+            structurePrompt: "foreground low flower beds, soil texture, baskets and tool shadows; midground clear garden path standing area; background stone stair fragments, low walls, distant castle wall and soft sky",
+            storyPrompt: "outer garden near an old castle still tended by someone, tools left by the path, flower beds growing around stones from older wars",
+            visualPrompt: "old castle garden slope, low stone walls, flower beds, stone stair fragments, wicker baskets, garden tools, distant castle wall",
+            groundPrompt: "flat worn garden path under the placeholder, clear foot contact area, baskets and tools kept aside, soil, moss, flower edges and realistic contact shadow"
           }
         },
         {
@@ -7920,22 +8000,6 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
             storyPrompt: "quiet overlook where travelers stop before descending into town, wall stones warm from sun, village below carrying on with small ordinary life",
             visualPrompt: "hilltop overlook, low stone wall, distant village roofs, small church tower, old fence, soft fields, worn path",
             groundPrompt: "flat worn stone path or packed dirt under the placeholder, clear foot contact area, low wall and grass kept aside, dust, lichen and realistic contact shadow"
-          }
-        },
-        {
-          id: "knight_armory_entry",
-          name: "骑士军械库入口",
-          data: {
-            scenePrompt: "medieval fantasy knight armory entrance, iron-banded wooden doors, weapon racks, worn shields, armor stands, leather straps, crates, straw-covered stone floor, clear central standing area",
-            atmospherePrompt: "grounded RPG equipment room threshold, old kingdom military craft, tactile metal and leather realism, restrained heroic fantasy",
-            lightingPrompt: "cool daylight from high slit window, warm torch side light, hard contact shadows under racks, no magical weapon glow",
-            colorPrompt: "dark iron, worn leather brown, faded shield paint, gray stone, straw tan, muted torch amber, desaturated medieval palette",
-            materialPrompt: "PBR scratched steel helmets, rusty iron hinges, chipped shield paint, worn leather straps, rough wooden racks, straw, dust, oil smears, soot, wax drips, stone floor stains, non-uniform roughness",
-            fxPrompt: "torch smoke, dust motes in high window light, subtle indoor haze, no glowing enchanted weapons",
-            structurePrompt: "foreground straw, crate shadows and floor scuffs; midground clear armory entrance standing area; background iron-banded doors, weapon racks, armor stands and stone wall",
-            storyPrompt: "armory prepared for patrols, armor polished unevenly, old shields repaired many times, straw and dust gathering near the door",
-            visualPrompt: "iron-banded wooden door, weapon rack, worn shield row, armor stand, leather straps, supply crates, torch bracket",
-            groundPrompt: "flat stained stone floor under the placeholder, clear foot contact area, straw and crates kept to edges, scuffs, dust, oil smears and realistic contact shadow"
           }
         },
         {
@@ -9061,8 +9125,23 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
       setFieldValue("outputLook", "cinematic_realism");
       setFieldValue("renderEngine", "cinematic_path_tracing");
       const sceneSafetyRequirement = filmCGSceneRequirement + ", no objects blocking the center placeholder, clean compositing space around the body, background remains recognizable, real-world 1.7m human scale consistency";
-      const existingExtra = ["otg", "arknights", "endfield"].includes(presetName) ? value("extraPrompt") : "";
+      const existingExtra = ["otg", "arknights", "endfield", "medieval_fantasy"].includes(presetName) ? value("extraPrompt") : "";
       setFieldValue("extraPrompt", existingExtra ? existingExtra + ", " + sceneSafetyRequirement : sceneSafetyRequirement);
+    }
+
+    const medievalFantasyPbrRequirement = "strict cinematic CG PBR material response, UE5 or Octane style path-traced rendering, physically based albedo roughness normal map detail, visible displacement-like stone relief, high-resolution texture feeling, roughness variation, dirt masks, ambient occlusion in crevices, contact dirt, micro-scratches, chipped edges, dust, rain streaks, grime, moss, lichen, weathered wood grain, rusty iron, frayed cloth fibers, no painterly flat surfaces, no clean anime background look, no smooth plastic CG";
+
+    function appendFieldRequirement(id, text) {
+      const existing = value(id);
+      setFieldValue(id, existing ? existing + ", " + text : text);
+    }
+
+    function applyMedievalFantasyMaterialLock(presetName) {
+      if (presetName !== "medieval_fantasy") return;
+      appendFieldRequirement("materialPrompt", medievalFantasyPbrRequirement);
+      appendFieldRequirement("lightingPrompt", "path-traced global illumination, soft but dimensional CG light response, clear material highlights, readable ambient occlusion, realistic shadow softness and contact shadows");
+      appendFieldRequirement("groundPrompt", "PBR ground shader with visible cobblestone or dirt relief, roughness variation, dirt masks, micro debris, ambient occlusion around stones and props, physically plausible wet and dry patches");
+      appendFieldRequirement("extraPrompt", medievalFantasyPbrRequirement);
     }
 
     const outputLookGuide = {
@@ -10425,6 +10504,7 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
         setFieldValue(id, text);
       });
       applyStyleRenderingDefaults(presetName);
+      applyMedievalFantasyMaterialLock(presetName);
       generate();
       $("status").textContent = "已套用氛围预设";
     }
@@ -10449,6 +10529,7 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
         setFieldValue(id, text);
       });
       applyStyleRenderingDefaults(presetName);
+      applyMedievalFantasyMaterialLock(presetName);
       generate();
       $("status").textContent = "已套用具体场景小类";
     }
