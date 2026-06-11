@@ -5910,9 +5910,9 @@
       border-radius: 999px;
       vertical-align: 0.08em;
       background:
-        linear-gradient(rgba(7, 8, 6, 0.10), rgba(7, 8, 6, 0.28)),
-        url("https://picsum.photos/seed/prompt-console-inline/420/180") center / cover;
-      filter: grayscale(0.2) contrast(1.24) saturate(0.78);
+        linear-gradient(rgba(7, 8, 6, 0.08), rgba(7, 8, 6, 0.24)),
+        url("1.jpg") center 38% / cover;
+      filter: contrast(1.12) saturate(0.9);
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
     }
 
@@ -7754,6 +7754,134 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
             storyPrompt: "foundry platform between shifts, crane hooks hanging still, coal dust and oil stains covering the rail-side floor",
             visualPrompt: "furnace door row, industrial rail track, heavy crane frame, cargo hook, coal bin, soot-covered platform",
             groundPrompt: "flat soot-stained platform under the placeholder, clear foot contact area, rail track beside feet, coal dust, oil stains and hard contact shadow"
+          }
+        },
+        {
+          id: "coal_gas_street",
+          name: "煤气管线街道",
+          data: {
+            scenePrompt: "dieselpunk industrial city street, overhead coal-gas pipes, riveted brick facades, soot-black windows, service hatches, oil-stained tram rails, clear central standing area",
+            atmospherePrompt: "dense machine-age city street, dirty industrial pressure, smoky urban canyon, grounded retro-factory realism",
+            lightingPrompt: "warm sodium lamps under pipe bridges, cool overcast sky fill, soft furnace glow from side alleys, heavy contact shadows, no neon cyberpunk light pollution",
+            colorPrompt: "soot black, rust orange, faded safety yellow, dark brick red, oily concrete gray, aged brass highlights",
+            materialPrompt: "PBR soot-stained brick, riveted steel pipes, chipped black paint, rust blooms, oily tram rails, cracked concrete, scratched brass plates, coal dust, grease residue, rain streaks, non-uniform roughness",
+            fxPrompt: "low coal smoke, steam leaking from pipe joints, floating soot, damp haze near the street, no sci-fi holograms",
+            structurePrompt: "foreground tram rails, oil stains, drain grates and valve covers; midground clear street standing zone; background pipe bridges, brick factories and smoke stacks forming strong city depth",
+            storyPrompt: "industrial street after a night shift, gas pipes ticking overhead, rail grooves filled with oil and rainwater, soot gathered around every service hatch",
+            visualPrompt: "overhead coal-gas pipe bridge, riveted brick factory facade, tram rail, brass valve cover, soot-black window row",
+            groundPrompt: "flat oil-stained concrete and tram rail ground under the placeholder, clear foot contact area, coal dust, grease smears, puddle edges, drain grates kept to sides and realistic contact shadow"
+          }
+        },
+        {
+          id: "pump_station_courtyard",
+          name: "蒸汽泵站庭院",
+          data: {
+            scenePrompt: "dieselpunk steam pump station courtyard, massive piston pumps, pressure gauges, brass valve wheels, brick pump house, puddled concrete, pipe trenches, clear central standing area",
+            atmospherePrompt: "wet steam machinery courtyard, heavy industrial maintenance mood, old city utility infrastructure, cinematic realistic CG grit",
+            lightingPrompt: "warm utility lamps, gray daylight through smoke, soft reflections in puddles, side glow from pump room windows, realistic contact shadow",
+            colorPrompt: "wet concrete gray, oxidized brass, rust brown, black painted pump metal, faded cream gauges, amber lamp glow",
+            materialPrompt: "PBR wet concrete, chipped cast iron pumps, scratched brass gauge rims, oily pipe trenches, rusted bolts, worn rubber gaskets, water stains, grease buildup, non-uniform roughness",
+            fxPrompt: "thin steam venting from pump joints, water vapor, floating soot, damp haze, no magical glow",
+            structurePrompt: "foreground puddles, pipe trench covers and oil marks; midground clear courtyard standing area; background piston pumps, pressure gauges, brick pump house and pipe walls",
+            storyPrompt: "municipal pump station still running under neglect, gauges vibrating, water leaking across the concrete, maintenance tools removed from the yard",
+            visualPrompt: "massive piston pump, brass pressure gauge, valve wheel cluster, brick pump house, pipe trench cover",
+            groundPrompt: "flat wet concrete under the placeholder, clear foot contact area, puddle edges around but not under feet, oil streaks, rust flakes, pipe trench shadows and realistic contact shadow"
+          }
+        },
+        {
+          id: "airship_service_dock",
+          name: "飞艇维修船坞",
+          data: {
+            scenePrompt: "dieselpunk airship service dock, riveted hangar doors, mooring mast, suspended engine parts, fuel drums, heavy chain winches, scratched metal deck, clear central standing area",
+            atmospherePrompt: "monumental retro aviation maintenance yard, oily wind, mechanical scale, grounded 3A dieselpunk production design",
+            lightingPrompt: "overcast hangar daylight, warm workshop lamps, subtle engine bay glow, hard contact shadows under chains and drums, no futuristic aircraft lighting",
+            colorPrompt: "dark steel, faded cream hangar paint, rust orange, aged brass, oily gray deck, muted red fuel drums",
+            materialPrompt: "PBR riveted hangar steel, chipped painted doors, scratched propeller metal, oily fuel drums, grease-stained chains, worn deck plates, rust around bolts, soot and dust layers",
+            fxPrompt: "thin exhaust haze, workshop dust, faint steam from service lines, no laser light, no sci-fi engines",
+            structurePrompt: "foreground deck plates, chain shadows and fuel drum marks; midground clear service dock standing area; background hangar doors, mooring mast, engine hoists and suspended airship parts",
+            storyPrompt: "old airship dock between repairs, engine parts hanging from cranes, fuel stains under the service mast, hangar doors scarred by years of use",
+            visualPrompt: "riveted hangar door, airship mooring mast, chain winch, suspended engine part, fuel drum row, scratched service deck",
+            groundPrompt: "flat scratched metal deck under the placeholder, clear foot contact area, oil rings, rivet seams, chain shadows kept to edges, dust and realistic contact shadow"
+          }
+        },
+        {
+          id: "coal_conveyor_overpass",
+          name: "运煤高架栈桥",
+          data: {
+            scenePrompt: "dieselpunk coal conveyor overpass, elevated conveyor bridge, coal hoppers, riveted support columns, service stairs, soot-covered concrete pad, clear central standing area",
+            atmospherePrompt: "heavy coal logistics infrastructure, smoky industrial city outskirts, monumental but grounded machine-age realism",
+            lightingPrompt: "gray daylight filtered through smoke, warm maintenance bulbs along stairs, dark underside shadows, realistic contact shadow",
+            colorPrompt: "coal black, rust brown, faded safety yellow, dusty concrete gray, dark steel, muted amber lights",
+            materialPrompt: "PBR coal dust, scratched conveyor belts, rusted riveted supports, chipped safety paint, oily stair treads, cracked concrete pad, rubber belt scuffs, grime in seams",
+            fxPrompt: "falling coal dust, low smoke haze, tiny soot particles, subtle heat shimmer near machinery, no cyberpunk glow",
+            structurePrompt: "foreground coal dust, tire marks and support shadows; midground clear concrete pad standing area; background conveyor bridge, coal hoppers, stairs and riveted columns",
+            storyPrompt: "coal conveyor paused mid-cycle, black dust drifting down from the belt, service stairs stained by grease and years of maintenance",
+            visualPrompt: "elevated coal conveyor bridge, riveted support column, coal hopper, service stair, soot-covered concrete pad",
+            groundPrompt: "flat soot-covered concrete under the placeholder, clear foot contact area, coal dust, tire scuffs, oil stains, small coal chunks kept away from feet and realistic contact shadow"
+          }
+        },
+        {
+          id: "exhaust_tower_base",
+          name: "排气塔底座",
+          data: {
+            scenePrompt: "dieselpunk exhaust tower base, giant cylindrical ventilation stack, circular service platform, radial pipes, pressure relief valves, rusted ladders, oily concrete, clear central standing area",
+            atmospherePrompt: "towering city ventilation machinery, oppressive smoke infrastructure, grounded retro-industrial scale",
+            lightingPrompt: "warm service lamps around tower base, cool smoky sky fill, soft rim light on pipes, deep contact shadows under valves",
+            colorPrompt: "soot black tower metal, rust orange seams, faded yellow ladder paint, oily gray concrete, aged brass valve details",
+            materialPrompt: "PBR soot-black steel, rusted ladder rungs, chipped service platform paint, oily concrete, scratched valve housings, dust in pipe seams, rain streaks, edge wear",
+            fxPrompt: "slow exhaust smoke above, steam from relief valves, floating soot, low air distortion, no dramatic god rays",
+            structurePrompt: "foreground radial pipe shadows, oil stains and bolt plates; midground clear circular service pad standing area; background giant exhaust stack, ladders, platforms and pipe spokes",
+            storyPrompt: "ventilation tower at the edge of an industrial district, relief valves leaking steam, concrete darkened by years of oil and soot",
+            visualPrompt: "giant exhaust tower base, circular service platform, radial pipes, rusted ladder, pressure relief valve",
+            groundPrompt: "flat circular oily concrete under the placeholder, clear foot contact area, radial pipe shadows, bolt plates, rust flakes and realistic contact shadow"
+          }
+        },
+        {
+          id: "mechanical_spare_market",
+          name: "机械零件集市",
+          data: {
+            scenePrompt: "dieselpunk mechanical spare parts market, outdoor industrial stalls, stacked gears, engine blocks, brass gauges, tarpaulin roofs, oil-stained pavement, clear central standing area",
+            atmospherePrompt: "dirty machine parts bazaar inside an industrial city, practical workshop clutter, retro urban realism, no futuristic marketplace",
+            lightingPrompt: "warm stall lamps, gray smoke-filtered daylight, soft reflections on oily pavement, dark occlusion under tables and crates",
+            colorPrompt: "aged brass, dark steel, rust orange, dirty canvas tan, oily gray pavement, faded red crate paint",
+            materialPrompt: "PBR scratched gears, greasy engine blocks, tarnished brass gauges, stained canvas tarps, chipped wooden crates, oily pavement, dust, soot, fingerprints and worn edges",
+            fxPrompt: "thin smoke from nearby workshops, dust motes, low steam from street vents, no neon signs, no readable labels",
+            structurePrompt: "foreground gear piles, oil stains and crate shadows; midground clear market lane standing area; background tarpaulin stalls, engine blocks, gauge racks and brick factory walls",
+            storyPrompt: "parts market after closing, gears stacked under tarps, oil dripping from old engine blocks, brass gauges catching the last warm lamp light",
+            visualPrompt: "stacked gear pile, brass gauge rack, engine block table, canvas tarp stall, oily market pavement",
+            groundPrompt: "flat oil-stained pavement under the placeholder, clear foot contact area, gear shadows and crate legs kept to edges, grease smears, dust and realistic contact shadow"
+          }
+        },
+        {
+          id: "armored_garage_lane",
+          name: "装甲车库巷道",
+          data: {
+            scenePrompt: "dieselpunk armored vehicle garage lane, riveted garage bays, half-covered armored truck silhouettes, fuel hoses, repair ramps, tool cabinets, greasy concrete floor, clear central standing area",
+            atmospherePrompt: "military-industrial repair lane without futuristic warfare, heavy garage smell, oil, smoke and old steel, grounded dieselpunk realism",
+            lightingPrompt: "warm garage bay lamps, cool daylight from high windows, soft reflections on greasy floor, hard shadows under ramps and tires",
+            colorPrompt: "olive drab paint, rust brown, black rubber, oily gray concrete, faded safety yellow, warm lamp amber",
+            materialPrompt: "PBR chipped olive vehicle paint, scratched riveted garage doors, rubber tire scuffs, oily hoses, greasy concrete, worn tool cabinets, rust at hinges, dust and soot",
+            fxPrompt: "thin exhaust haze, garage dust, faint steam near repair pipes, no laser weapons, no giant mechs",
+            structurePrompt: "foreground tire scuffs, fuel hose shadows and oil puddles; midground clear garage lane standing area; background riveted garage bays, covered armored trucks, repair ramps and tool cabinets",
+            storyPrompt: "old armored garage between repairs, trucks covered in canvas, fuel hoses coiled near the ramp, oil spreading across the concrete",
+            visualPrompt: "riveted garage bay, covered armored truck silhouette, fuel hose coil, repair ramp, tool cabinet, greasy floor",
+            groundPrompt: "flat greasy concrete under the placeholder, clear foot contact area, tire scuffs, oil puddle edges, fuel hoses kept away from feet and realistic contact shadow"
+          }
+        },
+        {
+          id: "cooling_tower_canal",
+          name: "冷却塔水渠",
+          data: {
+            scenePrompt: "dieselpunk cooling tower canal, industrial water channel, concrete walkways, riveted cooling pipes, corroded handrails, valve houses, wet stained concrete, clear central standing area",
+            atmospherePrompt: "wet industrial utility canal beneath cooling towers, humid steam, old concrete and metal infrastructure, cinematic grounded machine-age mood",
+            lightingPrompt: "overcast sky, warm utility lamps along the canal, soft water bounce light, muted steam glow, realistic contact shadow",
+            colorPrompt: "wet concrete gray, algae-dark water green, rust brown railings, black pipe metal, faded cream valve house paint, amber lamps",
+            materialPrompt: "PBR wet concrete, corroded handrails, riveted pipe joints, water stains, algae grime at canal edges, chipped valve house paint, rust blooms, non-uniform roughness",
+            fxPrompt: "low steam over water, damp haze, floating soot and water vapor, no fantasy mist, no neon glow",
+            structurePrompt: "foreground wet walkway slabs, canal edge, puddles and rail shadows; midground clear concrete walkway standing area; background cooling pipes, valve houses, handrails and tower silhouettes",
+            storyPrompt: "cooling canal still warm after factory shutdown, steam drifting above dark water, corroded rails and valve houses stained by decades of moisture",
+            visualPrompt: "industrial water channel, riveted cooling pipe, corroded handrail, valve house, wet concrete walkway, cooling tower silhouette",
+            groundPrompt: "flat wet concrete walkway under the placeholder, clear foot contact area, puddle streaks, canal edge kept aside, rust flakes, algae stains and realistic contact shadow"
           }
         }
       ],
