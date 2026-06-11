@@ -6498,9 +6498,8 @@
                 <optgroup label="常用 3A 美术方向">
                   <option value="overgrown_survival">自然侵蚀后末日</option>
                   <option value="polar_research_ruin">极地科考废墟</option>
-                  <option value="dieselpunk_industrial">柴油朋克工业城</option>
-                  <option value="biotech_lab">生化实验设施</option>
                   <option value="mining_megafacility">巨型矿业设施</option>
+                  <option value="medieval_fantasy">中世纪奇幻</option>
                   <option value="dark_fantasy_dungeon">黑暗奇幻地下城</option>
                   <option value="corporate_control_center">高端企业控制中心</option>
                   <option value="dark_gothic_fantasy">黑暗哥特奇幻</option>
@@ -7278,30 +7277,6 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
         visualPrompt: "modular polar lab cabin, frozen antenna tower, tracked vehicle fragment, snow fence, frosted floodlight, ice-cracked service pad",
         groundPrompt: "flat packed snow and ice under the placeholder, clear foot contact area, shallow footprints, frost texture, snow ruts and realistic contact shadow, no snow pile blocking feet"
       },
-      dieselpunk_industrial: {
-        scenePrompt: "dieselpunk industrial city yard, giant pipes, boiler towers, riveted steel walls, smoke stacks, rail tracks, oil-stained concrete, clear central standing area",
-        atmospherePrompt: "heavy machine-age city, smoky factory pressure, grounded retro-industrial 3A environment, dirty and monumental",
-        lightingPrompt: "warm sodium industrial lamps, cool overcast sky fill, furnace glow in background, heavy contact shadows, no neon cyberpunk look",
-        colorPrompt: "soot black, rust orange, faded safety yellow, oily concrete gray, aged brass, dark steel, smoky amber highlights",
-        materialPrompt: "PBR riveted steel, chipped paint, rust blooms, oily concrete, scratched brass valves, rubber hoses, soot stains, grease residue, worn safety stripes, non-uniform roughness",
-        fxPrompt: "low factory smoke, steam from pipe vents, floating soot, heat haze near boilers, no fantasy magic effects",
-        structurePrompt: "foreground rail tracks, oil stains and valve parts; midground open factory yard standing zone; background boiler towers, pipe bridges and smoke stacks",
-        storyPrompt: "old industrial district still running after years of neglect, pipes leaking steam, machines idle but warm, oil collecting along the rails",
-        visualPrompt: "giant riveted boiler, overhead pipe bridge, brass valve cluster, smoke stack, rail track, worn hazard stripe",
-        groundPrompt: "flat oil-stained concrete under the placeholder, clear foot contact area, rail grooves nearby, grease smears, rust flakes, tire marks and realistic contact shadow"
-      },
-      biotech_lab: {
-        scenePrompt: "biotech containment laboratory ruin, glass isolation pods, sealed corridor doors, wet reflective floor, cold light panels, empty specimen frames, cable trays, clear central standing area",
-        atmospherePrompt: "sterile facility after containment failure, clinical unease, realistic sci-fi horror mood, clean shapes with visible wear and stains",
-        lightingPrompt: "cold white lab panels, green emergency strips, dim red warning accents, wet floor reflections, realistic contact shadow, no colorful cyberpunk glow",
-        colorPrompt: "cold white, pale green, surgical gray, dark wet floor, muted red emergency accents, desaturated clinical palette",
-        materialPrompt: "PBR scratched glass, frosted plastic panels, brushed steel, wet epoxy floor, rubber door seals, condensation streaks, disinfectant stains, grime around handles, non-readable labels",
-        fxPrompt: "thin sterile mist, faint condensation, small dust motes in cold light, no gore, no readable UI text",
-        structurePrompt: "foreground wet reflective floor and cable tray shadows; midground clear containment corridor standing area; background glass pods, sealed doors and lab wall modules",
-        storyPrompt: "containment lab abandoned after an alarm, glass pods empty, floor still wet from emergency washdown, cold lights flickering above sealed doors",
-        visualPrompt: "glass isolation pod, sealed lab door, cold light panel, emergency strip, cable tray, wet reflective corridor",
-        groundPrompt: "flat wet epoxy floor under the placeholder, clear foot contact area, subtle reflections, disinfectant streaks, cable shadows kept to edges, realistic contact shadow"
-      },
       mining_megafacility: {
         scenePrompt: "giant mining facility service yard, conveyor supports, ore chutes, heavy crushers, rail carts, dust-covered platforms, cable trenches, clear central standing area",
         atmospherePrompt: "massive extraction industry, dusty scale, heavy machinery silence, cinematic 3A hard-surface environment",
@@ -7313,6 +7288,19 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
         storyPrompt: "mining yard between work cycles, conveyor stopped, ore dust coating the ground, service lights still active near the crusher",
         visualPrompt: "giant conveyor frame, ore chute, crusher housing, rail cart, cable trench, dust-covered service platform",
         groundPrompt: "flat compacted gravel and concrete under the placeholder, clear foot contact area, ore dust, tire tracks, oil stains, small stones kept to edges and realistic contact shadow"
+      },
+      medieval_fantasy: {
+        scenePrompt: "grounded medieval low-magic fantasy journey environment, quiet old kingdom road, weathered stone bridge or small shrine, distant village roofs, soft green hills, ancient marker stones, worn travel supplies, faded cloth banners, clear central standing area",
+        atmospherePrompt: "Frieren-like quiet journey atmosphere and sense of long time passing, calm old-world melancholy, gentle medieval fantasy exploration mood, believable lived-in kingdom, Baldur's Gate 3-like RPG environment layering with restrained Witcher-like material grit, cinematic AAA fantasy realism",
+        lightingPrompt: "soft natural daylight, bright cloudy sky fill, gentle late-afternoon warmth on stone edges, restrained window or brazier accents only, realistic contact shadow, no strong god rays, no flashy spell lighting",
+        colorPrompt: "soft grass green, weathered limestone gray, damp earth brown, aged wood, faded linen tan, moss in stone seams, rusted iron, pale blue-gray sky, low saturation poetic fantasy grading",
+        materialPrompt: "high-detail PBR worn cobblestones, packed dirt, cracked limestone blocks, rough timber, peeling plaster, rusty iron hinges, old leather straps, frayed linen, weathered travel gear, rain streaks, dust, small mud patches, moss, lichen, chipped edges, scratches, grime in seams, non-uniform roughness and natural edge wear",
+        fxPrompt: "thin cool haze, soft hill mist, drifting dust, light wind in grass and cloth banners, subtle chimney smoke in the distance, no large magic beams, no glowing runes dominating the frame",
+        structurePrompt: "foreground worn road texture, stones, low grass, travel scuffs and small props; midground clean central standing area with readable foot contact; background old bridge, shrine, marker stones, distant roofs, hills and wide sky for a quiet journey composition",
+        storyPrompt: "a quiet stop on a long medieval journey, an old road repaired across generations, marker stones softened by rain, distant village life barely visible, the place feels peaceful, aged and full of small histories",
+        visualPrompt: "old kingdom road, weathered stone bridge, small roadside shrine, ancient marker stone, distant village roofs, faded cloth banner, travel pack, low grass, worn cobblestone, no readable text or copied symbols",
+        groundPrompt: "flat worn cobblestone or packed dirt under the placeholder, clear 1.7m human-scale foot contact area, small puddles and grass kept around but not under the feet, travel scuffs, tiny stones, dust, light mud, moss edges and realistic PBR contact shadow",
+        extraPrompt: "original cinematic realistic CG medieval fantasy environment inspired by the quiet journey atmosphere, soft melancholy and long-time-passing feeling of Frieren, the dense RPG set dressing and fantasy architecture logic of Baldur's Gate 3, and restrained grounded material grit similar to The Witcher 3; keep it low-magic, human-scale, peaceful and believable; do not copy any official character, logo, UI, map layout, exact building design, emblem or copyrighted composition; avoid anime illustration style, flat 2D look, clean fairy-tale castle, Warcraft-like exaggerated proportions, mobile-game saturation, giant magic circles, floating crystals, glowing blue-purple spell effects, heavy gothic horror overlap, and overly clean theme-park scenery"
       },
       dark_fantasy_dungeon: {
         scenePrompt: "dark fantasy dungeon hall, wet stone floor, iron gate, chained pillars, broken altar, torch brackets, cracked masonry, clear central standing area",
@@ -7731,186 +7719,6 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
           }
         }
       ],
-      dieselpunk_industrial: [
-        {
-          id: "boiler_pipe_yard",
-          name: "锅炉管线工厂",
-          data: {
-            scenePrompt: "dieselpunk boiler pipe factory yard, giant riveted boilers, overhead pipe bridges, brass valve clusters, smoky stacks, oil-stained concrete, clear central standing area",
-            materialPrompt: "PBR riveted steel, chipped black paint, rust blooms, oily concrete, brass valves, soot stains, grease residue, worn hazard stripes",
-            structurePrompt: "foreground oil stains, rail grooves and valve parts, midground open factory yard standing area, background giant boilers, pipe bridges and smoke stacks",
-            storyPrompt: "factory yard still warm after shutdown, steam leaking through pipe joints, oil collecting along the service rails",
-            visualPrompt: "giant riveted boiler, pipe bridge, brass valve cluster, smoke stack, worn hazard stripe",
-            groundPrompt: "flat oil-stained concrete under the placeholder, clear foot contact area, grease smears, rail grooves nearby, rust flakes and realistic contact shadow"
-          }
-        },
-        {
-          id: "train_foundry_platform",
-          name: "铸造铁路月台",
-          data: {
-            scenePrompt: "dieselpunk train foundry platform, old industrial rail line, furnace doors, cargo hooks, coal bins, heavy crane frame, soot-covered floor, clear central standing area",
-            materialPrompt: "PBR soot-black concrete, rusty rail steel, heat-darkened furnace doors, coal dust, scratched crane hooks, greasy chains, chipped safety paint",
-            structurePrompt: "foreground rail track and coal dust, midground clear platform standing area, background furnace doors, crane frame and cargo hook silhouettes",
-            storyPrompt: "foundry platform between shifts, crane hooks hanging still, coal dust and oil stains covering the rail-side floor",
-            visualPrompt: "furnace door row, industrial rail track, heavy crane frame, cargo hook, coal bin, soot-covered platform",
-            groundPrompt: "flat soot-stained platform under the placeholder, clear foot contact area, rail track beside feet, coal dust, oil stains and hard contact shadow"
-          }
-        },
-        {
-          id: "coal_gas_street",
-          name: "煤气管线街道",
-          data: {
-            scenePrompt: "dieselpunk industrial city street, overhead coal-gas pipes, riveted brick facades, soot-black windows, service hatches, oil-stained tram rails, clear central standing area",
-            atmospherePrompt: "dense machine-age city street, dirty industrial pressure, smoky urban canyon, grounded retro-factory realism",
-            lightingPrompt: "warm sodium lamps under pipe bridges, cool overcast sky fill, soft furnace glow from side alleys, heavy contact shadows, no neon cyberpunk light pollution",
-            colorPrompt: "soot black, rust orange, faded safety yellow, dark brick red, oily concrete gray, aged brass highlights",
-            materialPrompt: "PBR soot-stained brick, riveted steel pipes, chipped black paint, rust blooms, oily tram rails, cracked concrete, scratched brass plates, coal dust, grease residue, rain streaks, non-uniform roughness",
-            fxPrompt: "low coal smoke, steam leaking from pipe joints, floating soot, damp haze near the street, no sci-fi holograms",
-            structurePrompt: "foreground tram rails, oil stains, drain grates and valve covers; midground clear street standing zone; background pipe bridges, brick factories and smoke stacks forming strong city depth",
-            storyPrompt: "industrial street after a night shift, gas pipes ticking overhead, rail grooves filled with oil and rainwater, soot gathered around every service hatch",
-            visualPrompt: "overhead coal-gas pipe bridge, riveted brick factory facade, tram rail, brass valve cover, soot-black window row",
-            groundPrompt: "flat oil-stained concrete and tram rail ground under the placeholder, clear foot contact area, coal dust, grease smears, puddle edges, drain grates kept to sides and realistic contact shadow"
-          }
-        },
-        {
-          id: "pump_station_courtyard",
-          name: "蒸汽泵站庭院",
-          data: {
-            scenePrompt: "dieselpunk steam pump station courtyard, massive piston pumps, pressure gauges, brass valve wheels, brick pump house, puddled concrete, pipe trenches, clear central standing area",
-            atmospherePrompt: "wet steam machinery courtyard, heavy industrial maintenance mood, old city utility infrastructure, cinematic realistic CG grit",
-            lightingPrompt: "warm utility lamps, gray daylight through smoke, soft reflections in puddles, side glow from pump room windows, realistic contact shadow",
-            colorPrompt: "wet concrete gray, oxidized brass, rust brown, black painted pump metal, faded cream gauges, amber lamp glow",
-            materialPrompt: "PBR wet concrete, chipped cast iron pumps, scratched brass gauge rims, oily pipe trenches, rusted bolts, worn rubber gaskets, water stains, grease buildup, non-uniform roughness",
-            fxPrompt: "thin steam venting from pump joints, water vapor, floating soot, damp haze, no magical glow",
-            structurePrompt: "foreground puddles, pipe trench covers and oil marks; midground clear courtyard standing area; background piston pumps, pressure gauges, brick pump house and pipe walls",
-            storyPrompt: "municipal pump station still running under neglect, gauges vibrating, water leaking across the concrete, maintenance tools removed from the yard",
-            visualPrompt: "massive piston pump, brass pressure gauge, valve wheel cluster, brick pump house, pipe trench cover",
-            groundPrompt: "flat wet concrete under the placeholder, clear foot contact area, puddle edges around but not under feet, oil streaks, rust flakes, pipe trench shadows and realistic contact shadow"
-          }
-        },
-        {
-          id: "airship_service_dock",
-          name: "飞艇维修船坞",
-          data: {
-            scenePrompt: "dieselpunk airship service dock, riveted hangar doors, mooring mast, suspended engine parts, fuel drums, heavy chain winches, scratched metal deck, clear central standing area",
-            atmospherePrompt: "monumental retro aviation maintenance yard, oily wind, mechanical scale, grounded 3A dieselpunk production design",
-            lightingPrompt: "overcast hangar daylight, warm workshop lamps, subtle engine bay glow, hard contact shadows under chains and drums, no futuristic aircraft lighting",
-            colorPrompt: "dark steel, faded cream hangar paint, rust orange, aged brass, oily gray deck, muted red fuel drums",
-            materialPrompt: "PBR riveted hangar steel, chipped painted doors, scratched propeller metal, oily fuel drums, grease-stained chains, worn deck plates, rust around bolts, soot and dust layers",
-            fxPrompt: "thin exhaust haze, workshop dust, faint steam from service lines, no laser light, no sci-fi engines",
-            structurePrompt: "foreground deck plates, chain shadows and fuel drum marks; midground clear service dock standing area; background hangar doors, mooring mast, engine hoists and suspended airship parts",
-            storyPrompt: "old airship dock between repairs, engine parts hanging from cranes, fuel stains under the service mast, hangar doors scarred by years of use",
-            visualPrompt: "riveted hangar door, airship mooring mast, chain winch, suspended engine part, fuel drum row, scratched service deck",
-            groundPrompt: "flat scratched metal deck under the placeholder, clear foot contact area, oil rings, rivet seams, chain shadows kept to edges, dust and realistic contact shadow"
-          }
-        },
-        {
-          id: "coal_conveyor_overpass",
-          name: "运煤高架栈桥",
-          data: {
-            scenePrompt: "dieselpunk coal conveyor overpass, elevated conveyor bridge, coal hoppers, riveted support columns, service stairs, soot-covered concrete pad, clear central standing area",
-            atmospherePrompt: "heavy coal logistics infrastructure, smoky industrial city outskirts, monumental but grounded machine-age realism",
-            lightingPrompt: "gray daylight filtered through smoke, warm maintenance bulbs along stairs, dark underside shadows, realistic contact shadow",
-            colorPrompt: "coal black, rust brown, faded safety yellow, dusty concrete gray, dark steel, muted amber lights",
-            materialPrompt: "PBR coal dust, scratched conveyor belts, rusted riveted supports, chipped safety paint, oily stair treads, cracked concrete pad, rubber belt scuffs, grime in seams",
-            fxPrompt: "falling coal dust, low smoke haze, tiny soot particles, subtle heat shimmer near machinery, no cyberpunk glow",
-            structurePrompt: "foreground coal dust, tire marks and support shadows; midground clear concrete pad standing area; background conveyor bridge, coal hoppers, stairs and riveted columns",
-            storyPrompt: "coal conveyor paused mid-cycle, black dust drifting down from the belt, service stairs stained by grease and years of maintenance",
-            visualPrompt: "elevated coal conveyor bridge, riveted support column, coal hopper, service stair, soot-covered concrete pad",
-            groundPrompt: "flat soot-covered concrete under the placeholder, clear foot contact area, coal dust, tire scuffs, oil stains, small coal chunks kept away from feet and realistic contact shadow"
-          }
-        },
-        {
-          id: "exhaust_tower_base",
-          name: "排气塔底座",
-          data: {
-            scenePrompt: "dieselpunk exhaust tower base, giant cylindrical ventilation stack, circular service platform, radial pipes, pressure relief valves, rusted ladders, oily concrete, clear central standing area",
-            atmospherePrompt: "towering city ventilation machinery, oppressive smoke infrastructure, grounded retro-industrial scale",
-            lightingPrompt: "warm service lamps around tower base, cool smoky sky fill, soft rim light on pipes, deep contact shadows under valves",
-            colorPrompt: "soot black tower metal, rust orange seams, faded yellow ladder paint, oily gray concrete, aged brass valve details",
-            materialPrompt: "PBR soot-black steel, rusted ladder rungs, chipped service platform paint, oily concrete, scratched valve housings, dust in pipe seams, rain streaks, edge wear",
-            fxPrompt: "slow exhaust smoke above, steam from relief valves, floating soot, low air distortion, no dramatic god rays",
-            structurePrompt: "foreground radial pipe shadows, oil stains and bolt plates; midground clear circular service pad standing area; background giant exhaust stack, ladders, platforms and pipe spokes",
-            storyPrompt: "ventilation tower at the edge of an industrial district, relief valves leaking steam, concrete darkened by years of oil and soot",
-            visualPrompt: "giant exhaust tower base, circular service platform, radial pipes, rusted ladder, pressure relief valve",
-            groundPrompt: "flat circular oily concrete under the placeholder, clear foot contact area, radial pipe shadows, bolt plates, rust flakes and realistic contact shadow"
-          }
-        },
-        {
-          id: "mechanical_spare_market",
-          name: "机械零件集市",
-          data: {
-            scenePrompt: "dieselpunk mechanical spare parts market, outdoor industrial stalls, stacked gears, engine blocks, brass gauges, tarpaulin roofs, oil-stained pavement, clear central standing area",
-            atmospherePrompt: "dirty machine parts bazaar inside an industrial city, practical workshop clutter, retro urban realism, no futuristic marketplace",
-            lightingPrompt: "warm stall lamps, gray smoke-filtered daylight, soft reflections on oily pavement, dark occlusion under tables and crates",
-            colorPrompt: "aged brass, dark steel, rust orange, dirty canvas tan, oily gray pavement, faded red crate paint",
-            materialPrompt: "PBR scratched gears, greasy engine blocks, tarnished brass gauges, stained canvas tarps, chipped wooden crates, oily pavement, dust, soot, fingerprints and worn edges",
-            fxPrompt: "thin smoke from nearby workshops, dust motes, low steam from street vents, no neon signs, no readable labels",
-            structurePrompt: "foreground gear piles, oil stains and crate shadows; midground clear market lane standing area; background tarpaulin stalls, engine blocks, gauge racks and brick factory walls",
-            storyPrompt: "parts market after closing, gears stacked under tarps, oil dripping from old engine blocks, brass gauges catching the last warm lamp light",
-            visualPrompt: "stacked gear pile, brass gauge rack, engine block table, canvas tarp stall, oily market pavement",
-            groundPrompt: "flat oil-stained pavement under the placeholder, clear foot contact area, gear shadows and crate legs kept to edges, grease smears, dust and realistic contact shadow"
-          }
-        },
-        {
-          id: "armored_garage_lane",
-          name: "装甲车库巷道",
-          data: {
-            scenePrompt: "dieselpunk armored vehicle garage lane, riveted garage bays, half-covered armored truck silhouettes, fuel hoses, repair ramps, tool cabinets, greasy concrete floor, clear central standing area",
-            atmospherePrompt: "military-industrial repair lane without futuristic warfare, heavy garage smell, oil, smoke and old steel, grounded dieselpunk realism",
-            lightingPrompt: "warm garage bay lamps, cool daylight from high windows, soft reflections on greasy floor, hard shadows under ramps and tires",
-            colorPrompt: "olive drab paint, rust brown, black rubber, oily gray concrete, faded safety yellow, warm lamp amber",
-            materialPrompt: "PBR chipped olive vehicle paint, scratched riveted garage doors, rubber tire scuffs, oily hoses, greasy concrete, worn tool cabinets, rust at hinges, dust and soot",
-            fxPrompt: "thin exhaust haze, garage dust, faint steam near repair pipes, no laser weapons, no giant mechs",
-            structurePrompt: "foreground tire scuffs, fuel hose shadows and oil puddles; midground clear garage lane standing area; background riveted garage bays, covered armored trucks, repair ramps and tool cabinets",
-            storyPrompt: "old armored garage between repairs, trucks covered in canvas, fuel hoses coiled near the ramp, oil spreading across the concrete",
-            visualPrompt: "riveted garage bay, covered armored truck silhouette, fuel hose coil, repair ramp, tool cabinet, greasy floor",
-            groundPrompt: "flat greasy concrete under the placeholder, clear foot contact area, tire scuffs, oil puddle edges, fuel hoses kept away from feet and realistic contact shadow"
-          }
-        },
-        {
-          id: "cooling_tower_canal",
-          name: "冷却塔水渠",
-          data: {
-            scenePrompt: "dieselpunk cooling tower canal, industrial water channel, concrete walkways, riveted cooling pipes, corroded handrails, valve houses, wet stained concrete, clear central standing area",
-            atmospherePrompt: "wet industrial utility canal beneath cooling towers, humid steam, old concrete and metal infrastructure, cinematic grounded machine-age mood",
-            lightingPrompt: "overcast sky, warm utility lamps along the canal, soft water bounce light, muted steam glow, realistic contact shadow",
-            colorPrompt: "wet concrete gray, algae-dark water green, rust brown railings, black pipe metal, faded cream valve house paint, amber lamps",
-            materialPrompt: "PBR wet concrete, corroded handrails, riveted pipe joints, water stains, algae grime at canal edges, chipped valve house paint, rust blooms, non-uniform roughness",
-            fxPrompt: "low steam over water, damp haze, floating soot and water vapor, no fantasy mist, no neon glow",
-            structurePrompt: "foreground wet walkway slabs, canal edge, puddles and rail shadows; midground clear concrete walkway standing area; background cooling pipes, valve houses, handrails and tower silhouettes",
-            storyPrompt: "cooling canal still warm after factory shutdown, steam drifting above dark water, corroded rails and valve houses stained by decades of moisture",
-            visualPrompt: "industrial water channel, riveted cooling pipe, corroded handrail, valve house, wet concrete walkway, cooling tower silhouette",
-            groundPrompt: "flat wet concrete walkway under the placeholder, clear foot contact area, puddle streaks, canal edge kept aside, rust flakes, algae stains and realistic contact shadow"
-          }
-        }
-      ],
-      biotech_lab: [
-        {
-          id: "containment_corridor",
-          name: "隔离实验走廊",
-          data: {
-            scenePrompt: "biotech containment corridor, sealed lab doors, glass observation windows, cold light panels, wet reflective epoxy floor, cable trays, clear central standing area",
-            materialPrompt: "PBR scratched glass, wet epoxy floor, brushed steel door frames, rubber seals, condensation streaks, disinfectant stains, smudged plastic panels",
-            structurePrompt: "foreground wet floor reflections and cable tray shadows, midground clear corridor standing area, background sealed doors, glass windows and lab wall modules",
-            storyPrompt: "containment corridor after emergency washdown, doors sealed, floor still wet, observation windows fogged from inside",
-            visualPrompt: "sealed lab door, glass observation panel, cold light strip, emergency indicator, cable tray, wet corridor floor",
-            groundPrompt: "flat wet epoxy floor under the placeholder, clear foot contact area, subtle reflections, disinfectant streaks, cable shadows kept to edges"
-          }
-        },
-        {
-          id: "specimen_pod_room",
-          name: "样本舱室",
-          data: {
-            scenePrompt: "biotech specimen pod room, empty glass pods, service consoles, rubber floor seams, condensation, sterile wall panels, clear central standing area",
-            materialPrompt: "PBR curved glass pods, frosted plastic, brushed metal consoles, wet rubber seams, condensation streaks, fingerprints, non-readable blank panels",
-            structurePrompt: "foreground rubber floor seams and reflections, midground clear pod room standing area, background empty pods, consoles and cold wall panels",
-            storyPrompt: "specimen room emptied after containment alert, pod glass fogged, consoles glowing with unreadable blank diagnostics",
-            visualPrompt: "empty glass specimen pod, cold wall panel, service console, rubber floor seam, condensation streaks",
-            groundPrompt: "flat rubberized lab floor under the placeholder, clear foot contact area, wet seams, subtle reflections and realistic contact shadow"
-          }
-        }
-      ],
       mining_megafacility: [
         {
           id: "ore_conveyor_yard",
@@ -7934,6 +7742,216 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
             storyPrompt: "crusher bay paused for maintenance, tools removed, ore dust gathered at machine feet, dust filters venting softly",
             visualPrompt: "crusher housing, maintenance stairs, pipe rack, dust filter stack, sealed storage crates, rough gravel pad",
             groundPrompt: "firm gravel and concrete service pad under the placeholder, clear foot contact area, small stones kept aside, ore dust and contact shadow"
+          }
+        }
+      ],
+      medieval_fantasy: [
+        {
+          id: "old_tavern_front",
+          name: "旧酒馆门前",
+          data: {
+            scenePrompt: "old medieval fantasy tavern front, timber porch, hanging blank signboard, muddy threshold, stacked barrels, firewood, lantern hooks, wet cobblestone road, clear central standing area",
+            atmospherePrompt: "warm shelter on a long road, folk fantasy realism, lived-in travel stop, quiet Frieren-like pause between journeys",
+            lightingPrompt: "soft evening overcast, warm tavern window light and lantern spill, wet cobblestone reflections, realistic contact shadow",
+            colorPrompt: "warm amber windows, wet gray cobblestone, dark oak timber, faded plaster cream, rusted iron, muddy brown, muted moss green",
+            materialPrompt: "PBR wet cobblestones, old oak beams with scratches, peeling plaster, iron lantern hooks, greasy barrel hoops, frayed rope, soot around doorway, muddy boot prints, rain streaks, wax drips",
+            fxPrompt: "thin chimney smoke, warm indoor haze at the doorway, light mist in the street, no magical particles",
+            structurePrompt: "foreground wet road, barrel shadows and firewood; midground clear tavern entrance standing area; background timber facade, porch posts, blank signboard and narrow village lane",
+            storyPrompt: "roadside tavern after a rainy day, travelers recently entered, barrels rolled to the side, warm light leaking through old glass",
+            visualPrompt: "timber tavern porch, blank hanging signboard, stacked barrels, lantern hook, firewood pile, wet cobblestone threshold, old glass window",
+            groundPrompt: "flat wet cobblestone under the placeholder, clear foot contact area, reflections around shoes, muddy prints, straw scraps and barrel shadows kept to edges"
+          }
+        },
+        {
+          id: "abandoned_abbey_courtyard",
+          name: "废弃修道院庭院",
+          data: {
+            scenePrompt: "abandoned medieval fantasy abbey courtyard, broken cloister arches, weathered saint statue, mossy stone path, candle remains, old benches, wild grass kept low, clear central standing area",
+            atmospherePrompt: "quiet sacred ruin, old-world melancholy, gentle fantasy mystery, time-worn journey atmosphere without horror dominance",
+            lightingPrompt: "soft cloudy daylight, pale side light through broken arches, tiny warm candle remnants, realistic stone contact shadow, no strong divine rays",
+            colorPrompt: "weathered stone gray, damp moss green, faded parchment beige, old wax cream, dark wet wood, muted warm candle amber",
+            materialPrompt: "PBR cracked limestone, moss in joints, eroded statue stone, wax residue, damp wood benches, dust, rain streaks, chipped carvings, soot stains, non-uniform roughness",
+            fxPrompt: "thin cool courtyard mist, drifting dust under arches, subtle candle smoke residue, no bright magic aura",
+            structurePrompt: "foreground mossy stone slabs, wax and small rubble; midground clear cloister courtyard standing area; background broken arches, statue, abbey wall and soft hill silhouette",
+            storyPrompt: "abbey courtyard left behind by a vanished order, candles burned down long ago, statue face softened by rain, grass returning slowly between stones",
+            visualPrompt: "broken cloister arch, weathered saint statue, mossy stone path, candle remains, old wooden bench, cracked abbey wall",
+            groundPrompt: "flat worn stone path under the placeholder, clear foot contact area, moss and wax kept around edges, fine dust, small chips and realistic contact shadow"
+          }
+        },
+        {
+          id: "ancient_ruin_gate",
+          name: "古代遗迹入口",
+          data: {
+            scenePrompt: "ancient low-magic fantasy ruin entrance, carved stone gate, worn steps, collapsed side pillars, old travel camp remains, faded cloth marker, grass hills in the distance, clear central standing area",
+            atmospherePrompt: "Baldur's Gate 3-like exploration threshold, Frieren-like ancient history and quiet road feeling, mysterious but grounded",
+            lightingPrompt: "soft morning daylight, gentle sky fill, restrained warm bounce from stone, realistic step contact shadows, no glowing portal",
+            colorPrompt: "pale aged stone, moss green, dry grass gold, dark earth, faded cloth red, low saturation natural fantasy palette",
+            materialPrompt: "PBR eroded carved stone, chipped steps, moss, lichen, cracked mortar, dusty travel gear, worn canvas, rusty iron pitons, dirt, scratch marks, rain streaks and edge wear",
+            fxPrompt: "light hill mist, drifting dust from broken stones, soft wind in cloth marker, no large magic circles",
+            structurePrompt: "foreground worn stone steps and small camp objects; midground clear ruin threshold standing area; background carved gate, collapsed pillars, hillside and wide travel horizon",
+            storyPrompt: "forgotten ruin discovered along an old road, camp remains suggest earlier travelers, carvings nearly unreadable after centuries of weather",
+            visualPrompt: "carved ancient stone gate, collapsed pillar, worn steps, faded cloth marker, small travel pack, mossy carved relief, distant green hills",
+            groundPrompt: "flat worn stone step or packed dirt under the placeholder, clear foot contact area, chips and grass around edges, dust, lichen and realistic contact shadow"
+          }
+        },
+        {
+          id: "quiet_stone_bridge",
+          name: "溪谷旧石桥",
+          data: {
+            scenePrompt: "quiet medieval fantasy stone bridge over a shallow valley stream, weathered parapets, mossy stones, small roadside shrine, distant village roofs, low grass, worn travel path, clear central standing area",
+            atmospherePrompt: "Frieren-like calm travel pause, peaceful old kingdom road, gentle sense of time passing, quiet open-air fantasy realism",
+            lightingPrompt: "soft cloudy daylight with mild warm breaks, natural sky fill, subtle water bounce, realistic contact shadow on worn bridge stones, no dramatic god rays",
+            colorPrompt: "soft moss green, pale gray stone, clear muted water blue, damp earth brown, faded cloth tan, distant roof red-brown, low saturation poetic grading",
+            materialPrompt: "PBR weathered bridge stone, chipped parapet edges, moss in cracks, wet stone patches, lichen, packed dirt, worn grass, rusty small shrine bell, frayed cloth tie, rain streaks, dust and non-uniform roughness",
+            fxPrompt: "thin valley mist, gentle water vapor, light wind in grass, soft distant chimney smoke, no glowing magic effects",
+            structurePrompt: "foreground worn bridge slabs and moss; midground clear standing area on the bridge; background stream, small shrine, distant village roofs, rolling hills and wide quiet sky",
+            storyPrompt: "old bridge on a road used for generations, stones repaired by many hands, a small shrine marking safe passage, distant village life barely visible beyond the valley",
+            visualPrompt: "weathered stone bridge, shallow stream, mossy parapet, roadside shrine, distant village roofs, low grass, old travel path",
+            groundPrompt: "flat worn bridge stone under the placeholder, clear 1.7m foot contact area, moss and puddle edges kept aside, chipped stone, dust, lichen and realistic contact shadow"
+          }
+        },
+        {
+          id: "windmill_hill_road",
+          name: "风车山丘路口",
+          data: {
+            scenePrompt: "medieval fantasy hill road near an old windmill, soft grass slopes, worn dirt path, low stone wall, distant village fields, faded travel marker, simple wooden fence, clear central standing area",
+            atmospherePrompt: "quiet Frieren-like countryside journey mood, open sky, peaceful rural kingdom, light melancholy and warmth after a long walk",
+            lightingPrompt: "gentle late afternoon daylight, soft warm rim on grass and stone wall, broad sky fill, realistic contact shadow, no magical glow",
+            colorPrompt: "soft grass green, wheat gold, pale sky blue gray, weathered wood brown, limestone gray, muted earth path, restrained warm grade",
+            materialPrompt: "PBR packed dirt, worn grass, weathered windmill wood, chipped stone wall, rusty hinge metal, faded cloth marker, dusty fence posts, small gravel, dry mud patches and natural roughness variation",
+            fxPrompt: "light wind in grass, soft hill haze, distant dust from road, subtle cloud shadow movement, no fantasy particles",
+            structurePrompt: "foreground dirt path, grass tufts and stones; midground clear road standing area; background windmill, low wall, fields, distant village and broad sky",
+            storyPrompt: "hill road outside a peaceful village, windmill turning slowly after years of use, marker cloth faded by sun, fields stretching into a quiet old kingdom",
+            visualPrompt: "old windmill, hill road, low stone wall, simple fence, distant fields, faded travel marker, soft grass slope",
+            groundPrompt: "flat packed dirt under the placeholder, clear foot contact area, grass kept low around edges, small stones, wheel scuffs, dry mud and realistic contact shadow"
+          }
+        },
+        {
+          id: "lakeside_tower_ruin",
+          name: "湖畔旧塔遗址",
+          data: {
+            scenePrompt: "quiet medieval fantasy lakeside tower ruin, broken stone tower base, calm lake edge, worn steps, old lantern post, low wildflowers, distant mountains, clear central standing area",
+            atmospherePrompt: "Frieren-like quiet memory beside old ruins, peaceful water, long history, soft sadness without darkness, cinematic realistic fantasy travel mood",
+            lightingPrompt: "soft morning daylight, gentle lake reflection, pale sky fill, subtle warm light on tower stones, realistic contact shadow, no strong light beams",
+            colorPrompt: "pale lake blue, weathered stone gray, soft green grass, muted wildflower accents, damp earth brown, distant mountain blue gray",
+            materialPrompt: "PBR eroded tower stone, wet step edges, moss, lichen, calm water reflection, weathered lantern metal, worn wood, small flowers, dirt, rain streaks, chipped carvings and non-uniform roughness",
+            fxPrompt: "thin lake mist, soft water vapor, light wind on grass and flowers, distant haze over mountains, no glowing magic",
+            structurePrompt: "foreground worn stone steps and lake-edge ground; midground clear standing area near tower base; background calm lake, broken tower, lantern post, mountains and open sky",
+            storyPrompt: "old tower ruin beside a lake, no longer guarded by anyone, lantern post rusted but still upright, flowers growing where travelers once rested",
+            visualPrompt: "broken lakeside tower, calm lake edge, worn steps, old lantern post, low wildflowers, distant mountains, mossy stone",
+            groundPrompt: "flat worn stone and packed dirt under the placeholder, clear foot contact area, wet edges and flowers kept aside, moss, dust, tiny gravel and realistic contact shadow"
+          }
+        },
+        {
+          id: "hero_memorial_meadow",
+          name: "英雄纪念碑草坡",
+          data: {
+            scenePrompt: "medieval fantasy old hero memorial on a quiet grass slope, weathered statue base, broken sword marker, low stone flowers, distant road, soft hills, faded ribbon ties, clear central standing area",
+            atmospherePrompt: "Frieren-like remembrance and long time passing, gentle heroic sadness, peaceful landscape after history has become memory, low-magic realism",
+            lightingPrompt: "soft bright overcast with gentle warm side light, broad sky fill, realistic grass and stone contact shadow, no divine rays",
+            colorPrompt: "soft green slope, pale weathered stone, faded ribbon red, old iron gray, warm beige grass tips, blue-gray distant hills, restrained poetic grading",
+            materialPrompt: "PBR weathered statue stone, chipped inscription surface without readable text, rusty sword marker, frayed ribbons, short grass, dirt, moss, lichen, wind scratches, dust and non-uniform roughness",
+            fxPrompt: "light wind in grass and ribbons, soft hill haze, drifting dust, no glowing aura or magic particles",
+            structurePrompt: "foreground grass and small stones; midground clear standing area beside memorial base; background distant road, rolling hills, sky and small old marker stones",
+            storyPrompt: "memorial on a hill for heroes mostly forgotten by ordinary travelers, ribbons replaced by unknown hands, road continuing quietly past the stone",
+            visualPrompt: "weathered hero memorial, broken sword marker, short grass slope, faded ribbons, distant road, old marker stones, soft hills",
+            groundPrompt: "flat packed earth and short grass under the placeholder, clear foot contact area, flowers and stones around edges, dirt scuffs, moss and realistic contact shadow"
+          }
+        },
+        {
+          id: "flower_field_ruin",
+          name: "花野古遗迹",
+          data: {
+            scenePrompt: "medieval fantasy flower field with ancient stone ruin fragments, low wildflowers, fallen arch stones, old path slabs, distant village bell tower, soft hills, clear central standing area",
+            atmospherePrompt: "Frieren-like gentle travel wonder, quiet beauty after an ancient age, peaceful open field, poetic but realistic CG fantasy",
+            lightingPrompt: "soft clear daylight, mild warm sun filtered by thin clouds, natural sky fill, realistic contact shadow, no strong Tyndall light",
+            colorPrompt: "soft green field, muted wildflower white and pale yellow, weathered stone gray, distant roof brown, light blue sky, low saturation calm grade",
+            materialPrompt: "PBR old stone slabs, chipped fallen arch pieces, lichen, short grass, low wildflowers, packed dirt path, dust, rain streaks, worn carvings, small gravel and natural roughness variation",
+            fxPrompt: "gentle wind through low flowers, light pollen, distant haze, subtle dust near old stones, no magical sparkle",
+            structurePrompt: "foreground old path slabs, short flowers and small stones; midground clear standing area; background ruin fragments, distant village bell tower, hills and wide sky",
+            storyPrompt: "ancient ruin slowly becoming part of a flower field, road still passing through it, distant village continuing ordinary life beyond forgotten stones",
+            visualPrompt: "low wildflower field, fallen stone arch, old path slabs, distant bell tower, soft hills, lichen-covered ruin fragments",
+            groundPrompt: "flat old stone path or packed dirt under the placeholder, clear foot contact area, low flowers kept around edges, dust, gravel, moss and realistic contact shadow"
+          }
+        },
+        {
+          id: "old_mage_waystation",
+          name: "旧魔法师驿站",
+          data: {
+            scenePrompt: "quiet low-magic medieval fantasy mage waystation, small stone shelter, blank wooden notice board, worn worktable, travel crates, extinguished brazier, herb bundles, old road, clear central standing area",
+            atmospherePrompt: "Frieren-like quiet stop for travelers and mages, gentle old magic implied by objects not glow, practical RPG set dressing, peaceful realism",
+            lightingPrompt: "soft cloudy daylight, very restrained warm brazier residue, gentle window fill, realistic contact shadow, no visible spell effects",
+            colorPrompt: "weathered stone gray, faded herb green, aged wood brown, linen tan, rusted iron, ash black, pale sky fill, low saturation fantasy palette",
+            materialPrompt: "PBR cracked stone shelter, scratched worktable wood, rusty brazier, ash, herb bundles, frayed rope, worn leather satchel, dusty crates, old paper shapes without readable text, rain streaks, grime in seams and edge wear",
+            fxPrompt: "thin smoke residue, drifting dust, soft road haze, slight wind moving herb bundles, no glowing runes or floating magic",
+            structurePrompt: "foreground packed road dirt, ash and table shadows; midground clear standing area beside shelter; background stone waystation, blank board, crates, herb bundles and distant road",
+            storyPrompt: "small waystation where travelers once exchanged supplies and quiet magic knowledge, brazier cold, herbs drying under the roof, road continuing beyond the shelter",
+            visualPrompt: "small stone waystation, blank notice board, worn worktable, extinguished brazier, herb bundles, travel crates, old road",
+            groundPrompt: "flat packed dirt and worn stone under the placeholder, clear foot contact area, ash and crates kept to edges, dust, small stones and realistic contact shadow"
+          }
+        },
+        {
+          id: "sunset_kingdom_road",
+          name: "夕照王国古道",
+          data: {
+            scenePrompt: "medieval fantasy old kingdom road at sunset, worn cobblestone path, low stone markers, distant city wall silhouette, grass shoulders, travel packs, faded roadside banner, clear central standing area",
+            atmospherePrompt: "Frieren-like end-of-day journey feeling, calm farewell mood, old road leading to distant places, warm but restrained fantasy realism",
+            lightingPrompt: "soft low sunset side light, warm highlights on stone markers, cool sky fill, long but realistic contact shadow, no dramatic sun rays",
+            colorPrompt: "muted sunset amber, cool blue-gray shadows, worn stone gray, dry grass gold, faded banner red, earth brown, poetic low saturation grade",
+            materialPrompt: "PBR worn cobblestone, dusty road dirt, chipped marker stones, dry grass, frayed banner cloth, old leather travel packs, rusty buckles, small gravel, scratches, dust and non-uniform roughness",
+            fxPrompt: "soft evening haze, light wind in grass and banner, distant chimney smoke, no glowing magic or lens spectacle",
+            structurePrompt: "foreground cobblestone path, grass shoulders and low props; midground clear standing area; background old marker stones, distant city wall silhouette, hills and sunset sky",
+            storyPrompt: "ancient road near the end of a journey, distant city wall waiting quietly, marker stones passed by countless travelers, evening light settling on the path",
+            visualPrompt: "old cobblestone road, low stone markers, distant city wall silhouette, faded roadside banner, travel packs, grass shoulders, sunset sky",
+            groundPrompt: "flat worn cobblestone under the placeholder, clear 1.7m foot contact area, dust and grass kept to edges, tiny stones, travel scuffs and realistic contact shadow"
+          }
+        },
+        {
+          id: "hilltop_village_overlook",
+          name: "山丘远村眺望",
+          data: {
+            scenePrompt: "medieval fantasy hilltop overlook above a small old village, worn stone path, low retaining wall, distant roofs and church tower, travel fence, soft fields, clear central standing area",
+            atmospherePrompt: "Frieren-like quiet view after climbing a road, peaceful memory of towns passed by, open-air journey calmness, gentle medieval realism",
+            lightingPrompt: "soft morning or late afternoon daylight, broad sky fill, gentle highlights on wall stones, realistic foot contact shadow, no magic glow",
+            colorPrompt: "soft field green, pale stone gray, roof red-brown, weathered wood, warm beige path dust, blue-gray sky, restrained serene grade",
+            materialPrompt: "PBR worn stone path, chipped retaining wall, dusty packed earth, old wood fence, rusted nails, moss, dry grass, scuffed travel gear, rain streaks, lichen and natural roughness",
+            fxPrompt: "thin distance haze, light wind over fields, subtle dust on the path, distant chimney smoke, no fantasy particles",
+            structurePrompt: "foreground stone path and low wall; midground clear overlook standing area; background village roofs, tower, fields, hills and wide sky",
+            storyPrompt: "quiet overlook where travelers stop before descending into town, wall stones warm from sun, village below carrying on with small ordinary life",
+            visualPrompt: "hilltop overlook, low stone wall, distant village roofs, small church tower, old fence, soft fields, worn path",
+            groundPrompt: "flat worn stone path or packed dirt under the placeholder, clear foot contact area, low wall and grass kept aside, dust, lichen and realistic contact shadow"
+          }
+        },
+        {
+          id: "knight_armory_entry",
+          name: "骑士军械库入口",
+          data: {
+            scenePrompt: "medieval fantasy knight armory entrance, iron-banded wooden doors, weapon racks, worn shields, armor stands, leather straps, crates, straw-covered stone floor, clear central standing area",
+            atmospherePrompt: "grounded RPG equipment room threshold, old kingdom military craft, tactile metal and leather realism, restrained heroic fantasy",
+            lightingPrompt: "cool daylight from high slit window, warm torch side light, hard contact shadows under racks, no magical weapon glow",
+            colorPrompt: "dark iron, worn leather brown, faded shield paint, gray stone, straw tan, muted torch amber, desaturated medieval palette",
+            materialPrompt: "PBR scratched steel helmets, rusty iron hinges, chipped shield paint, worn leather straps, rough wooden racks, straw, dust, oil smears, soot, wax drips, stone floor stains, non-uniform roughness",
+            fxPrompt: "torch smoke, dust motes in high window light, subtle indoor haze, no glowing enchanted weapons",
+            structurePrompt: "foreground straw, crate shadows and floor scuffs; midground clear armory entrance standing area; background iron-banded doors, weapon racks, armor stands and stone wall",
+            storyPrompt: "armory prepared for patrols, armor polished unevenly, old shields repaired many times, straw and dust gathering near the door",
+            visualPrompt: "iron-banded wooden door, weapon rack, worn shield row, armor stand, leather straps, supply crates, torch bracket",
+            groundPrompt: "flat stained stone floor under the placeholder, clear foot contact area, straw and crates kept to edges, scuffs, dust, oil smears and realistic contact shadow"
+          }
+        },
+        {
+          id: "mountain_pass_gate",
+          name: "山地关隘要塞",
+          data: {
+            scenePrompt: "medieval fantasy mountain pass gate, stone bridge approach, weathered gatehouse, wooden watch platforms, wind-torn banners, supply carts, damp rock walls, clear central standing area",
+            atmospherePrompt: "lonely frontier road through old mountains, Frieren-like vast travel scale, grounded fortress realism, calm but epic low-magic mood",
+            lightingPrompt: "cool cloudy mountain daylight, soft rim from bright sky, muted torch points near the gate, realistic stone bridge contact shadow, no fantasy god rays",
+            colorPrompt: "cold gray stone, dark pine green, wet rock charcoal, faded banner red, old timber brown, rusted iron, low saturation mountain grade",
+            materialPrompt: "PBR wet stone bridge, cracked gatehouse masonry, rough watchtower timber, rusty chain, frayed banners, mud on cart wheels, lichen, wind scratches, rain streaks, gravel and non-uniform roughness",
+            fxPrompt: "thin mountain mist, windblown dust, cloth movement, distant cloud haze, no glowing magic portal",
+            structurePrompt: "foreground stone bridge slabs, gravel and wheel ruts; midground clear gate approach standing area; background gatehouse, watch platforms, mountain walls and distant valley depth",
+            storyPrompt: "old pass gate on a long road between kingdoms, watch platforms patched with fresh timber, carts waiting for inspection, mountains swallowing the sound",
+            visualPrompt: "stone bridge approach, weathered gatehouse, wooden watch platform, wind-torn banner, supply cart, damp cliff wall, rusty chain",
+            groundPrompt: "flat wet stone bridge or packed gravel under the placeholder, clear foot contact area, wheel ruts and small stones kept aside, lichen, mud and realistic contact shadow"
           }
         }
       ],
@@ -9039,7 +9057,7 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
     const filmCGSceneRequirement = "cinematic UE or Octane style film CG environment rendering, high-end production design, physically based materials, path-traced global illumination, volumetric atmosphere, realistic render-camera response, detailed environment art, avoid real photo look, avoid DSLR snapshot feeling, no illustration look, no anime style, no flat game screenshot look";
 
     function applyStyleRenderingDefaults(presetName) {
-      if (!["samurai_island", "otg", "arknights", "endfield", "polar_research_ruin", "dieselpunk_industrial", "biotech_lab", "mining_megafacility", "dark_fantasy_dungeon", "corporate_control_center"].includes(presetName)) return;
+      if (!["samurai_island", "otg", "arknights", "endfield", "polar_research_ruin", "mining_megafacility", "medieval_fantasy", "dark_fantasy_dungeon", "corporate_control_center"].includes(presetName)) return;
       setFieldValue("outputLook", "cinematic_realism");
       setFieldValue("renderEngine", "cinematic_path_tracing");
       const sceneSafetyRequirement = filmCGSceneRequirement + ", no objects blocking the center placeholder, clean compositing space around the body, background remains recognizable, real-world 1.7m human scale consistency";
