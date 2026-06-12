@@ -6500,6 +6500,7 @@
                   <option value="overgrown_survival">自然侵蚀后末日</option>
                   <option value="polar_research_ruin">极地科考废墟</option>
                   <option value="mining_megafacility">巨型矿业设施</option>
+                  <option value="wild_lonely_scifi">荒野孤旅科幻</option>
                   <option value="dark_fantasy_dungeon">黑暗奇幻地下城</option>
                   <option value="corporate_control_center">高端企业控制中心</option>
                   <option value="dark_gothic_fantasy">黑暗哥特奇幻</option>
@@ -7289,6 +7290,19 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
         visualPrompt: "giant conveyor frame, ore chute, crusher housing, rail cart, cable trench, dust-covered service platform",
         groundPrompt: "flat compacted gravel and concrete under the placeholder, clear foot contact area, ore dust, tire tracks, oil stains, small stones kept to edges and realistic contact shadow"
       },
+      wild_lonely_scifi: {
+        scenePrompt: "lonely wilderness traversal sci-fi environment, vast rain-wet valley road, black rock slopes, low logistics platform, restraint cargo anchors, weathered signal mast, scattered delivery cases, distant shelter lights, clear central standing area",
+        atmospherePrompt: "Death Stranding-like emotional tone of solitary travel, huge natural scale, quiet burden, long-distance delivery route, human traces inside overwhelming wilderness, restrained near-future survival logistics, cinematic AAA realism",
+        lightingPrompt: "soft overcast sky after rain, broad cool gray daylight, wet ground reflections, distant warm beacon lights kept very small, subtle rim on cargo edges, realistic contact shadows, no obvious god rays, no neon glow",
+        colorPrompt: "cold gray sky, wet black basalt, moss green, muted cargo orange accents, weathered white composite panels, dark mud brown, low saturation cinematic wilderness grade",
+        materialPrompt: "strict cinematic CG PBR material response, wet basalt rock, black sand, muddy gravel, moss, rain-beaded composite panels, scratched cargo cases, worn rubber straps, weathered metal anchors, frayed cables, mud splashes, rain streaks, edge wear, dirt masks, roughness variation, ambient occlusion in crevices, realistic normal-map surface detail",
+        fxPrompt: "thin rain mist, low valley fog, drifting water vapor, light wind through grass, distant cloud haze, no hologram bloom, no sci-fi particles, no combat smoke",
+        structurePrompt: "foreground wet rock, mud, tire or boot tracks, puddles and low cargo fragments; midground clean central standing area framed by a low logistics platform, anchor posts, cable lines or delivery cases; background huge valley road, signal mast, distant shelter lights, mountains and heavy sky",
+        storyPrompt: "a remote traversal route after rainfall, delivery cases left beside a low platform, anchor posts and cable lines showing how people crossed the wilderness before moving on",
+        visualPrompt: "vast rain-wet wilderness road, black basalt slopes, low logistics platform, restraint cargo anchors, weathered signal mast, delivery cases, distant shelter lights, no logos and no readable text",
+        groundPrompt: "flat wet gravel, black sand or stone slab under the placeholder, clear 1.7m foot contact area, puddles around but not under feet, boot tracks, tire marks, mud splashes, moss edges, tiny stones, realistic PBR contact shadow and wet roughness variation",
+        extraPrompt: "original cinematic realistic CG wilderness logistics sci-fi environment inspired by Death Stranding's lonely journey emotion, vast natural scale, rain-wet terrain and restrained functional delivery infrastructure; do not copy any official character, BB pod, Bridge Baby device, Bridges logo, UI, exact vehicle, exact facility, symbol, typography or copyrighted composition; avoid cyberpunk neon, hologram billboards, laser weapons, mechs, starships, dense futuristic city, clean glossy sci-fi panels, bright blue UI glow, war spectacle, anime style, illustration, real photo look and over-designed high-tech bases"
+      },
       medieval_fantasy: {
         scenePrompt: "grounded medieval low-magic fantasy journey environment, quiet old kingdom road, weathered stone bridge or small shrine, distant village roofs, soft green hills, ancient marker stones, worn travel supplies, faded cloth banners, clear central standing area",
         atmospherePrompt: "Frieren-like quiet journey atmosphere and sense of long time passing, calm old-world melancholy, gentle medieval fantasy exploration mood, believable lived-in kingdom, Baldur's Gate 3-like RPG environment layering with restrained Witcher-like material grit, cinematic AAA fantasy realism",
@@ -7745,6 +7759,136 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
           }
         }
       ],
+      wild_lonely_scifi: [
+        {
+          id: "rain_valley_delivery_pad",
+          name: "雨谷配送平台",
+          data: {
+            scenePrompt: "lonely sci-fi rain valley delivery pad, low weathered platform, cargo anchor posts, black basalt road, scattered delivery cases, cable line markers, distant shelter light, clear central standing area",
+            atmospherePrompt: "solitary journey after rain, huge valley scale, quiet functional logistics, restrained Death Stranding-like emotional tone without copying any specific IP design",
+            lightingPrompt: "soft overcast daylight, cool gray valley fill, subtle wet reflections on basalt, tiny warm beacon light in the distance, realistic contact shadows under cases and anchor posts",
+            colorPrompt: "wet black stone, cold gray sky, moss green slopes, muted cargo orange, weathered white composite, dark mud brown, low saturation cinematic grade",
+            materialPrompt: "PBR wet basalt, muddy gravel, scratched cargo cases, rain-beaded composite platform panels, worn rubber straps, weathered metal anchor posts, cable scuffs, mud splashes, moss, rain streaks, dirt masks and roughness variation",
+            fxPrompt: "thin rain mist, low valley fog, drifting water vapor, distant cloud haze, no hologram bloom, no neon glow",
+            structurePrompt: "foreground wet basalt road, puddles, boot tracks and cargo shadows; midground clear standing area on the low platform; background cable markers, distant shelter light, valley slopes and heavy sky",
+            storyPrompt: "remote delivery pad after rainfall, cargo left for the next traveler, anchor posts and wet road marks showing a route across the valley",
+            visualPrompt: "low delivery platform, cargo anchor posts, scattered delivery cases, cable line markers, black basalt road, distant shelter light, huge valley",
+            groundPrompt: "flat wet basalt or composite platform under the placeholder, clear foot contact area, puddles around but not under feet, boot tracks, mud splashes, moss edges, realistic PBR wet contact shadow"
+          }
+        },
+        {
+          id: "black_beach_waystation",
+          name: "黑沙滩中继点",
+          data: {
+            scenePrompt: "lonely sci-fi black sand beach waystation, low modular shelter pod, cargo pallets, rope guide posts, wet black beach, stranded driftwood, distant cliffs, clear central standing area",
+            atmospherePrompt: "quiet coastal isolation, rain-wet delivery route, vast beach scale, restrained survival logistics, lonely but hopeful",
+            lightingPrompt: "soft storm-cleared sky, cool ocean bounce light, wet black sand reflections, tiny warm light inside shelter, realistic contact shadows under pallets and posts",
+            colorPrompt: "black wet sand, cold ocean gray, muted moss green cliff, weathered white shelter panels, dull orange cargo marks, low saturation coastal grade",
+            materialPrompt: "PBR wet black sand, waterlogged driftwood, scratched modular shelter panels, mud-stained cargo pallets, worn rope fibers, corroded metal stakes, rain streaks, salt stains, roughness variation and ambient occlusion",
+            fxPrompt: "sea mist, thin rain haze, windblown sand, distant wave vapor, no sci-fi particles and no neon",
+            structurePrompt: "foreground wet black sand, rope guide shadows, footprints and small stones; midground clear standing area near shelter and cargo pallets; background beach curve, distant cliffs, ocean haze and heavy sky",
+            storyPrompt: "temporary waystation on a lonely black beach, shelter light still on after a storm, cargo waiting above the tide line",
+            visualPrompt: "low shelter pod, cargo pallets, rope guide posts, wet black sand beach, stranded driftwood, distant cliffs, ocean haze",
+            groundPrompt: "flat wet black sand under the placeholder, clear foot contact area, shallow water sheen, footprints, rope shadows, salt stains and realistic PBR contact shadow"
+          }
+        },
+        {
+          id: "canyon_rope_bridge",
+          name: "峡谷绳索桥",
+          data: {
+            scenePrompt: "lonely sci-fi canyon rope bridge route, carbon-fiber rope bridge, metal anchor pylons, cargo crates, wet rock ledge, distant river below, wide canyon walls, clear central standing area",
+            atmospherePrompt: "solitary crossing through a huge canyon, fragile human route in overwhelming nature, restrained traversal sci-fi, quiet tension without combat",
+            lightingPrompt: "soft cloudy daylight from above, cool shadow inside canyon, subtle wet highlights on rock ledge, tiny warm signal light on an anchor pylon, realistic contact shadows",
+            colorPrompt: "wet basalt gray, canyon moss green, dark rope black, muted cargo orange, pale sky strip, distant river blue gray, low saturation grade",
+            materialPrompt: "PBR wet rock ledge, worn carbon-fiber rope, scratched metal pylons, mud-stained cargo crates, rubber grips, rain streaks, rope fiber wear, chipped stone, moss, dirt masks and non-uniform roughness",
+            fxPrompt: "thin canyon mist, river vapor below, light wind moving bridge cables, no laser light and no holograms",
+            structurePrompt: "foreground wet ledge stones, anchor bolts, rope shadows and cargo corners; midground clear standing area before the bridge; background rope bridge span, canyon walls, river far below and cloudy sky opening",
+            storyPrompt: "a makeshift crossing used by couriers after the old road collapsed, anchor pylons worn by years of rain and wind",
+            visualPrompt: "rope bridge span, metal anchor pylons, wet canyon ledge, cargo crates, distant river below, wide canyon walls",
+            groundPrompt: "flat wet rock ledge under the placeholder, clear foot contact area, anchor bolts and cargo kept aside, puddle edges, mud, moss and realistic contact shadow"
+          }
+        },
+        {
+          id: "highland_signal_mast",
+          name: "高原信号塔",
+          data: {
+            scenePrompt: "lonely sci-fi highland signal mast, wind-bent grass plateau, low equipment platform, guy wires, battery cases, black stone path, distant mountains, clear central standing area",
+            atmospherePrompt: "quiet highland traversal route, tiny human technology under a huge sky, solitary communication outpost, restrained and emotional",
+            lightingPrompt: "soft highland overcast with cool sky fill, gentle side highlights on mast cables, small warm indicator light kept minimal, realistic shadows in grass and around cases",
+            colorPrompt: "cold grass green, wet black stone, pale gray sky, weathered white equipment, muted yellow cable tags, distant mountain blue gray",
+            materialPrompt: "PBR wet stone path, wind-worn metal mast, scratched battery cases, rubber cable covers, frayed guy wires, rain beads, mud at equipment feet, moss, dust, grime and roughness variation",
+            fxPrompt: "windblown mist, light rain residue, grass movement, distant cloud haze, no neon signal beams",
+            structurePrompt: "foreground black stone path, grass tufts, battery case shadows and cable anchors; midground clear standing area on low platform; background tall signal mast, guy wires, mountains and huge sky",
+            storyPrompt: "remote signal mast on a plateau, battery cases replaced many times, cable anchors humming quietly in the wind",
+            visualPrompt: "highland signal mast, guy wires, low equipment platform, battery cases, black stone path, distant mountains, wind-bent grass",
+            groundPrompt: "flat wet stone or low platform under the placeholder, clear foot contact area, cable anchors and cases kept aside, grass edges, mud, rain sheen and realistic contact shadow"
+          }
+        },
+        {
+          id: "tundra_cargo_platform",
+          name: "苔原货箱平台",
+          data: {
+            scenePrompt: "lonely sci-fi tundra cargo platform, low metal deck, mossy tundra ground, weathered cargo containers, restraint straps, marker poles, distant snow line, clear central standing area",
+            atmospherePrompt: "cold remote delivery stop, vast tundra quiet, practical survival infrastructure, restrained lonely sci-fi mood",
+            lightingPrompt: "pale overcast daylight, cool blue-gray shadow fill, subtle wet metal highlights, small warm locator light kept minimal, realistic contact shadows under containers",
+            colorPrompt: "moss green tundra, cold gray metal, muted orange cargo marks, dirty white panels, distant snow blue, low saturation cold grade",
+            materialPrompt: "PBR wet tundra moss, scratched metal deck, dented cargo containers, worn restraint straps, muddy rubber mats, frost at edges, rain streaks, grime in seams, non-uniform roughness and contact dirt",
+            fxPrompt: "thin cold haze, low ground mist, wind over tundra, tiny water droplets, no sci-fi glow",
+            structurePrompt: "foreground moss, metal deck seams, cargo shadows and strap loops; midground clear standing area on platform; background marker poles, cargo stack, tundra plain, distant snow line and cloudy sky",
+            storyPrompt: "remote cargo platform on the tundra, containers strapped down after storms, locator light waiting for the next traveler",
+            visualPrompt: "low cargo platform, weathered containers, restraint straps, marker poles, mossy tundra, distant snow line, muted locator light",
+            groundPrompt: "flat wet metal deck or compact tundra under the placeholder, clear foot contact area, strap loops and cargo kept aside, moss, frost, mud and realistic contact shadow"
+          }
+        },
+        {
+          id: "storm_repeater_station",
+          name: "风暴后中继站",
+          data: {
+            scenePrompt: "lonely sci-fi repeater station after a storm, small antenna shelter, tilted signal dish, rain-soaked service pad, cable trenches, cargo cases, distant ridge road, clear central standing area",
+            atmospherePrompt: "quiet repair route after severe weather, isolated communication infrastructure, tired but hopeful wilderness sci-fi",
+            lightingPrompt: "soft post-storm daylight, broken cloud brightness, wet service pad reflections, small amber maintenance light, realistic contact shadows under cables and cases",
+            colorPrompt: "wet concrete gray, cold sky blue gray, weathered white panels, black cable rubber, muted amber light, dark mossy rocks, low saturation",
+            materialPrompt: "PBR rain-soaked concrete, scratched antenna shelter panels, chipped signal dish paint, rubber cable trenches, mud splashes, rust freckles, water streaks, grime at seams, non-uniform roughness",
+            fxPrompt: "post-storm mist, drifting low clouds, faint water vapor from equipment, no sparks, no holograms",
+            structurePrompt: "foreground wet service pad, cable trench edges, puddles and cargo case shadows; midground clear standing area beside station; background tilted dish, small shelter, ridge road and cloudy sky",
+            storyPrompt: "repeater station still standing after a storm, cases dropped for repair crews, dish tilted but light still active",
+            visualPrompt: "small antenna shelter, tilted signal dish, rain-soaked service pad, cable trenches, cargo cases, distant ridge road",
+            groundPrompt: "flat wet concrete or composite pad under the placeholder, clear foot contact area, cable trenches kept aside, puddles, mud splashes, grime seams and realistic contact shadow"
+          }
+        },
+        {
+          id: "wetland_anchor_path",
+          name: "湿地锚点步道",
+          data: {
+            scenePrompt: "lonely sci-fi wetland anchor path, low stepping platforms over shallow water, anchor posts, guide ropes, weathered cargo case, reeds kept sparse, distant shelter silhouette, clear central standing area",
+            atmospherePrompt: "quiet wetland traversal, fragile human path through wide marsh, restrained survival logistics, solitary and reflective",
+            lightingPrompt: "soft gray daylight, water bounce from shallow marsh, cool reflections under platforms, tiny distant warm shelter light, realistic contact shadows",
+            colorPrompt: "muted wetland green, dark water gray, weathered metal, rope tan, dull cargo orange, cold sky, low saturation",
+            materialPrompt: "PBR wet platform boards, muddy water, scratched metal anchor posts, worn guide ropes, weathered cargo case, algae, reed stems, mud splashes, rain streaks and roughness variation",
+            fxPrompt: "low wetland mist, subtle water ripples, light wind in sparse reeds, no magical fog and no neon",
+            structurePrompt: "foreground shallow water, platform edges, rope shadows and mud; midground clear standing platform; background anchor path receding through wetland, distant shelter silhouette and heavy sky",
+            storyPrompt: "wetland route marked by anchor posts and low platforms, built for travelers crossing waterlogged ground after long rains",
+            visualPrompt: "low stepping platforms, anchor posts, guide ropes, weathered cargo case, shallow wetland water, sparse reeds, distant shelter silhouette",
+            groundPrompt: "flat wet platform under the placeholder, clear foot contact area, water edge and ropes kept aside, mud stains, algae, rain sheen and realistic contact shadow"
+          }
+        },
+        {
+          id: "ridge_shelter_overlook",
+          name: "山脊避难舱",
+          data: {
+            scenePrompt: "lonely sci-fi ridge shelter overlook, small low shelter module, windbreak panels, cargo rack, black stone path, distant valley and storm clouds, clear central standing area",
+            atmospherePrompt: "solitary rest point above a vast valley, quiet relief after a long climb, restrained functional sci-fi in overwhelming nature",
+            lightingPrompt: "soft late afternoon cloud light, cool valley shadow, gentle rim on shelter panels, tiny warm interior light through a small opening, realistic contact shadows",
+            colorPrompt: "black wet stone, cold valley blue gray, weathered white shelter, muted moss green, dull orange cargo accents, low saturation cinematic grade",
+            materialPrompt: "PBR wet rock path, rain-beaded shelter panels, scratched cargo rack, worn windbreak metal, rubber seals, mud at panel bases, moss, rain streaks, dust and non-uniform roughness",
+            fxPrompt: "ridge wind mist, drifting cloud haze, light rain residue, no glowing UI and no neon",
+            structurePrompt: "foreground black stone path, puddles, cargo rack shadows and windbreak edges; midground clear standing area beside shelter; background vast valley, storm clouds, distant route markers and mountains",
+            storyPrompt: "small shelter on a ridge where travelers pause before descending, cargo rack scarred by weather, valley route disappearing into clouds",
+            visualPrompt: "low ridge shelter module, windbreak panels, cargo rack, black stone path, distant valley, storm clouds, tiny warm interior light",
+            groundPrompt: "flat wet stone or composite pad under the placeholder, clear foot contact area, cargo rack and windbreak kept aside, puddles, moss, mud and realistic contact shadow"
+          }
+        }
+      ],
       medieval_fantasy: [
         {
           id: "old_tavern_front",
@@ -8035,99 +8179,19 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
           }
         },
         {
-          id: "lakeside_ferry_landing",
-          name: "湖畔渡口石阶",
+          id: "ruined_watchtower_field",
+          name: "旷野旧哨塔",
           data: {
-            scenePrompt: "medieval fantasy quiet lakeside ferry landing, worn stone steps descending to calm water, small wooden pier, mooring posts, coiled ropes, covered ferry crates, lantern hook, distant tower ruin, clear central standing area",
-            atmospherePrompt: "Frieren-like quiet departure by water, old kingdom travel route, peaceful lake memory, tactile CG fantasy realism",
-            lightingPrompt: "soft morning sky fill with subtle lake bounce, warm side highlights on ropes and crates, cool shadow under pier boards, realistic contact shadows and wet stone reflections",
-            colorPrompt: "pale lake blue, wet stone gray, aged pier wood, rope tan, muted crate cloth, moss green, distant tower blue-gray, restrained calm grade",
-            materialPrompt: "PBR wet stone steps, water-polished edges, rough pier planks, worn rope fibers, scratched mooring posts, frayed crate covers, moss, algae at waterline, rain streaks, dust and non-uniform roughness",
-            fxPrompt: "thin lake mist, subtle water ripples, light wind moving rope ends, soft distance haze, no magical glow",
-            structurePrompt: "foreground wet stone steps, rope coils and crate shadows; midground clear landing standing area; background wooden pier, calm lake, mooring posts, distant tower ruin and wide sky",
-            storyPrompt: "old ferry landing where travelers once crossed the lake, crates waiting under cloth, ropes worn smooth by years of departures",
-            visualPrompt: "lakeside ferry stone steps, wooden pier, coiled ropes, covered ferry crates, mooring posts, lantern hook, distant tower ruin",
-            groundPrompt: "flat worn stone landing under the placeholder, clear foot contact area, water edge and rope coils kept aside, wet patches, moss, algae stains and realistic contact shadow"
-          }
-        },
-        {
-          id: "viaduct_shadow_road",
-          name: "高架桥影古道",
-          data: {
-            scenePrompt: "medieval fantasy old road beneath a massive stone viaduct, tall arch shadows, worn wagon path, low grass, repair stones, abandoned hand tools, small water channel, distant hills, clear central standing area",
-            atmospherePrompt: "quiet old infrastructure of a large kingdom, Frieren-like sense of scale and time, calm road under ancient public works",
-            lightingPrompt: "layered daylight with strong soft arch shadows, bright sky fill between viaduct openings, reflected light from water channel, warm highlights on repair stones, realistic contact shadows",
-            colorPrompt: "cool arch shadow gray, pale stone, dusty road beige, moss green, aged tool wood, rusted iron, distant field gold, low saturation atmospheric grade",
-            materialPrompt: "PBR worn viaduct stone, chipped arch blocks, dusty wagon path, damp water channel stone, rusty repair tools, moss in joints, lichen, gravel, rain streaks, contact dirt and roughness variation",
-            fxPrompt: "thin dust under viaduct shade, soft distance haze through arches, light wind in grass, no glowing ancient technology",
-            structurePrompt: "foreground wagon ruts, repair stones, tools and water channel edge; midground clear road standing area; background repeated viaduct arches, hillside road, distant fields and sky gaps",
-            storyPrompt: "ancient viaduct still casting shadows across a road used by travelers, repair stones stacked by unknown workers long gone",
-            visualPrompt: "massive stone viaduct arches, worn wagon road, water channel, repair stones, abandoned hand tools, low grass, distant hills",
-            groundPrompt: "flat dusty wagon road under the placeholder, clear foot contact area, water channel and tools kept aside, gravel, moss, wheel scuffs and realistic contact shadow"
-          }
-        },
-        {
-          id: "mapmaker_stone_patio",
-          name: "绘图师石台庭",
-          data: {
-            scenePrompt: "medieval fantasy mapmaker stone patio beside an old road, low stone table, rolled blank maps, brass measuring tools, covered ink boxes, wooden stools, ivy on wall kept sparse, clear central standing area",
-            atmospherePrompt: "Frieren-like quiet scholarly stop during travel, old knowledge and practical craft, gentle RPG set dressing with realistic CG materials",
-            lightingPrompt: "soft courtyard daylight, cool wall shade, warm bounce from pale stone patio, small candle remnant highlights on brass tools, realistic contact shadows under table and stools",
-            colorPrompt: "pale stone gray, aged parchment tan, tarnished brass, dark wood brown, faded cloth cover, sparse ivy green, low saturation scholarly palette",
-            materialPrompt: "PBR worn stone patio slabs, dusty parchment fibers, tarnished brass tools, scratched low table wood, frayed cloth covers, wax drops, ink stains, dust in stone seams, rain streaks and non-uniform roughness",
-            fxPrompt: "floating dust in courtyard shade, slight paper edge movement, soft road haze beyond wall, no glowing magic maps",
-            structurePrompt: "foreground stone slab seams, rolled maps, brass tools and stool shadows; midground clear patio standing area; background low wall, sparse ivy, road opening and soft sky",
-            storyPrompt: "mapmaker's patio beside an old route, tools left arranged for work, blank maps weighted against the wind, a quiet place of travel knowledge",
-            visualPrompt: "low stone map table, rolled blank maps, tarnished brass measuring tools, covered ink boxes, wooden stools, sparse ivy wall, old road opening",
-            groundPrompt: "flat worn stone patio under the placeholder, clear foot contact area, maps and tools kept to edges, dust, wax drops, ink stains and realistic contact shadow"
-          }
-        },
-        {
-          id: "old_bakery_lane",
-          name: "旧烘房小巷",
-          data: {
-            scenePrompt: "medieval fantasy quiet bakery lane, stone oven exterior, stacked firewood, flour sacks, wooden cooling racks, clay bowls, worn cobblestone, soft village roofs behind, clear central standing area",
-            atmospherePrompt: "Frieren-like ordinary village life after morning work, warm human trace, peaceful old kingdom craft scene with tactile materials",
-            lightingPrompt: "soft cloudy daylight with warm oven doorway spill, cool lane shadow, gentle bounce on flour-dusted cobblestones, realistic contact shadows under sacks and racks",
-            colorPrompt: "flour dusty cream, warm oven amber, wet cobblestone gray, aged wood brown, clay bowl red-brown, pale plaster, low saturation cozy grade",
-            materialPrompt: "PBR flour-dusted cobblestones, soot-stained stone oven, scratched cooling rack wood, frayed flour sacks, clay bowls, ash, firewood bark, peeling plaster, dust, rain streaks and roughness variation",
-            fxPrompt: "subtle oven heat haze, fine flour dust, faint chimney smoke, no dramatic beams and no magic effects",
-            structurePrompt: "foreground flour dust, cobblestone seams, sack corners and firewood shadows; midground clear lane standing area; background stone oven, cooling racks, clay bowls and village roof layers",
-            storyPrompt: "bakery lane after bread was pulled from the oven, flour still on the stones, firewood stacked for the next morning",
-            visualPrompt: "stone oven exterior, stacked firewood, flour sacks, wooden cooling racks, clay bowls, worn cobblestone lane, soft village roofs",
-            groundPrompt: "flat worn cobblestone under the placeholder, clear foot contact area, sacks and racks kept aside, flour dust, ash, water stains and realistic contact shadow"
-          }
-        },
-        {
-          id: "old_bridge_tollhouse",
-          name: "桥边旧税屋",
-          data: {
-            scenePrompt: "medieval fantasy old bridge tollhouse, small stone booth, worn bridge approach, blank ledger board, coin bowl without readable marks, weathered gate bar, crates, river below, clear central standing area",
-            atmospherePrompt: "quiet old kingdom travel checkpoint without conflict, Frieren-like everyday history, practical architecture and road-worn materials",
-            lightingPrompt: "soft afternoon side light on stone booth, cool bridge shadow, reflected river light on lower walls, warm lamp remnant inside booth, realistic contact shadows",
-            colorPrompt: "pale stone gray, dark booth wood, river blue green, rusted gate iron, faded crate cloth, moss green, restrained warm-cool balance",
-            materialPrompt: "PBR worn bridge stones, chipped tollhouse masonry, scratched wood gate bar, tarnished coin bowl, dusty crates, rusty hinges, moss, lichen, damp stains, rain streaks and non-uniform roughness",
-            fxPrompt: "thin river mist, light dust near booth, soft wind over bridge, no readable text and no magic glow",
-            structurePrompt: "foreground bridge approach stones, gate bar shadow and crate corners; midground clear standing area beside tollhouse; background small booth, river edge, bridge rail and distant road",
-            storyPrompt: "old tollhouse beside a bridge, no guard present, coin bowl tarnished, road continuing quietly over the water",
-            visualPrompt: "small stone tollhouse, worn bridge approach, blank ledger board, weathered gate bar, crates, coin bowl, river below",
-            groundPrompt: "flat worn bridge stone under the placeholder, clear foot contact area, gate bar and crates kept aside, damp patches, moss, dust and realistic contact shadow"
-          }
-        },
-        {
-          id: "scribe_courtyard_archive",
-          name: "抄写庭院档案架",
-          data: {
-            scenePrompt: "medieval fantasy scribe courtyard with outdoor archive racks, covered parchment bundles without readable text, stone benches, ink trays, clay lamps, worn courtyard floor, clear central standing area",
-            atmospherePrompt: "Frieren-like quiet preservation of old stories, peaceful scholarly courtyard, tactile RPG props and long-lived kingdom memory",
-            lightingPrompt: "soft filtered daylight from high courtyard walls, warm highlights on parchment edges, cool shade under archive racks, subtle lamp warmth, realistic contact shadows",
-            colorPrompt: "aged parchment tan, pale stone gray, dark archive wood, clay lamp brown, ink black, faded cloth covers, muted green moss",
-            materialPrompt: "PBR dusty parchment bundles, scratched archive wood, chipped stone benches, tarnished ink trays, clay lamps, wax residue, dust in floor seams, rain stains, frayed cloth covers and roughness variation",
-            fxPrompt: "floating dust in shaded air, slight parchment fiber movement, faint lamp smoke residue, no glowing runes or magic books",
-            structurePrompt: "foreground parchment bundles, ink tray shadows and stone floor seams; midground clear courtyard standing area; background archive racks, benches, high wall and soft sky opening",
-            storyPrompt: "old courtyard where scribes protected records of journeys and towns, parchment bundles covered against dust, lamps burned low",
-            visualPrompt: "outdoor archive racks, covered parchment bundles, stone benches, ink trays, clay lamps, worn courtyard floor, high stone walls",
-            groundPrompt: "flat worn stone courtyard under the placeholder, clear foot contact area, parchment bundles and lamps kept to edges, dust, wax, ink stains and realistic contact shadow"
+            scenePrompt: "medieval fantasy ruined watchtower in an open field, broken stone tower shell, worn patrol path, low wall fragments, faded banner cloth, distant road and hills, clear central standing area",
+            atmospherePrompt: "Frieren-like quiet frontier memory, old watchtower no longer needed, open field journey mood, calm and slightly lonely",
+            lightingPrompt: "soft late afternoon side light, warm highlights on tower breaks and banner cloth, cool shadow inside tower shell, broad sky fill, realistic contact shadows on grass and stone",
+            colorPrompt: "soft field green, weathered tower gray, faded banner red, dry grass gold, distant hill blue gray, low saturation warm-cool balance",
+            materialPrompt: "PBR cracked tower stone, chipped wall fragments, moss and lichen, faded torn cloth fibers, packed dirt path, short grass, dust, rain streaks, edge wear and non-uniform roughness",
+            fxPrompt: "light wind through grass and banner, thin field haze, soft drifting dust, no battle smoke and no magic glow",
+            structurePrompt: "foreground worn patrol path, low wall fragments, grass tufts and stone shadows; midground clear standing area before the tower; background broken watchtower shell, distant road, hills and wide sky",
+            storyPrompt: "a frontier watchtower abandoned after the border became peaceful, banner cloth faded, the road still passing quietly nearby",
+            visualPrompt: "ruined stone watchtower, worn patrol path, low wall fragments, faded banner cloth, open field, distant road and hills",
+            groundPrompt: "flat packed dirt and short grass under the placeholder, clear foot contact area, stones and wall fragments kept aside, dust, moss, grass scuffs and realistic contact shadow"
           }
         },
         {
@@ -9265,11 +9329,11 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
     const filmCGSceneRequirement = "cinematic UE or Octane style film CG environment rendering, high-end production design, physically based materials, path-traced global illumination, volumetric atmosphere, realistic render-camera response, detailed environment art, avoid real photo look, avoid DSLR snapshot feeling, no illustration look, no anime style, no flat game screenshot look";
 
     function applyStyleRenderingDefaults(presetName) {
-      if (!["samurai_island", "otg", "arknights", "endfield", "polar_research_ruin", "mining_megafacility", "medieval_fantasy", "dark_fantasy_dungeon", "corporate_control_center"].includes(presetName)) return;
+      if (!["samurai_island", "otg", "arknights", "endfield", "polar_research_ruin", "mining_megafacility", "wild_lonely_scifi", "medieval_fantasy", "dark_fantasy_dungeon", "corporate_control_center"].includes(presetName)) return;
       setFieldValue("outputLook", "cinematic_realism");
       setFieldValue("renderEngine", "cinematic_path_tracing");
       const sceneSafetyRequirement = filmCGSceneRequirement + ", no objects blocking the center placeholder, clean compositing space around the body, background remains recognizable, real-world 1.7m human scale consistency";
-      const existingExtra = ["otg", "arknights", "endfield", "medieval_fantasy"].includes(presetName) ? value("extraPrompt") : "";
+      const existingExtra = ["otg", "arknights", "endfield", "medieval_fantasy", "wild_lonely_scifi"].includes(presetName) ? value("extraPrompt") : "";
       setFieldValue("extraPrompt", existingExtra ? existingExtra + ", " + sceneSafetyRequirement : sceneSafetyRequirement);
     }
 
