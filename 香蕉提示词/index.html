@@ -7438,17 +7438,17 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
         groundPrompt: "dusty asphalt under the placeholder, clear foot contact area, rubble kept to the edges, realistic contact shadow, rough road texture"
       },
       urban_lockdown_ruin: {
-        scenePrompt: "realistic urban lockdown ruin, abandoned city street checkpoint, temporary quarantine barriers, plastic water barriers, metal crowd-control fences, tarp-covered triage tent, evacuation crates, damaged storefronts, wet asphalt, clear central standing area",
-        atmospherePrompt: "grounded city disaster aftermath, temporary public-control infrastructure left behind after evacuation, quiet realistic tension, human absence, 3A cinematic environmental storytelling, not zombie horror and not military spectacle",
-        lightingPrompt: "soft overcast daylight after rain, cool gray sky fill, restrained amber emergency lamp accents, wet road reflections, realistic ambient occlusion, believable contact shadows under barriers, tents, crates and the mannequin",
-        colorPrompt: "wet asphalt black, concrete gray, dirty off-white tarp, muted hazard yellow, faded red barrier plastic, rusted metal brown, dusty blue-gray shadows, low saturation realistic grade",
-        materialPrompt: "cinematic CG PBR material response, wet asphalt, cracked concrete, chipped curb paint, scratched plastic water barriers, dented metal fences, stained tarp fabric, dirty glass, torn tape residue, rust, dust, grime, oil stains, mud footprints, rain streaks, puddle edge roughness, non-uniform roughness, dirt masks, ambient occlusion in seams and realistic normal-map surface detail",
+        scenePrompt: "realistic urban lockdown ruin, abandoned city checkpoint built from dense practical public-control assets, layered barricade maze, plastic water barriers, metal crowd-control fences, folding tables, tarp canopy, supply crates, cable mats, generator cart, dirty storefronts, wet asphalt, clear central standing area",
+        atmospherePrompt: "grounded city disaster aftermath, temporary public-control infrastructure left behind after evacuation, quiet realistic tension, human absence, 3A cinematic environmental storytelling, functional and recently used rather than staged, not zombie horror and not military spectacle",
+        lightingPrompt: "soft overcast daylight after rain, cool gray sky fill, restrained amber emergency lamp accents from small practical fixtures only, wet road reflections, realistic ambient occlusion, believable contact shadows under clustered barriers, tables, crates, cables and the mannequin",
+        colorPrompt: "wet asphalt black, concrete gray, dirty off-white tarp, muted hazard yellow, faded red barrier plastic, rusted metal brown, dusty blue-gray shadows, cardboard tan, low saturation realistic grade",
+        materialPrompt: "cinematic CG PBR material response, wet asphalt, cracked concrete, chipped curb paint, scratched plastic water barriers, dented metal fences, stained tarp fabric, scuffed folding tables, damp cardboard, dirty glass, torn tape residue, rust, dust, grime, oil stains, mud footprints, tire marks, rain streaks, puddle edge roughness, non-uniform roughness, dirt masks, ambient occlusion in seams and realistic normal-map surface detail",
         fxPrompt: "thin post-rain street mist, light dust haze, faint emergency steam from a utility vent, small drifting paper scraps, no thick smoke wall, no obvious god rays, no neon glow and no holograms",
-        structurePrompt: "foreground rich wet road dressing with puddles, tire marks, mud footprints, chipped curb, tape scraps and low barriers; midground clean central standing area framed by tents, fences, crates or checkpoint furniture; background damaged storefronts, subway entrance, overpass or apartment blocks kept readable with stable perspective",
-        storyPrompt: "a city lockdown checkpoint after evacuation, triage tents abandoned, barriers shifted by rainwater, crates and folding chairs left behind, storefront glass dirty and cracked, the place feels recently used but empty",
-        visualPrompt: "temporary checkpoint barriers, plastic water barricades, metal crowd-control fences, tarp triage tent, folding chairs, evacuation crates, generator, blank sign frames, damaged storefronts, subway entrance, no readable text and no real logos",
-        groundPrompt: "flat wet asphalt or concrete under the placeholder, clear 1.7m human-scale foot contact area, puddles around but not under feet, tire scuffs, mud footprints, oil stains, curb chips, tape residue, small debris kept to edges, realistic PBR contact shadow and wet roughness variation",
-        extraPrompt: "original cinematic realistic CG urban lockdown ruin environment inspired by grounded 3A disaster-city art direction and realistic environmental storytelling; do not copy any official game map, logo, faction mark, character, UI, readable signage, brand, composition or proprietary asset design; avoid zombies, gore, corpses, active gunfights, military battle spectacle, cyberpunk neon, hologram billboards, futuristic weapons, giant mechs, dense vegetation, overgrown jungle, anime style, illustration, real photo look, clean showroom streets and overly tidy evacuation props"
+        structurePrompt: "foreground must be asset-rich with puddles, tire marks, mud footprints, cable mats, taped lane marks, chipped curb, fallen blank sign board, small cones and low crate shadows; midground must have dense left-right asset clusters around the clear standing area, such as barricade maze, folding tables, supply stacks, generator cart, water barrels, tarp legs and metal fence panels; background storefronts, subway entrance, overpass or apartment blocks stay readable with stable perspective",
+        storyPrompt: "a city lockdown checkpoint after evacuation, temporary lanes and supply stations still arranged for real use, barriers shifted by rainwater, crates and folding chairs left behind, dirty glass and taped floor marks showing heavy recent foot traffic",
+        visualPrompt: "dense practical checkpoint asset kit: plastic water barricades, crowd-control fence panels, folding tables, stacked supply crates, water barrels, generator cart, cable mats, cones, tape lane marks, blank sign frames, tarp canopy legs, folding chairs, damaged storefronts, subway entrance, no readable text and no real logos",
+        groundPrompt: "flat wet asphalt or concrete under the placeholder, clear 1.7m human-scale foot contact area, puddles around but not under feet, tire scuffs, mud footprints, oil stains, curb chips, tape residue, cable mat edges, small debris kept to edges, realistic PBR contact shadow and wet roughness variation",
+        extraPrompt: "original cinematic realistic CG urban lockdown ruin environment inspired by grounded 3A disaster-city art direction and realistic environmental storytelling; foreground and midground must not look empty, include believable grouped assets with clear functional logic, at least a dozen visible low and mid-height props arranged around but not blocking the central mannequin; do not copy any official game map, logo, faction mark, character, UI, readable signage, brand, composition or proprietary asset design; avoid zombies, gore, corpses, active gunfights, military battle spectacle, cyberpunk neon, hologram billboards, futuristic weapons, giant mechs, dense vegetation, overgrown jungle, anime style, illustration, real photo look, clean showroom streets, empty plazas and overly tidy evacuation props"
       },
       otg: {
         scenePrompt: "grounded near-future tactical broadcast arena on a tropical industrial island, weathered concrete structures, modular kitbash wall panels, modular barricades, camera masts, service catwalks, supply crates, faded arena markings, clear central standing area",
@@ -7956,160 +7956,176 @@ Image 4 = 2D ASSET ATLAS REFERENCE ONLY. Analyze it as an asset dictionary, not 
           id: "rain_checkpoint_corner",
           name: "雨后封锁街口",
           data: {
-            scenePrompt: "realistic urban lockdown rain checkpoint corner, wet intersection, plastic water barriers, metal crowd-control fences, blank warning sign frames, traffic cones, abandoned crates, damaged storefronts, clear central standing area",
-            atmospherePrompt: "quiet city disaster aftermath after rain, recently used checkpoint now empty, grounded 3A realistic urban ruin mood without combat or horror",
-            lightingPrompt: "soft overcast daylight, wet asphalt reflections, cool gray sky fill, muted amber emergency lamp accents, realistic contact shadows under barriers and cones",
+            scenePrompt: "realistic urban lockdown rain checkpoint corner, wet intersection packed with functional checkpoint assets, zigzag plastic water barriers, metal crowd-control fences, cone clusters, sandbag weights, folding table, supply crates, cable mats, blank warning sign frames, damaged storefronts, clear central standing area",
+            atmospherePrompt: "quiet city disaster aftermath after rain, recently used checkpoint now empty, grounded 3A realistic urban ruin mood without combat or horror, practical and asset-rich rather than staged",
+            lightingPrompt: "soft overcast daylight, wet asphalt reflections, cool gray sky fill, muted amber emergency lamp accents, realistic contact shadows under barriers, cones, tables, crates and fence feet",
             colorPrompt: "wet black asphalt, concrete gray, dirty off-white signs, muted hazard yellow, faded red barrier plastic, rusted metal, low saturation realistic grade",
-            materialPrompt: "PBR wet asphalt, cracked concrete curb, scratched plastic barriers, dented metal fences, dirty glass storefronts, torn tape residue, mud footprints, oil stains, rain streaks, grime seams and roughness variation",
+            materialPrompt: "PBR wet asphalt, cracked concrete curb, scratched plastic barriers, dented metal fences, damp sandbags, scuffed folding table laminate, dirty glass storefronts, rubber cable mats, torn tape residue, mud footprints, tire marks, oil stains, rain streaks, grime seams and roughness variation",
             fxPrompt: "thin post-rain street mist, small drifting paper, faint utility vent steam, no thick smoke, no neon and no holograms",
-            structurePrompt: "foreground puddles, tire scuffs, tape scraps and cone shadows; midground clear standing area inside the checkpoint lane; background damaged storefronts, blank signs, street corner depth and apartment blocks",
-            storyPrompt: "a lockdown street corner abandoned after evacuation, barriers shifted by rainwater and crates left behind beside dirty storefront glass",
-            visualPrompt: "plastic water barriers, metal crowd-control fences, blank warning frames, traffic cones, evacuation crates, damaged storefront, wet intersection",
-            groundPrompt: "flat wet asphalt under the placeholder, clear foot contact area, puddles around but not under feet, tire marks, mud footprints, oil stains, curb chips and realistic PBR contact shadow"
+            structurePrompt: "foreground puddles, tire scuffs, cable mats, tape scraps, cone clusters and sandbag shadows; midground clear standing area inside a dense checkpoint lane framed by barriers, fences, table legs and stacked crates; background damaged storefronts, blank signs, street corner depth and apartment blocks",
+            storyPrompt: "a lockdown street corner abandoned after evacuation, barriers shifted by rainwater, sandbags holding fence feet, crates and a folding table left beside dirty storefront glass",
+            visualPrompt: "zigzag plastic water barriers, metal crowd-control fences, blank warning frames, traffic cone clusters, sandbag weights, folding table, evacuation crates, cable mats, damaged storefront, wet intersection",
+            groundPrompt: "flat wet asphalt under the placeholder, clear foot contact area, puddles around but not under feet, tire marks, mud footprints, oil stains, curb chips, cable mat edges and realistic PBR contact shadow"
           }
         },
         {
           id: "subway_entry_screening",
           name: "地铁入口检查站",
           data: {
-            scenePrompt: "realistic urban lockdown subway entrance screening station, stairwell entrance, tarp canopy, metal detector frame, folding tables, plastic barriers, stacked supply boxes, dirty tile walls, clear central standing area",
+            scenePrompt: "realistic urban lockdown subway entrance screening station, stairwell entrance with dense screening assets, tarp canopy, metal detector frame, folding tables, plastic barriers, queue fence panels, rubber floor mats, stacked supply boxes, water jugs, cable covers, dirty tile walls, clear central standing area",
             atmospherePrompt: "empty public transit checkpoint after emergency screening operations, grounded city tension, functional and recently abandoned",
-            lightingPrompt: "soft cloudy daylight from street level, cool shadow in subway stairwell, weak amber lamp under canopy, wet tile reflections, realistic contact shadows",
+            lightingPrompt: "soft cloudy daylight from street level, cool shadow in subway stairwell, weak amber lamp under canopy, wet tile reflections, realistic contact shadows under tables, mats, boxes and fence panels",
             colorPrompt: "dirty white tile, wet gray concrete, faded blue-gray metal, muted yellow barriers, black rubber mats, rust brown stains, low saturation",
-            materialPrompt: "PBR wet stair tiles, cracked concrete landing, scratched plastic barriers, stained tarp fabric, worn folding table laminate, dirty glass, rubber mat scuffs, tape residue, dust, grime and rain streaks",
+            materialPrompt: "PBR wet stair tiles, cracked concrete landing, scratched plastic barriers, stained tarp fabric, worn folding table laminate, dirty glass, rubber mat scuffs, damp cardboard boxes, scratched water jugs, cable cover rubber, tape residue, dust, grime and rain streaks",
             fxPrompt: "thin damp stairwell haze, light steam from subway grate, drifting dust, no horror smoke, no neon glow",
-            structurePrompt: "foreground wet sidewalk, floor mats, table legs and barrier shadows; midground clear standing area before the subway stairs; background stairwell depth, tarp canopy, tile walls and supply boxes",
-            storyPrompt: "a subway entrance converted into a screening checkpoint, tables and boxes left in place while rainwater gathers on the steps",
-            visualPrompt: "subway stair entrance, tarp canopy, metal detector frame, folding tables, plastic barriers, supply boxes, dirty tile walls",
-            groundPrompt: "flat wet sidewalk or tile landing under the placeholder, clear foot contact area, puddle edges, rubber mat scuffs, tape marks, grime in tile seams and realistic contact shadow"
-          }
-        },
-        {
-          id: "mall_side_quarantine",
-          name: "商场侧门隔离区",
-          data: {
-            scenePrompt: "realistic urban lockdown mall side entrance quarantine zone, service door, dirty glass facade, temporary plastic partitions, tarp roof, stacked chairs, sealed crates, cracked pavement, clear central standing area",
-            atmospherePrompt: "abandoned commercial side entrance used as a temporary isolation checkpoint, quiet urban aftermath, realistic and lived-in",
-            lightingPrompt: "soft overcast daylight, dull reflections on dirty glass, weak emergency light near service door, realistic shadows under partitions and crates",
-            colorPrompt: "dirty glass green-gray, wet concrete gray, off-white tarp, faded red tape, muted yellow partitions, dark metal door, low saturation",
-            materialPrompt: "PBR dirty glass, wet concrete, scratched plastic partitions, stained tarp fabric, chipped metal service door, dusty stacked chairs, torn tape, grime, rain streaks, mud splashes and non-uniform roughness",
-            fxPrompt: "light damp haze, water dripping from tarp edge, small paper scraps, no neon storefront glow and no readable brand signs",
-            structurePrompt: "foreground cracked pavement, tape scraps, puddles and chair shadows; midground clear standing area framed by partitions; background mall side door, dirty glass facade, tarp roof and crates",
-            storyPrompt: "a mall side entrance turned into a quarantine waiting lane, partitions and chairs left behind after the district was cleared",
-            visualPrompt: "mall service door, dirty glass facade, plastic partitions, tarp roof, stacked chairs, sealed crates, blank sign stand",
-            groundPrompt: "flat wet concrete pavement under the placeholder, clear foot contact area, puddles kept to edges, tape residue, mud footprints, chair shadows and realistic PBR contact shadow"
+            structurePrompt: "foreground wet sidewalk, rubber mats, cable covers, tape marks, table legs and barrier shadows; midground clear standing area before the subway stairs with dense table-and-fence clusters to both sides; background stairwell depth, tarp canopy, tile walls, water jugs and supply boxes",
+            storyPrompt: "a subway entrance converted into a screening checkpoint, tables, mats and boxes left in place while rainwater gathers on the steps",
+            visualPrompt: "subway stair entrance, tarp canopy, metal detector frame, folding tables, plastic barriers, queue fence panels, rubber mats, supply boxes, water jugs, dirty tile walls",
+            groundPrompt: "flat wet sidewalk or tile landing under the placeholder, clear foot contact area, puddle edges, rubber mat scuffs, cable cover shadows, tape marks, grime in tile seams and realistic contact shadow"
           }
         },
         {
           id: "overpass_supply_shelter",
           name: "高架桥下补给点",
           data: {
-            scenePrompt: "realistic urban lockdown supply point under an overpass, concrete columns, tarp shelter, generator, water barrels, metal barricades, cargo pallets, damp ground, clear central standing area",
-            atmospherePrompt: "temporary emergency supply point beneath heavy city infrastructure, quiet after evacuation, grounded realism with strong concrete scale",
-            lightingPrompt: "soft daylight filtered under overpass, cool concrete shade, small practical work lamp kept muted, wet ground reflections, realistic contact shadows",
+            scenePrompt: "realistic urban lockdown supply point under an overpass, concrete columns surrounded by dense emergency logistics assets, tarp shelter, generator cart, water barrels, metal barricades, cargo pallets, plastic crates, cable reels, folding chairs, rubber cable covers, damp ground, clear central standing area",
+            atmospherePrompt: "temporary emergency supply point beneath heavy city infrastructure, quiet after evacuation, grounded realism with strong concrete scale and believable asset density",
+            lightingPrompt: "soft daylight filtered under overpass, cool concrete shade, small practical work lamp kept muted, wet ground reflections, realistic contact shadows under barrels, pallets, crates, cables and barricades",
             colorPrompt: "dark wet concrete, dusty gray columns, dirty blue tarp, muted yellow barricades, rusted metal, black rubber cables, low saturation",
-            materialPrompt: "PBR damp concrete, chipped column edges, stained tarp fabric, scratched generator casing, scuffed water barrels, rusted barricades, cable rubber, oil stains, mud, rain streaks and roughness breakup",
+            materialPrompt: "PBR damp concrete, chipped column edges, stained tarp fabric, scratched generator casing, scuffed water barrels, splintered pallet wood, scratched plastic crates, rusted barricades, cable rubber, oil stains, mud, rain streaks and roughness breakup",
             fxPrompt: "thin underpass damp haze, faint generator exhaust residue, drifting dust, no fire battle, no neon and no holographic signs",
-            structurePrompt: "foreground wet concrete, cable covers, barrel shadows and oil stains; midground clear standing area beside supply pallets; background overpass columns, tarp shelter, barricades and street depth",
-            storyPrompt: "an emergency supply point under the overpass, generator silent, water barrels and pallets left in a neat but weathered arrangement",
-            visualPrompt: "overpass concrete columns, tarp shelter, generator, water barrels, metal barricades, cargo pallets, cable covers",
-            groundPrompt: "flat damp concrete under the placeholder, clear foot contact area, oil stains, tire marks, mud patches, cable shadows kept to edges and realistic contact shadow"
-          }
-        },
-        {
-          id: "abandoned_bus_transfer",
-          name: "废弃公交换乘站",
-          data: {
-            scenePrompt: "realistic urban lockdown abandoned bus transfer station, bus shelter, broken timetable frame with no readable text, crowd fences, plastic barriers, scattered luggage, wet curb lane, clear central standing area",
-            atmospherePrompt: "public evacuation route after service stopped, lonely city infrastructure, human traces without people, grounded cinematic realism",
-            lightingPrompt: "soft gray daylight, wet curb reflections, diffuse light through scratched shelter glass, muted emergency beacon in distance, realistic contact shadows",
-            colorPrompt: "wet asphalt black, scratched glass gray, faded blue shelter metal, muted yellow barriers, dusty luggage colors, rust brown, low saturation",
-            materialPrompt: "PBR wet curb asphalt, scratched shelter glass, chipped painted metal, torn paper residue, scuffed plastic barriers, fabric luggage wear, mud footprints, rain streaks, dust and grime",
-            fxPrompt: "thin rain haze, small paper movement, distant street mist, no crowd, no neon ads and no readable text",
-            structurePrompt: "foreground wet curb lane, luggage shadows, puddles and tire marks; midground clear standing area near bus shelter; background shelter frame, crowd fences, blank timetable frame and street depth",
-            storyPrompt: "a bus transfer station used for evacuation then abandoned, luggage and barriers left beside the wet curb",
-            visualPrompt: "bus shelter, blank timetable frame, crowd-control fences, plastic barriers, scattered luggage, wet curb lane, distant street",
-            groundPrompt: "flat wet asphalt or curb pavement under the placeholder, clear foot contact area, puddles to edges, tire scuffs, luggage shadows, mud footprints and realistic PBR contact shadow"
-          }
-        },
-        {
-          id: "parking_evac_lane",
-          name: "停车场撤离通道",
-          data: {
-            scenePrompt: "realistic urban lockdown parking garage evacuation lane, concrete ramp, temporary barriers, abandoned car silhouettes, folding signs with no readable text, supply carts, emergency lamps, clear central standing area",
-            atmospherePrompt: "underground evacuation route inside a city parking structure, quiet concrete interior, recent emergency use, grounded and tense",
-            lightingPrompt: "cool fluorescent ceiling light, soft daylight spill from ramp opening, muted amber emergency lamps, damp floor reflections, realistic contact shadows",
-            colorPrompt: "concrete gray, dirty white lane paint, faded yellow barriers, dark car silhouettes, rusted metal carts, cool blue shadows, low saturation",
-            materialPrompt: "PBR polished damp concrete, tire rubber marks, chipped lane paint, scratched plastic barriers, dusty car glass, rusted cart metal, oil stains, water streaks, grime in expansion joints and roughness variation",
-            fxPrompt: "thin indoor damp haze, faint dust in light, no thick smoke, no zombie horror, no neon glow",
-            structurePrompt: "foreground tire marks, oil stains, floor seams and cart shadows; midground clear standing area in evacuation lane; background ramp, abandoned cars, barriers and emergency lamps",
-            storyPrompt: "a parking garage converted into an evacuation lane, cars left at angles and supply carts abandoned beside the ramp",
-            visualPrompt: "parking garage ramp, temporary barriers, abandoned car silhouettes, folding signs, supply carts, emergency lamps, concrete columns",
-            groundPrompt: "flat damp concrete under the placeholder, clear foot contact area, tire marks, oil stains, chipped lane paint, puddle edges and realistic contact shadow"
-          }
-        },
-        {
-          id: "medical_tent_outer_lane",
-          name: "医疗分流帐篷外",
-          data: {
-            scenePrompt: "realistic urban lockdown medical triage tent outer lane, white tarp tents, folding cots stacked aside, plastic barriers, supply crates, cable mats, wet asphalt, clear central standing area",
-            atmospherePrompt: "temporary medical triage area after evacuation, humanitarian disaster logistics, quiet and serious without gore or body horror",
-            lightingPrompt: "soft cloudy daylight, gentle bounce from white tarp, muted amber lamp inside tent kept dim, wet asphalt reflections, realistic contact shadows",
-            colorPrompt: "dirty white tarp, wet black asphalt, medical blue-gray crates, muted yellow barriers, rusted metal frames, dusty beige, low saturation",
-            materialPrompt: "PBR wet asphalt, stained tarp fabric, scratched plastic crates, scuffed folding cot metal, rubber cable mats, torn tape, mud footprints, rain streaks, grime, dirt masks and roughness variation",
-            fxPrompt: "thin damp air, light tent fabric movement, faint generator steam, no blood, no horror fog and no neon",
-            structurePrompt: "foreground cable mats, puddles, crate shadows and tape scraps; midground clear standing lane outside the tents; background tarp tents, folding cots, barriers and blank sign frames",
-            storyPrompt: "a triage lane left after the emergency crews moved out, tents still standing and supplies stacked carefully under rain-stained tarps",
-            visualPrompt: "white tarp medical tents, folding cots, plastic barriers, supply crates, cable mats, blank sign frames, wet asphalt lane",
-            groundPrompt: "flat wet asphalt under the placeholder, clear foot contact area, cable mats kept to sides, puddle edges, mud footprints, tape residue and realistic PBR contact shadow"
+            structurePrompt: "foreground wet concrete, cable covers, pallet corners, barrel shadows, oil stains and tire marks; midground clear standing area beside dense supply pallets, generator cart and crate stacks; background overpass columns, tarp shelter, barricades, cable reels and street depth",
+            storyPrompt: "an emergency supply point under the overpass, generator silent, water barrels, pallets and crates left in a weathered but functional arrangement",
+            visualPrompt: "overpass concrete columns, tarp shelter, generator cart, water barrels, metal barricades, cargo pallets, plastic crates, cable reels, folding chairs, cable covers",
+            groundPrompt: "flat damp concrete under the placeholder, clear foot contact area, oil stains, tire marks, mud patches, cable shadows, pallet scuffs kept to edges and realistic contact shadow"
           }
         },
         {
           id: "residential_gate_control",
           name: "旧社区封控门岗",
           data: {
-            scenePrompt: "realistic urban lockdown old residential compound gate control point, small guard booth, metal gate, plastic barriers, folding table, delivery crates, worn apartment facade, wet concrete, clear central standing area",
+            scenePrompt: "realistic urban lockdown old residential compound gate control point, small guard booth, metal gate, dense delivery pickup assets, plastic barriers, folding table, parcel stacks, plastic totes, water jugs, blank notice board, hand cart, worn apartment facade, wet concrete, clear central standing area",
             atmospherePrompt: "neighborhood lockdown checkpoint after residents left, small-scale ordinary life traces, quiet realistic city melancholy",
-            lightingPrompt: "soft overcast daylight, muted window reflections, small booth lamp kept subtle, wet concrete bounce, realistic shadows under table and crates",
+            lightingPrompt: "soft overcast daylight, muted window reflections, small booth lamp kept subtle, wet concrete bounce, realistic shadows under table, parcels, totes, hand cart and barrier feet",
             colorPrompt: "aged concrete gray, faded green gate paint, dirty booth white, muted red barrier plastic, cardboard brown crates, rusted metal, low saturation",
-            materialPrompt: "PBR wet concrete, peeling gate paint, scratched guard booth panels, stained folding table, damp cardboard crates, rusted hinges, tape residue, dust, grime, rain streaks and chipped curb edges",
+            materialPrompt: "PBR wet concrete, peeling gate paint, scratched guard booth panels, stained folding table, damp cardboard parcels, scratched plastic totes, scuffed hand cart rubber, rusted hinges, tape residue, dust, grime, rain streaks and chipped curb edges",
             fxPrompt: "thin street damp haze, light dust under gate roof, no neon, no military smoke and no dense vegetation",
-            structurePrompt: "foreground wet concrete, table legs, crate shadows and barrier feet; midground clear standing area at the gate lane; background guard booth, metal gate, apartment facade and blank notice board",
-            storyPrompt: "an old residential gate once used for access control, delivery crates and a folding table still waiting beside the guard booth",
-            visualPrompt: "small guard booth, metal compound gate, plastic barriers, folding table, delivery crates, blank notice board, worn apartment facade",
-            groundPrompt: "flat wet concrete under the placeholder, clear foot contact area, mud footprints, taped floor marks, crate shadows, chipped curb paint and realistic contact shadow"
+            structurePrompt: "foreground wet concrete, taped pickup marks, parcel corners, tote shadows, hand cart wheels and barrier feet; midground clear standing area at the gate lane surrounded by dense pickup assets; background guard booth, metal gate, apartment facade and blank notice board",
+            storyPrompt: "an old residential gate once used for access control and delivery pickup, parcels and totes still sorted beside the guard booth",
+            visualPrompt: "small guard booth, metal compound gate, plastic barriers, folding table, parcel stacks, plastic totes, water jugs, hand cart, blank notice board, worn apartment facade",
+            groundPrompt: "flat wet concrete under the placeholder, clear foot contact area, mud footprints, taped floor marks, tote shadows, parcel scuffs, chipped curb paint and realistic contact shadow"
           }
         },
         {
-          id: "underpass_emergency_camp",
-          name: "地下通道应急营地",
+          id: "supply_registration_canopy",
+          name: "物资登记雨棚",
           data: {
-            scenePrompt: "realistic urban lockdown pedestrian underpass emergency camp, tiled corridor, temporary sleeping mats stacked aside, supply crates, folding partitions, work lamps, damp floor, clear central standing area",
-            atmospherePrompt: "temporary shelter inside an urban underpass after evacuation, quiet interior aftermath, human traces but no people, grounded realism",
-            lightingPrompt: "cool fluorescent underpass light, muted warm work lamps, damp tile reflections, soft tunnel shadow falloff, realistic contact shadows",
-            colorPrompt: "dirty white tile, damp gray floor, faded blue partitions, muted orange lamp warmth, cardboard brown crates, dark metal railings, low saturation",
-            materialPrompt: "PBR damp floor tiles, chipped wall tiles, scratched folding partitions, fabric sleeping mats, dusty crates, rusted railings, water stains, tape residue, grime in tile seams and roughness variation",
-            fxPrompt: "thin indoor humidity haze, floating dust in lamp light, faint water drip, no horror smoke, no neon and no readable posters",
-            structurePrompt: "foreground damp tile seams, mat shadows, crate corners and tape scraps; midground clear standing area in corridor; background underpass depth, partitions, railings and work lamps",
-            storyPrompt: "an underpass used as a temporary emergency shelter, mats stacked against the wall and supplies left under dim work lamps",
-            visualPrompt: "pedestrian underpass corridor, stacked sleeping mats, supply crates, folding partitions, work lamps, tiled walls, damp floor",
-            groundPrompt: "flat damp tile floor under the placeholder, clear foot contact area, water stains, tape residue, grime seams, mat shadows kept to edges and realistic PBR contact shadow"
+            scenePrompt: "realistic urban lockdown supply registration canopy, dense curbside checkpoint with tarp canopy, two folding tables, stacked cardboard boxes, plastic crates, water barrels, cable mat strips, crowd-control fences, blank sign stands, wet street, clear central standing area",
+            atmospherePrompt: "functional neighborhood supply registration point after evacuation, believable public-control logistics, asset-rich and recently used, quiet grounded disaster aftermath",
+            lightingPrompt: "soft rainy daylight, diffuse light under tarp, small amber work lamp under canopy kept subtle, wet asphalt reflections, realistic contact shadows from table legs, crates, barrels and fences",
+            colorPrompt: "wet asphalt black, dirty white tarp, cardboard tan, muted blue-gray plastic crates, faded yellow barriers, rusted fence metal, low saturation realistic grade",
+            materialPrompt: "PBR wet asphalt, stained tarp fabric, damp cardboard, scratched plastic crates, scuffed folding table laminate, rusted fence joints, rubber cable mats, torn tape residue, mud footprints, rain streaks, dirt masks and roughness variation",
+            fxPrompt: "thin rain mist, water dripping from tarp corners, faint utility vent steam, no neon, no thick smoke and no readable text",
+            structurePrompt: "foreground cable mats, puddles, taped lane marks, crate shadows and small cones; midground clear standing area between dense table-and-barrier clusters; background tarp canopy, stacked boxes, water barrels, fence panels and storefront depth",
+            storyPrompt: "a supply registration station left in place after the neighborhood emptied, boxes sorted by tables, wet tape lines and cable mats showing where people queued",
+            visualPrompt: "tarp canopy, folding tables, stacked cardboard boxes, plastic crates, water barrels, cable mats, crowd-control fences, blank sign stands, cones",
+            groundPrompt: "flat wet asphalt under the placeholder, clear foot contact area, puddles around edges, tape lane marks, mud footprints, cable mat edges, crate shadows and realistic PBR contact shadow"
           }
         },
         {
-          id: "office_lobby_lockdown",
-          name: "写字楼大堂封锁区",
+          id: "barrier_queue_maze",
+          name: "路障排队迷宫",
           data: {
-            scenePrompt: "realistic urban lockdown office lobby sealed zone, glass entrance, security turnstiles, temporary barriers, folding tables, stacked supply boxes, dusty marble floor, blank information screens, clear central standing area",
-            atmospherePrompt: "corporate building lobby repurposed for emergency access control, clean architecture made dirty by crisis logistics, quiet realistic tension",
-            lightingPrompt: "soft daylight through glass entrance, cool interior ceiling light, muted amber emergency lamp, subtle floor reflections, realistic contact shadows under tables and barriers",
-            colorPrompt: "dusty marble gray, dirty glass blue-gray, black metal turnstiles, muted yellow barriers, cardboard brown boxes, cool white light, low saturation",
-            materialPrompt: "PBR dusty marble, smudged glass, scratched metal turnstiles, scuffed plastic barriers, worn folding tables, damp cardboard boxes, tape residue, footprints, dust, grime and roughness variation",
-            fxPrompt: "very subtle indoor dust haze, faint light through dirty glass, no sci-fi UI glow, no neon and no readable screen text",
-            structurePrompt: "foreground polished dusty floor, tape marks, box shadows and barrier feet; midground clear standing area before the turnstiles; background glass doors, security gates, blank screens and lobby depth",
-            storyPrompt: "an office lobby turned into a sealed access point, supply boxes and tables left behind after the building was cleared",
-            visualPrompt: "glass office entrance, security turnstiles, temporary barriers, folding tables, supply boxes, blank information screens, dusty marble floor",
-            groundPrompt: "flat dusty marble or concrete floor under the placeholder, clear foot contact area, subtle reflection, tape marks, footprints, box shadows and realistic PBR contact shadow"
+            scenePrompt: "realistic urban lockdown barrier queue maze, zigzag metal crowd-control fences, plastic water barriers, sandbag weights, folding stools, small supply bins, blank notice boards, wet plaza pavement, clear central standing area",
+            atmospherePrompt: "empty controlled waiting lane after emergency screening, believable civic infrastructure, dense midground barriers and low props without becoming a battlefield",
+            lightingPrompt: "soft overcast daylight, wet pavement reflections under fence feet, cool ambient fill, muted emergency beacon in the distance, realistic contact shadows",
+            colorPrompt: "wet concrete gray, dull galvanized metal, faded red plastic barriers, muted yellow sandbags, cardboard tan bins, dusty blue-gray shadows, low saturation",
+            materialPrompt: "PBR wet concrete tiles, scratched galvanized fence rails, scuffed plastic barriers, damp sandbags, chipped folding stools, muddy bin edges, torn tape, grime in tile seams, puddle roughness and ambient occlusion",
+            fxPrompt: "light post-rain haze, small paper scraps caught at fence feet, no crowd, no neon and no holographic signage",
+            structurePrompt: "foreground fence feet, sandbags, tape scraps and puddle edges; midground clear standing pocket surrounded by zigzag barrier lanes; background blank notice boards, storefronts and a readable city facade",
+            storyPrompt: "a queue maze built for controlled entry, left empty with sandbags and stools still arranged around the lane",
+            visualPrompt: "zigzag crowd-control fences, plastic water barriers, sandbag weights, folding stools, supply bins, blank notice boards, wet pavement",
+            groundPrompt: "flat wet plaza pavement under the placeholder, clear foot contact area, fence feet kept aside, tape marks, mud footprints, puddle edges and realistic contact shadow"
+          }
+        },
+        {
+          id: "street_inventory_sorting",
+          name: "街角物资清点区",
+          data: {
+            scenePrompt: "realistic urban lockdown street corner inventory sorting area, open cargo pallets, stacked supply boxes, plastic storage bins, folding tables, hand carts, tarp sheet, low barricades, wet curbside asphalt, clear central standing area",
+            atmospherePrompt: "practical emergency logistics corner after evacuation, grounded human-scale disorder, rich foreground and midground assets, no combat",
+            lightingPrompt: "soft cloudy daylight, weak warm work light on one table, wet curb reflections, realistic shadows under pallets, carts, boxes and barricades",
+            colorPrompt: "wet asphalt black, cardboard tan, muted blue storage bins, faded yellow barricades, dirty tarp gray, rusted cart metal, low saturation",
+            materialPrompt: "PBR wet asphalt, damp cardboard, scratched plastic bins, splintered pallet wood, scuffed hand cart rubber, stained tarp fabric, chipped barricade paint, mud, dust, rain streaks and roughness variation",
+            fxPrompt: "thin damp air, drifting paper labels with no readable text, faint street steam, no neon, no smoke battle",
+            structurePrompt: "foreground pallet corners, hand cart wheels, box shadows, puddles and tire scuffs; midground clear standing area beside dense sorting tables; background curb, low barricades, storefront service door and street depth",
+            storyPrompt: "a street corner used to sort emergency supplies, pallets opened and bins stacked quickly before the area was abandoned",
+            visualPrompt: "open cargo pallets, stacked boxes, plastic storage bins, folding tables, hand carts, tarp sheet, low barricades, wet curbside asphalt",
+            groundPrompt: "flat wet curbside asphalt under the placeholder, clear foot contact area, tire scuffs, mud footprints, pallet shadows, tape residue and realistic PBR contact shadow"
+          }
+        },
+        {
+          id: "community_delivery_stack",
+          name: "社区快递堆放点",
+          data: {
+            scenePrompt: "realistic urban lockdown community delivery stack point, apartment gate alcove, dense parcel stacks, plastic totes, folding table, hand sanitizer stand without readable label, metal gate, water barriers, wet concrete, clear central standing area",
+            atmospherePrompt: "ordinary residential lockdown logistics, small-scale believable life traces, asset-rich but quiet, realistic city melancholy",
+            lightingPrompt: "soft overcast daylight, muted reflection on wet concrete, small guard booth lamp kept subtle, realistic shadows under parcel stacks and table legs",
+            colorPrompt: "aged concrete gray, cardboard tan, muted red plastic barriers, faded green gate paint, blue-gray totes, rusted metal, low saturation",
+            materialPrompt: "PBR wet concrete, damp cardboard boxes, scratched plastic totes, stained folding table, peeling gate paint, rusted hinges, torn tape, delivery scuffs, mud footprints, rain streaks and grime",
+            fxPrompt: "thin street damp haze, subtle dust under the gate roof, no neon, no dense vegetation and no readable labels",
+            structurePrompt: "foreground parcel corners, plastic tote shadows, tape scraps and wet concrete seams; midground clear standing area in the pickup lane; background apartment gate, booth, water barriers and blank notice board",
+            storyPrompt: "a residential delivery pickup point left after lockdown, parcels and totes still sorted by the gate with tape marks on the wet floor",
+            visualPrompt: "apartment gate alcove, dense parcel stacks, plastic totes, folding table, sanitizer stand, metal gate, water barriers, blank notice board",
+            groundPrompt: "flat wet concrete under the placeholder, clear foot contact area, taped pickup marks, mud footprints, parcel shadows, chipped curb paint and realistic PBR contact shadow"
+          }
+        },
+        {
+          id: "roadside_decon_washdown",
+          name: "路边冲洗消杀点",
+          data: {
+            scenePrompt: "realistic urban lockdown roadside washdown decontamination point, low hose reels, water tank cart, plastic barriers, rubber floor mats, drain grates, folded tarp, supply crates, wet asphalt, clear central standing area",
+            atmospherePrompt: "practical temporary washdown station after public health emergency, believable civic logistics, wet tactile ground and dense utility props",
+            lightingPrompt: "soft gray daylight, bright wet reflections around drain grates, muted work lamp near water tank, realistic contact shadows under hoses, crates and barriers",
+            colorPrompt: "wet asphalt black, dirty white tank plastic, faded yellow barriers, dark rubber mats, rusted hose reel metal, muted blue crates, low saturation",
+            materialPrompt: "PBR wet asphalt, rubber mat scuffs, scratched water tank plastic, worn hose reels, rusted drain grates, stained folded tarp, muddy crate edges, soap residue, rain streaks, puddle roughness and grime seams",
+            fxPrompt: "thin damp vapor near ground, slight water drip, no heavy spray obscuring scene, no neon and no sci-fi effects",
+            structurePrompt: "foreground hoses, rubber mats, drain grates, puddles and cable-like shadows; midground clear standing area on wet washdown lane; background water tank cart, barriers, folded tarp and street facade",
+            storyPrompt: "a curbside washdown station abandoned after crews left, hoses coiled badly and water still collecting around the drain grates",
+            visualPrompt: "hose reels, water tank cart, plastic barriers, rubber floor mats, drain grates, folded tarp, supply crates, wet asphalt lane",
+            groundPrompt: "flat wet asphalt under the placeholder, clear foot contact area, rubber mats and hoses kept to sides, puddle edges, drain shadows, soap residue and realistic contact shadow"
+          }
+        },
+        {
+          id: "alley_backdoor_screening",
+          name: "后巷临时筛查点",
+          data: {
+            scenePrompt: "realistic urban lockdown alley backdoor screening point, narrow service alley, backdoor canopy, folding table, plastic partitions, stacked crates, trash bins, cable mats, crowd-control fence panels, wet concrete, clear central standing area",
+            atmospherePrompt: "small improvised screening point behind shops, dense believable urban service assets, quiet after use, grounded and tactile",
+            lightingPrompt: "soft daylight from alley opening, cool wall shade, small amber work lamp under canopy, wet concrete reflections, realistic contact shadows",
+            colorPrompt: "wet concrete gray, dirty brick red, off-white plastic partitions, faded blue bins, cardboard tan crates, rusted metal fence, low saturation",
+            materialPrompt: "PBR wet concrete, dirty brick walls, scratched plastic partitions, stained folding table, scuffed trash bins, damp crates, rubber cable mats, rusted fence joints, tape residue, grime and rain streaks",
+            fxPrompt: "thin alley damp haze, water dripping from canopy, small paper scraps near bins, no neon signs, no readable shop text",
+            structurePrompt: "foreground trash bin wheels, cable mats, puddles and crate shadows; midground clear standing area in the screening lane; background backdoor canopy, plastic partitions, fence panels and narrow alley depth",
+            storyPrompt: "a service alley converted into a temporary screening lane, crates and partitions squeezed between back doors and wet brick walls",
+            visualPrompt: "backdoor canopy, folding table, plastic partitions, stacked crates, trash bins, cable mats, crowd-control fence panels, wet alley concrete",
+            groundPrompt: "flat wet concrete under the placeholder, clear foot contact area, puddles to edges, cable mat shadows, grime seams, bin wheel marks and realistic PBR contact shadow"
+          }
+        },
+        {
+          id: "bus_bay_supply_lane",
+          name: "公交港湾补给线",
+          data: {
+            scenePrompt: "realistic urban lockdown bus bay supply lane, bus stop bay converted to supply lane, dense plastic barriers, wheeled carts, stacked crates, luggage piles, blank bus shelter panels, curb cones, wet asphalt, clear central standing area",
+            atmospherePrompt: "public transport space repurposed for evacuation supplies, empty but asset-rich, realistic urban disaster logistics",
+            lightingPrompt: "soft gray daylight, wet curb reflections, diffuse light through dirty shelter glass, muted amber work lamp on cart, realistic contact shadows",
+            colorPrompt: "wet asphalt black, scratched glass gray, faded blue shelter metal, muted yellow barriers, cardboard tan crates, dusty luggage colors, low saturation",
+            materialPrompt: "PBR wet curb asphalt, scratched shelter glass, chipped painted metal, scuffed plastic barriers, fabric luggage wear, damp cardboard, cart rubber wheels, mud footprints, rain streaks and grime",
+            fxPrompt: "thin rain haze, small paper movement, no crowd, no neon ads and no readable timetable text",
+            structurePrompt: "foreground curb lane, cart wheels, luggage shadows, puddles and tire marks; midground clear standing area between supply carts and barrier rows; background bus shelter, blank panels, curb cones and street depth",
+            storyPrompt: "a bus bay turned into a supply handoff lane, carts and crates left at the curb after transport service stopped",
+            visualPrompt: "bus bay curb, supply carts, stacked crates, luggage piles, plastic barriers, blank shelter panels, curb cones, wet asphalt",
+            groundPrompt: "flat wet asphalt or curb pavement under the placeholder, clear foot contact area, puddles to edges, tire scuffs, cart wheel marks, mud footprints and realistic contact shadow"
           }
         }
       ],
